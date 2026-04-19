@@ -1,0 +1,13 @@
+name: optical_sim
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy>=1.24
+  - pyyaml>=6.0
+  - matplotlib>=3.7
+  - pip
+  - pip:
+      - waveprop
+      - laserbeamsize

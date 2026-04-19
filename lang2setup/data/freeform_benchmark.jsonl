@@ -1,0 +1,62 @@
+{"text": "I want the beam dead center with no tilt at all.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Put the beam in the center, untilted.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Shift the beam slightly to the left.", "target": {"id": 0, "x_bin": 6, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Move the laser a bit to the right.", "target": {"id": 0, "x_bin": 14, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Push it far to the left.", "target": {"id": 0, "x_bin": 2, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Push it way over to the right side.", "target": {"id": 0, "x_bin": 20, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Place the beam at the extreme left edge of the range.", "target": {"id": 0, "x_bin": 0, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Set the beam about one-third of the way from center to the right.", "target": {"id": 0, "x_bin": 13, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Just barely nudge the beam to the right of center.", "target": {"id": 0, "x_bin": 12, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Put it moderately to the left, about halfway between center and the edge.", "target": {"id": 0, "x_bin": 4, "y_bin": 10, "angle_bin": 10}, "category": "simple_position"}
+{"text": "Apply a strong negative tilt, nothing else.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 2}, "category": "simple_tilt"}
+{"text": "Add a small positive angle to the beam.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 14}, "category": "simple_tilt"}
+{"text": "Tilt the beam as far negative as it will go.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 0}, "category": "simple_tilt"}
+{"text": "Give it the maximum positive tilt.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 20}, "category": "simple_tilt"}
+{"text": "A very mild positive tilt, almost negligible.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 11}, "category": "simple_tilt"}
+{"text": "Moderate negative tilt, beam stays centered.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 4}, "category": "simple_tilt"}
+{"text": "Tilt it about halfway in the positive direction.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 15}, "category": "simple_tilt"}
+{"text": "Just a tiny negative angle, almost zero.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 9}, "category": "simple_tilt"}
+{"text": "Raise the beam upward significantly.", "target": {"id": 0, "x_bin": 10, "y_bin": 17, "angle_bin": 10}, "category": "y_offset"}
+{"text": "Drop the beam down a little bit.", "target": {"id": 0, "x_bin": 10, "y_bin": 7, "angle_bin": 10}, "category": "y_offset"}
+{"text": "Put the beam near the top of the vertical range.", "target": {"id": 0, "x_bin": 10, "y_bin": 19, "angle_bin": 10}, "category": "y_offset"}
+{"text": "Move the beam to the very bottom vertically.", "target": {"id": 0, "x_bin": 10, "y_bin": 0, "angle_bin": 10}, "category": "y_offset"}
+{"text": "Shift the beam slightly upward from center.", "target": {"id": 0, "x_bin": 10, "y_bin": 14, "angle_bin": 10}, "category": "y_offset"}
+{"text": "Nudge it just a hair below the vertical center.", "target": {"id": 0, "x_bin": 10, "y_bin": 9, "angle_bin": 10}, "category": "y_offset"}
+{"text": "Position the beam about three-quarters up from the bottom.", "target": {"id": 0, "x_bin": 10, "y_bin": 15, "angle_bin": 10}, "category": "y_offset"}
+{"text": "Place it at moderate height, noticeably above center.", "target": {"id": 0, "x_bin": 10, "y_bin": 15, "angle_bin": 10}, "category": "y_offset"}
+{"text": "Shift the laser to the right and tilt it negatively.", "target": {"id": 0, "x_bin": 16, "y_bin": 10, "angle_bin": 4}, "category": "combined_xy_angle"}
+{"text": "Push it far left with strong positive tilt.", "target": {"id": 0, "x_bin": 2, "y_bin": 10, "angle_bin": 18}, "category": "combined_xy_angle"}
+{"text": "Beam slightly right, slightly up, with mild positive tilt.", "target": {"id": 0, "x_bin": 14, "y_bin": 14, "angle_bin": 13}, "category": "combined_xy_angle"}
+{"text": "Move the laser to the upper left corner with no tilt.", "target": {"id": 0, "x_bin": 2, "y_bin": 18, "angle_bin": 10}, "category": "combined_xy_angle"}
+{"text": "Lower-right position, moderate negative tilt.", "target": {"id": 0, "x_bin": 16, "y_bin": 4, "angle_bin": 4}, "category": "combined_xy_angle"}
+{"text": "Center horizontally, shift up a bit, add a small positive angle.", "target": {"id": 0, "x_bin": 10, "y_bin": 14, "angle_bin": 14}, "category": "combined_xy_angle"}
+{"text": "Upper right with strong positive tilt.", "target": {"id": 0, "x_bin": 17, "y_bin": 17, "angle_bin": 18}, "category": "combined_xy_angle"}
+{"text": "Just barely left, barely down, minimal negative tilt.", "target": {"id": 0, "x_bin": 8, "y_bin": 8, "angle_bin": 9}, "category": "combined_xy_angle"}
+{"text": "Max out everything to the left and bottom with extreme negative tilt.", "target": {"id": 0, "x_bin": 0, "y_bin": 0, "angle_bin": 0}, "category": "extreme_values"}
+{"text": "Everything to the maximum: far right, far up, extreme positive tilt.", "target": {"id": 0, "x_bin": 20, "y_bin": 20, "angle_bin": 20}, "category": "extreme_values"}
+{"text": "Crank the position to the right as far as possible, keep tilt zero.", "target": {"id": 0, "x_bin": 20, "y_bin": 10, "angle_bin": 10}, "category": "extreme_values"}
+{"text": "Put the beam at the absolute bottom, all the way to the left.", "target": {"id": 0, "x_bin": 0, "y_bin": 0, "angle_bin": 10}, "category": "extreme_values"}
+{"text": "Maximum positive tilt with no positional offset.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 20}, "category": "extreme_values"}
+{"text": "Upper-left corner, maximum negative tilt.", "target": {"id": 0, "x_bin": 0, "y_bin": 20, "angle_bin": 0}, "category": "extreme_values"}
+{"text": "Place the beam right at center, no offset, no tilt, nothing.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 10}, "category": "near_center"}
+{"text": "Almost centered but with just the tiniest rightward shift.", "target": {"id": 0, "x_bin": 11, "y_bin": 10, "angle_bin": 10}, "category": "near_center"}
+{"text": "The beam should be basically centered, maybe a hair above and slightly tilted positive.", "target": {"id": 0, "x_bin": 10, "y_bin": 11, "angle_bin": 11}, "category": "near_center"}
+{"text": "Keep it very close to center, shift one tiny step to the left and one tiny step down.", "target": {"id": 0, "x_bin": 9, "y_bin": 9, "angle_bin": 10}, "category": "near_center"}
+{"text": "I want it near the origin with a barely-there negative tilt.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 9}, "category": "near_center"}
+{"text": "Basically neutral — just the faintest positive x-offset and the faintest negative y-offset.", "target": {"id": 0, "x_bin": 11, "y_bin": 9, "angle_bin": 10}, "category": "near_center"}
+{"text": "Can you just, like, move the spot a smidge to the left? And maybe tilt it a little?", "target": {"id": 0, "x_bin": 8, "y_bin": 10, "angle_bin": 13}, "category": "casual_language"}
+{"text": "Yeet the beam all the way to the right and angle it hard.", "target": {"id": 0, "x_bin": 20, "y_bin": 10, "angle_bin": 20}, "category": "casual_language"}
+{"text": "Scoot it down a bit and tilt it clockwise.", "target": {"id": 0, "x_bin": 10, "y_bin": 7, "angle_bin": 14}, "category": "casual_language"}
+{"text": "Hmm, something in the middle-ish but kind of upper-right if you know what I mean.", "target": {"id": 0, "x_bin": 14, "y_bin": 14, "angle_bin": 10}, "category": "casual_language"}
+{"text": "Make it look like it's leaning left.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 4}, "category": "casual_language"}
+{"text": "Put the laser beam roughly 70% to the right and halfway up.", "target": {"id": 0, "x_bin": 14, "y_bin": 15, "angle_bin": 10}, "category": "casual_language"}
+{"text": "I want a kinda off-center beam, maybe like 60-40 to the right? No angle.", "target": {"id": 0, "x_bin": 12, "y_bin": 10, "angle_bin": 10}, "category": "casual_language"}
+{"text": "Give me a nice diagonal setup — right and up, with matching tilt.", "target": {"id": 0, "x_bin": 16, "y_bin": 16, "angle_bin": 16}, "category": "casual_language"}
+{"text": "Shift the beam to the right without any tilt.", "target": {"id": 0, "x_bin": 16, "y_bin": 10, "angle_bin": 10}, "category": "ambiguous"}
+{"text": "Make the beam offset.", "target": {"id": 0, "x_bin": 14, "y_bin": 10, "angle_bin": 10}, "category": "ambiguous"}
+{"text": "A beam with some angle on it.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 14}, "category": "ambiguous"}
+{"text": "Tilt the beam. Not too much, not too little.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 14}, "category": "ambiguous"}
+{"text": "Move it up and to the left somehow.", "target": {"id": 0, "x_bin": 5, "y_bin": 15, "angle_bin": 10}, "category": "ambiguous"}
+{"text": "I want the beam somewhere between center and the far right.", "target": {"id": 0, "x_bin": 15, "y_bin": 10, "angle_bin": 10}, "category": "ambiguous"}
+{"text": "Give me a strong setup, everything maxed in the positive direction.", "target": {"id": 0, "x_bin": 20, "y_bin": 20, "angle_bin": 20}, "category": "ambiguous"}
+{"text": "Like the previous one but the opposite direction.", "target": {"id": 0, "x_bin": 10, "y_bin": 10, "angle_bin": 10}, "category": "ambiguous"}

@@ -1,0 +1,14 @@
+# Python cache/artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Local envs
+.venv/
+venv/
+.env
+
+# Large generated simulation outputs (do not commit)
+optical_sim/outputs/

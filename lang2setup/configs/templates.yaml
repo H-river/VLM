@@ -1,0 +1,223 @@
+# Text generation templates and descriptor thresholds
+# Used by data_prep/describe.py to convert beam metrics → natural language
+#
+# v3: 21 levels for position_x, position_y, tilt — one per bin (0–20).
+# Naming convention: 10 graded negative levels + center + 10 graded positive.
+
+descriptors:
+  width:
+    field: "sigma_x"
+    levels:
+      very_narrow:     [0.0, 0.0006]
+      narrow:          [0.0006, 0.00075]
+      slightly_narrow: [0.00075, 0.00085]
+      medium:          [0.00085, 0.00095]
+      slightly_wide:   [0.00095, 0.00105]
+      wide:            [0.00105, 0.0012]
+      very_wide:       [0.0012, 999.0]
+
+  position_x:
+    field: "x_offset"
+    source: "setup"
+    levels:
+      extreme_far_left:    [-999.0, -0.002714]
+      very_far_left:       [-0.002714, -0.002429]
+      far_left:            [-0.002429, -0.002143]
+      well_left:           [-0.002143, -0.001857]
+      moderately_left:     [-0.001857, -0.001571]
+      noticeably_left:     [-0.001571, -0.001286]
+      slightly_left:       [-0.001286, -0.001000]
+      barely_left:         [-0.001000, -0.000714]
+      just_left:           [-0.000714, -0.000429]
+      marginally_left:     [-0.000429, -0.000143]
+      centered:            [-0.000143, 0.000143]
+      marginally_right:    [0.000143, 0.000429]
+      just_right:          [0.000429, 0.000714]
+      barely_right:        [0.000714, 0.001000]
+      slightly_right:      [0.001000, 0.001286]
+      noticeably_right:    [0.001286, 0.001571]
+      moderately_right:    [0.001571, 0.001857]
+      well_right:          [0.001857, 0.002143]
+      far_right:           [0.002143, 0.002429]
+      very_far_right:      [0.002429, 0.002714]
+      extreme_far_right:   [0.002714, 999.0]
+
+  position_y:
+    field: "y_offset"
+    source: "setup"
+    levels:
+      extreme_far_down:    [-999.0, -0.002714]
+      very_far_down:       [-0.002714, -0.002429]
+      far_down:            [-0.002429, -0.002143]
+      well_down:           [-0.002143, -0.001857]
+      moderately_down:     [-0.001857, -0.001571]
+      noticeably_down:     [-0.001571, -0.001286]
+      slightly_down:       [-0.001286, -0.001000]
+      barely_down:         [-0.001000, -0.000714]
+      just_down:           [-0.000714, -0.000429]
+      marginally_down:     [-0.000429, -0.000143]
+      vertically_centered: [-0.000143, 0.000143]
+      marginally_up:       [0.000143, 0.000429]
+      just_up:             [0.000429, 0.000714]
+      barely_up:           [0.000714, 0.001000]
+      slightly_up:         [0.001000, 0.001286]
+      noticeably_up:       [0.001286, 0.001571]
+      moderately_up:       [0.001571, 0.001857]
+      well_up:             [0.001857, 0.002143]
+      far_up:              [0.002143, 0.002429]
+      very_far_up:         [0.002429, 0.002714]
+      extreme_far_up:      [0.002714, 999.0]
+
+  tilt:
+    field: "tilt_x"
+    source: "setup"
+    levels:
+      extreme_neg_tilt:     [-999.0, -0.01810]
+      very_strong_neg_tilt: [-0.01810, -0.01619]
+      strong_neg_tilt:      [-0.01619, -0.01429]
+      firm_neg_tilt:        [-0.01429, -0.01238]
+      moderate_neg_tilt:    [-0.01238, -0.01048]
+      noticeable_neg_tilt:  [-0.01048, -0.00857]
+      slight_neg_tilt:      [-0.00857, -0.00667]
+      mild_neg_tilt:        [-0.00667, -0.00476]
+      weak_neg_tilt:        [-0.00476, -0.00286]
+      minimal_neg_tilt:     [-0.00286, -0.000952]
+      no_tilt:              [-0.000952, 0.000952]
+      minimal_pos_tilt:     [0.000952, 0.00286]
+      weak_pos_tilt:        [0.00286, 0.00476]
+      mild_pos_tilt:        [0.00476, 0.00667]
+      slight_pos_tilt:      [0.00667, 0.00857]
+      noticeable_pos_tilt:  [0.00857, 0.01048]
+      moderate_pos_tilt:    [0.01048, 0.01238]
+      firm_pos_tilt:        [0.01238, 0.01429]
+      strong_pos_tilt:      [0.01429, 0.01619]
+      very_strong_pos_tilt: [0.01619, 0.01810]
+      extreme_pos_tilt:     [0.01810, 999.0]
+
+  shape:
+    field: "ellipticity"
+    levels:
+      circular:            [0.95, 999.0]
+      slightly_elliptical: [0.85, 0.95]
+      elliptical:          [0.0, 0.85]
+
+  intensity:
+    field: "peak_intensity"
+    mode: "percentile"
+    levels:
+      dim:       [0, 33]
+      moderate:  [33, 66]
+      bright:    [66, 100]
+
+templates:
+  - "Generate a {width} {position_x} Gaussian beam with {tilt} tilt."
+  - "Create a {width} beam {position_x} with {tilt} tilt."
+  - "Give me a {position_x} beam with {tilt} tilt."
+  - "Set up a {width} beam with {tilt} tilt, {position_x}."
+  - "I want a {width} Gaussian beam {position_x} with {tilt} tilt."
+  - "Generate a beam profile: {width}, {position_x}, {tilt} tilt."
+  - "Generate a {width} beam, {position_x} and {position_y}, with {tilt} tilt."
+  - "Create a beam {position_x}, {position_y}, {tilt} tilt."
+  - "I need a {intensity} {width} beam, {position_x}, {position_y}, {tilt} tilt."
+  - "Set up a {width} {shape} beam: {position_x}, {position_y}, {tilt} tilt."
+  - "Produce a beam that is {position_x}, {position_y}, with {tilt} tilt."
+  - "Give me a {width} beam placed {position_x} and {position_y} with {tilt} tilt."
+  - "I want a {shape} beam, {position_x}, {position_y}, and {tilt} tilt."
+  - "Generate a {intensity} Gaussian beam: {position_x}, {position_y}, {tilt} tilt."
+  - "Create a {width} {shape} beam, {position_x} and {position_y}."
+  - "Produce a {intensity} beam {position_x} and {position_y}."
+  - "Set up a {width} beam that is {position_x}, {position_y}, with {tilt} tilt and {intensity} intensity."
+  - "I need a {shape} {width} beam {position_x}, {position_y}, {tilt} tilt."
+  - "Make a {width} beam: horizontally {position_x}, vertically {position_y}, {tilt} tilt."
+  - "Generate a {intensity} {width} beam placed {position_x} and {position_y} with {tilt} tilt."
+
+variants_per_sample: 4
+
+label_text:
+  width:
+    very_narrow:     "very narrow"
+    narrow:          "narrow"
+    slightly_narrow: "slightly narrow"
+    medium:          "medium-width"
+    slightly_wide:   "slightly wide"
+    wide:            "wide"
+    very_wide:       "very wide"
+
+  position_x:
+    extreme_far_left:  "shifted to the extreme far left"
+    very_far_left:     "shifted very far to the left"
+    far_left:          "shifted far to the left"
+    well_left:         "shifted well to the left"
+    moderately_left:   "shifted moderately to the left"
+    noticeably_left:   "shifted noticeably to the left"
+    slightly_left:     "shifted slightly to the left"
+    barely_left:       "shifted barely to the left"
+    just_left:         "just left of center"
+    marginally_left:   "marginally left of center"
+    centered:          "centered"
+    marginally_right:  "marginally right of center"
+    just_right:        "just right of center"
+    barely_right:      "shifted barely to the right"
+    slightly_right:    "shifted slightly to the right"
+    noticeably_right:  "shifted noticeably to the right"
+    moderately_right:  "shifted moderately to the right"
+    well_right:        "shifted well to the right"
+    far_right:         "shifted far to the right"
+    very_far_right:    "shifted very far to the right"
+    extreme_far_right: "shifted to the extreme far right"
+
+  position_y:
+    extreme_far_down:    "shifted to the extreme far bottom"
+    very_far_down:       "shifted very far downward"
+    far_down:            "shifted far downward"
+    well_down:           "shifted well downward"
+    moderately_down:     "shifted moderately downward"
+    noticeably_down:     "shifted noticeably downward"
+    slightly_down:       "shifted slightly downward"
+    barely_down:         "shifted barely downward"
+    just_down:           "just below center"
+    marginally_down:     "marginally below center"
+    vertically_centered: "vertically centered"
+    marginally_up:       "marginally above center"
+    just_up:             "just above center"
+    barely_up:           "shifted barely upward"
+    slightly_up:         "shifted slightly upward"
+    noticeably_up:       "shifted noticeably upward"
+    moderately_up:       "shifted moderately upward"
+    well_up:             "shifted well upward"
+    far_up:              "shifted far upward"
+    very_far_up:         "shifted very far upward"
+    extreme_far_up:      "shifted to the extreme far top"
+
+  tilt:
+    extreme_neg_tilt:     "extreme negative"
+    very_strong_neg_tilt: "very strong negative"
+    strong_neg_tilt:      "strong negative"
+    firm_neg_tilt:        "firm negative"
+    moderate_neg_tilt:    "moderate negative"
+    noticeable_neg_tilt:  "noticeable negative"
+    slight_neg_tilt:      "slight negative"
+    mild_neg_tilt:        "mild negative"
+    weak_neg_tilt:        "weak negative"
+    minimal_neg_tilt:     "minimal negative"
+    no_tilt:              "no"
+    minimal_pos_tilt:     "minimal positive"
+    weak_pos_tilt:        "weak positive"
+    mild_pos_tilt:        "mild positive"
+    slight_pos_tilt:      "slight positive"
+    noticeable_pos_tilt:  "noticeable positive"
+    moderate_pos_tilt:    "moderate positive"
+    firm_pos_tilt:        "firm positive"
+    strong_pos_tilt:      "strong positive"
+    very_strong_pos_tilt: "very strong positive"
+    extreme_pos_tilt:     "extreme positive"
+
+  shape:
+    circular:            "circular"
+    slightly_elliptical: "slightly elliptical"
+    elliptical:          "elliptical"
+
+  intensity:
+    dim:      "dim"
+    moderate: "moderate"
+    bright:   "bright"

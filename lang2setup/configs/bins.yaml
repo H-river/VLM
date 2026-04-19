@@ -1,0 +1,32 @@
+# Bin definitions for discretizing continuous setup parameters
+# v2: 21 bins per axis → bin width ≈ 0.29 mm (x/y) or ≈ 1.9 mrad (angle)
+
+bins:
+  x:
+    num: 21
+    min: -0.003    # meters
+    max:  0.003
+    unit: "m"
+    label: "x_offset"
+    source_field: "alignment.x_offset"
+  y:
+    num: 21
+    min: -0.003
+    max:  0.003
+    unit: "m"
+    label: "y_offset"
+    source_field: "alignment.y_offset"
+  angle:
+    num: 21
+    min: -0.02     # radians
+    max:  0.02
+    unit: "rad"
+    label: "tilt_x"
+    source_field: "alignment.tilt_x"
+
+# ID mapping
+ids:
+  0: "gaussian_default"
+
+# Center bin index (for reference)
+center_bin: 10

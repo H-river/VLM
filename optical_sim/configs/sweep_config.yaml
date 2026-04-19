@@ -1,0 +1,23 @@
+# Sweep configuration: vary one parameter at a time.
+# Each entry under "sweeps" produces len(values) runs, all other params from base_config.
+
+base_config: "configs/base_config.yaml"
+
+output_dir: "outputs/sweep"
+
+sweeps:
+  - name: "focal_length_sweep"
+    param_path: "lens.focal_length"
+    values: [0.05, 0.075, 0.1, 0.125, 0.15, 0.2]
+
+  - name: "distance_sweep"
+    param_path: "geometry.lens_to_camera"
+    values: [0.05, 0.1, 0.15, 0.2, 0.25, 0.3]
+
+  - name: "defocus_sweep"
+    param_path: "alignment.defocus"
+    values: [-0.02, -0.01, -0.005, 0.0, 0.005, 0.01, 0.02]
+
+  - name: "x_offset_sweep"
+    param_path: "alignment.x_offset"
+    values: [-2.0e-3, -1.0e-3, 0.0, 1.0e-3, 2.0e-3]

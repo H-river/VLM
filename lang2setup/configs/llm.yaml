@@ -1,0 +1,16 @@
+# LLM interface configuration
+llm:
+  provider: "openai"            # openai | anthropic | local
+  model: "gpt-4o-mini"          # cost-effective for structured output
+  temperature: 0.0
+  max_tokens: 150
+  timeout: 30                   # seconds
+
+# Number of few-shot examples to include in prompt
+num_few_shot: 5
+
+# Retry on parse failure
+max_retries: 2
+
+# Fallback to retrieval baseline if LLM output is unparseable
+fallback_to_retrieval: true

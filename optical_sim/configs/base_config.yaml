@@ -1,0 +1,34 @@
+# Base simulation configuration for laser → lens → camera pipeline
+# All distances in meters, angles in radians, wavelength in meters.
+
+source:
+  type: "gaussian"            # beam type: "gaussian" (v1 only)
+  wavelength: 632.8e-9        # He-Ne laser default
+  beam_waist: 1.0e-3          # 1/e² radius at source plane [m]
+  power: 1.0                  # normalized power [W]
+
+lens:
+  focal_length: 0.1           # [m]
+  clear_aperture: 0.025       # [m] diameter of usable area
+  diameter: 0.0254            # [m] physical diameter (1 inch)
+
+sensor:
+  resolution: [1024, 1024]    # pixels [H, W]
+  pixel_pitch: 5.5e-6         # [m] per pixel
+  # sensor_size is derived: resolution * pixel_pitch
+
+geometry:
+  laser_to_lens: 0.2          # [m]
+  lens_to_camera: 0.15        # [m]
+
+alignment:
+  x_offset: 0.0               # lateral shift of sensor [m]
+  y_offset: 0.0               # lateral shift of sensor [m]
+  tilt_x: 0.0                 # sensor tilt around x-axis [rad]
+  tilt_y: 0.0                 # sensor tilt around y-axis [rad]
+  defocus: 0.0                # extra axial shift beyond nominal [m]
+
+simulation:
+  grid_size: 1024              # NxN computation grid
+  grid_extent: 0.03            # physical half-width of grid [m]
+  propagation_backend: "fresnel_numpy"  # "fresnel_numpy" | "angular_spectrum" | "waveprop"

@@ -1,0 +1,15 @@
+# Dataset split configuration
+split:
+  train: 0.70
+  val:   0.15
+  test:  0.15
+
+random_seed: 42
+
+# Stratification: group samples by (x_bin, angle_bin) to ensure
+# all bin combinations appear in all splits when possible.
+stratify_by: ["x_bin", "angle_bin"]
+
+# If a (x_bin, angle_bin) group has fewer than this many samples,
+# assign all to train (not enough to split).
+min_group_size_for_split: 5
