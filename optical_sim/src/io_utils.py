@@ -31,7 +31,8 @@ def save_run(output_dir: str,
              run_name: str,
              setup: OpticalSetup,
              intensity: np.ndarray,
-             metrics: BeamMetrics) -> dict:
+             metrics: BeamMetrics,
+             metadata_format: str = "legacy") -> dict:
     """
     Save all outputs for a single simulation run.
 
@@ -65,28 +66,34 @@ def save_run(output_dir: str,
         pass  # matplotlib optional; array is always saved
 
     # --- metadata ---
+    setup_meta = {
+        "source": asdict(setup.source),
+        "lens": asdict(setup.lens),
+        "sensor": {
+            "resolution": list(setup.sensor.resolution),
+            "pixel_pitch": setup.sensor.pixel_pitch,
+            "sensor_size": list(setup.sensor.sensor_size),
+        },
+        "geometry": {
+            "laser_to_lens": setup.laser_to_lens,
+            "lens_to_camera": setup.lens_to_camera,
+            "effective_camera_distance": setup.effective_camera_distance,
+        },
+        "simulation": {
+            "grid_size": setup.grid_size,
+            "grid_extent": setup.grid_extent,
+            "propagation_backend": setup.propagation_backend,
+        },
+    }
+
+    if metadata_format == "v2":
+        setup_meta["camera"] = asdict(setup.camera)
+    else:
+        setup_meta["alignment"] = asdict(setup.alignment)
+
     meta = {
         "run_name": run_name,
-        "setup": {
-            "source": asdict(setup.source),
-            "lens": asdict(setup.lens),
-            "sensor": {
-                "resolution": list(setup.sensor.resolution),
-                "pixel_pitch": setup.sensor.pixel_pitch,
-                "sensor_size": list(setup.sensor.sensor_size),
-            },
-            "alignment": asdict(setup.alignment),
-            "geometry": {
-                "laser_to_lens": setup.laser_to_lens,
-                "lens_to_camera": setup.lens_to_camera,
-                "effective_camera_distance": setup.effective_camera_distance,
-            },
-            "simulation": {
-                "grid_size": setup.grid_size,
-                "grid_extent": setup.grid_extent,
-                "propagation_backend": setup.propagation_backend,
-            },
-        },
+        "setup": setup_meta,
         "metrics": metrics.to_dict(),
     }
 

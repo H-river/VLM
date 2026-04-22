@@ -11,6 +11,8 @@ lens:
   focal_length: 0.1           # [m]
   clear_aperture: 0.025       # [m] diameter of usable area
   diameter: 0.0254            # [m] physical diameter (1 inch)
+  x_offset: 0.0               # [m] lens lateral offset
+  y_offset: 0.0               # [m] lens lateral offset
 
 sensor:
   resolution: [1024, 1024]    # pixels [H, W]
@@ -20,6 +22,10 @@ sensor:
 geometry:
   laser_to_lens: 0.2          # [m]
   lens_to_camera: 0.15        # [m]
+
+camera:
+  x_offset: 0.0               # [m] camera lateral offset
+  y_offset: 0.0               # [m] camera lateral offset
 
 alignment:
   x_offset: 0.0               # lateral shift of sensor [m]

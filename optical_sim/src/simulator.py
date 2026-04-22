@@ -125,7 +125,9 @@ def apply_thin_lens(E: np.ndarray, X: np.ndarray, Y: np.ndarray,
     """
     f = setup.lens.focal_length
     k = setup.source.wavenumber
-    r2 = X ** 2 + Y ** 2
+    X_lens = X - setup.lens.x_offset
+    Y_lens = Y - setup.lens.y_offset
+    r2 = X_lens ** 2 + Y_lens ** 2
 
     # lens phase
     lens_phase = np.exp(-1j * k / (2.0 * f) * r2)
@@ -138,7 +140,7 @@ def apply_thin_lens(E: np.ndarray, X: np.ndarray, Y: np.ndarray,
 
 
 # ──────────────────────────────────────────────────────────────
-# Sensor-plane extraction (with alignment offsets)
+# Sensor-plane extraction (with camera offsets)
 # ──────────────────────────────────────────────────────────────
 
 def _extract_sensor_region(E_cam: np.ndarray, X: np.ndarray, Y: np.ndarray,
@@ -152,8 +154,8 @@ def _extract_sensor_region(E_cam: np.ndarray, X: np.ndarray, Y: np.ndarray,
     """
     H_pix, W_pix = setup.sensor.resolution
     pitch = setup.sensor.pixel_pitch
-    ox = setup.alignment.x_offset
-    oy = setup.alignment.y_offset
+    ox = setup.camera.x_offset
+    oy = setup.camera.y_offset
 
     # sensor coordinate arrays centred on (ox, oy)
     sx = np.linspace(ox - W_pix / 2 * pitch, ox + W_pix / 2 * pitch, W_pix)

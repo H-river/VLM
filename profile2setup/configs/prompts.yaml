@@ -1,0 +1,25 @@
+absolute:
+  - "I want this beam profile."
+  - "Match this target beam profile."
+
+edit:
+  - "Change the current beam to match the target profile."
+  - "Make the current profile look like the target."
+
+metric_edit:
+  move_right:
+    - "move the beam right"
+  move_left:
+    - "move the beam left"
+  move_up:
+    - "move the beam up"
+  move_down:
+    - "move the beam down"
+  smaller:
+    - "make the beam smaller"
+    - "make it tighter"
+  larger:
+    - "make the beam larger"
+    - "make it wider"
+  center:
+    - "center the beam"

@@ -1,0 +1,61 @@
+# v2 canonical variable definitions.
+# Keep these ranges synchronized with optical_sim/configs/random_config_v2.yaml.
+
+variables:
+  source_to_lens:
+    unit: m
+    min: 0.05
+    max: 0.50
+    type: continuous
+    description: Distance from laser source plane to lens.
+
+  lens_to_camera:
+    unit: m
+    min: 0.03
+    max: 0.50
+    type: continuous
+    description: Distance from lens plane to camera sensor plane.
+
+  focal_length:
+    unit: m
+    min: 0.03
+    max: 0.30
+    type: continuous
+    description: Lens focal length.
+
+  lens_x:
+    unit: m
+    min: -0.003
+    max: 0.003
+    type: continuous
+    description: Lens x offset relative to optical axis.
+
+  lens_y:
+    unit: m
+    min: -0.003
+    max: 0.003
+    type: continuous
+    description: Lens y offset relative to optical axis.
+
+  camera_x:
+    unit: m
+    min: -0.003
+    max: 0.003
+    type: continuous
+    description: Camera x offset relative to optical axis.
+
+  camera_y:
+    unit: m
+    min: -0.003
+    max: 0.003
+    type: continuous
+    description: Camera y offset relative to optical axis.
+
+variable_order:
+  - source_to_lens
+  - lens_to_camera
+  - focal_length
+  - lens_x
+  - lens_y
+  - camera_x
+  - camera_y

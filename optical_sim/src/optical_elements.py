@@ -34,6 +34,8 @@ class ThinLens:
     focal_length: float        # [m]
     clear_aperture: float      # usable diameter [m]
     diameter: float = 0.0254   # physical diameter [m]
+    x_offset: float = 0.0      # lateral decentering [m]
+    y_offset: float = 0.0      # lateral decentering [m]
 
 
 @dataclass
@@ -47,6 +49,13 @@ class Sensor:
         """Physical sensor size (H, W) in metres."""
         return (self.resolution[0] * self.pixel_pitch,
                 self.resolution[1] * self.pixel_pitch)
+
+
+@dataclass
+class Camera:
+    """Camera lateral offsets relative to optical axis."""
+    x_offset: float = 0.0
+    y_offset: float = 0.0
 
 
 @dataclass
@@ -68,6 +77,7 @@ class OpticalSetup:
     alignment: Alignment
     laser_to_lens: float       # [m]
     lens_to_camera: float      # [m]
+    camera: Camera = field(default_factory=Camera)
 
     # simulation grid params
     grid_size: int = 1024
@@ -88,8 +98,27 @@ def setup_from_dict(cfg: dict) -> OpticalSetup:
     ln = cfg["lens"]
     sn = cfg["sensor"]
     geo = cfg["geometry"]
+    cam = cfg.get("camera", {})
     ali = cfg.get("alignment", {})
     sim = cfg.get("simulation", {})
+
+    # Canonical offsets come from camera.*; keep legacy alignment x/y fallback
+    # for older configs when camera offsets are effectively unset.
+    cam_x = cam.get("x_offset", None)
+    cam_y = cam.get("y_offset", None)
+    legacy_x = float(ali.get("x_offset", 0.0))
+    legacy_y = float(ali.get("y_offset", 0.0))
+
+    if cam_x is None and cam_y is None:
+        camera_x = legacy_x
+        camera_y = legacy_y
+    else:
+        camera_x = float(0.0 if cam_x is None else cam_x)
+        camera_y = float(0.0 if cam_y is None else cam_y)
+        if abs(camera_x) < 1e-15 and abs(camera_y) < 1e-15:
+            if abs(legacy_x) > 1e-15 or abs(legacy_y) > 1e-15:
+                camera_x = legacy_x
+                camera_y = legacy_y
 
     return OpticalSetup(
         source=GaussianSource(
@@ -102,6 +131,8 @@ def setup_from_dict(cfg: dict) -> OpticalSetup:
             focal_length=ln["focal_length"],
             clear_aperture=ln["clear_aperture"],
             diameter=ln.get("diameter", 0.0254),
+            x_offset=ln.get("x_offset", 0.0),
+            y_offset=ln.get("y_offset", 0.0),
         ),
         sensor=Sensor(
             resolution=tuple(sn["resolution"]),
@@ -116,6 +147,10 @@ def setup_from_dict(cfg: dict) -> OpticalSetup:
         ),
         laser_to_lens=geo["laser_to_lens"],
         lens_to_camera=geo["lens_to_camera"],
+        camera=Camera(
+            x_offset=camera_x,
+            y_offset=camera_y,
+        ),
         grid_size=sim.get("grid_size", 1024),
         grid_extent=sim.get("grid_extent", 0.03),
         propagation_backend=sim.get("propagation_backend", "fresnel_numpy"),

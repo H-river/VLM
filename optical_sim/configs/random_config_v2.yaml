@@ -1,0 +1,22 @@
+# Random sampling configuration for v2 dataset generation.
+# Keep parameter ranges synchronized with profile2setup/configs/variables.yaml.
+
+base_config: "configs/base_config.yaml"
+
+output_dir: "outputs/random_v2"
+
+num_samples: 5000
+
+random_seed: 42
+
+parameter_ranges:
+  source.wavelength:       [400.0e-9, 800.0e-9]
+  source.beam_waist:       [0.5e-3, 3.0e-3]
+  lens.focal_length:       [0.03, 0.3]
+  lens.clear_aperture:     [0.01, 0.05]
+  lens.x_offset:           [-3.0e-3, 3.0e-3]
+  lens.y_offset:           [-3.0e-3, 3.0e-3]
+  geometry.laser_to_lens:  [0.05, 0.5]
+  geometry.lens_to_camera: [0.03, 0.5]
+  camera.x_offset:         [-3.0e-3, 3.0e-3]
+  camera.y_offset:         [-3.0e-3, 3.0e-3]

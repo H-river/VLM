@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import time
+from pathlib import Path
 from typing import List, Tuple
 
 from .optical_elements import OpticalSetup, setup_from_dict
@@ -30,13 +31,23 @@ from .metrics import compute_metrics, BeamMetrics
 from .io_utils import save_run, save_summary
 
 
-def _run_one(run_name: str, setup: OpticalSetup, output_dir: str) -> dict:
+def _run_one(run_name: str,
+             setup: OpticalSetup,
+             output_dir: str,
+             metadata_format: str = "legacy") -> dict:
     """Simulate, measure, and save a single run. Returns the metadata dict."""
     result = run_simulation(setup)
     metrics = compute_metrics(
         result["intensity"], result["sensor_X"], result["sensor_Y"]
     )
-    meta = save_run(output_dir, run_name, setup, result["intensity"], metrics)
+    meta = save_run(
+        output_dir,
+        run_name,
+        setup,
+        result["intensity"],
+        metrics,
+        metadata_format=metadata_format,
+    )
     return meta
 
 
@@ -51,6 +62,7 @@ def main() -> None:
 
     # --- build experiment list ---
     experiments: List[Tuple[str, OpticalSetup]] = []
+    metadata_format = "v2" if Path(args.config).name.endswith("_v2.yaml") else "legacy"
 
     if args.mode == "single":
         cfg = load_yaml(args.config)
@@ -77,7 +89,7 @@ def main() -> None:
     t0 = time.time()
     for i, (name, setup) in enumerate(experiments):
         t1 = time.time()
-        meta = _run_one(name, setup, output_dir)
+        meta = _run_one(name, setup, output_dir, metadata_format=metadata_format)
         elapsed = time.time() - t1
         records.append(meta)
         print(f"  [{i + 1}/{len(experiments)}] {name}  ({elapsed:.2f}s)")

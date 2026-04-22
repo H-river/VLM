@@ -1,0 +1,28 @@
+experiment:
+  name: profile2setup_v2_placeholder
+  seed: 42
+
+data:
+  train_path: profile2setup/data/train.jsonl
+  val_path: profile2setup/data/val.jsonl
+  image_key: profile
+  prompt_key: prompt
+  target_key: delta
+  optional_target_profile_key: target_profile
+  optional_current_setup_key: current_setup
+
+model:
+  type: placeholder
+  input_channels: 1
+  hidden_dim: 256
+  output_dim: 7
+
+optimization:
+  batch_size: 16
+  epochs: 20
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-4
+
+logging:
+  log_every_n_steps: 50
+  save_dir: outputs/profile2setup_v2
