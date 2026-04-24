@@ -25,7 +25,7 @@ Run:
 
 ```bash
 python -m profile2setup.scripts.dataset_smoke_test_cli \
-  --jsonl profile2setup/data/train.jsonl \
+  --jsonl profile2setup/data/all_modes/train.jsonl \
   --variables-config profile2setup/configs/variables.yaml \
   --input-size 128 \
   --max-text-len 32 \

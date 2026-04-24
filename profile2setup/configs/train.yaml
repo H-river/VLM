@@ -3,8 +3,8 @@ experiment:
   seed: 42
 
 data:
-  train_path: profile2setup/data/train.jsonl
-  val_path: profile2setup/data/val.jsonl
+  train_path: profile2setup/data/all_modes/train.jsonl
+  val_path: profile2setup/data/all_modes/val.jsonl
   image_key: profile
   prompt_key: prompt
   target_key: delta
