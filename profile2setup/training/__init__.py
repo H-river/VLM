@@ -24,6 +24,13 @@ from .normalization import (
     normalize_delta_vector,
     normalize_setup_vector,
 )
+_HAS_TORCH_LOSSES = True
+try:
+    from .losses import compute_profile2setup_loss, masked_mean
+except ModuleNotFoundError as exc:
+    if exc.name != "torch":
+        raise
+    _HAS_TORCH_LOSSES = False
 from .preprocessing import (
     load_intensity,
     make_profile_channels,
@@ -58,6 +65,9 @@ __all__ = [
     "resize_intensity",
     "save_vocab",
 ]
+
+if _HAS_TORCH_LOSSES:
+    __all__.extend(["compute_profile2setup_loss", "masked_mean"])
 
 if _HAS_TORCH_DATASET:
     __all__.extend(

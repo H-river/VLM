@@ -10,6 +10,9 @@ data:
   target_key: delta
   optional_target_profile_key: target_profile
   optional_current_setup_key: current_setup
+  allow_missing_current_setup: true
+  allow_missing_target_profile: true
+  allow_missing_current_profile: true
 
 model:
   type: placeholder
@@ -22,6 +25,15 @@ optimization:
   epochs: 20
   learning_rate: 1.0e-4
   weight_decay: 1.0e-4
+
+loss:
+  absolute_weight: 1.0
+  delta_weight: 1.0
+  change_weight: 0.5
+  normalize_by_mask: true
+
+inference:
+  prefer_absolute_when_setup_missing: true
 
 logging:
   log_every_n_steps: 50

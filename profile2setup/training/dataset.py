@@ -22,7 +22,14 @@ from .preprocessing import make_profile_channels
 from .text import SimpleTokenizer, build_vocab_from_jsonl, load_vocab
 
 _FORBIDDEN_KEYS = {"alignment", "alignment_x", "alignment_y"}
-_VALID_TASKS = {"absolute", "edit"}
+_TASK_ALIASES = {
+    "absolute": "absolute",
+    "edit": "edit",
+    "current_only": "current_only",
+    "current-only": "current_only",
+    "paired_no_setup": "paired_no_setup",
+    "paired-no-setup": "paired_no_setup",
+}
 
 
 def load_jsonl(path) -> list[dict]:
@@ -51,13 +58,28 @@ def load_jsonl(path) -> list[dict]:
     return records
 
 
+def _normalize_task_type(task_type: Any) -> str:
+    if not isinstance(task_type, str):
+        raise ValueError(f"record.task_type must be a string, got {task_type!r}")
+    normalized = _TASK_ALIASES.get(task_type)
+    if normalized is None:
+        raise ValueError(f"record.task_type must be one of {sorted(_TASK_ALIASES)}, got {task_type!r}")
+    return normalized
+
+
 def filter_records(records, task_filter=None) -> list[dict]:
-    """Filter records by task type (None, absolute, edit)."""
+    """Filter records by task type."""
     if task_filter is None:
         return list(records)
-    if task_filter not in _VALID_TASKS:
-        raise ValueError(f"task_filter must be one of {sorted(_VALID_TASKS)} or None")
-    return [record for record in records if record.get("task_type") == task_filter]
+    normalized_filter = _normalize_task_type(task_filter)
+    out = []
+    for record in records:
+        try:
+            if _normalize_task_type(record.get("task_type")) == normalized_filter:
+                out.append(record)
+        except ValueError:
+            continue
+    return out
 
 
 def _find_forbidden_key(obj: Any, prefix: str = "") -> str | None:
@@ -117,6 +139,12 @@ def _validate_setup_like_dict(setup_like: Any, field_name: str) -> None:
         value = setup_like[key]
         if not isinstance(value, (int, float)) or isinstance(value, bool):
             raise ValueError(f"{field_name}.{key} must be numeric")
+
+
+def _validate_optional_setup_like_dict(setup_like: Any, field_name: str) -> None:
+    if setup_like is None:
+        return
+    _validate_setup_like_dict(setup_like, field_name)
 
 
 def _normalize_profile_loss_reference(value: Any) -> dict:
@@ -191,9 +219,7 @@ class Profile2SetupDataset(Dataset):
 
         validate_no_forbidden_fields(record)
 
-        task_type = record.get("task_type")
-        if task_type not in _VALID_TASKS:
-            raise ValueError(f"record.task_type must be one of {sorted(_VALID_TASKS)}, got {task_type!r}")
+        task_type = _normalize_task_type(record.get("task_type"))
 
         prompt = record.get("prompt")
         if not isinstance(prompt, str):
@@ -203,45 +229,29 @@ class Profile2SetupDataset(Dataset):
         if record_id is None:
             record_id = f"row_{index}"
 
-        target_setup = record.get("target_setup")
-        _validate_setup_like_dict(target_setup, "target_setup")
-
         current_profile_path = record.get("current_profile_path")
         target_profile_path = record.get("target_profile_path")
+        _validate_profile_path(current_profile_path, "current_profile_path")
         _validate_profile_path(target_profile_path, "target_profile_path")
+
+        current_setup = record.get("current_setup")
+        target_setup = record.get("target_setup")
+        target_delta = record.get("target_delta")
+        _validate_optional_setup_like_dict(current_setup, "current_setup")
+        _validate_optional_setup_like_dict(target_setup, "target_setup")
+        _validate_optional_setup_like_dict(target_delta, "target_delta")
 
         profile_loss_reference = _normalize_profile_loss_reference(record.get("profile_loss_reference"))
 
-        if task_type == "absolute":
-            if current_profile_path is not None:
-                raise ValueError("absolute record current_profile_path must be None")
-            if record.get("current_setup") is not None:
-                raise ValueError("absolute record current_setup must be None")
-            if record.get("target_delta") is not None:
-                raise ValueError("absolute record target_delta must be None")
-
-        else:  # edit
-            _validate_profile_path(current_profile_path, "current_profile_path")
-            if current_profile_path is None:
-                raise ValueError("edit record current_profile_path is required")
-            if target_profile_path is None:
-                raise ValueError("edit record target_profile_path is required")
-
-            current_setup = record.get("current_setup")
-            target_delta = record.get("target_delta")
-
-            _validate_setup_like_dict(current_setup, "current_setup")
-            _validate_setup_like_dict(target_delta, "target_delta")
-
         return {
             "id": str(record_id),
-            "task_type": str(task_type),
+            "task_type": task_type,
             "prompt": prompt,
             "current_profile_path": current_profile_path,
             "target_profile_path": target_profile_path,
-            "current_setup": record.get("current_setup"),
+            "current_setup": current_setup,
             "target_setup": target_setup,
-            "target_delta": record.get("target_delta"),
+            "target_delta": target_delta,
             "profile_loss_reference": profile_loss_reference,
         }
 
@@ -250,8 +260,6 @@ class Profile2SetupDataset(Dataset):
 
     def __getitem__(self, index: int) -> dict:
         record = self.records[index]
-        task_type = record["task_type"]
-
         profile_np = make_profile_channels(
             current_path=record.get("current_profile_path"),
             target_path=record.get("target_profile_path"),
@@ -261,18 +269,39 @@ class Profile2SetupDataset(Dataset):
 
         prompt_tokens = self.tokenizer.encode(record.get("prompt", ""))
 
-        if task_type == "absolute":
-            current_setup_np = self.zero_setup.copy()
-            target_setup_np = normalize_setup_vector(record["target_setup"], self.variables_config)
-            target_delta_np = self.zero_setup.copy()
-            change_mask_np = self.zero_setup.copy()
-        elif task_type == "edit":
+        has_current_profile = record.get("current_profile_path") is not None
+        has_target_profile = record.get("target_profile_path") is not None
+        has_current_setup = record.get("current_setup") is not None
+        has_target_setup = record.get("target_setup") is not None
+        has_target_delta = record.get("target_delta") is not None
+
+        if has_current_setup:
             current_setup_np = normalize_setup_vector(record["current_setup"], self.variables_config)
+        else:
+            current_setup_np = self.zero_setup.copy()
+
+        if has_target_setup:
             target_setup_np = normalize_setup_vector(record["target_setup"], self.variables_config)
+            absolute_loss_mask_np = np.ones(1, dtype=np.float32)
+        else:
+            target_setup_np = self.zero_setup.copy()
+            absolute_loss_mask_np = np.zeros(1, dtype=np.float32)
+
+        if has_target_delta:
             target_delta_np = normalize_delta_vector(record["target_delta"], self.variables_config)
             change_mask_np = (np.abs(target_delta_np) > self.change_threshold).astype(np.float32)
-        else:  # pragma: no cover
-            raise RuntimeError(f"Unexpected task_type in dataset: {task_type}")
+            delta_loss_mask_np = np.ones(1, dtype=np.float32)
+            change_loss_mask_np = np.ones(1, dtype=np.float32)
+        else:
+            target_delta_np = self.zero_setup.copy()
+            change_mask_np = self.zero_setup.copy()
+            delta_loss_mask_np = np.zeros(1, dtype=np.float32)
+            change_loss_mask_np = np.zeros(1, dtype=np.float32)
+
+        setup_present_np = np.asarray([1.0 if has_current_setup else 0.0], dtype=np.float32)
+        current_profile_present_np = np.asarray([1.0 if has_current_profile else 0.0], dtype=np.float32)
+        target_profile_present_np = np.asarray([1.0 if has_target_profile else 0.0], dtype=np.float32)
+        target_present_np = np.asarray([1.0 if has_target_setup else 0.0], dtype=np.float32)
 
         return {
             "profile": torch.as_tensor(profile_np, dtype=torch.float32),
@@ -281,6 +310,13 @@ class Profile2SetupDataset(Dataset):
             "target_setup": torch.as_tensor(target_setup_np, dtype=torch.float32),
             "target_delta": torch.as_tensor(target_delta_np, dtype=torch.float32),
             "change_mask": torch.as_tensor(change_mask_np, dtype=torch.float32),
+            "setup_present": torch.as_tensor(setup_present_np, dtype=torch.float32),
+            "current_profile_present": torch.as_tensor(current_profile_present_np, dtype=torch.float32),
+            "target_profile_present": torch.as_tensor(target_profile_present_np, dtype=torch.float32),
+            "target_present": torch.as_tensor(target_present_np, dtype=torch.float32),
+            "absolute_loss_mask": torch.as_tensor(absolute_loss_mask_np, dtype=torch.float32),
+            "delta_loss_mask": torch.as_tensor(delta_loss_mask_np, dtype=torch.float32),
+            "change_loss_mask": torch.as_tensor(change_loss_mask_np, dtype=torch.float32),
             "task_type": record["task_type"],
             "record_id": record["id"],
             "prompt": record["prompt"],
@@ -302,6 +338,13 @@ def profile2setup_collate_fn(batch):
         "target_setup",
         "target_delta",
         "change_mask",
+        "setup_present",
+        "current_profile_present",
+        "target_profile_present",
+        "target_present",
+        "absolute_loss_mask",
+        "delta_loss_mask",
+        "change_loss_mask",
     ]
 
     list_keys = [

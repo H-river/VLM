@@ -17,6 +17,7 @@ except ModuleNotFoundError as exc:
 
 from profile2setup.models import Profile2SetupModel, build_model_from_config, count_parameters
 from profile2setup.schema import VARIABLE_ORDER
+from profile2setup.training.losses import compute_profile2setup_loss
 
 
 def parse_args() -> argparse.Namespace:
@@ -85,9 +86,17 @@ def _run_random_smoke(
     profile = torch.randn(batch_size, 4, input_size, input_size, device=device)
     prompt_tokens = torch.randint(0, vocab_size, (batch_size, text_len), device=device, dtype=torch.long)
     current_setup = torch.randn(batch_size, len(VARIABLE_ORDER), device=device)
+    setup_present = torch.ones(batch_size, 1, device=device)
+    if batch_size > 1:
+        setup_present[-1, 0] = 0.0
 
     with torch.no_grad():
-        outputs = model(profile=profile, prompt_tokens=prompt_tokens, current_setup=current_setup)
+        outputs = model(
+            profile=profile,
+            prompt_tokens=prompt_tokens,
+            current_setup=current_setup,
+            setup_present=setup_present,
+        )
 
     _assert_output_shapes(outputs, batch_size=batch_size)
 
@@ -95,6 +104,7 @@ def _run_random_smoke(
     print(f"profile input shape: {tuple(profile.shape)}")
     print(f"prompt token shape: {tuple(prompt_tokens.shape)}")
     print(f"current setup shape: {tuple(current_setup.shape)}")
+    print(f"setup present shape: {tuple(setup_present.shape)}")
     print(f"output delta shape: {tuple(outputs['delta'].shape)}")
     print(f"output absolute shape: {tuple(outputs['absolute'].shape)}")
     print(f"output change_logits shape: {tuple(outputs['change_logits'].shape)}")
@@ -147,19 +157,30 @@ def _run_dataset_smoke(
     profile = batch["profile"].to(device)
     prompt_tokens = batch["prompt_tokens"].to(device)
     current_setup = batch["current_setup"].to(device)
+    setup_present = batch["setup_present"].to(device)
 
     with torch.no_grad():
-        outputs = model(profile=profile, prompt_tokens=prompt_tokens, current_setup=current_setup)
+        outputs = model(
+            profile=profile,
+            prompt_tokens=prompt_tokens,
+            current_setup=current_setup,
+            setup_present=setup_present,
+        )
+        losses = compute_profile2setup_loss(outputs, {k: v.to(device) for k, v in batch.items() if torch.is_tensor(v)})
 
     _assert_output_shapes(outputs, batch_size=profile.shape[0])
+    if not torch.isfinite(losses["loss"]):
+        raise RuntimeError(f"masked loss is not finite: {losses['loss'].item()}")
 
     print("real-batch smoke test passed")
     print(f"real batch profile shape: {tuple(profile.shape)}")
     print(f"real batch prompt token shape: {tuple(prompt_tokens.shape)}")
     print(f"real batch current setup shape: {tuple(current_setup.shape)}")
+    print(f"real batch setup present shape: {tuple(setup_present.shape)}")
     print(f"real batch output delta shape: {tuple(outputs['delta'].shape)}")
     print(f"real batch output absolute shape: {tuple(outputs['absolute'].shape)}")
     print(f"real batch output change_logits shape: {tuple(outputs['change_logits'].shape)}")
+    print(f"real batch masked loss: {losses['loss'].item():.6f}")
 
 
 def main() -> None:

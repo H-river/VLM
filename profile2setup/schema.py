@@ -17,6 +17,14 @@ VARIABLE_ORDER = [
 NUM_VARIABLES = 7
 
 _FORBIDDEN_KEYS = {"alignment", "alignment_x", "alignment_y"}
+_TASK_ALIASES = {
+    "absolute": "absolute",
+    "edit": "edit",
+    "current_only": "current_only",
+    "current-only": "current_only",
+    "paired_no_setup": "paired_no_setup",
+    "paired-no-setup": "paired_no_setup",
+}
 
 
 def _is_number(value: Any) -> bool:
@@ -58,6 +66,11 @@ def validate_setup_dict(setup: dict) -> bool:
     return all(_is_number(setup[key]) for key in VARIABLE_ORDER)
 
 
+def validate_optional_setup_dict(setup: dict | None) -> bool:
+    """Return True when setup is null or a canonical v2 setup dict."""
+    return setup is None or validate_setup_dict(setup)
+
+
 def compute_delta_setup(current_setup: dict, target_setup: dict) -> dict:
     """Compute target-current deltas for all canonical variables."""
     if not validate_setup_dict(current_setup):
@@ -90,8 +103,12 @@ def ordered_list_to_setup(values: list[float]) -> dict:
     return {key: float(values[i]) for i, key in enumerate(VARIABLE_ORDER)}
 
 
+def _validate_optional_profile_path(value: Any) -> bool:
+    return value is None or (isinstance(value, str) and bool(value) and value.endswith(".npy"))
+
+
 def validate_dataset_record(record: dict, strict: bool = True) -> bool:
-    """Validate profile2setup dataset record for absolute/edit tasks."""
+    """Validate a profile2setup dataset record using capability-based v2 rules."""
 
     def _fail(message: str) -> bool:
         if strict:
@@ -104,54 +121,36 @@ def validate_dataset_record(record: dict, strict: bool = True) -> bool:
     if contains_forbidden_v2_keys(record):
         return _fail("record contains forbidden v2 keys (alignment/alignment_x/alignment_y)")
 
-    required_top = [
-        "id",
-        "task_type",
-        "prompt",
-        "target_profile_path",
-        "target_setup",
-        "profile_loss_reference",
-    ]
+    required_top = ["id", "task_type", "prompt"]
     for key in required_top:
         if key not in record:
             return _fail(f"record missing required key: {key}")
 
     if not record["id"]:
         return _fail("record.id must be non-empty")
-    if record["task_type"] not in {"absolute", "edit"}:
-        return _fail("record.task_type must be 'absolute' or 'edit'")
+    if record["task_type"] not in _TASK_ALIASES:
+        return _fail(f"record.task_type must be one of {sorted(_TASK_ALIASES)}")
     if not isinstance(record.get("prompt"), str) or not record["prompt"].strip():
         return _fail("record.prompt must be a non-empty string")
-    if not isinstance(record.get("target_profile_path"), str) or not record["target_profile_path"]:
-        return _fail("record.target_profile_path must be a non-empty string")
 
-    if not validate_setup_dict(record.get("target_setup")):
-        return _fail("record.target_setup must be canonical 7-variable v2 setup")
+    if not _validate_optional_profile_path(record.get("current_profile_path")):
+        return _fail("record.current_profile_path must be null or a non-empty .npy path")
+    if not _validate_optional_profile_path(record.get("target_profile_path")):
+        return _fail("record.target_profile_path must be null or a non-empty .npy path")
 
-    plr = record.get("profile_loss_reference")
+    if not validate_optional_setup_dict(record.get("current_setup")):
+        return _fail("record.current_setup must be null or a canonical 7-variable v2 setup")
+    if not validate_optional_setup_dict(record.get("target_setup")):
+        return _fail("record.target_setup must be null or a canonical 7-variable v2 setup")
+    if not validate_optional_setup_dict(record.get("target_delta")):
+        return _fail("record.target_delta must be null or a canonical 7-variable v2 delta dict")
+
+    plr = record.get("profile_loss_reference", {})
     if not isinstance(plr, dict):
         return _fail("record.profile_loss_reference must be a dict")
-    if not isinstance(plr.get("target_profile_path"), str) or not plr["target_profile_path"]:
-        return _fail("profile_loss_reference.target_profile_path is required")
-
-    if record["task_type"] == "absolute":
-        if record.get("current_profile_path") is not None:
-            return _fail("absolute record current_profile_path must be null")
-        if record.get("current_setup") is not None:
-            return _fail("absolute record current_setup must be null")
-        if record.get("target_delta") is not None:
-            return _fail("absolute record target_delta must be null")
-
-    if record["task_type"] == "edit":
-        if not isinstance(record.get("current_profile_path"), str) or not record["current_profile_path"]:
-            return _fail("edit record current_profile_path must be a non-empty string")
-        if not validate_setup_dict(record.get("current_setup")):
-            return _fail("edit record current_setup must be canonical 7-variable v2 setup")
-        if not validate_setup_dict(record.get("target_delta")):
-            return _fail("edit record target_delta must be canonical 7-variable delta dict")
-        if not isinstance(plr.get("current_profile_path"), str) or not plr["current_profile_path"]:
-            return _fail("edit profile_loss_reference.current_profile_path is required")
-        if not isinstance(plr.get("target_profile_path"), str) or not plr["target_profile_path"]:
-            return _fail("edit profile_loss_reference.target_profile_path is required")
+    if not _validate_optional_profile_path(plr.get("current_profile_path")):
+        return _fail("profile_loss_reference.current_profile_path must be null or a non-empty .npy path")
+    if not _validate_optional_profile_path(plr.get("target_profile_path")):
+        return _fail("profile_loss_reference.target_profile_path must be null or a non-empty .npy path")
 
     return True

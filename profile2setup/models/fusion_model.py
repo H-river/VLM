@@ -111,6 +111,7 @@ class Profile2SetupModel(nn.Module):
         profile: torch.Tensor,
         prompt_tokens: torch.Tensor,
         current_setup: torch.Tensor,
+        setup_present: torch.Tensor | None = None,
     ) -> dict[str, torch.Tensor]:
         if profile.shape[0] != prompt_tokens.shape[0] or profile.shape[0] != current_setup.shape[0]:
             raise ValueError(
@@ -119,9 +120,31 @@ class Profile2SetupModel(nn.Module):
                 f"current_setup={current_setup.shape[0]}"
             )
 
+        if setup_present is None:
+            setup_present = torch.ones(
+                current_setup.shape[0],
+                1,
+                dtype=current_setup.dtype,
+                device=current_setup.device,
+            )
+        elif setup_present.ndim == 1:
+            setup_present = setup_present.unsqueeze(-1)
+        elif setup_present.ndim != 2 or setup_present.shape[-1] != 1:
+            raise ValueError(
+                "setup_present must have shape [B] or [B, 1]; "
+                f"got shape={tuple(setup_present.shape)}"
+            )
+
+        if setup_present.shape[0] != current_setup.shape[0]:
+            raise ValueError(
+                "setup_present batch size must match current_setup; "
+                f"got setup_present={setup_present.shape[0]}, current_setup={current_setup.shape[0]}"
+            )
+        setup_present = setup_present.to(dtype=current_setup.dtype, device=current_setup.device)
+
         profile_emb = self.profile_encoder(profile)
         text_emb = self.text_encoder(prompt_tokens)
-        setup_emb = self.setup_encoder(current_setup)
+        setup_emb = self.setup_encoder(current_setup) * setup_present
 
         fused_in = torch.cat([profile_emb, text_emb, setup_emb], dim=-1)
         fused = self.fusion_mlp(fused_in)

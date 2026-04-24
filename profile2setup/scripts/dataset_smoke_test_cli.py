@@ -31,7 +31,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--input-size", type=int, default=128)
     parser.add_argument("--max-text-len", type=int, default=32)
     parser.add_argument("--limit", type=int, default=4)
-    parser.add_argument("--task-filter", choices=["absolute", "edit"], default=None)
+    parser.add_argument(
+        "--task-filter",
+        choices=["absolute", "edit", "current_only", "current-only", "paired_no_setup", "paired-no-setup"],
+        default=None,
+    )
 
     strict_group = parser.add_mutually_exclusive_group()
     strict_group.add_argument("--strict", dest="strict", action="store_true")
@@ -81,6 +85,10 @@ def main() -> None:
     assert tuple(batch["target_setup"].shape) == (batch_size, 7)
     assert tuple(batch["target_delta"].shape) == (batch_size, 7)
     assert tuple(batch["change_mask"].shape) == (batch_size, 7)
+    assert tuple(batch["setup_present"].shape) == (batch_size, 1)
+    assert tuple(batch["absolute_loss_mask"].shape) == (batch_size, 1)
+    assert tuple(batch["delta_loss_mask"].shape) == (batch_size, 1)
+    assert tuple(batch["change_loss_mask"].shape) == (batch_size, 1)
 
     print(f"dataset length: {len(dataset)}")
     print(f"vocab size: {len(vocab)}")
@@ -90,6 +98,10 @@ def main() -> None:
     print(f"target setup batch shape: {tuple(batch['target_setup'].shape)}")
     print(f"target delta batch shape: {tuple(batch['target_delta'].shape)}")
     print(f"change mask batch shape: {tuple(batch['change_mask'].shape)}")
+    print(f"setup present shape: {tuple(batch['setup_present'].shape)}")
+    print(f"absolute loss mask shape: {tuple(batch['absolute_loss_mask'].shape)}")
+    print(f"delta loss mask shape: {tuple(batch['delta_loss_mask'].shape)}")
+    print(f"change loss mask shape: {tuple(batch['change_loss_mask'].shape)}")
     print(f"task types: {batch['task_type']}")
     print(f"record ids: {batch['record_id']}")
 
