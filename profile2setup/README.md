@@ -17,7 +17,31 @@ Canonical v2 variables are:
 
 `camera_x` and `camera_y` mean camera offsets.
 
-Old alignment field names are not v2 output names. Any legacy alignment fields are only backward-compatible input fallback.
+v2 uses camera offset terminology only. Legacy simulator internals are not v2 dataset, model, result, or config fields.
+
+## Quick Start
+
+Full workflow documentation is in [WORKFLOW.md](WORKFLOW.md). Recommended experiment tracking is in [EXPERIMENTS.md](EXPERIMENTS.md).
+
+Run the integrity check:
+
+```bash
+python -m profile2setup.scripts.check_v2_integrity_cli \
+  --root profile2setup \
+  --data-dir profile2setup/data \
+  --results-dir profile2setup/results
+```
+
+Run the v2 smoke pipeline:
+
+```bash
+python -m profile2setup.scripts.run_v2_smoke_pipeline_cli \
+  --train-jsonl profile2setup/data/all_modes/train.jsonl \
+  --val-jsonl profile2setup/data/all_modes/val.jsonl \
+  --test-jsonl profile2setup/data/all_modes/test.jsonl \
+  --config profile2setup/configs/train.yaml \
+  --max-closed-loop-examples 5
+```
 
 ## Stage 3 Dataset Loading (Smoke Test)
 
@@ -70,3 +94,73 @@ python -m profile2setup.scripts.model_smoke_test_cli \
   --input-size 128 \
   --text-len 32
 ```
+
+## Stage 5 Training
+
+Smoke training:
+
+```bash
+python -m profile2setup.scripts.train_cli \
+  --config profile2setup/configs/train.yaml \
+  --smoke-test
+```
+
+Full training:
+
+```bash
+python -m profile2setup.scripts.train_cli \
+  --config profile2setup/configs/train.yaml
+```
+
+The Stage 5 trainer uses the mixed all-modes dataset. The dataset supplies
+`setup_present`; the model uses it to gate `current_setup`. Loss masks decide
+which heads are supervised for each record. Routed setup validation uses the
+delta head when a current setup exists and the absolute head when the current
+setup is missing.
+
+## Stage 6 Offline Evaluation
+
+Model evaluation:
+
+```bash
+python -m profile2setup.scripts.evaluate_cli \
+  --checkpoint profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt \
+  --data profile2setup/data/all_modes/test.jsonl \
+  --out profile2setup/results/model_eval.json
+```
+
+Baselines:
+
+```bash
+python -m profile2setup.scripts.run_baselines_cli \
+  --train profile2setup/data/all_modes/train.jsonl \
+  --test profile2setup/data/all_modes/test.jsonl \
+  --variables-config profile2setup/configs/variables.yaml \
+  --out profile2setup/results/baselines.json
+```
+
+Evaluation reports absolute, delta, and routed setup metrics. Routed setup is
+the final predicted setup: `current_setup + delta` when current setup is present,
+and the absolute prediction when current setup is missing. This stage does not
+simulate optical profiles; closed-loop simulation evaluation will come later.
+
+## Stage 7 Closed-Loop Simulation Evaluation
+
+Closed-loop evaluation:
+
+```bash
+python -m profile2setup.scripts.closed_loop_eval_cli \
+  --checkpoint profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt \
+  --data profile2setup/data/all_modes/test.jsonl \
+  --out profile2setup/results/closed_loop.json \
+  --simulation-policy target_base \
+  --max-examples 100
+```
+
+The model predicts setup, the routed prediction is denormalized to physical
+units, and the optical simulator generates a predicted beam profile from that
+setup. The predicted beam profile is compared with the target `intensity.npy`.
+
+`target_base` is the default because arbitrary paired records may not share
+non-controlled simulator context. `current_base` is closer to real control, but
+it is only fair when the current and target non-controlled context matches.
