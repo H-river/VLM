@@ -1,0 +1,45 @@
+{
+  "absolute_error_physical": {
+    "camera_x": 0.0016017455756664276,
+    "camera_y": 0.002453852266073227,
+    "focal_length": 0.0852267118357122,
+    "lens_to_camera": 0.05224250838160516,
+    "lens_x": 0.0038734411597251893,
+    "lens_y": 0.001182360894978046,
+    "source_to_lens": 0.2747276857495308
+  },
+  "checkpoint_path": "profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt",
+  "groundtruth_delta_physical": null,
+  "groundtruth_setup_physical": {
+    "camera_x": 0.0027564863562583924,
+    "camera_y": 0.0022281169295310975,
+    "focal_length": 0.07834206730127335,
+    "lens_to_camera": 0.09788522899150848,
+    "lens_x": 0.0029973539113998414,
+    "lens_y": 0.0009908410012722012,
+    "source_to_lens": 0.13815006166696547
+  },
+  "predicted_delta_physical": null,
+  "predicted_profile_available": false,
+  "predicted_profile_status": "skipped_not_requested",
+  "predicted_setup_physical": {
+    "camera_x": 0.0011547407805919648,
+    "camera_y": -0.00022573533654212958,
+    "focal_length": 0.16356877913698556,
+    "lens_to_camera": 0.15012773737311363,
+    "lens_x": -0.0008760872483253479,
+    "lens_y": -0.0001915198937058448,
+    "source_to_lens": 0.4128777474164963
+  },
+  "prediction_json_path": "profile2setup/results/prediction_examples/001_paired_no_setup_rand_03015__rand_01763__3223.json",
+  "prediction_png_path": "profile2setup/results/prediction_examples/001_paired_no_setup_rand_03015__rand_01763__3223.png",
+  "profile_paths_used": {
+    "current_profile_path": "/home/jiamo/VLM/optical_sim/outputs/random_v2/rand_03015/intensity.npy",
+    "groundtruth_profile_path": "/home/jiamo/VLM/optical_sim/outputs/random_v2/rand_01763/intensity.npy",
+    "target_profile_path": "/home/jiamo/VLM/optical_sim/outputs/random_v2/rand_01763/intensity.npy"
+  },
+  "prompt": "move the beam right and move the beam up",
+  "record_id": "paired_no_setup_rand_03015__rand_01763__3223",
+  "setup_present": 0,
+  "task_type": "paired_no_setup"
+}

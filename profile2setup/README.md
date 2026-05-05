@@ -1,29 +1,74 @@
-# profile2setup (v2)
+# profile2setup
 
-`profile2setup` is the v2 pipeline package.
+`profile2setup` is now centered on an LLM-API optical setup understanding experiment.
 
-`lang2setup` is preserved as v1.
+The main question is whether a multimodal LLM API, after supervised fine-tuning
+(SFT), can read a user prompt plus beam profile images and predict a strict JSON
+optical setup response. The existing local PyTorch `profile2setup` model remains
+in this repo as a baseline for comparison.
 
-v2 predicts 7-variable setup deltas from profile + prompt (with optional target profile and/or current setup context).
+Full LLM/API workflow documentation is in [LLM_API_WORKFLOW.md](LLM_API_WORKFLOW.md).
+The older local model workflow is still available in [WORKFLOW.md](WORKFLOW.md)
+and experiment tracking notes are in [EXPERIMENTS.md](EXPERIMENTS.md).
 
-Canonical v2 variables are:
-- `source_to_lens`
-- `lens_to_camera`
-- `focal_length`
-- `lens_x`
-- `lens_y`
-- `camera_x`
-- `camera_y`
+## Canonical Variables
 
-`camera_x` and `camera_y` mean camera offsets.
+All dataset records, model outputs, API prompts, and evaluation files must use
+exactly these variables in this order:
 
-v2 uses camera offset terminology only. Legacy simulator internals are not v2 dataset, model, result, or config fields.
+1. `source_to_lens`
+2. `lens_to_camera`
+3. `focal_length`
+4. `lens_x`
+5. `lens_y`
+6. `camera_x`
+7. `camera_y`
 
-## Quick Start
+Do not introduce or accept legacy setup names such as `alignment`,
+`alignment_x`, or `alignment_y`.
 
-Full workflow documentation is in [WORKFLOW.md](WORKFLOW.md). Recommended experiment tracking is in [EXPERIMENTS.md](EXPERIMENTS.md).
+## LLM/API Pipeline
 
-Run the integrity check:
+High-level flow:
+
+```text
+existing optical_sim/profile2setup records
+-> render intensity.npy into current/target/difference/composite PNGs
+-> build multimodal SFT JSONL
+-> run base multimodal LLM API inference
+-> fine-tune multimodal LLM API
+-> run fine-tuned model inference
+-> evaluate JSON validity, setup understanding, numerical setup prediction, and simulator agreement
+-> compare against the local profile2setup PyTorch baseline
+```
+
+The API dataset input contains:
+
+- user prompt
+- current profile image when available
+- target profile image when available
+- target-current difference and composite image when both profiles are available
+- current setup table when available
+
+Active input modes are `absolute`, `edit`, and `paired_no_setup`. The old
+`current_only` mode is merged into `absolute` because both are profile-only to
+setup-prediction tasks.
+
+The assistant target is a JSON string with:
+
+- `valid`
+- `task_type`
+- `observed_profile_change`
+- `setup_understanding`
+- `predicted_delta`
+- `predicted_setup`
+- `confidence`
+- `reasoning_summary`
+- `rejection_reason`
+
+## Quick Checks
+
+Run the v2 integrity check:
 
 ```bash
 python -m profile2setup.scripts.check_v2_integrity_cli \
@@ -32,135 +77,114 @@ python -m profile2setup.scripts.check_v2_integrity_cli \
   --results-dir profile2setup/results
 ```
 
-Run the v2 smoke pipeline:
+Check LLM/API imports:
 
 ```bash
-python -m profile2setup.scripts.run_v2_smoke_pipeline_cli \
-  --train-jsonl profile2setup/data/all_modes/train.jsonl \
-  --val-jsonl profile2setup/data/all_modes/val.jsonl \
-  --test-jsonl profile2setup/data/all_modes/test.jsonl \
-  --config profile2setup/configs/train.yaml \
-  --max-closed-loop-examples 5
+python - <<'PY'
+from profile2setup.llm_api import schema, validator, image_rendering, sft_records
+print("llm_api imports OK")
+PY
 ```
 
-## Stage 3 Dataset Loading (Smoke Test)
+## Build LLM/API SFT Data
 
-Run:
+Small train build:
 
 ```bash
-python -m profile2setup.scripts.dataset_smoke_test_cli \
-  --jsonl profile2setup/data/all_modes/train.jsonl \
-  --variables-config profile2setup/configs/variables.yaml \
-  --input-size 128 \
-  --max-text-len 32 \
-  --limit 4
+python -m profile2setup.scripts.build_llm_api_sft_dataset_cli \
+  --input profile2setup/data/all_modes/train.jsonl \
+  --out profile2setup/data/llm_api_sft/train.jsonl \
+  --image-out-dir profile2setup/data/llm_api_sft/images/train \
+  --limit 100 \
+  --image-detail low \
+  --image-mode base64 \
+  --include-composite \
+  --strict
 ```
 
-Notes:
-- Profiles are loaded from `intensity.npy` (not `beam_profile.png`).
-- The profile tensor has 4 channels: current, target, target-minus-current, and target mask.
-- Setup vectors use the canonical v2 variable order:
-  `source_to_lens`, `lens_to_camera`, `focal_length`, `lens_x`, `lens_y`, `camera_x`, `camera_y`.
-- `target_profile_path` is preserved for later profile-loss / closed-loop evaluation.
-- This Stage 3 path does not implement differentiable profile loss, model architecture, training loop, or evaluation.
-
-## Stage 4 Model (Smoke Test)
-
-The first Stage 4 model is:
-- profile CNN encoder
-- simple text encoder
-- setup encoder
-- fusion MLP
-- multi-head outputs
-
-Inputs:
-- `profile`: `[B, 4, H, W]`
-- `prompt_tokens`: `[B, T]`
-- `current_setup`: `[B, 7]`
-
-Outputs:
-- `delta`: `[B, 7]`
-- `absolute`: `[B, 7]`
-- `change_logits`: `[B, 7]`
-
-The primary training target in the next stage will be `delta`.
-
-Run model smoke test:
+Validation split:
 
 ```bash
-python -m profile2setup.scripts.model_smoke_test_cli \
-  --vocab-size 100 \
-  --batch-size 2 \
-  --input-size 128 \
-  --text-len 32
+python -m profile2setup.scripts.build_llm_api_sft_dataset_cli \
+  --input profile2setup/data/all_modes/val.jsonl \
+  --out profile2setup/data/llm_api_sft/val.jsonl \
+  --image-out-dir profile2setup/data/llm_api_sft/images/val \
+  --image-detail low \
+  --image-mode base64 \
+  --include-composite \
+  --strict
 ```
 
-## Stage 5 Training
-
-Smoke training:
+Test split:
 
 ```bash
-python -m profile2setup.scripts.train_cli \
-  --config profile2setup/configs/train.yaml \
-  --smoke-test
+python -m profile2setup.scripts.build_llm_api_sft_dataset_cli \
+  --input profile2setup/data/all_modes/test.jsonl \
+  --out profile2setup/data/llm_api_sft/test.jsonl \
+  --image-out-dir profile2setup/data/llm_api_sft/images/test \
+  --image-detail low \
+  --image-mode base64 \
+  --include-composite \
+  --strict
 ```
 
-Full training:
+Render one current/target pair directly:
 
 ```bash
-python -m profile2setup.scripts.train_cli \
-  --config profile2setup/configs/train.yaml
+python -m profile2setup.scripts.render_llm_api_images_cli \
+  --current-profile optical_sim/outputs/random_v2/rand_01846/intensity.npy \
+  --target-profile optical_sim/outputs/random_v2/rand_02006/intensity.npy \
+  --out-dir profile2setup/results/llm_api_render_smoke
 ```
 
-The Stage 5 trainer uses the mixed all-modes dataset. The dataset supplies
-`setup_present`; the model uses it to gate `current_setup`. Loss masks decide
-which heads are supervised for each record. Routed setup validation uses the
-delta head when a current setup exists and the absolute head when the current
-setup is missing.
+## API Dry Runs
 
-## Stage 6 Offline Evaluation
+Build API request payloads without calling the provider:
 
-Model evaluation:
+```bash
+python -m profile2setup.scripts.run_llm_api_inference_cli \
+  --model gpt-4.1-mini \
+  --data profile2setup/data/all_modes/test.jsonl \
+  --out profile2setup/results/llm_api_predictions/base_dry_run.jsonl \
+  --image-out-dir profile2setup/results/llm_api_predictions/images/base \
+  --limit 5 \
+  --dry-run
+```
+
+Create an SFT job dry run:
+
+```bash
+python -m profile2setup.scripts.create_llm_api_sft_job_cli \
+  --base-model gpt-4.1-mini \
+  --train-jsonl profile2setup/data/llm_api_sft/train.jsonl \
+  --val-jsonl profile2setup/data/llm_api_sft/val.jsonl \
+  --out profile2setup/results/llm_api_sft_jobs/job.json \
+  --dry-run
+```
+
+Evaluate predictions:
+
+```bash
+python -m profile2setup.scripts.evaluate_llm_api_predictions_cli \
+  --predictions profile2setup/results/llm_api_predictions/base.jsonl \
+  --data profile2setup/data/all_modes/test.jsonl \
+  --out profile2setup/results/llm_api_eval/base_eval.json \
+  --variables-config profile2setup/configs/variables.yaml
+```
+
+API keys must come from environment variables such as `OPENAI_API_KEY`. Do not
+write API keys into source files, JSONL data, job metadata, notebooks, or docs.
+
+## Local Baseline
+
+The local PyTorch model remains available as a baseline:
 
 ```bash
 python -m profile2setup.scripts.evaluate_cli \
-  --checkpoint profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt \
+  --checkpoint profile2setup/checkpoints/profile2setup_v2_all_modes_b128/best.pt \
   --data profile2setup/data/all_modes/test.jsonl \
   --out profile2setup/results/model_eval.json
 ```
 
-Baselines:
-
-```bash
-python -m profile2setup.scripts.run_baselines_cli \
-  --train profile2setup/data/all_modes/train.jsonl \
-  --test profile2setup/data/all_modes/test.jsonl \
-  --variables-config profile2setup/configs/variables.yaml \
-  --out profile2setup/results/baselines.json
-```
-
-Evaluation reports absolute, delta, and routed setup metrics. Routed setup is
-the final predicted setup: `current_setup + delta` when current setup is present,
-and the absolute prediction when current setup is missing. This stage does not
-simulate optical profiles; closed-loop simulation evaluation will come later.
-
-## Stage 7 Closed-Loop Simulation Evaluation
-
-Closed-loop evaluation:
-
-```bash
-python -m profile2setup.scripts.closed_loop_eval_cli \
-  --checkpoint profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt \
-  --data profile2setup/data/all_modes/test.jsonl \
-  --out profile2setup/results/closed_loop.json \
-  --simulation-policy target_base \
-  --max-examples 100
-```
-
-The model predicts setup, the routed prediction is denormalized to physical
-units, and the optical simulator generates a predicted beam profile from that
-setup. The predicted beam profile is compared with the target `intensity.npy`.
-
-`target_base` is the default because arbitrary paired records may not share
-non-controlled simulator context. `current_base` is closer to real control, but
-it is only fair when the current and target non-controlled context matches.
+Profiles for local training and LLM/API rendering are loaded from
+`intensity.npy`; do not use `beam_profile.png` as the training image source.

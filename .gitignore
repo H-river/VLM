@@ -12,3 +12,11 @@ venv/
 
 # Large generated simulation outputs (do not commit)
 optical_sim/outputs/
+
+# profile2setup generated artifacts
+profile2setup/data/llm_api_sft/
+profile2setup/checkpoints/
+
+# profile2setup generated artifacts
+profile2setup/data/llm_api_sft/
+profile2setup/checkpoints/

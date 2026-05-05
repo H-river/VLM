@@ -1,0 +1,29 @@
+{
+  "messages": [
+    {
+      "content": "You are a profile2setup reasoning front end. Output only valid JSON. Use canonical variables only. Do not include long chain-of-thought; write only a short reasoning_summary.",
+      "role": "system"
+    },
+    {
+      "content": [
+        {
+          "text": "Build a profile2setup reasoning command for this request.\nprompt: make the beam tighter and move upward, but keep camera fixed\ncanonical_variables: source_to_lens, lens_to_camera, focal_length, lens_x, lens_y, camera_x, camera_y\ncurrent_setup: {\"camera_x\": 0.002134536522777593, \"camera_y\": -0.0004957883593419317, \"focal_length\": 0.11133035330873932, \"lens_to_camera\": 0.07107944509914445, \"lens_x\": 0.001688010828725473, \"lens_y\": -9.079594894479933e-05, \"source_to_lens\": 0.17053636014094165}\nReturn only JSON with the required reasoning command fields.",
+          "type": "text"
+        },
+        {
+          "image_path": "profile2setup/results/reasoned_vlm_prediction_smoke/current_profile.png",
+          "type": "image"
+        },
+        {
+          "image_path": "profile2setup/results/reasoned_vlm_prediction_smoke/target_profile.png",
+          "type": "image"
+        },
+        {
+          "image_path": "profile2setup/results/reasoned_vlm_prediction_smoke/difference_profile.png",
+          "type": "image"
+        }
+      ],
+      "role": "user"
+    }
+  ]
+}

@@ -16,6 +16,7 @@ except ModuleNotFoundError as exc:
     ) from exc
 
 from profile2setup.models import Profile2SetupModel, build_model_from_config, count_parameters
+from profile2setup.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
 from profile2setup.schema import VARIABLE_ORDER
 from profile2setup.training.losses import compute_profile2setup_loss
 
@@ -111,6 +112,52 @@ def _run_random_smoke(
     print("random-input smoke test passed")
 
 
+def _run_intent_feature_smoke(
+    *,
+    batch_size: int,
+    input_size: int,
+    text_len: int,
+    vocab_size: int,
+    device: torch.device,
+) -> None:
+    config = {
+        "model": {
+            "use_intent_features": True,
+            "intent_feature_dim": INTENT_FEATURE_DIM,
+            "intent_dim": 64,
+        }
+    }
+    model = build_model_from_config(config=config, vocab_size=vocab_size).to(device)
+    model.eval()
+
+    profile = torch.randn(batch_size, 4, input_size, input_size, device=device)
+    prompt_tokens = torch.randint(0, vocab_size, (batch_size, text_len), device=device, dtype=torch.long)
+    current_setup = torch.randn(batch_size, len(VARIABLE_ORDER), device=device)
+    setup_present = torch.ones(batch_size, 1, device=device)
+    intent_features = torch.randn(batch_size, INTENT_FEATURE_DIM, device=device)
+
+    with torch.no_grad():
+        outputs_with_features = model(
+            profile=profile,
+            prompt_tokens=prompt_tokens,
+            current_setup=current_setup,
+            setup_present=setup_present,
+            intent_features=intent_features,
+        )
+        outputs_with_default_zeros = model(
+            profile=profile,
+            prompt_tokens=prompt_tokens,
+            current_setup=current_setup,
+            setup_present=setup_present,
+            intent_features=None,
+        )
+
+    _assert_output_shapes(outputs_with_features, batch_size=batch_size)
+    _assert_output_shapes(outputs_with_default_zeros, batch_size=batch_size)
+    print(f"intent feature dim: {INTENT_FEATURE_DIM}")
+    print("intent-feature model smoke test passed")
+
+
 def _run_dataset_smoke(
     config: dict,
     *,
@@ -158,6 +205,7 @@ def _run_dataset_smoke(
     prompt_tokens = batch["prompt_tokens"].to(device)
     current_setup = batch["current_setup"].to(device)
     setup_present = batch["setup_present"].to(device)
+    intent_features = batch["intent_features"].to(device)
 
     with torch.no_grad():
         outputs = model(
@@ -165,6 +213,7 @@ def _run_dataset_smoke(
             prompt_tokens=prompt_tokens,
             current_setup=current_setup,
             setup_present=setup_present,
+            intent_features=intent_features,
         )
         losses = compute_profile2setup_loss(outputs, {k: v.to(device) for k, v in batch.items() if torch.is_tensor(v)})
 
@@ -177,6 +226,7 @@ def _run_dataset_smoke(
     print(f"real batch prompt token shape: {tuple(prompt_tokens.shape)}")
     print(f"real batch current setup shape: {tuple(current_setup.shape)}")
     print(f"real batch setup present shape: {tuple(setup_present.shape)}")
+    print(f"real batch intent feature shape: {tuple(intent_features.shape)}")
     print(f"real batch output delta shape: {tuple(outputs['delta'].shape)}")
     print(f"real batch output absolute shape: {tuple(outputs['absolute'].shape)}")
     print(f"real batch output change_logits shape: {tuple(outputs['change_logits'].shape)}")
@@ -203,6 +253,13 @@ def main() -> None:
 
     _run_random_smoke(
         model,
+        batch_size=args.batch_size,
+        input_size=args.input_size,
+        text_len=args.text_len,
+        vocab_size=args.vocab_size,
+        device=device,
+    )
+    _run_intent_feature_smoke(
         batch_size=args.batch_size,
         input_size=args.input_size,
         text_len=args.text_len,

@@ -1,0 +1,45 @@
+{
+  "absolute_error_physical": {
+    "camera_x": 0.001653444349765778,
+    "camera_y": 0.002265864148736,
+    "focal_length": 0.07541674794629216,
+    "lens_to_camera": 0.07914232968352733,
+    "lens_x": 0.000688910722732544,
+    "lens_y": 0.0010182490870356557,
+    "source_to_lens": 0.2780412599444389
+  },
+  "checkpoint_path": "profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt",
+  "groundtruth_delta_physical": null,
+  "groundtruth_setup_physical": {
+    "camera_x": 0.002536962747573853,
+    "camera_y": -0.0026358759999275208,
+    "focal_length": 0.2482931309938431,
+    "lens_to_camera": 0.2594644679035991,
+    "lens_x": -0.0017864919304847718,
+    "lens_y": 0.0010407581627368927,
+    "source_to_lens": 0.12903385013341906
+  },
+  "predicted_delta_physical": null,
+  "predicted_profile_available": false,
+  "predicted_profile_status": "skipped_not_requested",
+  "predicted_setup_physical": {
+    "camera_x": 0.0008835183978080749,
+    "camera_y": -0.00037001185119152086,
+    "focal_length": 0.17287638304755093,
+    "lens_to_camera": 0.1803221382200718,
+    "lens_x": -0.0010975812077522278,
+    "lens_y": 2.250907570123693e-05,
+    "source_to_lens": 0.40707511007785796
+  },
+  "prediction_json_path": "profile2setup/results/prediction_examples/007_current_only_rand_04455.json",
+  "prediction_png_path": "profile2setup/results/prediction_examples/007_current_only_rand_04455.png",
+  "profile_paths_used": {
+    "current_profile_path": "optical_sim/outputs/random_v2/rand_04455/intensity.npy",
+    "groundtruth_profile_path": "optical_sim/outputs/random_v2/rand_04455/intensity.npy",
+    "target_profile_path": null
+  },
+  "prompt": "Predict the target setup from the current beam profile.",
+  "record_id": "current_only_rand_04455",
+  "setup_present": 0,
+  "task_type": "current_only"
+}

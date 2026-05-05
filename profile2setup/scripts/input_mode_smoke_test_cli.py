@@ -18,6 +18,7 @@ except ModuleNotFoundError as exc:
     ) from exc
 
 from profile2setup.models import Profile2SetupModel
+from profile2setup.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
 from profile2setup.schema import VARIABLE_ORDER, compute_delta_setup
 from profile2setup.training.dataset import Profile2SetupDataset, profile2setup_collate_fn
 from profile2setup.training.losses import compute_profile2setup_loss
@@ -99,17 +100,6 @@ def _build_records(tmp_path: Path) -> list[dict]:
             },
         },
         {
-            "id": "current_only_0",
-            "task_type": "current_only",
-            "prompt": "infer the target setup from this current profile",
-            "current_profile_path": current_path,
-            "target_profile_path": None,
-            "current_setup": None,
-            "target_setup": target2_setup,
-            "target_delta": None,
-            "profile_loss_reference": {"current_profile_path": current_path},
-        },
-        {
             "id": "paired_no_setup_0",
             "task_type": "paired_no_setup",
             "prompt": "infer the target setup from current and target profiles",
@@ -142,15 +132,15 @@ def main() -> None:
             max_text_len=args.max_text_len,
             strict=True,
         )
-        if len(dataset) != 4:
-            raise AssertionError(f"expected 4 input-mode records, got {len(dataset)}")
+        if len(dataset) != 3:
+            raise AssertionError(f"expected 3 input-mode records, got {len(dataset)}")
 
-        loader = DataLoader(dataset, batch_size=4, shuffle=False, collate_fn=profile2setup_collate_fn)
+        loader = DataLoader(dataset, batch_size=3, shuffle=False, collate_fn=profile2setup_collate_fn)
         batch = next(iter(loader))
 
-        expected_setup_present = torch.tensor([[0.0], [1.0], [0.0], [0.0]])
-        expected_abs_mask = torch.ones(4, 1)
-        expected_delta_mask = torch.tensor([[0.0], [1.0], [0.0], [0.0]])
+        expected_setup_present = torch.tensor([[0.0], [1.0], [0.0]])
+        expected_abs_mask = torch.ones(3, 1)
+        expected_delta_mask = torch.tensor([[0.0], [1.0], [0.0]])
         if not torch.equal(batch["setup_present"], expected_setup_present):
             raise AssertionError(f"setup_present mismatch: {batch['setup_present']}")
         if not torch.equal(batch["absolute_loss_mask"], expected_abs_mask):
@@ -159,6 +149,8 @@ def main() -> None:
             raise AssertionError(f"delta_loss_mask mismatch: {batch['delta_loss_mask']}")
         if not torch.equal(batch["change_loss_mask"], expected_delta_mask):
             raise AssertionError(f"change_loss_mask mismatch: {batch['change_loss_mask']}")
+        if tuple(batch["intent_features"].shape) != (3, INTENT_FEATURE_DIM):
+            raise AssertionError(f"intent_features shape mismatch: {tuple(batch['intent_features'].shape)}")
 
         model = Profile2SetupModel(vocab_size=len(dataset.tokenizer.vocab), input_channels=4).to(device)
         model.eval()
@@ -169,6 +161,7 @@ def main() -> None:
                 prompt_tokens=tensor_batch["prompt_tokens"],
                 current_setup=tensor_batch["current_setup"],
                 setup_present=tensor_batch["setup_present"],
+                intent_features=tensor_batch["intent_features"],
             )
             losses = compute_profile2setup_loss(outputs, tensor_batch)
 
@@ -179,6 +172,7 @@ def main() -> None:
         print(f"task types: {batch['task_type']}")
         print(f"setup_present: {batch['setup_present'].flatten().tolist()}")
         print(f"delta_loss_mask: {batch['delta_loss_mask'].flatten().tolist()}")
+        print(f"intent_features shape: {tuple(batch['intent_features'].shape)}")
         print(f"masked loss: {losses['loss'].item():.6f}")
 
 

@@ -1,0 +1,274 @@
+{
+  "base_model": "test-base-model",
+  "comparison": {
+    "base_api": {
+      "canonical_variable_rate": 0.0,
+      "changed_variable_f1": null,
+      "counts": {
+        "canonical_variables": 0,
+        "evaluated_rows": 2,
+        "json_valid": 0,
+        "legacy_variable_output_count": 0,
+        "matched_data_records": 2,
+        "noncanonical_output_count": 0,
+        "prediction_rows": 9,
+        "schema_valid": 0,
+        "skipped_rows": 7
+      },
+      "normalized_profile_mse": null,
+      "observed_profile_change_accuracy": null,
+      "predicted_delta_mae": null,
+      "predicted_setup_mae": null,
+      "routed_setup_mae": null,
+      "schema_valid_rate": 0.0,
+      "valid_json_rate": 0.0
+    },
+    "profile2setup_baseline": null,
+    "sft_api": null
+  },
+  "created_at": "2026-04-29T12:25:08.052385+00:00",
+  "full_reports": {
+    "base_api_eval": {
+      "constraint_metrics": {
+        "fixed_variable_violation_rate": null,
+        "legacy_variable_output_count": 0,
+        "noncanonical_output_count": 0
+      },
+      "counts": {
+        "canonical_variables": 0,
+        "evaluated_rows": 2,
+        "json_valid": 0,
+        "legacy_variable_output_count": 0,
+        "matched_data_records": 2,
+        "noncanonical_output_count": 0,
+        "prediction_rows": 9,
+        "schema_valid": 0,
+        "skipped_rows": 7
+      },
+      "data_path": "profile2setup/data/all_modes/test.jsonl",
+      "examples": [],
+      "format_metrics": {
+        "canonical_variable_rate": 0.0,
+        "schema_valid_rate": 0.0,
+        "valid_json_rate": 0.0
+      },
+      "numerical_metrics": {
+        "per_variable_delta_mae": {
+          "camera_x": null,
+          "camera_y": null,
+          "focal_length": null,
+          "lens_to_camera": null,
+          "lens_x": null,
+          "lens_y": null,
+          "source_to_lens": null
+        },
+        "per_variable_routed_setup_mae": {
+          "camera_x": null,
+          "camera_y": null,
+          "focal_length": null,
+          "lens_to_camera": null,
+          "lens_x": null,
+          "lens_y": null,
+          "source_to_lens": null
+        },
+        "per_variable_setup_mae": {
+          "camera_x": null,
+          "camera_y": null,
+          "focal_length": null,
+          "lens_to_camera": null,
+          "lens_x": null,
+          "lens_y": null,
+          "source_to_lens": null
+        },
+        "predicted_delta_mae": null,
+        "predicted_setup_mae": null,
+        "routed_setup_mae": null
+      },
+      "predictions_path": "profile2setup/results/llm_api_setup_experiment/base_api_predictions.jsonl",
+      "simulator_metrics": {
+        "centroid_error_px": null,
+        "enabled": false,
+        "errors": [],
+        "normalized_profile_mse": null,
+        "num_success": 0,
+        "sigma_error_px": null,
+        "simulation_policy": "target_base"
+      },
+      "tolerances": {
+        "camera_x": 0.0005,
+        "camera_y": 0.0005,
+        "focal_length": 0.005,
+        "lens_to_camera": 0.01,
+        "lens_x": 0.0005,
+        "lens_y": 0.0005,
+        "source_to_lens": 0.01
+      },
+      "understanding_metrics": {
+        "change_direction_accuracy": null,
+        "changed_variable_f1": null,
+        "changed_variable_precision": null,
+        "changed_variable_recall": null,
+        "fixed_variable_accuracy": null,
+        "observed_profile_change_accuracy": null
+      },
+      "variables_config_path": "profile2setup/configs/variables.yaml"
+    },
+    "profile2setup_baseline_eval": null,
+    "sft_api_eval": null,
+    "sft_job": {
+      "base_model": "test-base-model",
+      "dry_run": true,
+      "fine_tuned_model": null,
+      "job": {
+        "dry_run": true,
+        "fine_tuned_model": null,
+        "id": "dry-run-sft-job",
+        "provider": "openai",
+        "request": {
+          "model": "test-base-model",
+          "operation": "fine_tuning.jobs.create",
+          "training_file": "dry-run-training-file",
+          "validation_file": "dry-run-validation-file"
+        },
+        "status": "dry_run"
+      },
+      "job_id": "dry-run-sft-job",
+      "metadata_path": "profile2setup/results/llm_api_setup_experiment/sft_job/job.json",
+      "provider": "openai",
+      "saved_at": "2026-04-29T12:25:08.052247+00:00",
+      "status": "dry_run",
+      "training_file": {
+        "dry_run": true,
+        "id": "dry-run-training-file",
+        "request": {
+          "operation": "files.create",
+          "path": "profile2setup/results/llm_api_setup_experiment/sft_data/train.jsonl",
+          "provider": "openai",
+          "purpose": "fine-tune",
+          "role": "training"
+        },
+        "validation": {
+          "bytes": 163546,
+          "path": "profile2setup/results/llm_api_setup_experiment/sft_data/train.jsonl",
+          "records": 2
+        }
+      },
+      "validation_file": {
+        "dry_run": true,
+        "id": "dry-run-validation-file",
+        "request": {
+          "operation": "files.create",
+          "path": "profile2setup/results/llm_api_setup_experiment/sft_data/val.jsonl",
+          "provider": "openai",
+          "purpose": "fine-tune",
+          "role": "validation"
+        },
+        "validation": {
+          "bytes": 131971,
+          "path": "profile2setup/results/llm_api_setup_experiment/sft_data/val.jsonl",
+          "records": 1
+        }
+      }
+    }
+  },
+  "inputs": {
+    "profile2setup_checkpoint": "profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt",
+    "test_jsonl": "profile2setup/data/all_modes/test.jsonl",
+    "train_jsonl": "profile2setup/data/all_modes/train.jsonl",
+    "val_jsonl": "profile2setup/data/all_modes/val.jsonl",
+    "variables_config": "profile2setup/configs/variables.yaml"
+  },
+  "paths": {
+    "base_eval": "profile2setup/results/llm_api_setup_experiment/base_api_eval.json",
+    "base_images": "profile2setup/results/llm_api_setup_experiment/images/base",
+    "base_predictions": "profile2setup/results/llm_api_setup_experiment/base_api_predictions.jsonl",
+    "comparison_report": "profile2setup/results/llm_api_setup_experiment/comparison_report.json",
+    "profile2setup_baseline": "profile2setup/results/llm_api_setup_experiment/profile2setup_baseline_eval.json",
+    "sft_eval": "profile2setup/results/llm_api_setup_experiment/sft_api_eval.json",
+    "sft_images": "profile2setup/results/llm_api_setup_experiment/images/sft",
+    "sft_job_metadata": "profile2setup/results/llm_api_setup_experiment/sft_job/job.json",
+    "sft_predictions": "profile2setup/results/llm_api_setup_experiment/sft_api_predictions.jsonl",
+    "sft_train_images": "profile2setup/results/llm_api_setup_experiment/sft_data/images/train",
+    "sft_train_jsonl": "profile2setup/results/llm_api_setup_experiment/sft_data/train.jsonl",
+    "sft_val_images": "profile2setup/results/llm_api_setup_experiment/sft_data/images/val",
+    "sft_val_jsonl": "profile2setup/results/llm_api_setup_experiment/sft_data/val.jsonl"
+  },
+  "provider": "openai",
+  "sft_model": null,
+  "steps": [
+    {
+      "name": "build_sft_jsonl",
+      "status": "completed",
+      "train_summary": {
+        "errors": [],
+        "image_detail": "low",
+        "image_mode": "base64",
+        "image_out_dir": "profile2setup/results/llm_api_setup_experiment/sft_data/images/train",
+        "include_composite": false,
+        "input_path": "profile2setup/data/all_modes/train.jsonl",
+        "out_path": "profile2setup/results/llm_api_setup_experiment/sft_data/train.jsonl",
+        "read_records": 4,
+        "skipped_errors": 0,
+        "skipped_missing_profiles": 1,
+        "split": "train",
+        "written_records": 2
+      },
+      "val_summary": {
+        "errors": [],
+        "image_detail": "low",
+        "image_mode": "base64",
+        "image_out_dir": "profile2setup/results/llm_api_setup_experiment/sft_data/images/val",
+        "include_composite": false,
+        "input_path": "profile2setup/data/all_modes/val.jsonl",
+        "out_path": "profile2setup/results/llm_api_setup_experiment/sft_data/val.jsonl",
+        "read_records": 2,
+        "skipped_errors": 0,
+        "skipped_missing_profiles": 0,
+        "split": "val",
+        "written_records": 1
+      }
+    },
+    {
+      "name": "base_inference",
+      "status": "completed",
+      "summary": {
+        "api_errors": 0,
+        "attempted_records": 2,
+        "data_path": "profile2setup/data/all_modes/test.jsonl",
+        "dry_run": true,
+        "image_out_dir": "profile2setup/results/llm_api_setup_experiment/images/base",
+        "invalid_json": 0,
+        "model": "test-base-model",
+        "out_path": "profile2setup/results/llm_api_setup_experiment/base_api_predictions.jsonl",
+        "provider": "openai",
+        "read_records": 10,
+        "skipped_missing_profiles": 7,
+        "valid_json": 0,
+        "written_records": 9
+      }
+    },
+    {
+      "name": "base_eval",
+      "out": "profile2setup/results/llm_api_setup_experiment/base_api_eval.json",
+      "status": "completed"
+    },
+    {
+      "metadata_path": "profile2setup/results/llm_api_setup_experiment/sft_job/job.json",
+      "name": "create_sft_job",
+      "status": "completed"
+    },
+    {
+      "name": "sft_inference",
+      "reason": "fine-tuned model ID not supplied or unavailable",
+      "status": "skipped"
+    },
+    {
+      "name": "sft_eval",
+      "status": "skipped"
+    },
+    {
+      "name": "profile2setup_baseline",
+      "status": "skipped"
+    }
+  ]
+}

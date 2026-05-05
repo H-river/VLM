@@ -1,0 +1,82 @@
+{
+  "base_model": "gpt-4.1-mini",
+  "created_job": {
+    "dry_run": true,
+    "fine_tuned_model": null,
+    "id": "dry-run-sft-job",
+    "provider": "openai",
+    "request": {
+      "model": "gpt-4.1-mini",
+      "operation": "fine_tuning.jobs.create",
+      "training_file": "dry-run-training-file",
+      "validation_file": "dry-run-validation-file"
+    },
+    "status": "dry_run"
+  },
+  "dry_run": true,
+  "fine_tuned_model": null,
+  "job": {
+    "dry_run": true,
+    "fine_tuned_model": null,
+    "id": "dry-run-sft-job",
+    "provider": "openai",
+    "request": {
+      "job_id": "dry-run-sft-job",
+      "operation": "fine_tuning.jobs.retrieve"
+    },
+    "status": "dry_run"
+  },
+  "job_id": "dry-run-sft-job",
+  "latest_job": {
+    "dry_run": true,
+    "fine_tuned_model": null,
+    "id": "dry-run-sft-job",
+    "provider": "openai",
+    "request": {
+      "job_id": "dry-run-sft-job",
+      "operation": "fine_tuning.jobs.retrieve"
+    },
+    "status": "dry_run"
+  },
+  "metadata_path": "profile2setup/results/llm_api_sft_jobs/job_dry_run.json",
+  "provider": "openai",
+  "saved_at": "2026-04-29T12:54:49.856273+00:00",
+  "status": "dry_run",
+  "training_file": {
+    "dry_run": true,
+    "id": "dry-run-training-file",
+    "request": {
+      "operation": "files.create",
+      "path": "profile2setup/data/llm_api_sft/train.jsonl",
+      "provider": "openai",
+      "purpose": "fine-tune",
+      "role": "training"
+    },
+    "validation": {
+      "assistant_labels": 100,
+      "bytes": 12910824,
+      "path": "profile2setup/data/llm_api_sft/train.jsonl",
+      "records": 100,
+      "records_with_image_url": 100
+    }
+  },
+  "updated_at": "2026-04-29T12:54:49.856231+00:00",
+  "validation_file": {
+    "dry_run": true,
+    "id": "dry-run-validation-file",
+    "request": {
+      "operation": "files.create",
+      "path": "profile2setup/data/llm_api_sft/val.jsonl",
+      "provider": "openai",
+      "purpose": "fine-tune",
+      "role": "validation"
+    },
+    "validation": {
+      "assistant_labels": 3000,
+      "bytes": 403787625,
+      "path": "profile2setup/data/llm_api_sft/val.jsonl",
+      "records": 3000,
+      "records_with_image_url": 3000
+    }
+  }
+}

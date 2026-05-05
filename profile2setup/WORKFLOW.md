@@ -80,27 +80,6 @@ Supervision:
 - absolute
 - change_logits
 
-### current_only
-
-Input:
-
-- `current_profile_path`
-- `prompt`
-- no target profile
-- no current setup unless available
-
-Tensor profile channels:
-
-- current
-- zeros
-- zeros
-- target mask zeros
-
-Supervision:
-
-- absolute only if `target_setup` exists
-- no delta unless `current_setup` and `target_delta` are explicitly available
-
 ### paired_no_setup
 
 Input:

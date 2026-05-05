@@ -28,6 +28,21 @@ Metrics:
 - closed-loop profile MSE
 - closed-loop centroid/sigma error
 
+Training history is saved in each run directory as `history.csv` and
+`history.json`, with `loss_curve.png`, `component_loss_curves.png`, and
+`mae_curves.png` when the corresponding metrics are available.
+
+Qualitative prediction examples can be generated with:
+
+```bash
+python -m profile2setup.scripts.visualize_predictions_cli \
+  --checkpoint profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt \
+  --data profile2setup/data/all_modes/test.jsonl \
+  --variables-config profile2setup/configs/variables.yaml \
+  --out-dir profile2setup/results/prediction_examples \
+  --num-examples 10
+```
+
 ## Recommended Result Table
 
 | Run | Dataset | Model | Train loss | Val loss | Routed setup MAE | Closed-loop NMSE | Notes |

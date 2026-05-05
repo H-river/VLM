@@ -1,0 +1,121 @@
+{
+  "constraint_metrics": {
+    "fixed_variable_violation_rate": null,
+    "legacy_variable_output_count": 0,
+    "noncanonical_output_count": 0
+  },
+  "counts": {
+    "canonical_variables": 5,
+    "evaluated_rows": 5,
+    "json_valid": 5,
+    "legacy_variable_output_count": 0,
+    "matched_data_records": 5,
+    "noncanonical_output_count": 0,
+    "prediction_rows": 5,
+    "schema_valid": 1,
+    "skipped_rows": 0
+  },
+  "data_path": "profile2setup/data/all_modes/test.jsonl",
+  "examples": [
+    {
+      "predicted_delta": {
+        "camera_x": 0.0,
+        "camera_y": 0.0,
+        "focal_length": 0.0,
+        "lens_to_camera": 0.0,
+        "lens_x": 1.0,
+        "lens_y": 1.0,
+        "source_to_lens": 0.0
+      },
+      "predicted_setup": null,
+      "record_id": "paired_no_setup_rand_03015__rand_01763__3223",
+      "routed_setup": null,
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.002756486433602083,
+        "camera_y": 0.002228116928209953,
+        "focal_length": 0.07834207098025603,
+        "lens_to_camera": 0.09788523123180125,
+        "lens_x": 0.0029973538949192155,
+        "lens_y": 0.0009908409987320725,
+        "source_to_lens": 0.1381500678110038
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    }
+  ],
+  "format_metrics": {
+    "canonical_variable_rate": 1.0,
+    "schema_valid_rate": 0.2,
+    "valid_json_rate": 1.0
+  },
+  "numerical_metrics": {
+    "per_variable_delta_mae": {
+      "camera_x": null,
+      "camera_y": null,
+      "focal_length": null,
+      "lens_to_camera": null,
+      "lens_x": null,
+      "lens_y": null,
+      "source_to_lens": null
+    },
+    "per_variable_routed_setup_mae": {
+      "camera_x": null,
+      "camera_y": null,
+      "focal_length": null,
+      "lens_to_camera": null,
+      "lens_x": null,
+      "lens_y": null,
+      "source_to_lens": null
+    },
+    "per_variable_setup_mae": {
+      "camera_x": null,
+      "camera_y": null,
+      "focal_length": null,
+      "lens_to_camera": null,
+      "lens_x": null,
+      "lens_y": null,
+      "source_to_lens": null
+    },
+    "predicted_delta_mae": null,
+    "predicted_setup_mae": null,
+    "routed_setup_mae": null
+  },
+  "predictions_path": "profile2setup/results/llm_api_predictions/gpt4o_baseline.jsonl",
+  "simulator_metrics": {
+    "centroid_error_px": null,
+    "enabled": true,
+    "errors": [],
+    "normalized_profile_mse": null,
+    "num_success": 0,
+    "sigma_error_px": null,
+    "simulation_policy": "target_base"
+  },
+  "tolerances": {
+    "camera_x": 0.0005,
+    "camera_y": 0.0005,
+    "focal_length": 0.005,
+    "lens_to_camera": 0.01,
+    "lens_x": 0.0005,
+    "lens_y": 0.0005,
+    "source_to_lens": 0.01
+  },
+  "understanding_metrics": {
+    "change_direction_accuracy": null,
+    "changed_variable_f1": null,
+    "changed_variable_precision": null,
+    "changed_variable_recall": null,
+    "fixed_variable_accuracy": null,
+    "observed_profile_change_accuracy": 0.0
+  },
+  "variables_config_path": "profile2setup/configs/variables.yaml",
+  "visualization": {
+    "enabled": true,
+    "errors": [],
+    "index_path": "profile2setup/results/llm_api_eval/gpt4o_baseline_viz/index.json",
+    "num_saved": 0,
+    "out_dir": "profile2setup/results/llm_api_eval/gpt4o_baseline_viz"
+  }
+}

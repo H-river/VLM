@@ -33,7 +33,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=4)
     parser.add_argument(
         "--task-filter",
-        choices=["absolute", "edit", "current_only", "current-only", "paired_no_setup", "paired-no-setup"],
+        choices=["absolute", "edit", "paired_no_setup", "paired-no-setup"],
         default=None,
     )
 

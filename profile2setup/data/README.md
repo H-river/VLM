@@ -14,8 +14,11 @@ Folders:
 
 - `absolute/`: `target_profile + prompt -> target_setup`
 - `edit/`: `current_profile + target_profile + current_setup + prompt -> target_setup/target_delta`
-- `current_only/`: `current_profile + prompt -> target_setup`
 - `paired_no_setup/`: `current_profile + target_profile + prompt -> target_setup`
-- `all_modes/`: combined dataset across all four modes
+- `all_modes/`: combined dataset across all three modes
+
+`current_only` was merged into `absolute` because both are profile-only to
+setup-prediction tasks. The active dataset structure no longer keeps a separate
+`current_only/` folder or task type.
 
 Use `all_modes/train.jsonl` and `all_modes/val.jsonl` for mixed-mode training.

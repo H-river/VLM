@@ -20,8 +20,6 @@ _FORBIDDEN_KEYS = {"alignment", "alignment_x", "alignment_y"}
 _TASK_ALIASES = {
     "absolute": "absolute",
     "edit": "edit",
-    "current_only": "current_only",
-    "current-only": "current_only",
     "paired_no_setup": "paired_no_setup",
     "paired-no-setup": "paired_no_setup",
 }

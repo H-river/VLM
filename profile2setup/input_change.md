@@ -78,7 +78,6 @@ Keep existing fields where possible, and add presence/supervision metadata:
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | absolute (existing) | optional/no | yes | no | yes | no | 1 | 0 | 0 |
 | edit (existing) | yes | yes | yes | yes | yes | 1 (optional) | 1 | 1 |
-| current-only (new) | yes | no | no | yes (recommended) | no | 1 | 0 | 0 |
 | paired-no-setup (new) | yes | yes | no | yes (recommended) | no (or optional synthetic) | 1 | 0 (recommended) | 0/1 (optional) |
 
 > Recommendation: for new modes without `current_setup`, treat `delta` as unsupervised by default unless a principled baseline is introduced.
@@ -249,14 +248,13 @@ inference:
 
 ## 8) CLI + smoke tests
 
-Update smoke tests to include all four modes.
+Update smoke tests to include all three active modes.
 
 ### Add tests for:
 
-1. current-only (no target/setup)
-2. paired-no-setup (current + target, no setup)
-3. existing absolute
-4. existing edit
+1. paired-no-setup (current + target, no setup)
+2. existing absolute
+3. existing edit
 
 Assertions:
 

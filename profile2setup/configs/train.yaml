@@ -1,40 +1,61 @@
 experiment:
-  name: profile2setup_v2_placeholder
+  name: profile2setup_v2_all_modes_baseline
   seed: 42
 
 data:
   train_path: profile2setup/data/all_modes/train.jsonl
   val_path: profile2setup/data/all_modes/val.jsonl
-  image_key: profile
-  prompt_key: prompt
-  target_key: delta
-  optional_target_profile_key: target_profile
-  optional_current_setup_key: current_setup
-  allow_missing_current_setup: true
-  allow_missing_target_profile: true
-  allow_missing_current_profile: true
+  variables_config: profile2setup/configs/variables.yaml
+  vocab_path: profile2setup/data/all_modes/vocab.json
+  input_size: 128
+  max_text_len: 32
+  normalize_mode: max_log
+  task_filter: null
+  strict: true
+  train_limit: null
+  val_limit: null
+  change_threshold: 1.0e-6
 
 model:
-  type: placeholder
-  input_channels: 1
-  hidden_dim: 256
-  output_dim: 7
+  profile_dim: 256
+  token_dim: 128
+  text_dim: 128
+  setup_dim: 64
+  fused_dim: 256
+  fusion_hidden_dim: 512
+  dropout: 0.1
+  pad_id: 0
 
 optimization:
-  batch_size: 16
+  batch_size: 32
   epochs: 20
-  learning_rate: 1.0e-4
+  learning_rate: 1.0e-3
   weight_decay: 1.0e-4
+  num_workers: 0
+  grad_clip_norm: 1.0
+  device: auto
 
 loss:
   absolute_weight: 1.0
   delta_weight: 1.0
   change_weight: 0.5
-  normalize_by_mask: true
+  constraint_weight: 0.0
 
-inference:
+validation:
   prefer_absolute_when_setup_missing: true
+  save_examples: 16
+
+checkpoint:
+  save_dir: profile2setup/checkpoints
+  save_every_epoch: true
+  monitor: val_loss
 
 logging:
-  log_every_n_steps: 50
-  save_dir: outputs/profile2setup_v2
+  log_every_n_steps: 20
+
+smoke_test:
+  enabled: false
+  train_limit: 32
+  val_limit: 16
+  epochs: 1
+  batch_size: 4

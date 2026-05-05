@@ -1,0 +1,119 @@
+{
+  "allowed_change_mask": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.0,
+    0.0
+  ],
+  "change_confidence": {
+    "camera_x": 0.9999263286590576,
+    "camera_y": 0.9999265670776367,
+    "focal_length": 0.9999064207077026,
+    "lens_to_camera": 0.999925971031189,
+    "lens_x": 0.9999164342880249,
+    "lens_y": 0.9999399185180664,
+    "source_to_lens": 0.9999357461929321
+  },
+  "checkpoint_path": "profile2setup/checkpoints/profile2setup_v2_all_modes_b128/best.pt",
+  "constraint_violations": [
+    {
+      "applied_delta_norm": -0.0,
+      "raw_delta_norm": -0.46748751401901245,
+      "variable": "camera_x"
+    },
+    {
+      "applied_delta_norm": -0.0,
+      "raw_delta_norm": -0.35673147439956665,
+      "variable": "camera_y"
+    }
+  ],
+  "fixed_change_mask": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    1.0
+  ],
+  "predicted_absolute_norm": {
+    "camera_x": 0.08146940916776657,
+    "camera_y": -0.48703157901763916,
+    "focal_length": -0.7474825978279114,
+    "lens_to_camera": 0.7822563052177429,
+    "lens_x": -0.11293510347604752,
+    "lens_y": -0.1607775241136551,
+    "source_to_lens": -0.01962580531835556
+  },
+  "predicted_absolute_physical": {
+    "camera_x": 0.00024440822750329983,
+    "camera_y": -0.0014610947370529174,
+    "focal_length": 0.06408984929323197,
+    "lens_to_camera": 0.44883023172616954,
+    "lens_x": -0.0003388053104281426,
+    "lens_y": -0.00048233257234096523,
+    "source_to_lens": 0.27058419380337
+  },
+  "predicted_delta_masked_norm": {
+    "camera_x": -0.0,
+    "camera_y": -0.0,
+    "focal_length": -0.24522174894809723,
+    "lens_to_camera": 1.5371168851852417,
+    "lens_x": -0.6507313847541809,
+    "lens_y": -0.3835297226905823,
+    "source_to_lens": 0.18784141540527344
+  },
+  "predicted_delta_masked_physical": {
+    "camera_x": -0.0,
+    "camera_y": -0.0,
+    "focal_length": -0.03310493610799313,
+    "lens_to_camera": 0.3612224680185318,
+    "lens_x": -0.0019521941542625428,
+    "lens_y": -0.0011505891680717469,
+    "source_to_lens": 0.04226431846618652
+  },
+  "predicted_delta_raw_norm": {
+    "camera_x": -0.46748751401901245,
+    "camera_y": -0.35673147439956665,
+    "focal_length": -0.24522174894809723,
+    "lens_to_camera": 1.5371168851852417,
+    "lens_x": -0.6507313847541809,
+    "lens_y": -0.3835297226905823,
+    "source_to_lens": 0.18784141540527344
+  },
+  "predicted_delta_raw_physical": {
+    "camera_x": -0.0014024625420570374,
+    "camera_y": -0.0010701944231987,
+    "focal_length": -0.03310493610799313,
+    "lens_to_camera": 0.3612224680185318,
+    "lens_x": -0.0019521941542625428,
+    "lens_y": -0.0011505891680717469,
+    "source_to_lens": 0.04226431846618652
+  },
+  "predicted_routed_setup_norm": {
+    "camera_x": 0.7115121483802795,
+    "camera_y": -0.16526278853416443,
+    "focal_length": -0.6427747011184692,
+    "lens_to_camera": 0.7119230628013611,
+    "lens_x": -0.08806109428405762,
+    "lens_y": -0.4137950539588928,
+    "source_to_lens": -0.27644142508506775
+  },
+  "predicted_routed_setup_physical": {
+    "camera_x": 0.0021345364451408385,
+    "camera_y": -0.0004957883656024932,
+    "focal_length": 0.07822541534900665,
+    "lens_to_camera": 0.4323019197583199,
+    "lens_x": -0.000264183282852173,
+    "lens_y": -0.0012413851618766785,
+    "source_to_lens": 0.21280067935585978
+  },
+  "prompt": "make the beam tighter and move upward, but keep camera fixed",
+  "record_id": "reasoned_vlm_predict",
+  "setup_present": 1,
+  "status": "predicted",
+  "task_type": "edit"
+}

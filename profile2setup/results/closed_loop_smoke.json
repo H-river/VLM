@@ -1,0 +1,188 @@
+{
+  "aggregate": {
+    "parameter_error_mean": {
+      "camera_x": 0.0016017455756664276,
+      "camera_y": 0.002453852266073227,
+      "focal_length": 0.0852267118357122,
+      "lens_to_camera": 0.05224250838160516,
+      "lens_x": 0.0038734411597251893,
+      "lens_y": 0.001182360894978046,
+      "source_to_lens": 0.2747276857495308
+    },
+    "parameter_error_median": {
+      "camera_x": 0.0016017455756664276,
+      "camera_y": 0.002453852266073227,
+      "focal_length": 0.0852267118357122,
+      "lens_to_camera": 0.05224250838160516,
+      "lens_x": 0.0038734411597251893,
+      "lens_y": 0.001182360894978046,
+      "source_to_lens": 0.2747276857495308
+    },
+    "profile_metrics_mean": {
+      "centroid_x_error_px": 132.238511669739,
+      "centroid_y_error_px": 271.46680846905707,
+      "mse": 20.639512937031885,
+      "normalized_mse": 25.960894277418454,
+      "peak_abs_error": 247.14813547543875,
+      "peak_intensity_error": 206.5172368881585,
+      "sigma_x_error_px": 62.79367638159212,
+      "sigma_y_error_px": 62.237110694031145,
+      "ssim": 0.9512373984660105,
+      "total_intensity_error": 205635.6619693707
+    },
+    "profile_metrics_median": {
+      "centroid_x_error_px": 132.238511669739,
+      "centroid_y_error_px": 271.46680846905707,
+      "mse": 20.639512937031885,
+      "normalized_mse": 25.960894277418454,
+      "peak_abs_error": 247.14813547543875,
+      "peak_intensity_error": 206.5172368881585,
+      "sigma_x_error_px": 62.79367638159212,
+      "sigma_y_error_px": 62.237110694031145,
+      "ssim": 0.9512373984660105,
+      "total_intensity_error": 205635.6619693707
+    }
+  },
+  "checkpoint_path": "profile2setup/checkpoints/profile2setup_v2_smoke_pipeline/best.pt",
+  "data_path": "profile2setup/data/all_modes/test.jsonl",
+  "examples": [
+    {
+      "current_metadata_path": "/home/jiamo/VLM/optical_sim/outputs/random_v2/rand_03015/metadata.json",
+      "parameter_abs_error": {
+        "camera_x": 0.0016017455756664276,
+        "camera_y": 0.002453852266073227,
+        "focal_length": 0.0852267118357122,
+        "lens_to_camera": 0.05224250838160516,
+        "lens_x": 0.0038734411597251893,
+        "lens_y": 0.001182360894978046,
+        "source_to_lens": 0.2747276857495308
+      },
+      "predicted_routed_setup_physical": {
+        "camera_x": 0.0011547407805919648,
+        "camera_y": -0.00022573533654212958,
+        "focal_length": 0.16356877913698556,
+        "lens_to_camera": 0.15012773737311363,
+        "lens_x": -0.0008760872483253479,
+        "lens_y": -0.0001915198937058448,
+        "source_to_lens": 0.4128777474164963
+      },
+      "profile_metrics": {
+        "centroid_x_error_px": 132.238511669739,
+        "centroid_y_error_px": 271.46680846905707,
+        "mse": 20.639512937031885,
+        "normalized_mse": 25.960894277418454,
+        "peak_abs_error": 247.14813547543875,
+        "peak_intensity_error": 206.5172368881585,
+        "sigma_x_error_px": 62.79367638159212,
+        "sigma_y_error_px": 62.237110694031145,
+        "ssim": 0.9512373984660105,
+        "total_intensity_error": 205635.6619693707
+      },
+      "prompt": "move the beam right and move the beam up",
+      "record_id": "paired_no_setup_rand_03015__rand_01763__3223",
+      "simulation_policy_used": "target_base",
+      "target_metadata_path": "/home/jiamo/VLM/optical_sim/outputs/random_v2/rand_01763/metadata.json",
+      "target_profile_path": "/home/jiamo/VLM/optical_sim/outputs/random_v2/rand_01763/intensity.npy",
+      "target_setup_physical": {
+        "camera_x": 0.0027564863562583924,
+        "camera_y": 0.0022281169295310975,
+        "focal_length": 0.07834206730127335,
+        "lens_to_camera": 0.09788522899150848,
+        "lens_x": 0.0029973539113998414,
+        "lens_y": 0.0009908410012722012,
+        "source_to_lens": 0.13815006166696547
+      },
+      "task_type": "paired_no_setup"
+    }
+  ],
+  "num_profile_evaluated": 1,
+  "num_records_seen": 5,
+  "num_skipped": 4,
+  "per_task_type": {
+    "absolute": {
+      "num_profile_evaluated": 0,
+      "parameter_error_mean": null,
+      "parameter_error_median": null,
+      "profile_metrics_mean": null,
+      "profile_metrics_median": null
+    },
+    "current_only": {
+      "num_profile_evaluated": 0,
+      "parameter_error_mean": null,
+      "parameter_error_median": null,
+      "profile_metrics_mean": null,
+      "profile_metrics_median": null
+    },
+    "edit": {
+      "num_profile_evaluated": 0,
+      "parameter_error_mean": null,
+      "parameter_error_median": null,
+      "profile_metrics_mean": null,
+      "profile_metrics_median": null
+    },
+    "paired_no_setup": {
+      "num_profile_evaluated": 1,
+      "parameter_error_mean": {
+        "camera_x": 0.0016017455756664276,
+        "camera_y": 0.002453852266073227,
+        "focal_length": 0.0852267118357122,
+        "lens_to_camera": 0.05224250838160516,
+        "lens_x": 0.0038734411597251893,
+        "lens_y": 0.001182360894978046,
+        "source_to_lens": 0.2747276857495308
+      },
+      "parameter_error_median": {
+        "camera_x": 0.0016017455756664276,
+        "camera_y": 0.002453852266073227,
+        "focal_length": 0.0852267118357122,
+        "lens_to_camera": 0.05224250838160516,
+        "lens_x": 0.0038734411597251893,
+        "lens_y": 0.001182360894978046,
+        "source_to_lens": 0.2747276857495308
+      },
+      "profile_metrics_mean": {
+        "centroid_x_error_px": 132.238511669739,
+        "centroid_y_error_px": 271.46680846905707,
+        "mse": 20.639512937031885,
+        "normalized_mse": 25.960894277418454,
+        "peak_abs_error": 247.14813547543875,
+        "peak_intensity_error": 206.5172368881585,
+        "sigma_x_error_px": 62.79367638159212,
+        "sigma_y_error_px": 62.237110694031145,
+        "ssim": 0.9512373984660105,
+        "total_intensity_error": 205635.6619693707
+      },
+      "profile_metrics_median": {
+        "centroid_x_error_px": 132.238511669739,
+        "centroid_y_error_px": 271.46680846905707,
+        "mse": 20.639512937031885,
+        "normalized_mse": 25.960894277418454,
+        "peak_abs_error": 247.14813547543875,
+        "peak_intensity_error": 206.5172368881585,
+        "sigma_x_error_px": 62.79367638159212,
+        "sigma_y_error_px": 62.237110694031145,
+        "ssim": 0.9512373984660105,
+        "total_intensity_error": 205635.6619693707
+      }
+    }
+  },
+  "simulation_policy": "target_base",
+  "skipped": [
+    {
+      "reason": "missing target_profile_path",
+      "record_id": "current_only_rand_03445"
+    },
+    {
+      "reason": "missing target_profile_path",
+      "record_id": "current_only_rand_01051"
+    },
+    {
+      "reason": "missing target_profile_path",
+      "record_id": "current_only_rand_02443"
+    },
+    {
+      "reason": "missing target_profile_path",
+      "record_id": "current_only_rand_01702"
+    }
+  ]
+}

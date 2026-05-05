@@ -12,6 +12,7 @@ from typing import Any
 
 import yaml
 
+from profile2setup.llm_api.validator import validate_llm_output
 from profile2setup.schema import VARIABLE_ORDER, validate_dataset_record
 
 
@@ -140,6 +141,64 @@ def _check_setup_field_keys(record: dict[str, Any], path: Path, line_number: int
             )
 
 
+def _looks_like_profile2setup_record(record: dict[str, Any]) -> bool:
+    native_keys = {
+        "id",
+        "task_type",
+        "prompt",
+        "current_profile_path",
+        "target_profile_path",
+        "current_setup",
+        "target_setup",
+        "target_delta",
+        "profile_loss_reference",
+    }
+    return bool(native_keys.intersection(record))
+
+
+def _looks_like_llm_api_sft_record(record: dict[str, Any]) -> bool:
+    messages = record.get("messages")
+    if not isinstance(messages, list) or not messages:
+        return False
+    return all(isinstance(message, dict) and isinstance(message.get("role"), str) for message in messages)
+
+
+def _check_llm_api_sft_record(record: dict[str, Any], path: Path, line_number: int, result: CheckResult) -> None:
+    messages = record.get("messages")
+    if not isinstance(messages, list):
+        _add_error(result, f"{_json_location(path, line_number)} LLM API SFT record messages must be a list")
+        return
+
+    assistant_messages = [message for message in messages if message.get("role") == "assistant"]
+    if not assistant_messages:
+        _add_error(result, f"{_json_location(path, line_number)} LLM API SFT record missing assistant label")
+        return
+
+    for message in assistant_messages:
+        content = message.get("content")
+        if not isinstance(content, str) or not content.strip():
+            _add_error(
+                result,
+                f"{_json_location(path, line_number)} LLM API SFT assistant content must be non-empty JSON text",
+            )
+            continue
+        try:
+            parsed = json.loads(content)
+        except json.JSONDecodeError as exc:
+            _add_error(
+                result,
+                f"{_json_location(path, line_number)} LLM API SFT assistant content is not valid JSON: {exc}",
+            )
+            continue
+        try:
+            validate_llm_output(parsed)
+        except Exception as exc:  # noqa: BLE001
+            _add_error(
+                result,
+                f"{_json_location(path, line_number)} invalid LLM API SFT assistant label: {exc}",
+            )
+
+
 def _load_json(path: Path, result: CheckResult) -> Any:
     try:
         with open(path, "r") as f:
@@ -228,6 +287,8 @@ def check_dataset_jsonl(data_dir: Path | None) -> CheckResult:
     counter: Counter[str] = Counter()
     files_checked = 0
     records_checked = 0
+    native_records_checked = 0
+    llm_api_sft_records_checked = 0
     for path in sorted(data_dir.rglob("*.jsonl")):
         if _is_hidden_or_cache(path):
             continue
@@ -247,20 +308,32 @@ def check_dataset_jsonl(data_dir: Path | None) -> CheckResult:
                 for bad_path in bad_paths:
                     _add_error(result, f"{_json_location(path, line_number)} contains forbidden key: {bad_path}")
                 if isinstance(record, dict):
-                    task_type = record.get("task_type")
-                    if isinstance(task_type, str):
-                        counter[task_type] += 1
-                    _check_setup_field_keys(record, path, line_number, result)
-                    try:
-                        validate_dataset_record(record, strict=True)
-                    except Exception as exc:  # noqa: BLE001
-                        _add_error(result, f"{_json_location(path, line_number)} invalid dataset record: {exc}")
+                    if _looks_like_profile2setup_record(record):
+                        native_records_checked += 1
+                        task_type = record.get("task_type")
+                        if isinstance(task_type, str):
+                            counter[task_type] += 1
+                        _check_setup_field_keys(record, path, line_number, result)
+                        try:
+                            validate_dataset_record(record, strict=True)
+                        except Exception as exc:  # noqa: BLE001
+                            _add_error(result, f"{_json_location(path, line_number)} invalid dataset record: {exc}")
+                    elif _looks_like_llm_api_sft_record(record):
+                        llm_api_sft_records_checked += 1
+                        _check_llm_api_sft_record(record, path, line_number, result)
+                    else:
+                        _add_error(
+                            result,
+                            f"{_json_location(path, line_number)} unrecognized JSONL record format",
+                        )
                 else:
                     _add_error(result, f"{_json_location(path, line_number)} record must be a JSON object")
 
     result.checked = records_checked
     result.details["files_checked"] = files_checked
     result.details["records_checked"] = records_checked
+    result.details["native_records_checked"] = native_records_checked
+    result.details["llm_api_sft_records_checked"] = llm_api_sft_records_checked
     result.details["task_type_counts"] = dict(sorted(counter.items()))
     return result
 

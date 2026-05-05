@@ -7,9 +7,11 @@ from typing import Any
 import torch
 from torch import nn
 
+from profile2setup.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
 from profile2setup.schema import VARIABLE_ORDER
 
 from .heads import MultiVariableHeads
+from .intent_encoder import IntentEncoder
 from .profile_encoder import ProfileEncoder
 from .setup_encoder import SetupEncoder
 from .text_encoder import SimpleTextEncoder
@@ -48,6 +50,9 @@ class Profile2SetupModel(nn.Module):
         fusion_hidden_dim: int = 512,
         dropout: float = 0.1,
         pad_id: int = 0,
+        use_intent_features: bool = False,
+        intent_feature_dim: int = INTENT_FEATURE_DIM,
+        intent_dim: int = 64,
     ) -> None:
         super().__init__()
         _require_canonical_variable_order()
@@ -59,6 +64,9 @@ class Profile2SetupModel(nn.Module):
             )
 
         self.num_variables = int(num_variables)
+        self.use_intent_features = bool(use_intent_features)
+        self.intent_feature_dim = int(intent_feature_dim)
+        self.intent_dim = int(intent_dim)
 
         self.profile_encoder = ProfileEncoder(
             in_channels=input_channels,
@@ -79,8 +87,19 @@ class Profile2SetupModel(nn.Module):
             hidden_dim=64,
             dropout=dropout,
         )
+        self.intent_encoder = (
+            IntentEncoder(
+                input_dim=self.intent_feature_dim,
+                intent_dim=self.intent_dim,
+                dropout=dropout,
+            )
+            if self.use_intent_features
+            else None
+        )
 
         fusion_in_dim = profile_dim + text_dim + setup_dim
+        if self.use_intent_features:
+            fusion_in_dim += self.intent_dim
         fusion_layers: list[nn.Module] = [
             nn.Linear(fusion_in_dim, fusion_hidden_dim),
             nn.LayerNorm(fusion_hidden_dim),
@@ -112,7 +131,10 @@ class Profile2SetupModel(nn.Module):
         prompt_tokens: torch.Tensor,
         current_setup: torch.Tensor,
         setup_present: torch.Tensor | None = None,
+        intent_features: torch.Tensor | None = None,
+        allowed_change_mask: torch.Tensor | None = None,
     ) -> dict[str, torch.Tensor]:
+        del allowed_change_mask  # Reserved for a later masked-output stage.
         if profile.shape[0] != prompt_tokens.shape[0] or profile.shape[0] != current_setup.shape[0]:
             raise ValueError(
                 "Batch sizes must match across inputs; "
@@ -146,7 +168,27 @@ class Profile2SetupModel(nn.Module):
         text_emb = self.text_encoder(prompt_tokens)
         setup_emb = self.setup_encoder(current_setup) * setup_present
 
-        fused_in = torch.cat([profile_emb, text_emb, setup_emb], dim=-1)
+        parts = [profile_emb, text_emb, setup_emb]
+        if self.use_intent_features:
+            if intent_features is None:
+                intent_features = torch.zeros(
+                    profile.shape[0],
+                    self.intent_feature_dim,
+                    dtype=profile.dtype,
+                    device=profile.device,
+                )
+            else:
+                intent_features = intent_features.to(dtype=profile.dtype, device=profile.device)
+            if intent_features.shape[0] != profile.shape[0]:
+                raise ValueError(
+                    "intent_features batch size must match profile; "
+                    f"got intent_features={intent_features.shape[0]}, profile={profile.shape[0]}"
+                )
+            if self.intent_encoder is None:
+                raise RuntimeError("intent_encoder is not initialized")
+            parts.append(self.intent_encoder(intent_features))
+
+        fused_in = torch.cat(parts, dim=-1)
         fused = self.fusion_mlp(fused_in)
         return self.heads(fused)
 
@@ -174,6 +216,9 @@ def build_model_from_config(config: dict[str, Any], vocab_size: int) -> Profile2
         fusion_hidden_dim=int(model_cfg.get("fusion_hidden_dim", 512)),
         dropout=float(model_cfg.get("dropout", 0.1)),
         pad_id=int(model_cfg.get("pad_id", 0)),
+        use_intent_features=bool(model_cfg.get("use_intent_features", False)),
+        intent_feature_dim=int(model_cfg.get("intent_feature_dim", INTENT_FEATURE_DIM)),
+        intent_dim=int(model_cfg.get("intent_dim", 64)),
     )
 
 

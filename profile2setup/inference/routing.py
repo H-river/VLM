@@ -5,6 +5,40 @@ from __future__ import annotations
 import torch
 
 
+def _mask_to_tensor(mask, delta: torch.Tensor, *, name: str) -> torch.Tensor:
+    mask_tensor = torch.as_tensor(mask, dtype=delta.dtype, device=delta.device)
+    if mask_tensor.ndim == 1:
+        if mask_tensor.shape[0] != delta.shape[-1]:
+            raise ValueError(
+                f"{name} length must match delta width; got {mask_tensor.shape[0]} and {delta.shape[-1]}"
+            )
+        mask_tensor = mask_tensor.unsqueeze(0)
+    elif mask_tensor.ndim != 2:
+        raise ValueError(f"{name} must have shape [V] or [B, V]; got {tuple(mask_tensor.shape)}")
+
+    if mask_tensor.shape[-1] != delta.shape[-1]:
+        raise ValueError(
+            f"{name} width must match delta width; got {mask_tensor.shape[-1]} and {delta.shape[-1]}"
+        )
+    if mask_tensor.shape[0] not in {1, delta.shape[0]}:
+        raise ValueError(
+            f"{name} batch size must be 1 or match delta batch; got {mask_tensor.shape[0]} and {delta.shape[0]}"
+        )
+    return mask_tensor
+
+
+def apply_allowed_change_mask_to_delta(delta: torch.Tensor, allowed_change_mask) -> torch.Tensor:
+    """Zero delta entries that are not allowed to change."""
+    mask = _mask_to_tensor(allowed_change_mask, delta, name="allowed_change_mask")
+    return delta * mask
+
+
+def apply_fixed_change_mask_to_delta(delta: torch.Tensor, fixed_change_mask) -> torch.Tensor:
+    """Zero delta entries for variables that must remain fixed."""
+    mask = _mask_to_tensor(fixed_change_mask, delta, name="fixed_change_mask")
+    return delta * (1.0 - mask)
+
+
 def route_setup_prediction(
     outputs: dict[str, torch.Tensor],
     current_setup: torch.Tensor,

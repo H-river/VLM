@@ -10,6 +10,13 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
+from profile2setup.reasoning_vlm.intent_features import (
+    INTENT_FEATURE_DIM,
+    build_allowed_change_mask,
+    build_fixed_change_mask,
+    build_intent_feature_vector,
+)
+
 from .normalization import (
     CANONICAL_VARIABLE_ORDER,
     get_variable_order,
@@ -25,8 +32,6 @@ _FORBIDDEN_KEYS = {"alignment", "alignment_x", "alignment_y"}
 _TASK_ALIASES = {
     "absolute": "absolute",
     "edit": "edit",
-    "current_only": "current_only",
-    "current-only": "current_only",
     "paired_no_setup": "paired_no_setup",
     "paired-no-setup": "paired_no_setup",
 }
@@ -156,6 +161,65 @@ def _normalize_profile_loss_reference(value: Any) -> dict:
     return dict(value)
 
 
+def _load_reasoning_command_from_path(path_value: Any, jsonl_path: str) -> dict | None:
+    if path_value is None:
+        return None
+    if not isinstance(path_value, str) or not path_value:
+        raise ValueError("reasoning_command_path must be a non-empty string or None")
+    path = Path(path_value)
+    if not path.is_absolute():
+        candidate = Path(jsonl_path).parent / path
+        path = candidate if candidate.exists() else path
+    if not path.exists():
+        raise FileNotFoundError(f"reasoning_command_path does not exist: {path}")
+    with open(path, "r") as f:
+        command = json.load(f)
+    if not isinstance(command, dict):
+        raise ValueError(f"reasoning_command_path must contain a JSON object: {path}")
+    return command
+
+
+def _extract_reasoning_command(record: dict, jsonl_path: str) -> dict | None:
+    sources = [
+        record.get("reasoning_command"),
+        record.get("vlm_reasoning"),
+        _load_reasoning_command_from_path(record.get("reasoning_command_path"), jsonl_path),
+    ]
+    commands = [source for source in sources if source is not None]
+    if not commands:
+        return None
+    if len(commands) > 1:
+        raise ValueError("record may include only one reasoning command source")
+    if not isinstance(commands[0], dict):
+        raise ValueError("reasoning command source must be a dict")
+    return dict(commands[0])
+
+
+def _intent_features_from_command(command: dict | None) -> np.ndarray:
+    if command is None:
+        return np.zeros(INTENT_FEATURE_DIM, dtype=np.float32)
+    features = np.asarray(build_intent_feature_vector(command), dtype=np.float32)
+    if features.shape != (INTENT_FEATURE_DIM,):
+        raise ValueError(f"intent_features must have shape ({INTENT_FEATURE_DIM},), got {features.shape}")
+    return features
+
+
+def _change_masks_from_command(command: dict | None) -> tuple[np.ndarray, np.ndarray]:
+    if command is None:
+        fixed = np.zeros(len(CANONICAL_VARIABLE_ORDER), dtype=np.float32)
+        allowed = np.ones(len(CANONICAL_VARIABLE_ORDER), dtype=np.float32)
+        return fixed, allowed
+
+    fixed = np.asarray(build_fixed_change_mask(command), dtype=np.float32)
+    allowed = np.asarray(build_allowed_change_mask(command), dtype=np.float32)
+    expected_shape = (len(CANONICAL_VARIABLE_ORDER),)
+    if fixed.shape != expected_shape:
+        raise ValueError(f"fixed_change_mask must have shape {expected_shape}, got {fixed.shape}")
+    if allowed.shape != expected_shape:
+        raise ValueError(f"allowed_change_mask must have shape {expected_shape}, got {allowed.shape}")
+    return fixed, allowed
+
+
 class Profile2SetupDataset(Dataset):
     """Dataset for profile2setup v2 JSONL records."""
 
@@ -242,6 +306,9 @@ class Profile2SetupDataset(Dataset):
         _validate_optional_setup_like_dict(target_delta, "target_delta")
 
         profile_loss_reference = _normalize_profile_loss_reference(record.get("profile_loss_reference"))
+        reasoning_command = _extract_reasoning_command(record, self.jsonl_path)
+        intent_features = _intent_features_from_command(reasoning_command)
+        fixed_change_mask, allowed_change_mask = _change_masks_from_command(reasoning_command)
 
         return {
             "id": str(record_id),
@@ -253,6 +320,10 @@ class Profile2SetupDataset(Dataset):
             "target_setup": target_setup,
             "target_delta": target_delta,
             "profile_loss_reference": profile_loss_reference,
+            "reasoning_command": reasoning_command,
+            "intent_features": intent_features,
+            "fixed_change_mask": fixed_change_mask,
+            "allowed_change_mask": allowed_change_mask,
         }
 
     def __len__(self) -> int:
@@ -317,6 +388,9 @@ class Profile2SetupDataset(Dataset):
             "absolute_loss_mask": torch.as_tensor(absolute_loss_mask_np, dtype=torch.float32),
             "delta_loss_mask": torch.as_tensor(delta_loss_mask_np, dtype=torch.float32),
             "change_loss_mask": torch.as_tensor(change_loss_mask_np, dtype=torch.float32),
+            "intent_features": torch.as_tensor(record["intent_features"], dtype=torch.float32),
+            "fixed_change_mask": torch.as_tensor(record["fixed_change_mask"], dtype=torch.float32),
+            "allowed_change_mask": torch.as_tensor(record["allowed_change_mask"], dtype=torch.float32),
             "task_type": record["task_type"],
             "record_id": record["id"],
             "prompt": record["prompt"],
@@ -345,6 +419,9 @@ def profile2setup_collate_fn(batch):
         "absolute_loss_mask",
         "delta_loss_mask",
         "change_loss_mask",
+        "intent_features",
+        "fixed_change_mask",
+        "allowed_change_mask",
     ]
 
     list_keys = [

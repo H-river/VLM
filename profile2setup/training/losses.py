@@ -30,8 +30,10 @@ def compute_profile2setup_loss(
     absolute_weight: float = 1.0,
     delta_weight: float = 1.0,
     change_weight: float = 0.5,
+    constraint_weight: float = 0.0,
+    fixed_change_mask: torch.Tensor | None = None,
 ) -> dict[str, torch.Tensor]:
-    """Compute mask-normalized absolute, delta, and change losses."""
+    """Compute mask-normalized absolute, delta, change, and optional constraint losses."""
     required_outputs = ["absolute", "delta", "change_logits"]
     required_batch = [
         "target_setup",
@@ -65,14 +67,27 @@ def compute_profile2setup_loss(
         batch["change_loss_mask"],
     )
 
+    if fixed_change_mask is None:
+        fixed_change_mask = batch.get("fixed_change_mask")
+
+    constraint_loss = outputs["delta"].new_zeros(())
+    if float(constraint_weight) > 0.0 and fixed_change_mask is not None and "delta" in outputs:
+        mask = fixed_change_mask
+        if mask.ndim == 1:
+            mask = mask.unsqueeze(0)
+        mask = mask.to(dtype=outputs["delta"].dtype, device=outputs["delta"].device)
+        constraint_loss = torch.mean(torch.abs(outputs["delta"] * mask))
+
     total = (
         float(absolute_weight) * absolute_loss
         + float(delta_weight) * delta_loss
         + float(change_weight) * change_loss
+        + float(constraint_weight) * constraint_loss
     )
     return {
         "loss": total,
         "absolute_loss": absolute_loss,
         "delta_loss": delta_loss,
         "change_loss": change_loss,
+        "constraint_loss": constraint_loss,
     }

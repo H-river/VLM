@@ -1,0 +1,77 @@
+{
+  "canonical_prompt": "make the beam tighter and move upward, but keep camera fixed",
+  "conflict_detected": false,
+  "constraints": {
+    "allowed_variables": [],
+    "change_mask_prior": {
+      "camera_x": "fixed",
+      "camera_y": "fixed",
+      "focal_length": "unlikely",
+      "lens_to_camera": "unlikely",
+      "lens_x": "unlikely",
+      "lens_y": "unlikely",
+      "source_to_lens": "unlikely"
+    },
+    "fixed_variables": [
+      "camera_x",
+      "camera_y"
+    ]
+  },
+  "control_plan": {
+    "avoid_variables": [
+      "camera_x",
+      "camera_y"
+    ],
+    "likely_relevant_variables": [],
+    "rendered_images": {
+      "composite_profile": "profile2setup/results/reasoned_vlm_prediction_smoke_stage5/composite_profile.png",
+      "current_profile": "profile2setup/results/reasoned_vlm_prediction_smoke_stage5/current_profile.png",
+      "difference_profile": "profile2setup/results/reasoned_vlm_prediction_smoke_stage5/difference_profile.png",
+      "target_profile": "profile2setup/results/reasoned_vlm_prediction_smoke_stage5/target_profile.png"
+    },
+    "setup_delta_summary": {
+      "changed_variables": [],
+      "direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "magnitude_bucket": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "unchanged_variables": [
+        "source_to_lens",
+        "lens_to_camera",
+        "focal_length",
+        "lens_x",
+        "lens_y",
+        "camera_x",
+        "camera_y"
+      ]
+    }
+  },
+  "observed_profile_change": {
+    "beam_width_x": "increases",
+    "beam_width_y": "decreases",
+    "centroid_x": "moves_right",
+    "centroid_y": "moves_down",
+    "peak_intensity": "decreases",
+    "total_intensity": "decreases"
+  },
+  "reasoning_summary": "Task edit uses rendered intensity profiles and canonical setup variables only.",
+  "rejection_reason": "",
+  "requested_goal": "make the beam tighter and move upward, but keep camera fixed",
+  "task_type": "edit",
+  "unsupported_requests": [],
+  "valid": true
+}
