@@ -163,6 +163,12 @@ def _looks_like_llm_api_sft_record(record: dict[str, Any]) -> bool:
     return all(isinstance(message, dict) and isinstance(message.get("role"), str) for message in messages)
 
 
+def _is_non_dataset_jsonl(path: Path) -> bool:
+    """Return true for JSONL sidecar labels that are not dataset/SFT records."""
+    name = path.name
+    return name.endswith("_labels.jsonl") or name == "stage1_understanding_labels.jsonl"
+
+
 def _check_llm_api_sft_record(record: dict[str, Any], path: Path, line_number: int, result: CheckResult) -> None:
     messages = record.get("messages")
     if not isinstance(messages, list):
@@ -289,8 +295,12 @@ def check_dataset_jsonl(data_dir: Path | None) -> CheckResult:
     records_checked = 0
     native_records_checked = 0
     llm_api_sft_records_checked = 0
+    skipped_non_dataset_files: list[str] = []
     for path in sorted(data_dir.rglob("*.jsonl")):
         if _is_hidden_or_cache(path):
+            continue
+        if _is_non_dataset_jsonl(path):
+            skipped_non_dataset_files.append(str(path))
             continue
         files_checked += 1
         with open(path, "r") as f:
@@ -334,6 +344,7 @@ def check_dataset_jsonl(data_dir: Path | None) -> CheckResult:
     result.details["records_checked"] = records_checked
     result.details["native_records_checked"] = native_records_checked
     result.details["llm_api_sft_records_checked"] = llm_api_sft_records_checked
+    result.details["skipped_non_dataset_files"] = skipped_non_dataset_files
     result.details["task_type_counts"] = dict(sorted(counter.items()))
     return result
 

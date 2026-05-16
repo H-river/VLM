@@ -1,0 +1,33 @@
+experiment:
+  name: physics_understanding
+  description: >
+    Diagnostic test of whether light SFT improves prompt-conditioned optical
+    and physics understanding, evaluated separately from deterministic repair
+    or production-controller optimization.
+  output_dir: profile2setup/results/physics_understanding
+  random_seed: 42
+
+models:
+  base_model_name: gpt-4o-2024-08-06
+  fine_tuned_model_name: ft:gpt-4o-2024-08-06:personal:profile2setup-mm-sft:DcGtpEep
+  local_model_checkpoint: profile2setup/checkpoints/profile2setup_v2_all_modes_b128/best.pt
+
+data:
+  all_modes:
+    all: profile2setup/data/all_modes/all.jsonl
+    train: profile2setup/data/all_modes/train.jsonl
+    val: profile2setup/data/all_modes/val.jsonl
+    test: profile2setup/data/all_modes/test.jsonl
+    test_first50: profile2setup/data/all_modes/test_first50.jsonl
+
+diagnostics:
+  prompt_only: true
+  images_only: true
+  prompt_plus_images: true
+  shuffled_prompt: true
+  conflict: true
+
+metrics:
+  main_metrics_use_raw_outputs: true
+  deterministic_post_processing: false
+  optional_post_processing_engineering_baseline: false

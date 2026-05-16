@@ -33,6 +33,11 @@ def parse_args() -> argparse.Namespace:
         default="target_base",
     )
     parser.add_argument("--max-examples", type=int, default=None, help="Maximum non-skipped prediction rows to evaluate")
+    parser.add_argument(
+        "--normalize-observed-profile-labels",
+        action="store_true",
+        help="Opt in to conservative observed_profile_change vocabulary normalization",
+    )
     return parser.parse_args()
 
 
@@ -49,6 +54,7 @@ def main() -> None:
         viz_out_dir=Path(args.viz_out_dir),
         max_viz_examples=args.max_viz_examples,
         max_examples=args.max_examples,
+        normalize_observed_profile_labels=args.normalize_observed_profile_labels,
     )
     print(json.dumps(report, indent=2, sort_keys=True))
 

@@ -1,0 +1,12 @@
+{
+  "common_valid_probe_count": 222,
+  "filter_rule": "Keep only probe IDs where base and fine_tuned rows have status=completed and pass validate_llm_output plus canonical variable validation. Local predictions are sliced to the same IDs.",
+  "out_dir": "profile2setup/results/physics_understanding/budget_512/valid_only_common",
+  "source_predictions": {
+    "base": "profile2setup/results/physics_understanding/budget_512/predictions_base.jsonl",
+    "fine_tuned": "profile2setup/results/physics_understanding/budget_512/predictions_fine_tuned.jsonl",
+    "local": "profile2setup/results/physics_understanding/budget_512/predictions_local.jsonl"
+  },
+  "source_probe_count": 512,
+  "source_probes": "profile2setup/data/physics_understanding/probes_budget_512.jsonl"
+}

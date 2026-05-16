@@ -1,0 +1,384 @@
+{
+  "interpretation": {
+    "schema_imitation_or_image_regression_signal": false,
+    "summary": "Evidence supports prompt-conditioned physics understanding only if SFT improves prompt sensitivity, contradiction/conflict detection, and constraint following, not just JSON/schema validity. High schema validity with weak prompt/conflict metrics is more consistent with schema imitation or image-driven regression.",
+    "supports_prompt_conditioned_physics_understanding": true,
+    "unchanged_metrics": [],
+    "where_sft_improves": [
+      "fixed_variable_violation_rate: base=0.0032, fine_tuned=0.0015, delta=-0.0017",
+      "contradiction_detection_accuracy: base=0.7647, fine_tuned=0.8353, delta=+0.0706",
+      "direction_accuracy: base=0.1674, fine_tuned=0.6554, delta=+0.4881"
+    ],
+    "where_sft_worsens": [
+      "valid_json_rate: base=0.8008, fine_tuned=0.7910, delta=-0.0098",
+      "schema_valid_rate: base=0.6973, fine_tuned=0.6113, delta=-0.0859",
+      "canonical_variable_rate: base=0.8008, fine_tuned=0.7910, delta=-0.0098",
+      "paraphrase_consistency_score: base=0.8889, fine_tuned=0.7262, delta=-0.1627",
+      "prompt_sensitivity_score: base=0.3333, fine_tuned=0.0000, delta=-0.3333",
+      "allowed_variable_violation_rate: base=0.0000, fine_tuned=0.1545, delta=+0.1545",
+      "prompt_image_conflict_detection_accuracy: base=0.8353, fine_tuned=0.0941, delta=-0.7412",
+      "forced_prediction_rate: base=0.0000, fine_tuned=0.2588, delta=+0.2588"
+    ]
+  },
+  "metric_table": [
+    {
+      "base": 0.80078125,
+      "fine_tuned": 0.791015625,
+      "local": 1.0,
+      "metric": "valid_json_rate"
+    },
+    {
+      "base": 0.697265625,
+      "fine_tuned": 0.611328125,
+      "local": 1.0,
+      "metric": "schema_valid_rate"
+    },
+    {
+      "base": 0.80078125,
+      "fine_tuned": 0.791015625,
+      "local": 1.0,
+      "metric": "canonical_variable_rate"
+    },
+    {
+      "base": 0.8888888888888888,
+      "fine_tuned": 0.7261904761904762,
+      "local": 0.6666666666666667,
+      "metric": "paraphrase_consistency_score"
+    },
+    {
+      "base": 0.3333333333333333,
+      "fine_tuned": 0.0,
+      "local": 0.0,
+      "metric": "prompt_sensitivity_score"
+    },
+    {
+      "base": 0.003215434083601286,
+      "fine_tuned": 0.0015432098765432098,
+      "local": 0.7764705882352941,
+      "metric": "fixed_variable_violation_rate"
+    },
+    {
+      "base": 0.0,
+      "fine_tuned": 0.15454545454545454,
+      "local": 0.9930555555555556,
+      "metric": "allowed_variable_violation_rate"
+    },
+    {
+      "base": 0.7647058823529411,
+      "fine_tuned": 0.8352941176470589,
+      "local": 0.0,
+      "metric": "contradiction_detection_accuracy"
+    },
+    {
+      "base": 0.8352941176470589,
+      "fine_tuned": 0.09411764705882353,
+      "local": 0.0,
+      "metric": "prompt_image_conflict_detection_accuracy"
+    },
+    {
+      "base": 0.16735537190082644,
+      "fine_tuned": 0.6554455445544555,
+      "local": 0.6823529411764706,
+      "metric": "direction_accuracy"
+    },
+    {
+      "base": null,
+      "fine_tuned": null,
+      "local": null,
+      "metric": "direction_flip_accuracy"
+    },
+    {
+      "base": 0.0,
+      "fine_tuned": 0.25882352941176473,
+      "local": 1.0,
+      "metric": "forced_prediction_rate"
+    }
+  ],
+  "paths": {
+    "base_eval": "profile2setup/results/physics_understanding/budget_512/eval_base.json",
+    "base_predictions": "profile2setup/results/physics_understanding/budget_512/predictions_base.jsonl",
+    "comparison_json": "profile2setup/results/physics_understanding/budget_512/comparison.json",
+    "comparison_md": "profile2setup/results/physics_understanding/budget_512/comparison.md",
+    "fine_tuned_eval": "profile2setup/results/physics_understanding/budget_512/eval_fine_tuned.json",
+    "fine_tuned_predictions": "profile2setup/results/physics_understanding/budget_512/predictions_fine_tuned.jsonl",
+    "local_eval": "profile2setup/results/physics_understanding/budget_512/eval_local.json",
+    "local_predictions": "profile2setup/results/physics_understanding/budget_512/predictions_local.jsonl",
+    "probes": "profile2setup/data/physics_understanding/probes_budget_512.jsonl"
+  },
+  "per_probe_type_breakdown": {
+    "allowed_variable_constraint": {
+      "base": {
+        "allowed_variable_violation_rate": 0.0,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": null,
+        "success_rate": 0.2823529411764706
+      },
+      "fine_tuned": {
+        "allowed_variable_violation_rate": 0.08823529411764706,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": null,
+        "success_rate": 0.7176470588235294
+      },
+      "local": {
+        "allowed_variable_violation_rate": 1.0,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": null,
+        "success_rate": 0.0
+      }
+    },
+    "contradiction_detection": {
+      "base": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.0,
+        "forced_prediction_rate": 0.0,
+        "success_rate": 0.7647058823529411
+      },
+      "fine_tuned": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.0,
+        "forced_prediction_rate": 0.0,
+        "success_rate": 0.8352941176470589
+      },
+      "local": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.7743271221532091,
+        "forced_prediction_rate": 1.0,
+        "success_rate": 0.0
+      }
+    },
+    "fixed_variable_constraint": {
+      "base": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.0,
+        "forced_prediction_rate": null,
+        "success_rate": 0.5411764705882353
+      },
+      "fine_tuned": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.0,
+        "forced_prediction_rate": null,
+        "success_rate": 0.7411764705882353
+      },
+      "local": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.7793103448275862,
+        "forced_prediction_rate": null,
+        "success_rate": 0.047058823529411764
+      }
+    },
+    "paraphrase_consistency": {
+      "base": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": 0.16563146997929606,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": null,
+        "success_rate": 0.0
+      },
+      "fine_tuned": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": 0.6547619047619048,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": null,
+        "success_rate": 0.03529411764705882
+      },
+      "local": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": 0.6823529411764706,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": null,
+        "success_rate": 0.08235294117647059
+      }
+    },
+    "physics_causal_question": {
+      "base": {
+        "allowed_variable_violation_rate": 0.0,
+        "count": 2,
+        "direction_accuracy": 1.0,
+        "fixed_variable_violation_rate": 0.0,
+        "forced_prediction_rate": null,
+        "success_rate": 1.0
+      },
+      "fine_tuned": {
+        "allowed_variable_violation_rate": 0.0,
+        "count": 2,
+        "direction_accuracy": 1.0,
+        "fixed_variable_violation_rate": 0.0,
+        "forced_prediction_rate": null,
+        "success_rate": 0.5
+      },
+      "local": {
+        "allowed_variable_violation_rate": null,
+        "count": 2,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": null,
+        "success_rate": null
+      }
+    },
+    "prompt_image_conflict": {
+      "base": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": 0.0,
+        "success_rate": 0.8352941176470589
+      },
+      "fine_tuned": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": 0.5176470588235295,
+        "success_rate": 0.09411764705882353
+      },
+      "local": {
+        "allowed_variable_violation_rate": null,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": null,
+        "forced_prediction_rate": 1.0,
+        "success_rate": 0.0
+      }
+    },
+    "prompt_sensitivity": {
+      "base": {
+        "allowed_variable_violation_rate": 0.0,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.05555555555555555,
+        "forced_prediction_rate": null,
+        "success_rate": 0.49411764705882355
+      },
+      "fine_tuned": {
+        "allowed_variable_violation_rate": 0.275,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.02631578947368421,
+        "forced_prediction_rate": null,
+        "success_rate": 0.5529411764705883
+      },
+      "local": {
+        "allowed_variable_violation_rate": 0.9830508474576272,
+        "count": 85,
+        "direction_accuracy": null,
+        "fixed_variable_violation_rate": 0.7884615384615384,
+        "forced_prediction_rate": null,
+        "success_rate": 0.03529411764705882
+      }
+    }
+  },
+  "reports": {
+    "base": {
+      "allowed_variable_violation_rate": 0.0,
+      "canonical_variable_rate": 0.80078125,
+      "contradiction_detection_accuracy": 0.7647058823529411,
+      "direction_accuracy": 0.16735537190082644,
+      "direction_flip_accuracy": null,
+      "fixed_variable_violation_rate": 0.003215434083601286,
+      "forced_prediction_rate": 0.0,
+      "paraphrase_consistency_score": 0.8888888888888888,
+      "prompt_image_conflict_detection_accuracy": 0.8352941176470589,
+      "prompt_sensitivity_score": 0.3333333333333333,
+      "schema_valid_rate": 0.697265625,
+      "valid_json_rate": 0.80078125
+    },
+    "fine_tuned": {
+      "allowed_variable_violation_rate": 0.15454545454545454,
+      "canonical_variable_rate": 0.791015625,
+      "contradiction_detection_accuracy": 0.8352941176470589,
+      "direction_accuracy": 0.6554455445544555,
+      "direction_flip_accuracy": null,
+      "fixed_variable_violation_rate": 0.0015432098765432098,
+      "forced_prediction_rate": 0.25882352941176473,
+      "paraphrase_consistency_score": 0.7261904761904762,
+      "prompt_image_conflict_detection_accuracy": 0.09411764705882353,
+      "prompt_sensitivity_score": 0.0,
+      "schema_valid_rate": 0.611328125,
+      "valid_json_rate": 0.791015625
+    },
+    "local": {
+      "allowed_variable_violation_rate": 0.9930555555555556,
+      "canonical_variable_rate": 1.0,
+      "contradiction_detection_accuracy": 0.0,
+      "direction_accuracy": 0.6823529411764706,
+      "direction_flip_accuracy": null,
+      "fixed_variable_violation_rate": 0.7764705882352941,
+      "forced_prediction_rate": 1.0,
+      "paraphrase_consistency_score": 0.6666666666666667,
+      "prompt_image_conflict_detection_accuracy": 0.0,
+      "prompt_sensitivity_score": 0.0,
+      "schema_valid_rate": 1.0,
+      "valid_json_rate": 1.0
+    }
+  },
+  "steps": [
+    {
+      "name": "build_probes",
+      "status": "skipped"
+    },
+    {
+      "command": "/home/jiamo/miniconda3/envs/optical_sim/bin/python -m profile2setup.scripts.run_physics_understanding_llm_cli --model gpt-4o-2024-08-06 --probes profile2setup/data/physics_understanding/probes_budget_512.jsonl --out profile2setup/results/physics_understanding/budget_512/predictions_base.jsonl --image-out-dir profile2setup/results/physics_understanding/budget_512/rendered_images_base --temperature 0.0 --image-detail low",
+      "name": "base_llm",
+      "status": "completed",
+      "stderr_tail": "",
+      "stdout_tail": "{\n  \"api_errors\": 102,\n  \"attempted_probes\": 512,\n  \"completed\": 357,\n  \"dry_run\": false,\n  \"dry_run_rows\": 0,\n  \"image_out_dir\": \"profile2setup/results/physics_understanding/budget_512/rendered_images_base\",\n  \"input_mode_override\": null,\n  \"invalid_json\": 53,\n  \"loaded_probes\": 512,\n  \"model\": \"gpt-4o-2024-08-06\",\n  \"out_path\": \"profile2setup/results/physics_understanding/budget_512/predictions_base.jsonl\",\n  \"probes_path\": \"profile2setup/data/physics_understanding/probes_budget_512.jsonl\",\n  \"provider\": \"openai\",\n  \"skipped\": 0,\n  \"temperature\": 0.0,\n  \"valid_json\": 357,\n  \"written_rows\": 512\n}\n"
+    },
+    {
+      "command": "/home/jiamo/miniconda3/envs/optical_sim/bin/python -m profile2setup.scripts.run_physics_understanding_llm_cli --model ft:gpt-4o-2024-08-06:personal:profile2setup-mm-sft:DcGtpEep --probes profile2setup/data/physics_understanding/probes_budget_512.jsonl --out profile2setup/results/physics_understanding/budget_512/predictions_fine_tuned.jsonl --image-out-dir profile2setup/results/physics_understanding/budget_512/rendered_images_fine_tuned --temperature 0.0 --image-detail low",
+      "name": "fine_tuned_llm",
+      "status": "completed",
+      "stderr_tail": "",
+      "stdout_tail": "{\n  \"api_errors\": 107,\n  \"attempted_probes\": 512,\n  \"completed\": 313,\n  \"dry_run\": false,\n  \"dry_run_rows\": 0,\n  \"image_out_dir\": \"profile2setup/results/physics_understanding/budget_512/rendered_images_fine_tuned\",\n  \"input_mode_override\": null,\n  \"invalid_json\": 92,\n  \"loaded_probes\": 512,\n  \"model\": \"ft:gpt-4o-2024-08-06:personal:profile2setup-mm-sft:DcGtpEep\",\n  \"out_path\": \"profile2setup/results/physics_understanding/budget_512/predictions_fine_tuned.jsonl\",\n  \"probes_path\": \"profile2setup/data/physics_understanding/probes_budget_512.jsonl\",\n  \"provider\": \"openai\",\n  \"skipped\": 0,\n  \"temperature\": 0.0,\n  \"valid_json\": 313,\n  \"written_rows\": 512\n}\n"
+    },
+    {
+      "command": "/home/jiamo/miniconda3/envs/optical_sim/bin/python -m profile2setup.scripts.run_physics_understanding_local_cli --checkpoint profile2setup/checkpoints/profile2setup_v2_all_modes_b128/best.pt --probes profile2setup/data/physics_understanding/probes_budget_512.jsonl --out profile2setup/results/physics_understanding/budget_512/predictions_local.jsonl --variables-config profile2setup/configs/variables.yaml --vocab profile2setup/data/all_modes/vocab.json --input-size 128 --max-text-len 32 --device auto",
+      "name": "local_baseline",
+      "status": "completed",
+      "stderr_tail": "",
+      "stdout_tail": "{\n  \"checkpoint\": \"profile2setup/checkpoints/profile2setup_v2_all_modes_b128/best.pt\",\n  \"completed\": 494,\n  \"device\": \"cuda\",\n  \"errors\": 0,\n  \"input_size\": 128,\n  \"invalid_forced_predictions\": 154,\n  \"loaded_probes\": 512,\n  \"max_text_len\": 32,\n  \"normalize_mode\": \"max_log\",\n  \"not_applicable\": 18,\n  \"out\": \"profile2setup/results/physics_understanding/budget_512/predictions_local.jsonl\",\n  \"probes\": \"profile2setup/data/physics_understanding/probes_budget_512.jsonl\",\n  \"processed_probes\": 512,\n  \"runnable_probes\": 494,\n  \"status_counts\": {\n    \"completed\": 494,\n    \"not_applicable\": 18\n  },\n  \"variables_config\": \"profile2setup/configs/variables.yaml\",\n  \"vocab\": \"profile2setup/data/all_modes/vocab.json\"\n}\n"
+    },
+    {
+      "command": "/home/jiamo/miniconda3/envs/optical_sim/bin/python -m profile2setup.scripts.evaluate_physics_understanding_cli --predictions profile2setup/results/physics_understanding/budget_512/predictions_base.jsonl --probes profile2setup/data/physics_understanding/probes_budget_512.jsonl --out profile2setup/results/physics_understanding/budget_512/eval_base.json --variables-config profile2setup/configs/variables.yaml",
+      "name": "base_eval",
+      "status": "completed",
+      "stderr_tail": "",
+      "stdout_tail": " \"rows\": 85,\n        \"schema_valid_rate\": 0.8117647058823529,\n        \"success_count\": 0,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.0,\n        \"valid_json_rate\": 0.8117647058823529\n      },\n      \"physics_causal_question\": {\n        \"allowed_variable_total\": 2,\n        \"allowed_variable_violation_rate\": 0.0,\n        \"allowed_variable_violations\": 0,\n        \"canonical_variable_rate\": 1.0,\n        \"conflict_correct\": 0,\n        \"conflict_total\": 0,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": 1.0,\n        \"direction_correct\": 1,\n        \"direction_total\": 1,\n        \"fixed_variable_total\": 6,\n        \"fixed_variable_violation_rate\": 0.0,\n        \"fixed_variable_violations\": 0,\n        \"forced_prediction_rate\": null,\n        \"forced_prediction_total\": 0,\n        \"forced_predictions\": 0,\n        \"format_denominator\": 2,\n        \"prompt_image_conflict_detection_accuracy\": null,\n        \"rows\": 2,\n        \"schema_valid_rate\": 0.0,\n        \"success_count\": 2,\n        \"success_denominator\": 2,\n        \"success_rate\": 1.0,\n        \"valid_json_rate\": 1.0\n      },\n      \"prompt_image_conflict\": {\n        \"allowed_variable_total\": 0,\n        \"allowed_variable_violation_rate\": null,\n        \"allowed_variable_violations\": 0,\n        \"canonical_variable_rate\": 0.8352941176470589,\n        \"conflict_correct\": 71,\n        \"conflict_total\": 85,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": null,\n        \"direction_correct\": 0,\n        \"direction_total\": 0,\n        \"fixed_variable_total\": 0,\n        \"fixed_variable_violation_rate\": null,\n        \"fixed_variable_violations\": 0,\n        \"forced_prediction_rate\": 0.0,\n        \"forced_prediction_total\": 85,\n        \"forced_predictions\": 0,\n        \"format_denominator\": 85,\n        \"prompt_image_conflict_detection_accuracy\": 0.8352941176470589,\n        \"rows\": 85,\n        \"schema_valid_rate\": 0.8352941176470589,\n        \"success_count\": 71,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.8352941176470589,\n        \"valid_json_rate\": 0.8352941176470589\n      },\n      \"prompt_sensitivity\": {\n        \"allowed_variable_total\": 48,\n        \"allowed_variable_violation_rate\": 0.0,\n        \"allowed_variable_violations\": 0,\n        \"canonical_variable_rate\": 0.7764705882352941,\n        \"conflict_correct\": 0,\n        \"conflict_total\": 0,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": null,\n        \"direction_correct\": 0,\n        \"direction_total\": 0,\n        \"fixed_variable_total\": 36,\n        \"fixed_variable_violation_rate\": 0.05555555555555555,\n        \"fixed_variable_violations\": 2,\n        \"forced_prediction_rate\": null,\n        \"forced_prediction_total\": 0,\n        \"forced_predictions\": 0,\n        \"format_denominator\": 85,\n        \"prompt_image_conflict_detection_accuracy\": null,\n        \"rows\": 85,\n        \"schema_valid_rate\": 0.611764705882353,\n        \"success_count\": 42,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.49411764705882355,\n        \"valid_json_rate\": 0.7764705882352941\n      }\n    },\n    \"per_probe_type_success_rate\": {\n      \"allowed_variable_constraint\": 0.2823529411764706,\n      \"contradiction_detection\": 0.7647058823529411,\n      \"fixed_variable_constraint\": 0.5411764705882353,\n      \"paraphrase_consistency\": 0.0,\n      \"physics_causal_question\": 1.0,\n      \"prompt_image_conflict\": 0.8352941176470589,\n      \"prompt_sensitivity\": 0.49411764705882355\n    }\n  },\n  \"probe_rows\": 512,\n  \"probes_path\": \"profile2setup/data/physics_understanding/probes_budget_512.jsonl\",\n  \"status_counts\": {\n    \"completed\": 357,\n    \"error\": 102,\n    \"invalid_json\": 53\n  },\n  \"variables_config_path\": \"profile2setup/configs/variables.yaml\",\n  \"warnings\": []\n}\n"
+    },
+    {
+      "command": "/home/jiamo/miniconda3/envs/optical_sim/bin/python -m profile2setup.scripts.evaluate_physics_understanding_cli --predictions profile2setup/results/physics_understanding/budget_512/predictions_fine_tuned.jsonl --probes profile2setup/data/physics_understanding/probes_budget_512.jsonl --out profile2setup/results/physics_understanding/budget_512/eval_fine_tuned.json --variables-config profile2setup/configs/variables.yaml",
+      "name": "fine_tuned_eval",
+      "status": "completed",
+      "stderr_tail": "",
+      "stdout_tail": "117647059,\n        \"success_count\": 3,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.03529411764705882,\n        \"valid_json_rate\": 0.8470588235294118\n      },\n      \"physics_causal_question\": {\n        \"allowed_variable_total\": 2,\n        \"allowed_variable_violation_rate\": 0.0,\n        \"allowed_variable_violations\": 0,\n        \"canonical_variable_rate\": 1.0,\n        \"conflict_correct\": 0,\n        \"conflict_total\": 0,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": 1.0,\n        \"direction_correct\": 1,\n        \"direction_total\": 1,\n        \"fixed_variable_total\": 6,\n        \"fixed_variable_violation_rate\": 0.0,\n        \"fixed_variable_violations\": 0,\n        \"forced_prediction_rate\": null,\n        \"forced_prediction_total\": 0,\n        \"forced_predictions\": 0,\n        \"format_denominator\": 2,\n        \"prompt_image_conflict_detection_accuracy\": null,\n        \"rows\": 2,\n        \"schema_valid_rate\": 0.5,\n        \"success_count\": 1,\n        \"success_denominator\": 2,\n        \"success_rate\": 0.5,\n        \"valid_json_rate\": 1.0\n      },\n      \"prompt_image_conflict\": {\n        \"allowed_variable_total\": 0,\n        \"allowed_variable_violation_rate\": null,\n        \"allowed_variable_violations\": 0,\n        \"canonical_variable_rate\": 0.8235294117647058,\n        \"conflict_correct\": 8,\n        \"conflict_total\": 85,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": null,\n        \"direction_correct\": 0,\n        \"direction_total\": 0,\n        \"fixed_variable_total\": 0,\n        \"fixed_variable_violation_rate\": null,\n        \"fixed_variable_violations\": 0,\n        \"forced_prediction_rate\": 0.5176470588235295,\n        \"forced_prediction_total\": 85,\n        \"forced_predictions\": 44,\n        \"format_denominator\": 85,\n        \"prompt_image_conflict_detection_accuracy\": 0.09411764705882353,\n        \"rows\": 85,\n        \"schema_valid_rate\": 0.6470588235294118,\n        \"success_count\": 8,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.09411764705882353,\n        \"valid_json_rate\": 0.8235294117647058\n      },\n      \"prompt_sensitivity\": {\n        \"allowed_variable_total\": 40,\n        \"allowed_variable_violation_rate\": 0.275,\n        \"allowed_variable_violations\": 11,\n        \"canonical_variable_rate\": 0.6941176470588235,\n        \"conflict_correct\": 0,\n        \"conflict_total\": 0,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": null,\n        \"direction_correct\": 0,\n        \"direction_total\": 0,\n        \"fixed_variable_total\": 38,\n        \"fixed_variable_violation_rate\": 0.02631578947368421,\n        \"fixed_variable_violations\": 1,\n        \"forced_prediction_rate\": null,\n        \"forced_prediction_total\": 0,\n        \"forced_predictions\": 0,\n        \"format_denominator\": 85,\n        \"prompt_image_conflict_detection_accuracy\": null,\n        \"rows\": 85,\n        \"schema_valid_rate\": 0.5411764705882353,\n        \"success_count\": 47,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.5529411764705883,\n        \"valid_json_rate\": 0.6941176470588235\n      }\n    },\n    \"per_probe_type_success_rate\": {\n      \"allowed_variable_constraint\": 0.7176470588235294,\n      \"contradiction_detection\": 0.8352941176470589,\n      \"fixed_variable_constraint\": 0.7411764705882353,\n      \"paraphrase_consistency\": 0.03529411764705882,\n      \"physics_causal_question\": 0.5,\n      \"prompt_image_conflict\": 0.09411764705882353,\n      \"prompt_sensitivity\": 0.5529411764705883\n    }\n  },\n  \"probe_rows\": 512,\n  \"probes_path\": \"profile2setup/data/physics_understanding/probes_budget_512.jsonl\",\n  \"status_counts\": {\n    \"completed\": 313,\n    \"error\": 107,\n    \"invalid_json\": 92\n  },\n  \"variables_config_path\": \"profile2setup/configs/variables.yaml\",\n  \"warnings\": []\n}\n"
+    },
+    {
+      "command": "/home/jiamo/miniconda3/envs/optical_sim/bin/python -m profile2setup.scripts.evaluate_physics_understanding_cli --predictions profile2setup/results/physics_understanding/budget_512/predictions_local.jsonl --probes profile2setup/data/physics_understanding/probes_budget_512.jsonl --out profile2setup/results/physics_understanding/budget_512/eval_local.json --variables-config profile2setup/configs/variables.yaml",
+      "name": "local_eval",
+      "status": "completed",
+      "stderr_tail": "",
+      "stdout_tail": "prediction_total\": 0,\n        \"forced_predictions\": 0,\n        \"format_denominator\": 85,\n        \"prompt_image_conflict_detection_accuracy\": null,\n        \"rows\": 85,\n        \"schema_valid_rate\": 1.0,\n        \"success_count\": 7,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.08235294117647059,\n        \"valid_json_rate\": 1.0\n      },\n      \"physics_causal_question\": {\n        \"allowed_variable_total\": 0,\n        \"allowed_variable_violation_rate\": null,\n        \"allowed_variable_violations\": 0,\n        \"canonical_variable_rate\": null,\n        \"conflict_correct\": 0,\n        \"conflict_total\": 0,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": null,\n        \"direction_correct\": 0,\n        \"direction_total\": 0,\n        \"fixed_variable_total\": 0,\n        \"fixed_variable_violation_rate\": null,\n        \"fixed_variable_violations\": 0,\n        \"forced_prediction_rate\": null,\n        \"forced_prediction_total\": 0,\n        \"forced_predictions\": 0,\n        \"format_denominator\": 0,\n        \"prompt_image_conflict_detection_accuracy\": null,\n        \"rows\": 2,\n        \"schema_valid_rate\": null,\n        \"success_count\": 0,\n        \"success_denominator\": 0,\n        \"success_rate\": null,\n        \"valid_json_rate\": null\n      },\n      \"prompt_image_conflict\": {\n        \"allowed_variable_total\": 0,\n        \"allowed_variable_violation_rate\": null,\n        \"allowed_variable_violations\": 0,\n        \"canonical_variable_rate\": 1.0,\n        \"conflict_correct\": 0,\n        \"conflict_total\": 85,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": null,\n        \"direction_correct\": 0,\n        \"direction_total\": 0,\n        \"fixed_variable_total\": 0,\n        \"fixed_variable_violation_rate\": null,\n        \"fixed_variable_violations\": 0,\n        \"forced_prediction_rate\": 1.0,\n        \"forced_prediction_total\": 85,\n        \"forced_predictions\": 85,\n        \"format_denominator\": 85,\n        \"prompt_image_conflict_detection_accuracy\": 0.0,\n        \"rows\": 85,\n        \"schema_valid_rate\": 1.0,\n        \"success_count\": 0,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.0,\n        \"valid_json_rate\": 1.0\n      },\n      \"prompt_sensitivity\": {\n        \"allowed_variable_total\": 59,\n        \"allowed_variable_violation_rate\": 0.9830508474576272,\n        \"allowed_variable_violations\": 58,\n        \"canonical_variable_rate\": 1.0,\n        \"conflict_correct\": 0,\n        \"conflict_total\": 0,\n        \"contradiction_correct\": 0,\n        \"contradiction_detection_accuracy\": null,\n        \"contradiction_total\": 0,\n        \"direction_accuracy\": null,\n        \"direction_correct\": 0,\n        \"direction_total\": 0,\n        \"fixed_variable_total\": 52,\n        \"fixed_variable_violation_rate\": 0.7884615384615384,\n        \"fixed_variable_violations\": 41,\n        \"forced_prediction_rate\": null,\n        \"forced_prediction_total\": 0,\n        \"forced_predictions\": 0,\n        \"format_denominator\": 85,\n        \"prompt_image_conflict_detection_accuracy\": null,\n        \"rows\": 85,\n        \"schema_valid_rate\": 1.0,\n        \"success_count\": 3,\n        \"success_denominator\": 85,\n        \"success_rate\": 0.03529411764705882,\n        \"valid_json_rate\": 1.0\n      }\n    },\n    \"per_probe_type_success_rate\": {\n      \"allowed_variable_constraint\": 0.0,\n      \"contradiction_detection\": 0.0,\n      \"fixed_variable_constraint\": 0.047058823529411764,\n      \"paraphrase_consistency\": 0.08235294117647059,\n      \"physics_causal_question\": null,\n      \"prompt_image_conflict\": 0.0,\n      \"prompt_sensitivity\": 0.03529411764705882\n    }\n  },\n  \"probe_rows\": 512,\n  \"probes_path\": \"profile2setup/data/physics_understanding/probes_budget_512.jsonl\",\n  \"status_counts\": {\n    \"completed\": 494,\n    \"not_applicable\": 18\n  },\n  \"variables_config_path\": \"profile2setup/configs/variables.yaml\",\n  \"warnings\": []\n}\n"
+    }
+  ]
+}

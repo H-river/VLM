@@ -1,0 +1,87 @@
+{
+  "filter_summary": {
+    "common_valid_probe_count": 222,
+    "filter_rule": "Keep only probe IDs where base and fine_tuned rows have status=completed and pass validate_llm_output plus canonical variable validation. Local predictions are sliced to the same IDs.",
+    "out_dir": "profile2setup/results/physics_understanding/budget_512/valid_only_common",
+    "source_predictions": {
+      "base": "profile2setup/results/physics_understanding/budget_512/predictions_base.jsonl",
+      "fine_tuned": "profile2setup/results/physics_understanding/budget_512/predictions_fine_tuned.jsonl",
+      "local": "profile2setup/results/physics_understanding/budget_512/predictions_local.jsonl"
+    },
+    "source_probe_count": 512,
+    "source_probes": "profile2setup/data/physics_understanding/probes_budget_512.jsonl"
+  },
+  "metric_table": [
+    {
+      "base": 1.0,
+      "fine_tuned": 1.0,
+      "local": 1.0,
+      "metric": "valid_json_rate"
+    },
+    {
+      "base": 1.0,
+      "fine_tuned": 1.0,
+      "local": 1.0,
+      "metric": "schema_valid_rate"
+    },
+    {
+      "base": 1.0,
+      "fine_tuned": 1.0,
+      "local": 1.0,
+      "metric": "canonical_variable_rate"
+    },
+    {
+      "base": 1.0,
+      "fine_tuned": 0.875,
+      "local": 0.625,
+      "metric": "paraphrase_consistency_score"
+    },
+    {
+      "base": 0.0,
+      "fine_tuned": 0.0,
+      "local": 0.0,
+      "metric": "prompt_sensitivity_score"
+    },
+    {
+      "base": 0.0,
+      "fine_tuned": 0.0,
+      "local": 0.790273556231003,
+      "metric": "fixed_variable_violation_rate"
+    },
+    {
+      "base": 0.0,
+      "fine_tuned": 0.125,
+      "local": 1.0,
+      "metric": "allowed_variable_violation_rate"
+    },
+    {
+      "base": 1.0,
+      "fine_tuned": 1.0,
+      "local": 0.0,
+      "metric": "contradiction_detection_accuracy"
+    },
+    {
+      "base": 1.0,
+      "fine_tuned": 0.125,
+      "local": 0.0,
+      "metric": "prompt_image_conflict_detection_accuracy"
+    },
+    {
+      "base": 0.18303571428571427,
+      "fine_tuned": 0.6428571428571429,
+      "local": 0.6830357142857143,
+      "metric": "direction_accuracy"
+    },
+    {
+      "base": 0.0,
+      "fine_tuned": 0.38235294117647056,
+      "local": 1.0,
+      "metric": "forced_prediction_rate"
+    }
+  ],
+  "paths": {
+    "base": "profile2setup/results/physics_understanding/budget_512/valid_only_common/eval_base.json",
+    "fine_tuned": "profile2setup/results/physics_understanding/budget_512/valid_only_common/eval_fine_tuned.json",
+    "local": "profile2setup/results/physics_understanding/budget_512/valid_only_common/eval_local.json"
+  }
+}

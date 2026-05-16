@@ -1,0 +1,3484 @@
+{
+  "metadata": {
+    "current_evaluator_behavior": "exact string equality unless --normalize-observed-profile-labels is passed",
+    "data_path": "profile2setup/data/all_modes/test_first50.jsonl",
+    "eval_json_path": "profile2setup/results/llm_api_eval/finetuned_50_eval.json",
+    "observed_fields": [
+      "centroid_x",
+      "centroid_y",
+      "beam_width_x",
+      "beam_width_y",
+      "peak_intensity",
+      "total_intensity"
+    ],
+    "predictions_path": "profile2setup/results/llm_api_predictions/finetuned_50.jsonl"
+  },
+  "predicted_value_counts": {
+    "beam_width_x": {
+      "decrease": 21,
+      "increase": 19
+    },
+    "beam_width_y": {
+      "decrease": 26,
+      "increase": 14
+    },
+    "centroid_x": {
+      "decrease": 23,
+      "increase": 17
+    },
+    "centroid_y": {
+      "decrease": 19,
+      "increase": 21
+    },
+    "peak_intensity": {
+      "decrease": 20,
+      "increase": 20
+    },
+    "total_intensity": {
+      "decrease": 25,
+      "increase": 15
+    }
+  },
+  "rows": [
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_01667",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_00148__rand_02659__2749",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "increase",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "increase"
+      },
+      "record_id": "paired_no_setup_rand_00489__rand_02912__1084",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "increases",
+        "total_intensity": "increases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_02921__rand_02313__2200",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "increases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "approximately_unchanged",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "approximately_unchanged"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_01500__rand_02817__5947",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "approximately_unchanged"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_00203",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "increase"
+      },
+      "record_id": "edit_rand_03233__rand_01113__9246",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "increases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_left",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "increase"
+      },
+      "record_id": "paired_no_setup_rand_00035__rand_02102__6916",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "increases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_01035__rand_00279__2536",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_02565__rand_00965__588",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "increases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_03285",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_02812__rand_02942__9778",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "increase"
+      },
+      "record_id": "paired_no_setup_rand_02310__rand_02037__6658",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_left",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "increase"
+      },
+      "record_id": "edit_rand_00659__rand_03765__1341",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "increases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_04068__rand_02147__7800",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "unchanged",
+        "beam_width_y": "unchanged",
+        "centroid_x": "unchanged",
+        "centroid_y": "unchanged",
+        "peak_intensity": "unchanged",
+        "total_intensity": "unchanged"
+      },
+      "record_id": "abs_rand_04931",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "increase"
+      },
+      "record_id": "edit_rand_01318__rand_04784__893",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_right",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_04614__rand_04468__5590",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "increases",
+        "total_intensity": "increases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "increase"
+      },
+      "record_id": "edit_rand_04373__rand_00872__8022",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_01193__rand_00992__4088",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "increases",
+        "total_intensity": "increases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_04816",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_01621__rand_02188__8890",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "increase"
+      },
+      "record_id": "paired_no_setup_rand_04831__rand_02448__2851",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_right",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "increase"
+      },
+      "record_id": "edit_rand_00421__rand_03366__5617",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_02363__rand_04807__7633",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_03434",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_00710__rand_00823__634",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "increases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "increase",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "increase"
+      },
+      "record_id": "paired_no_setup_rand_03584__rand_02343__2442",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "increases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "increase"
+      },
+      "record_id": "edit_rand_04848__rand_00501__3130",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "increases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "increase",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "increase"
+      },
+      "record_id": "paired_no_setup_rand_04092__rand_02304__8728",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "increases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_00848",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_right",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_00680__rand_02343__5728",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "increases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_04725__rand_01250__2870",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_00449__rand_02584__7149",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "increase"
+      },
+      "record_id": "paired_no_setup_rand_01466__rand_04152__9611",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "increases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_00759",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_left",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "increase",
+        "centroid_x": "increase",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_03527__rand_02649__1113",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_right",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_04204__rand_01015__7619",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "increases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_01373__rand_03317__5419",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "increase"
+      },
+      "record_id": "paired_no_setup_rand_04835__rand_01654__1188",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "increases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_00474",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": false,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "increase",
+        "centroid_x": "decrease",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "increase"
+      },
+      "record_id": "edit_rand_01784__rand_00016__4781",
+      "schema_valid": false,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "increases",
+        "total_intensity": "increases"
+      },
+      "task_type": "edit",
+      "valid_json": false
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_left",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "approximately_unchanged",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "approximately_unchanged"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_04381__rand_00048__916",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "approximately_unchanged",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_right",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_02775__rand_03889__5559",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "increases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_04939__rand_01338__3728",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {},
+      "predicted_observed_profile_change": {
+        "beam_width_x": "N/A",
+        "beam_width_y": "N/A",
+        "centroid_x": "N/A",
+        "centroid_y": "N/A",
+        "peak_intensity": "N/A",
+        "total_intensity": "N/A"
+      },
+      "record_id": "abs_rand_00819",
+      "schema_valid": true,
+      "target_observed_profile_change": null,
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "coordinate_or_direction_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_left",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "increase",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_02290__rand_04434__3811",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "increases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "increases",
+          "normalized_target": "increases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "increase",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "decrease",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_02520__rand_03608__6284",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_left",
+          "normalized_target": "moves_left",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_left"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_down",
+          "normalized_target": "moves_down",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "moves_down"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "decrease",
+        "centroid_y": "decrease",
+        "peak_intensity": "decrease",
+        "total_intensity": "decrease"
+      },
+      "record_id": "edit_rand_01741__rand_01593__7532",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "decreases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_left",
+        "centroid_y": "moves_down",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "canonical_variables": true,
+      "counted_by_evaluator": true,
+      "field_results": {
+        "beam_width_x": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "decreases",
+          "normalized_target": "increases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "increases"
+        },
+        "beam_width_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "centroid_x": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_right",
+          "normalized_target": "moves_right",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_right"
+        },
+        "centroid_y": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "moves_up",
+          "normalized_target": "moves_up",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "moves_up"
+        },
+        "peak_intensity": {
+          "mismatch_cause": "semantic_or_model_mismatch",
+          "normalized_equal": false,
+          "normalized_predicted": "increases",
+          "normalized_target": "decreases",
+          "predicted": "increase",
+          "raw_equal": false,
+          "target": "decreases"
+        },
+        "total_intensity": {
+          "mismatch_cause": "vocabulary_mismatch",
+          "normalized_equal": true,
+          "normalized_predicted": "decreases",
+          "normalized_target": "decreases",
+          "predicted": "decrease",
+          "raw_equal": false,
+          "target": "decreases"
+        }
+      },
+      "predicted_observed_profile_change": {
+        "beam_width_x": "decrease",
+        "beam_width_y": "decrease",
+        "centroid_x": "increase",
+        "centroid_y": "increase",
+        "peak_intensity": "increase",
+        "total_intensity": "decrease"
+      },
+      "record_id": "paired_no_setup_rand_03322__rand_04066__3908",
+      "schema_valid": true,
+      "target_observed_profile_change": {
+        "beam_width_x": "increases",
+        "beam_width_y": "decreases",
+        "centroid_x": "moves_right",
+        "centroid_y": "moves_up",
+        "peak_intensity": "decreases",
+        "total_intensity": "decreases"
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    }
+  ],
+  "summary": {
+    "all_valid_json_cause_counts": {
+      "coordinate_or_direction_mismatch": 10,
+      "missing_target_or_prediction_observed_profile_change": 10,
+      "semantic_or_model_mismatch": 23,
+      "vocabulary_mismatch": 207
+    },
+    "all_valid_json_normalized_accuracy": 0.8625,
+    "all_valid_json_normalized_correct": 207,
+    "all_valid_json_normalized_total": 240,
+    "all_valid_json_raw_accuracy": 0.0,
+    "all_valid_json_raw_correct": 0,
+    "all_valid_json_raw_total": 240,
+    "cause_counts": {
+      "coordinate_or_direction_mismatch": 10,
+      "missing_target_or_prediction_observed_profile_change": 10,
+      "semantic_or_model_mismatch": 22,
+      "vocabulary_mismatch": 202
+    },
+    "diagnosis": "The zero raw accuracy is primarily caused by vocabulary mismatch and exact-string comparison.",
+    "evaluator_counted_rows": 49,
+    "existing_eval_observed_profile_change_accuracy": 0.0,
+    "normalized_accuracy": 0.8632478632478633,
+    "normalized_correct": 202,
+    "normalized_total": 234,
+    "note": "Headline raw/normalized counts mirror evaluator behavior by requiring schema-valid predictions; all_valid_json_* counts include every parseable JSON row.",
+    "raw_accuracy": 0.0,
+    "raw_correct": 0,
+    "raw_total": 234,
+    "recommendation": "observed_profile_change_accuracy should not be used as a headline Stage-1 metric until labels/vocabulary are fixed.",
+    "valid_prediction_rows": 50
+  },
+  "target_value_counts": {
+    "beam_width_x": {
+      "decreases": 20,
+      "increases": 20
+    },
+    "beam_width_y": {
+      "decreases": 23,
+      "increases": 17
+    },
+    "centroid_x": {
+      "moves_left": 23,
+      "moves_right": 17
+    },
+    "centroid_y": {
+      "moves_down": 19,
+      "moves_up": 21
+    },
+    "peak_intensity": {
+      "approximately_unchanged": 1,
+      "decreases": 22,
+      "increases": 17
+    },
+    "total_intensity": {
+      "approximately_unchanged": 1,
+      "decreases": 25,
+      "increases": 14
+    }
+  }
+}

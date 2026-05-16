@@ -1,0 +1,2509 @@
+{
+  "counts": {
+    "data_records": 50,
+    "model_eval_examples": 50,
+    "records_evaluated_for_changed_variables": 20,
+    "records_evaluated_for_fixed_constraints": 0,
+    "records_missing_model_example": 0,
+    "records_missing_predicted_delta": 0,
+    "records_missing_target_delta": 30,
+    "records_with_model_example": 50,
+    "records_with_predicted_delta": 50,
+    "records_with_target_delta": 20
+  },
+  "field_inspection": {
+    "predicted_delta": "model_eval.examples[*].predicted_delta_norm, denormalized with variables config",
+    "record_id": "model_eval.examples[*].record_id matched to data JSONL id",
+    "routed_prediction": "model_eval.examples[*].predicted_routed_setup_physical",
+    "target_delta": "data JSONL target_delta when present, else target_setup - current_setup when both are present",
+    "task_type": "model_eval.examples[*].task_type and data JSONL task_type"
+  },
+  "metadata": {
+    "data_path": "profile2setup/data/all_modes/test_first50.jsonl",
+    "method": "Denormalize model_eval examples[*].predicted_delta_norm to physical units, threshold predicted and target deltas by per-variable tolerance, and compare changed-variable sets plus increase/decrease/unchanged directions.",
+    "model_eval_path": "profile2setup/results/model_eval_same50.json",
+    "stage": "Stage 1A local understanding proxy",
+    "variable_order": [
+      "source_to_lens",
+      "lens_to_camera",
+      "focal_length",
+      "lens_x",
+      "lens_y",
+      "camera_x",
+      "camera_y"
+    ],
+    "variables_config_path": "profile2setup/configs/variables.yaml"
+  },
+  "metrics": {
+    "change_direction_accuracy": 0.8428571428571429,
+    "direction_correct": 118,
+    "direction_total": 140,
+    "f1": 0.9322709163346613,
+    "false_negative": 8,
+    "false_positive": 9,
+    "fixed_variable_accuracy": null,
+    "fixed_variable_total": 0,
+    "fixed_variable_violation_rate": null,
+    "fixed_variable_violations": 0,
+    "per_variable": {
+      "camera_x": {
+        "change_direction_accuracy": 0.85,
+        "direction_correct": 17,
+        "direction_total": 20,
+        "f1": 0.918918918918919,
+        "false_negative": 2,
+        "false_positive": 1,
+        "precision": 0.9444444444444444,
+        "recall": 0.8947368421052632,
+        "true_positive": 17
+      },
+      "camera_y": {
+        "change_direction_accuracy": 0.9,
+        "direction_correct": 18,
+        "direction_total": 20,
+        "f1": 0.9375,
+        "false_negative": 1,
+        "false_positive": 1,
+        "precision": 0.9375,
+        "recall": 0.9375,
+        "true_positive": 15
+      },
+      "focal_length": {
+        "change_direction_accuracy": 1.0,
+        "direction_correct": 20,
+        "direction_total": 20,
+        "f1": 1.0,
+        "false_negative": 0,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "true_positive": 20
+      },
+      "lens_to_camera": {
+        "change_direction_accuracy": 0.85,
+        "direction_correct": 17,
+        "direction_total": 20,
+        "f1": 0.9473684210526316,
+        "false_negative": 0,
+        "false_positive": 2,
+        "precision": 0.9,
+        "recall": 1.0,
+        "true_positive": 18
+      },
+      "lens_x": {
+        "change_direction_accuracy": 0.95,
+        "direction_correct": 19,
+        "direction_total": 20,
+        "f1": 0.9696969696969697,
+        "false_negative": 1,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.9411764705882353,
+        "true_positive": 16
+      },
+      "lens_y": {
+        "change_direction_accuracy": 0.55,
+        "direction_correct": 11,
+        "direction_total": 20,
+        "f1": 0.7878787878787877,
+        "false_negative": 2,
+        "false_positive": 5,
+        "precision": 0.7222222222222222,
+        "recall": 0.8666666666666667,
+        "true_positive": 13
+      },
+      "source_to_lens": {
+        "change_direction_accuracy": 0.8,
+        "direction_correct": 16,
+        "direction_total": 20,
+        "f1": 0.9473684210526316,
+        "false_negative": 2,
+        "false_positive": 0,
+        "precision": 1.0,
+        "recall": 0.9,
+        "true_positive": 18
+      }
+    },
+    "precision": 0.9285714285714286,
+    "recall": 0.936,
+    "true_positive": 117
+  },
+  "missing_model_example_record_ids": [],
+  "records": [
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 1,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.001903507947921753,
+        "camera_y": -0.0006679334789514541,
+        "focal_length": -0.08498501479625703,
+        "lens_to_camera": 0.0005320996418595314,
+        "lens_x": -0.00013127989321947098,
+        "lens_y": 0.0012307535111904144,
+        "source_to_lens": 0.0545478031039238
+      },
+      "prompt": "Match this target beam profile.",
+      "record_id": "abs_rand_01667",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 2,
+      "predicted_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "increase",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.00012291564792394637,
+        "camera_y": 0.00159870707988739,
+        "focal_length": 0.062003304809331895,
+        "lens_to_camera": 0.0690296784043312,
+        "lens_x": -4.855879582464695e-05,
+        "lens_y": 0.0031507748365402224,
+        "source_to_lens": -0.14103229343891144
+      },
+      "prompt": "move the beam left and make the beam smaller",
+      "record_id": "edit_rand_00148__rand_02659__2749",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "increase",
+        "source_to_lens": "decrease"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.0006189287526187958,
+        "camera_y": 0.0018539604090310803,
+        "focal_length": 0.08202356560410612,
+        "lens_to_camera": -0.061427065281499105,
+        "lens_x": -0.0009590416194482482,
+        "lens_y": 0.002485391848606421,
+        "source_to_lens": -0.13893088896859146
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 3,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0014622294008731843,
+        "camera_y": -0.002335090756416321,
+        "focal_length": 0.05384490206837655,
+        "lens_to_camera": 0.10627856880426406,
+        "lens_x": 0.0013408652544021607,
+        "lens_y": -0.0008423155546188355,
+        "source_to_lens": 0.07273185923695565
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "paired_no_setup_rand_00489__rand_02912__1084",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 4,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.00396442973613739,
+        "camera_y": -0.00422173011302948,
+        "focal_length": 0.09612227082252503,
+        "lens_to_camera": -0.06411163449287414,
+        "lens_x": 0.001986345112323761,
+        "lens_y": -0.002803659439086914,
+        "source_to_lens": -0.0734816037118435
+      },
+      "prompt": "move the beam left and move the beam down",
+      "record_id": "edit_rand_02921__rand_02313__2200",
+      "target_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "unchanged",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "decrease"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": -0.004029250710099768,
+        "camera_y": -0.004630406381668715,
+        "focal_length": 0.10281884492734174,
+        "lens_to_camera": -0.008412803507122146,
+        "lens_x": 0.002552144811456831,
+        "lens_y": -0.002754978369254188,
+        "source_to_lens": -0.06287721843711686
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 5,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.001997540473937988,
+        "camera_y": 0.0019119256138801575,
+        "focal_length": 0.0510192646086216,
+        "lens_to_camera": 0.07445137530565261,
+        "lens_x": -0.00040845206379890443,
+        "lens_y": -0.0010472489297389984,
+        "source_to_lens": 0.026897461898624898
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "paired_no_setup_rand_01500__rand_02817__5947",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 6,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.002190393090248108,
+        "camera_y": 0.0019292653799057008,
+        "focal_length": -0.04609307929873467,
+        "lens_to_camera": -0.1802313897013664,
+        "lens_x": -0.0005900662243366241,
+        "lens_y": -0.00020410861819982528,
+        "source_to_lens": 0.05728285163640976
+      },
+      "prompt": "I want this beam profile.",
+      "record_id": "abs_rand_00203",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 7,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0020525933504104616,
+        "camera_y": 0.0004307882934808731,
+        "focal_length": -0.14473083436489106,
+        "lens_to_camera": 0.1638431906700134,
+        "lens_x": -0.00022032131999731065,
+        "lens_y": -0.0011327400505542755,
+        "source_to_lens": 0.03245314657688141
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "edit_rand_03233__rand_01113__9246",
+      "target_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": -0.00202362634837002,
+        "camera_y": 0.0009330689774411783,
+        "focal_length": -0.1388232384504713,
+        "lens_to_camera": 0.15438455273439855,
+        "lens_x": -1.5183515641387438e-06,
+        "lens_y": 0.0006881375630417167,
+        "source_to_lens": 0.10738759390975172
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 8,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0020609071254730224,
+        "camera_y": 0.0011432892680168151,
+        "focal_length": -0.06934617787599565,
+        "lens_to_camera": 0.08867921859025955,
+        "lens_x": -0.0003362371847033501,
+        "lens_y": -0.00017459696531295778,
+        "source_to_lens": 0.0876188300549984
+      },
+      "prompt": "move the beam right and move the beam up",
+      "record_id": "paired_no_setup_rand_00035__rand_02102__6916",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 9,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "unchanged",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0012756096124649048,
+        "camera_y": -8.75756498426199e-05,
+        "focal_length": 0.04705797448754311,
+        "lens_to_camera": -0.08105011612176895,
+        "lens_x": 0.0007928373813629151,
+        "lens_y": -0.0014120754897594453,
+        "source_to_lens": 0.018871662206947803
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "edit_rand_01035__rand_00279__2536",
+      "target_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 3.2050452299734605e-05,
+        "camera_y": 0.00036572293591249916,
+        "focal_length": 0.048507280723177865,
+        "lens_to_camera": -0.14383461113517446,
+        "lens_x": 0.002249777275477679,
+        "lens_y": -0.0006037090771766067,
+        "source_to_lens": 0.06366238559063336
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 10,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0020113863945007324,
+        "camera_y": -0.00132899871468544,
+        "focal_length": -0.05600491851568223,
+        "lens_to_camera": -0.15340335518121717,
+        "lens_x": 0.0009145980477333069,
+        "lens_y": 0.0005486873388290405,
+        "source_to_lens": 0.0637922376394272
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "paired_no_setup_rand_02565__rand_00965__588",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 11,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "unchanged",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "lens_to_camera"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0018461397886276245,
+        "camera_y": 0.0014788520336151123,
+        "focal_length": -0.0006680908240377904,
+        "lens_to_camera": 0.14429332494735717,
+        "lens_x": 0.000247994564473629,
+        "lens_y": -0.000155802670866251,
+        "source_to_lens": 0.0008992776274681091
+      },
+      "prompt": "I want this beam profile.",
+      "record_id": "abs_rand_03285",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 12,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0035574073791503906,
+        "camera_y": -0.002148680090904236,
+        "focal_length": 0.09758988708257677,
+        "lens_to_camera": 0.1936054867506027,
+        "lens_x": 0.002070789456367493,
+        "lens_y": -0.0031195632219314577,
+        "source_to_lens": -0.02305700294673443
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "edit_rand_02812__rand_02942__9778",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "decrease"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.004111260413084193,
+        "camera_y": -0.0026499915743117474,
+        "focal_length": 0.09709038897911085,
+        "lens_to_camera": 0.22345573582345638,
+        "lens_x": 0.004976839744718889,
+        "lens_y": -0.004799561391499474,
+        "source_to_lens": -0.010933071246309045
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 13,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0015577136278152467,
+        "camera_y": -0.0008692993819713593,
+        "focal_length": -0.04571294054389,
+        "lens_to_camera": 0.21031930863857268,
+        "lens_x": -0.0004866175800561905,
+        "lens_y": -0.0013546972274780273,
+        "source_to_lens": 0.014725463278591634
+      },
+      "prompt": "move the beam right and move the beam up",
+      "record_id": "paired_no_setup_rand_02310__rand_02037__6658",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 14,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.004128273725509644,
+        "camera_y": 0.0008305881321430206,
+        "focal_length": 0.09450305610895157,
+        "lens_to_camera": -0.050806995108723635,
+        "lens_x": -0.0027922373414039615,
+        "lens_y": 0.0015879330039024354,
+        "source_to_lens": 0.08671194836497308
+      },
+      "prompt": "move the beam right",
+      "record_id": "edit_rand_00659__rand_03765__1341",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.003949650463217855,
+        "camera_y": 0.0007729771279889525,
+        "focal_length": 0.07628098326955679,
+        "lens_to_camera": -0.07928387374277315,
+        "lens_x": -0.005818287727739606,
+        "lens_y": -6.032027669904995e-06,
+        "source_to_lens": 0.08465601620610275
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 15,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0026381510496139527,
+        "camera_y": -0.0022266476154327395,
+        "focal_length": 0.07371558487415314,
+        "lens_to_camera": -0.17969325125217436,
+        "lens_x": -0.0007913606464862823,
+        "lens_y": -0.0009161321818828583,
+        "source_to_lens": 0.02277094703167677
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "paired_no_setup_rand_04068__rand_02147__7800",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 16,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0005907572954893112,
+        "camera_y": 0.0015984009504318238,
+        "focal_length": 0.05775860846042633,
+        "lens_to_camera": -0.12675872951745987,
+        "lens_x": 0.0003271152153611183,
+        "lens_y": -0.0002973376214504242,
+        "source_to_lens": 0.0072634144686162475
+      },
+      "prompt": "Match this target beam profile.",
+      "record_id": "abs_rand_04931",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 17,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0013975945115089416,
+        "camera_y": -0.001369607448577881,
+        "focal_length": 0.07325856059789658,
+        "lens_to_camera": 0.15632596284151076,
+        "lens_x": 0.0001916666105389595,
+        "lens_y": 0.0006198193430900574,
+        "source_to_lens": 0.19217554181814195
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "edit_rand_01318__rand_04784__893",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.0016213439542521156,
+        "camera_y": -0.000833561956877791,
+        "focal_length": 0.06298683127885196,
+        "lens_to_camera": 0.20051274709462769,
+        "lens_x": 0.0003798139100214203,
+        "lens_y": -0.0006225231500408205,
+        "source_to_lens": 0.25518413730974393
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 18,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "unchanged"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.002299543261528015,
+        "camera_y": -0.0019014678597450256,
+        "focal_length": -0.07391825526952744,
+        "lens_to_camera": -0.14699184715747832,
+        "lens_x": 0.0010801900327205658,
+        "lens_y": -0.0011220658421516418,
+        "source_to_lens": 0.004016890889033675
+      },
+      "prompt": "move the beam left and move the beam down",
+      "record_id": "paired_no_setup_rand_04614__rand_04468__5590",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 19,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.004128495097160339,
+        "camera_y": 0.0025418592095375063,
+        "focal_length": 0.07016959726810455,
+        "lens_to_camera": -0.09925790637731552,
+        "lens_x": -0.0010689641833305358,
+        "lens_y": -0.0005782205164432526,
+        "source_to_lens": 0.12548480182886124
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "edit_rand_04373__rand_00872__8022",
+      "target_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": -0.00394553902598381,
+        "camera_y": 0.002049217351510093,
+        "focal_length": 0.11675133247803234,
+        "lens_to_camera": -0.08900129635533016,
+        "lens_x": -0.0019566276286141896,
+        "lens_y": 0.00021010664338494845,
+        "source_to_lens": 0.311241657228835
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 20,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "unchanged",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0022106266021728518,
+        "camera_y": -0.00035837658494710924,
+        "focal_length": 0.028512707948684695,
+        "lens_to_camera": -0.1835267400741577,
+        "lens_x": -0.0008085779249668121,
+        "lens_y": -0.0011737096309661866,
+        "source_to_lens": 0.012577272858470679
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "paired_no_setup_rand_01193__rand_00992__4088",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 21,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0022048916816711428,
+        "camera_y": -0.0015431819558143617,
+        "focal_length": 0.04376113057136536,
+        "lens_to_camera": -0.17719847619533538,
+        "lens_x": 0.0012112582325935364,
+        "lens_y": -0.0011386771202087404,
+        "source_to_lens": 0.010319913178682328
+      },
+      "prompt": "Match this target beam profile.",
+      "record_id": "abs_rand_04816",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 22,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0024860994815826417,
+        "camera_y": 0.0011083876490592956,
+        "focal_length": 0.12223178923130036,
+        "lens_to_camera": 0.11374866276979445,
+        "lens_x": -0.0017229625582695007,
+        "lens_y": -0.0011654495000839233,
+        "source_to_lens": -0.0413757361471653
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "edit_rand_01621__rand_02188__8890",
+      "target_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": -0.0010734609403499937,
+        "camera_y": 0.0018504546950035609,
+        "focal_length": 0.14348212901344154,
+        "lens_to_camera": 0.08612244367453242,
+        "lens_x": -0.0021588903267760287,
+        "lens_y": -0.0027284582218171805,
+        "source_to_lens": 0.10011276225600835
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 23,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0024711581468582155,
+        "camera_y": -0.0013557176291942596,
+        "focal_length": -0.04247579857707024,
+        "lens_to_camera": 0.08285967826843262,
+        "lens_x": -0.0019021453857421876,
+        "lens_y": -0.0014071278870105744,
+        "source_to_lens": 0.07171256616711617
+      },
+      "prompt": "move the beam right and move the beam up",
+      "record_id": "paired_no_setup_rand_04831__rand_02448__2851",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 24,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "increase",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0013986349403858184,
+        "camera_y": 0.0008427395224571228,
+        "focal_length": 0.05480090975761414,
+        "lens_to_camera": 0.3463520634174347,
+        "lens_x": -0.0006338557451963425,
+        "lens_y": 0.0021711114048957826,
+        "source_to_lens": -0.1312694415450096
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "edit_rand_00421__rand_03366__5617",
+      "target_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "unchanged",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "increase",
+        "source_to_lens": "decrease"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": -0.0017113389573351796,
+        "camera_y": -9.82977861053785e-05,
+        "focal_length": 0.046999564074033384,
+        "lens_to_camera": 0.29264166139670433,
+        "lens_x": -0.0033183966460208344,
+        "lens_y": 0.003020365152829925,
+        "source_to_lens": -0.24005957825892066
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 25,
+      "predicted_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -5.6703172624111175e-05,
+        "camera_y": 0.0003247556984424591,
+        "focal_length": -0.052925353646278386,
+        "lens_to_camera": -0.1072536164522171,
+        "lens_x": -0.003109691262245178,
+        "lens_y": -0.0023883186578750612,
+        "source_to_lens": 0.05977316871285439
+      },
+      "prompt": "move the beam down and make it tighter",
+      "record_id": "paired_no_setup_rand_02363__rand_04807__7633",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 26,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0016904157400131226,
+        "camera_y": -0.001237583041191101,
+        "focal_length": -0.04013290643692017,
+        "lens_to_camera": 0.14542040556669233,
+        "lens_x": -0.0011270284652709962,
+        "lens_y": -0.00028368041664361953,
+        "source_to_lens": 0.060472621768713
+      },
+      "prompt": "I want this beam profile.",
+      "record_id": "abs_rand_03434",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 27,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "increase",
+        "source_to_lens": "unchanged"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0007686633467674256,
+        "camera_y": 0.00247378009557724,
+        "focal_length": 0.07315680295228959,
+        "lens_to_camera": -0.02596737928688526,
+        "lens_x": 0.002013360142707825,
+        "lens_y": 0.0028440973162651064,
+        "source_to_lens": -0.005674254661425948
+      },
+      "prompt": "move the beam up and make the beam smaller",
+      "record_id": "edit_rand_00710__rand_00823__634",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.001985651359541264,
+        "camera_y": 0.0013532452266344212,
+        "focal_length": 0.09503263228147338,
+        "lens_to_camera": -0.022625915890032156,
+        "lens_x": 0.0037392984597732935,
+        "lens_y": 0.0003927342891444593,
+        "source_to_lens": 0.1277884309795831
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 28,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "unchanged",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0008645635843276978,
+        "camera_y": -0.0007521289587020875,
+        "focal_length": 0.07025469839572906,
+        "lens_to_camera": -0.0020013577491045,
+        "lens_x": -0.0008976280689239502,
+        "lens_y": -0.0012750460803508759,
+        "source_to_lens": 0.09632597789168358
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "paired_no_setup_rand_03584__rand_02343__2442",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 29,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0018695847988128662,
+        "camera_y": -0.00012782856076955796,
+        "focal_length": -0.11217682868242264,
+        "lens_to_camera": 0.12027851670980452,
+        "lens_x": -0.002621162831783295,
+        "lens_y": 0.0002280571684241295,
+        "source_to_lens": 0.12133468687534332
+      },
+      "prompt": "move the beam left and make the beam larger",
+      "record_id": "edit_rand_04848__rand_00501__3130",
+      "target_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": -0.0022404540940493827,
+        "camera_y": 0.00024934325418558834,
+        "focal_length": -0.11822877482961335,
+        "lens_to_camera": 0.16273830867157793,
+        "lens_x": -0.004675528474129976,
+        "lens_y": -0.0007051484924346721,
+        "source_to_lens": 0.14761166638217477
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 30,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0014205456376075744,
+        "camera_y": -0.0009998097717761993,
+        "focal_length": -0.07163145214319229,
+        "lens_to_camera": 0.014773135855793953,
+        "lens_x": 0.0005398024320602417,
+        "lens_y": 0.0003961476981639862,
+        "source_to_lens": 0.009622840583324433
+      },
+      "prompt": "move the beam left and move the beam down",
+      "record_id": "paired_no_setup_rand_04092__rand_02304__8728",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 31,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0019960681200027466,
+        "camera_y": 0.0015669468641281129,
+        "focal_length": 0.06437938526272774,
+        "lens_to_camera": -0.17038756996393203,
+        "lens_x": 0.0008914937674999237,
+        "lens_y": 0.0006880860328674316,
+        "source_to_lens": 0.019087486155331134
+      },
+      "prompt": "I want this beam profile.",
+      "record_id": "abs_rand_00848",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 32,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "unchanged"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0013077391684055328,
+        "camera_y": -0.00072284996509552,
+        "focal_length": 0.04084222868084908,
+        "lens_to_camera": -0.2337988358736038,
+        "lens_x": -0.002060089409351349,
+        "lens_y": -0.002890437662601471,
+        "source_to_lens": 0.003381688054651022
+      },
+      "prompt": "move the beam right and make it tighter",
+      "record_id": "edit_rand_00680__rand_02343__5728",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "decrease"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.0005764154990168823,
+        "camera_y": -0.001275425857550869,
+        "focal_length": 0.11547446457676347,
+        "lens_to_camera": -0.28029360820439086,
+        "lens_x": -0.0011315883148325882,
+        "lens_y": -0.0038514516521562223,
+        "source_to_lens": -0.19655345664707707
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 33,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.002415967583656311,
+        "camera_y": 0.0011880459487438203,
+        "focal_length": -0.058967030793428424,
+        "lens_to_camera": 0.04477022930979729,
+        "lens_x": 1.7130905762314798e-05,
+        "lens_y": -0.0007799486517906189,
+        "source_to_lens": 0.09772399887442589
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "paired_no_setup_rand_04725__rand_01250__2870",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 34,
+      "predicted_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "increase",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0002875915467739105,
+        "camera_y": 0.000515060618519783,
+        "focal_length": -0.045940853208303455,
+        "lens_to_camera": 0.20758002579212187,
+        "lens_x": 0.001929821491241455,
+        "lens_y": 0.0008912299275398254,
+        "source_to_lens": -0.032158995419740675
+      },
+      "prompt": "move the beam right and move the beam up",
+      "record_id": "edit_rand_00449__rand_02584__7149",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "unchanged",
+        "source_to_lens": "decrease"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.0006790822284837546,
+        "camera_y": 0.0009699983530690719,
+        "focal_length": -0.049334811488699365,
+        "lens_to_camera": 0.1466834996605636,
+        "lens_x": 0.003518076620759966,
+        "lens_y": -0.00032913599561301406,
+        "source_to_lens": -0.0783180865021268
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 35,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.00157054603099823,
+        "camera_y": -0.001060155898332596,
+        "focal_length": 0.042630044370889665,
+        "lens_to_camera": 0.0630742973089218,
+        "lens_x": 0.0010979336500167847,
+        "lens_y": -0.000800406575202942,
+        "source_to_lens": 0.012814750615507365
+      },
+      "prompt": "move the beam right and make it wider",
+      "record_id": "paired_no_setup_rand_01466__rand_04152__9611",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 36,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0005079821795225144,
+        "camera_y": -0.0006594585925340652,
+        "focal_length": 0.06183495327830315,
+        "lens_to_camera": 0.056444054543972014,
+        "lens_x": 0.0008274505734443665,
+        "lens_y": -0.00036475838720798493,
+        "source_to_lens": 0.05901736244559288
+      },
+      "prompt": "I want this beam profile.",
+      "record_id": "abs_rand_00759",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 37,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.003021503448486328,
+        "camera_y": 0.00015075181424617767,
+        "focal_length": -0.07334659069776535,
+        "lens_to_camera": 0.2518817389011383,
+        "lens_x": 0.0006823959052562713,
+        "lens_y": 0.0011643190383911132,
+        "source_to_lens": 0.2670006036758423
+      },
+      "prompt": "move the beam right",
+      "record_id": "edit_rand_03527__rand_02649__1113",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.002483875948158398,
+        "camera_y": -4.54878843863288e-05,
+        "focal_length": -0.06657863675772152,
+        "lens_to_camera": 0.3307301059522599,
+        "lens_x": 0.0022320301219588513,
+        "lens_y": 0.0023996788313165023,
+        "source_to_lens": 0.3471273374556929
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 38,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "unchanged",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0006923916041851044,
+        "camera_y": 0.0010608825087547302,
+        "focal_length": -0.11234486639499665,
+        "lens_to_camera": 0.17351909339427948,
+        "lens_x": -0.0008146128952503204,
+        "lens_y": -0.00031512665748596193,
+        "source_to_lens": -0.11169387549161912
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "paired_no_setup_rand_04204__rand_01015__7619",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 39,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.004714653968811035,
+        "camera_y": -0.0032296757698059082,
+        "focal_length": -0.005313622858375311,
+        "lens_to_camera": 0.01642665725201368,
+        "lens_x": -0.0009891364574432374,
+        "lens_y": -0.0029146749973297118,
+        "source_to_lens": 0.03223113343119621
+      },
+      "prompt": "move the beam left and move the beam down",
+      "record_id": "edit_rand_01373__rand_03317__5419",
+      "target_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": -0.005644028343948853,
+        "camera_y": -0.0025658163558746425,
+        "focal_length": -0.055228183610537704,
+        "lens_to_camera": 0.0809389389852452,
+        "lens_x": -0.0031123006490199933,
+        "lens_y": -0.0019811881592988944,
+        "source_to_lens": 0.0739801228608109
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 40,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0013057048022747041,
+        "camera_y": -0.0006914077252149582,
+        "focal_length": -0.038006669729948046,
+        "lens_to_camera": -0.02753478333353996,
+        "lens_x": 0.0012615992724895478,
+        "lens_y": -0.0006449982225894928,
+        "source_to_lens": -0.0435208797454834
+      },
+      "prompt": "make it wider",
+      "record_id": "paired_no_setup_rand_04835__rand_01654__1188",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 41,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0019495192766189576,
+        "camera_y": -0.000811595231294632,
+        "focal_length": 0.07521620839834214,
+        "lens_to_camera": 0.059100681543350214,
+        "lens_x": 0.0003560207113623619,
+        "lens_y": 4.390740394592285e-05,
+        "source_to_lens": 0.023413242213428023
+      },
+      "prompt": "I want this beam profile.",
+      "record_id": "abs_rand_00474",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 42,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "increase",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.0016731544733047485,
+        "camera_y": 0.0020049859285354616,
+        "focal_length": -0.14361798584461213,
+        "lens_to_camera": 0.26077024698257445,
+        "lens_x": -0.0016944637298583985,
+        "lens_y": 0.000633072316646576,
+        "source_to_lens": -0.1460102990269661
+      },
+      "prompt": "move the beam up and make the beam larger",
+      "record_id": "edit_rand_01784__rand_00016__4781",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "decrease",
+        "lens_y": "unchanged",
+        "source_to_lens": "decrease"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.001355846922119507,
+        "camera_y": 0.002546480940964192,
+        "focal_length": -0.14992215487497226,
+        "lens_to_camera": 0.3435259205070498,
+        "lens_x": -0.0011699623123306675,
+        "lens_y": 4.1475021544684024e-05,
+        "source_to_lens": -0.040634072439048874
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 43,
+      "predicted_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "unchanged"
+      },
+      "predicted_changed_variables": [
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.00018546047061681746,
+        "camera_y": 0.0007650497853755951,
+        "focal_length": 0.021529223397374155,
+        "lens_to_camera": -0.05353497423231601,
+        "lens_x": -0.0017776962518692018,
+        "lens_y": -0.001325787752866745,
+        "source_to_lens": 0.002158163208514452
+      },
+      "prompt": "move the beam up and make the beam smaller",
+      "record_id": "paired_no_setup_rand_04381__rand_00048__916",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 44,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0026200010776519776,
+        "camera_y": -0.0018440235257148744,
+        "focal_length": 0.16344823837280276,
+        "lens_to_camera": -0.02518101766705513,
+        "lens_x": -0.0010501814782619477,
+        "lens_y": 0.002540446758270264,
+        "source_to_lens": 0.04105487018823624
+      },
+      "prompt": "move the beam left and move the beam down",
+      "record_id": "edit_rand_02775__rand_03889__5559",
+      "target_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "unchanged",
+        "lens_x": "decrease",
+        "lens_y": "increase",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": -0.0028682213863753148,
+        "camera_y": -0.002231594071834575,
+        "focal_length": 0.21451181737540848,
+        "lens_to_camera": -0.006072650245884992,
+        "lens_x": -0.0015702431158311036,
+        "lens_y": 0.004211602412143999,
+        "source_to_lens": 0.11712690588707342
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 45,
+      "predicted_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "unchanged",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.00018613149225711823,
+        "camera_y": 0.002373148798942566,
+        "focal_length": -0.06533990308642387,
+        "lens_to_camera": 0.16624107867479324,
+        "lens_x": 0.0015678479075431823,
+        "lens_y": -0.0004592792987823486,
+        "source_to_lens": -0.042857596278190614
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "paired_no_setup_rand_04939__rand_01338__3728",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 46,
+      "predicted_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "decrease",
+        "focal_length": "decrease",
+        "lens_to_camera": "unchanged",
+        "lens_x": "increase",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_y",
+        "focal_length",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.00032379408180713656,
+        "camera_y": -0.0013734650909900665,
+        "focal_length": -0.05062285959720612,
+        "lens_to_camera": -0.00379186674952507,
+        "lens_x": 0.0012467197179794312,
+        "lens_y": 0.0004177875816822052,
+        "source_to_lens": 0.02377537898719311
+      },
+      "prompt": "Match this target beam profile.",
+      "record_id": "abs_rand_00819",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "absolute",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 47,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "decrease",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.003705116629600525,
+        "camera_y": 0.0026094927191734315,
+        "focal_length": 0.07055388808250428,
+        "lens_to_camera": 0.2444436651468277,
+        "lens_x": 0.00026243841648101806,
+        "lens_y": -0.0009917793273925782,
+        "source_to_lens": -0.04061915874481201
+      },
+      "prompt": "move the beam right and move the beam up",
+      "record_id": "edit_rand_02290__rand_04434__3811",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "increase",
+        "focal_length": "increase",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.004147446595549939,
+        "camera_y": 0.0024932093121241604,
+        "focal_length": 0.02283221516741106,
+        "lens_to_camera": 0.23258651699595823,
+        "lens_x": -0.000296299322140097,
+        "lens_y": -0.0028719281056407667,
+        "source_to_lens": 0.041588972872186825
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 48,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "decrease",
+        "lens_x": "increase",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.0022035552263259886,
+        "camera_y": -0.0004943435490131379,
+        "focal_length": -0.018593552336096764,
+        "lens_to_camera": -0.04698319219052791,
+        "lens_x": 0.0012410693764686586,
+        "lens_y": -0.0012492745220661163,
+        "source_to_lens": 0.022866519168019295
+      },
+      "prompt": "move the beam left and make the beam smaller",
+      "record_id": "paired_no_setup_rand_02520__rand_03608__6284",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 49,
+      "predicted_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": 0.004024651050567627,
+        "camera_y": -0.002140618443489075,
+        "focal_length": 0.02556244030594826,
+        "lens_to_camera": -0.018784150555729864,
+        "lens_x": -0.001166683852672577,
+        "lens_y": 0.0001320941671729088,
+        "source_to_lens": 0.2199065253138542
+      },
+      "prompt": "move the beam right and move the beam down",
+      "record_id": "edit_rand_01741__rand_01593__7532",
+      "target_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "decrease",
+        "focal_length": "increase",
+        "lens_to_camera": "decrease",
+        "lens_x": "decrease",
+        "lens_y": "decrease",
+        "source_to_lens": "increase"
+      },
+      "target_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "target_delta_physical": {
+        "camera_x": 0.0041159288368223445,
+        "camera_y": -0.0023471092313646197,
+        "focal_length": 0.019480025469130476,
+        "lens_to_camera": -0.0959659189144676,
+        "lens_x": -0.0020613266582914977,
+        "lens_y": -0.0026167846136690162,
+        "source_to_lens": 0.35499841006728194
+      },
+      "task_type": "edit",
+      "warnings": []
+    },
+    {
+      "fixed_variable_results": {},
+      "fixed_variables_from_prompt": [],
+      "line_number": 50,
+      "predicted_change_direction": {
+        "camera_x": "decrease",
+        "camera_y": "increase",
+        "focal_length": "decrease",
+        "lens_to_camera": "increase",
+        "lens_x": "increase",
+        "lens_y": "unchanged",
+        "source_to_lens": "decrease"
+      },
+      "predicted_changed_variables": [
+        "camera_x",
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "source_to_lens"
+      ],
+      "predicted_delta_physical": {
+        "camera_x": -0.00161512291431427,
+        "camera_y": 0.0022872825264930725,
+        "focal_length": -0.022472889572381975,
+        "lens_to_camera": 0.10731860935688019,
+        "lens_x": 0.0005844173133373261,
+        "lens_y": -0.00018502774089574814,
+        "source_to_lens": -0.020641413889825346
+      },
+      "prompt": "move the beam left and move the beam up",
+      "record_id": "paired_no_setup_rand_03322__rand_04066__3908",
+      "target_change_direction": null,
+      "target_changed_variables": null,
+      "target_delta_physical": null,
+      "task_type": "paired_no_setup",
+      "warnings": []
+    }
+  ],
+  "tolerances": {
+    "camera_x": 0.0005,
+    "camera_y": 0.0005,
+    "focal_length": 0.005,
+    "lens_to_camera": 0.01,
+    "lens_x": 0.0005,
+    "lens_y": 0.0005,
+    "source_to_lens": 0.01
+  },
+  "warnings": []
+}

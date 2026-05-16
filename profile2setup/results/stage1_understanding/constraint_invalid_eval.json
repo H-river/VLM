@@ -1,0 +1,2045 @@
+{
+  "counts": {
+    "ambiguous_multi_intent": 10,
+    "constraint": 10,
+    "invalid": 10,
+    "llm_prediction_rows_loaded": 0,
+    "local_examples_loaded": 80,
+    "records_total": 30
+  },
+  "metadata": {
+    "evaluated_categories": [
+      "ambiguous_multi_intent",
+      "constraint",
+      "invalid"
+    ],
+    "labels_path": "profile2setup/data/stage1_understanding/stage1_understanding_labels.jsonl",
+    "llm_predictions_path": "profile2setup/results/stage1_understanding/finetuned_llm_predictions.jsonl",
+    "local_model_eval_path": "profile2setup/results/stage1_understanding/local_model_eval.json",
+    "local_rejection_note": "The local PyTorch profile2setup model has no native rejection head by design; native rejection metrics are not applicable.",
+    "variable_order": [
+      "source_to_lens",
+      "lens_to_camera",
+      "focal_length",
+      "lens_x",
+      "lens_y",
+      "camera_x",
+      "camera_y"
+    ],
+    "variables_config_path": "profile2setup/configs/variables.yaml"
+  },
+  "metrics": {
+    "llm": {
+      "constraint_correct": 0,
+      "constraint_following_accuracy": null,
+      "constraint_total": 0,
+      "contradiction_detection_accuracy": null,
+      "contradiction_detections": 0,
+      "contradiction_total": 0,
+      "fixed_variable_total": 0,
+      "fixed_variable_violation_rate": null,
+      "fixed_variable_violations": 0,
+      "invalid_rejection_accuracy": null,
+      "invalid_rejections": 0,
+      "invalid_total": 0
+    },
+    "local": {
+      "ambiguous_forced_prediction_rate": 1.0,
+      "ambiguous_forced_predictions": 10,
+      "ambiguous_total": 10,
+      "constraint_correct": 0,
+      "constraint_following_accuracy": 0.0,
+      "constraint_total": 10,
+      "fixed_variable_total": 33,
+      "fixed_variable_violation_rate": 0.7878787878787878,
+      "fixed_variable_violations": 26,
+      "invalid_forced_prediction_rate": 1.0,
+      "invalid_forced_predictions": 10,
+      "invalid_total": 10,
+      "native_rejection": "not_applicable_no_rejection_head"
+    }
+  },
+  "records": [
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "increase",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "focal_length"
+      ],
+      "expected_fixed_variables": [
+        "camera_x",
+        "camera_y",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "unchanged",
+          "camera_y": "decrease",
+          "focal_length": "increase",
+          "lens_to_camera": "increase",
+          "lens_x": "unchanged",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_y",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "camera_x": false,
+          "camera_y": true,
+          "lens_to_camera": true,
+          "lens_x": false,
+          "lens_y": true,
+          "source_to_lens": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0004412011206150055,
+          "camera_y": -0.0011028680205345154,
+          "focal_length": 0.018055170625448227,
+          "lens_to_camera": 0.11883323699235915,
+          "lens_x": 0.00038969707489013673,
+          "lens_y": -0.0017204732894897461,
+          "source_to_lens": 0.2377680391073227
+        },
+        "warning": null
+      },
+      "prompt": "increase focal_length only",
+      "record_id": "stage1_constraint_001__edit_rand_04519__rand_02308__6678"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "focal_length"
+      ],
+      "expected_fixed_variables": [
+        "camera_x",
+        "camera_y",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "unchanged",
+          "camera_y": "increase",
+          "focal_length": "decrease",
+          "lens_to_camera": "increase",
+          "lens_x": "decrease",
+          "lens_y": "unchanged",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "camera_x": false,
+          "camera_y": true,
+          "lens_to_camera": true,
+          "lens_x": true,
+          "lens_y": false,
+          "source_to_lens": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.00047499346733093263,
+          "camera_y": 0.0023524022698402404,
+          "focal_length": -0.12031857490539552,
+          "lens_to_camera": 0.14873892366886138,
+          "lens_x": -0.0021662444472312927,
+          "lens_y": -0.00017764763161540032,
+          "source_to_lens": 0.05981629863381386
+        },
+        "warning": null
+      },
+      "prompt": "decrease focal_length only",
+      "record_id": "stage1_constraint_002__edit_rand_04144__rand_04082__1684"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "increase",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "lens_x"
+      ],
+      "expected_fixed_variables": [
+        "camera_x",
+        "camera_y"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "unchanged",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "unchanged",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_y",
+          "camera_x"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "camera_x": true,
+          "camera_y": false
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0007721802592277527,
+          "camera_y": 0.00042229722440242766,
+          "focal_length": 0.06274589583277702,
+          "lens_to_camera": -0.04751655422151088,
+          "lens_x": -0.0003595734313130379,
+          "lens_y": -0.0017162579298019408,
+          "source_to_lens": 0.04324972853064537
+        },
+        "warning": null
+      },
+      "prompt": "increase lens_x but keep the camera fixed",
+      "record_id": "stage1_constraint_003__edit_rand_01035__rand_00279__2536"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "decrease",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "lens_y"
+      ],
+      "expected_fixed_variables": [
+        "camera_x",
+        "camera_y"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "increase",
+          "lens_y": "increase",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "camera_x": true,
+          "camera_y": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0014320446252822877,
+          "camera_y": 0.001983798980712891,
+          "focal_length": 0.15511344552040102,
+          "lens_to_camera": -0.20759207189083098,
+          "lens_x": 0.0008273017108440399,
+          "lens_y": 0.002257801651954651,
+          "source_to_lens": 0.08694814369082451
+        },
+        "warning": null
+      },
+      "prompt": "decrease lens_y but keep the camera fixed",
+      "record_id": "stage1_constraint_004__edit_rand_02683__rand_03128__9891"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "increase"
+      },
+      "expected_changed_variables": [
+        "source_to_lens"
+      ],
+      "expected_fixed_variables": [
+        "lens_to_camera"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "decrease",
+          "lens_to_camera": "decrease",
+          "lens_x": "decrease",
+          "lens_y": "decrease",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "lens_to_camera": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0010895705223083496,
+          "camera_y": 0.0038062437772750854,
+          "focal_length": -0.10499700844287874,
+          "lens_to_camera": -0.2851881372928619,
+          "lens_x": -0.0008313395082950592,
+          "lens_y": -0.0008953486382961273,
+          "source_to_lens": -0.11237101927399636
+        },
+        "warning": null
+      },
+      "prompt": "increase source_to_lens and keep lens_to_camera fixed",
+      "record_id": "stage1_constraint_005__edit_rand_03223__rand_02918__4422"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "decrease",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "lens_to_camera"
+      ],
+      "expected_fixed_variables": [
+        "source_to_lens"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "unchanged",
+          "camera_y": "decrease",
+          "focal_length": "increase",
+          "lens_to_camera": "increase",
+          "lens_x": "increase",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "source_to_lens": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": -0.00038142232596874236,
+          "camera_y": -0.0012139960527420045,
+          "focal_length": 0.019216763600707055,
+          "lens_to_camera": 0.040824056938290595,
+          "lens_x": 0.001029394805431366,
+          "lens_y": -0.003391237020492554,
+          "source_to_lens": 0.0941830538213253
+        },
+        "warning": null
+      },
+      "prompt": "decrease lens_to_camera and keep source_to_lens fixed",
+      "record_id": "stage1_constraint_006__edit_rand_03284__rand_03252__7486"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "increase",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "camera_x"
+      ],
+      "expected_fixed_variables": [
+        "camera_y",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "unchanged",
+          "camera_y": "increase",
+          "focal_length": "decrease",
+          "lens_to_camera": "decrease",
+          "lens_x": "decrease",
+          "lens_y": "increase",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "camera_y": true,
+          "focal_length": true,
+          "lens_to_camera": true,
+          "lens_x": true,
+          "lens_y": true,
+          "source_to_lens": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": -0.00010651060938835145,
+          "camera_y": 0.0012153860628604889,
+          "focal_length": -0.039119132012128834,
+          "lens_to_camera": -0.020892347395420074,
+          "lens_x": -0.001716294229030609,
+          "lens_y": 0.0009221540987491608,
+          "source_to_lens": 0.1650722086429596
+        },
+        "warning": null
+      },
+      "prompt": "increase camera_x only",
+      "record_id": "stage1_constraint_007__edit_rand_04769__rand_00645__3505"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "decrease",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "camera_y"
+      ],
+      "expected_fixed_variables": [
+        "camera_x",
+        "focal_length",
+        "lens_to_camera",
+        "lens_x",
+        "lens_y",
+        "source_to_lens"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "unchanged",
+          "camera_y": "decrease",
+          "focal_length": "decrease",
+          "lens_to_camera": "decrease",
+          "lens_x": "unchanged",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_y",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "camera_x": false,
+          "focal_length": true,
+          "lens_to_camera": true,
+          "lens_x": false,
+          "lens_y": true,
+          "source_to_lens": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0002483699396252632,
+          "camera_y": -0.0006256135851144791,
+          "focal_length": -0.026007811054587365,
+          "lens_to_camera": -0.31718025028705593,
+          "lens_x": -0.0004322469234466553,
+          "lens_y": -0.002853674590587616,
+          "source_to_lens": 0.16268443912267685
+        },
+        "warning": null
+      },
+      "prompt": "decrease camera_y only",
+      "record_id": "stage1_constraint_008__edit_rand_02558__rand_00330__8834"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "decrease",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "focal_length"
+      ],
+      "expected_fixed_variables": [
+        "lens_x",
+        "lens_y"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "unchanged",
+          "lens_to_camera": "decrease",
+          "lens_x": "increase",
+          "lens_y": "increase",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "lens_x": true,
+          "lens_y": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.001939643383026123,
+          "camera_y": 0.002460847914218903,
+          "focal_length": 0.0008732848428189755,
+          "lens_to_camera": -0.22774614751338956,
+          "lens_x": 0.00220287948846817,
+          "lens_y": 0.001790250062942505,
+          "source_to_lens": 0.058690354228019714
+        },
+        "warning": null
+      },
+      "prompt": "decrease focal_length without changing lens_x or lens_y",
+      "record_id": "stage1_constraint_009__edit_rand_03845__rand_00201__8701"
+    },
+    {
+      "category": "constraint",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "increase",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [
+        "lens_to_camera"
+      ],
+      "expected_fixed_variables": [
+        "source_to_lens"
+      ],
+      "expected_rejection_reason": "",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "decrease",
+          "focal_length": "decrease",
+          "lens_to_camera": "decrease",
+          "lens_x": "decrease",
+          "lens_y": "unchanged",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": false,
+        "fixed_variable_violations": {
+          "source_to_lens": true
+        },
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0023245829343795776,
+          "camera_y": -0.0018839532136917115,
+          "focal_length": -0.015348762050271036,
+          "lens_to_camera": -0.09374416887760162,
+          "lens_x": -0.0016407369375228882,
+          "lens_y": 0.0004924364984035492,
+          "source_to_lens": 0.17922296673059465
+        },
+        "warning": null
+      },
+      "prompt": "increase lens_to_camera but keep source_to_lens fixed",
+      "record_id": "stage1_constraint_010__edit_rand_04068__rand_02147__7800"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:wavelength",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "decrease",
+          "camera_y": "decrease",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "unchanged",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": -0.003600348114967346,
+          "camera_y": -0.0016836538910865785,
+          "focal_length": 0.11029323399066926,
+          "lens_to_camera": -0.12864138066768646,
+          "lens_x": 0.00031921204179525376,
+          "lens_y": -0.0026239317655563357,
+          "source_to_lens": 0.09916062355041504
+        },
+        "warning": null
+      },
+      "prompt": "change the wavelength",
+      "record_id": "stage1_invalid_001__edit_rand_00170__rand_01454__2361"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:laser_power",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "decrease",
+          "camera_y": "unchanged",
+          "focal_length": "decrease",
+          "lens_to_camera": "decrease",
+          "lens_x": "increase",
+          "lens_y": "increase",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": -0.0005571346879005432,
+          "camera_y": 0.00029456958174705505,
+          "focal_length": -0.07271567881107331,
+          "lens_to_camera": -0.27439819455146786,
+          "lens_x": 0.0012140287756919861,
+          "lens_y": 0.0009183032512664795,
+          "source_to_lens": -0.0136532049626112
+        },
+        "warning": null
+      },
+      "prompt": "increase laser power",
+      "record_id": "stage1_invalid_002__edit_rand_04435__rand_01407__5023"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:beam_color",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "decrease",
+          "focal_length": "decrease",
+          "lens_to_camera": "increase",
+          "lens_x": "increase",
+          "lens_y": "increase",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0016861399412155152,
+          "camera_y": -0.0014450304508209228,
+          "focal_length": -0.11126200765371323,
+          "lens_to_camera": 0.08447958439588546,
+          "lens_x": 0.002060612440109253,
+          "lens_y": 0.0025345519781112672,
+          "source_to_lens": -0.13172921240329744
+        },
+        "warning": null
+      },
+      "prompt": "change the beam color",
+      "record_id": "stage1_invalid_003__edit_rand_01699__rand_03319__8727"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:optical_table_rotation",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "decrease",
+          "lens_to_camera": "decrease",
+          "lens_x": "increase",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0017436890602111816,
+          "camera_y": 0.0005264587551355362,
+          "focal_length": -0.035299631506204604,
+          "lens_to_camera": -0.28528761565685273,
+          "lens_x": 0.0005192967653274536,
+          "lens_y": -0.0013917427361011506,
+          "source_to_lens": 0.046922142058610915
+        },
+        "warning": null
+      },
+      "prompt": "rotate the optical table",
+      "record_id": "stage1_invalid_004__edit_rand_03734__rand_00949__5820"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:laser_source",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "unchanged",
+          "camera_y": "unchanged",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "increase",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0002408818155527115,
+          "camera_y": 0.0004962365627288819,
+          "focal_length": 0.07909226864576341,
+          "lens_to_camera": -0.1274948301911354,
+          "lens_x": 0.0017784624695777894,
+          "lens_y": -0.0015561611652374267,
+          "source_to_lens": 0.03738985285162926
+        },
+        "warning": null
+      },
+      "prompt": "switch to a different laser source",
+      "record_id": "stage1_invalid_005__edit_rand_01492__rand_01782__4658"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:aperture",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "decrease",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "decrease",
+          "lens_y": "decrease",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.003197351932525635,
+          "camera_y": -0.0005729094296693802,
+          "focal_length": 0.10720520406961442,
+          "lens_to_camera": -0.3724034607410431,
+          "lens_x": -0.0025547659993171695,
+          "lens_y": -0.0007618628740310669,
+          "source_to_lens": -0.16422078162431716
+        },
+        "warning": null
+      },
+      "prompt": "increase aperture size",
+      "record_id": "stage1_invalid_006__edit_rand_01193__rand_00992__4088"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:exposure_time",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "decrease",
+          "camera_y": "decrease",
+          "focal_length": "increase",
+          "lens_to_camera": "increase",
+          "lens_x": "increase",
+          "lens_y": "unchanged",
+          "source_to_lens": "unchanged"
+        },
+        "changed_variables": [
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": -0.002432923436164856,
+          "camera_y": -0.0030724704265594482,
+          "focal_length": 0.04929282054305077,
+          "lens_to_camera": 0.061298807412385935,
+          "lens_x": 0.002757968008518219,
+          "lens_y": 4.485726356506348e-05,
+          "source_to_lens": -0.005861965287476778
+        },
+        "warning": null
+      },
+      "prompt": "change the sensor exposure time",
+      "record_id": "stage1_invalid_007__edit_rand_02385__rand_00470__5363"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:optical_element_count",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "decrease",
+          "lens_y": "increase",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.003772381782531738,
+          "camera_y": 0.002534514605998993,
+          "focal_length": 0.06327001288533211,
+          "lens_to_camera": -0.2750296902656555,
+          "lens_x": -0.002086788296699524,
+          "lens_y": 0.0009665416181087494,
+          "source_to_lens": 0.11386706829071046
+        },
+        "warning": null
+      },
+      "prompt": "add a second lens",
+      "record_id": "stage1_invalid_008__edit_rand_03429__rand_02710__7744"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:wavelength_and_power",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "decrease",
+          "camera_y": "increase",
+          "focal_length": "decrease",
+          "lens_to_camera": "increase",
+          "lens_x": "decrease",
+          "lens_y": "decrease",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": -0.0015090397596359253,
+          "camera_y": 0.0035857880115509034,
+          "focal_length": -0.10838986068964006,
+          "lens_to_camera": 0.14164898216724395,
+          "lens_x": -0.0005642878711223602,
+          "lens_y": -0.0013859988749027252,
+          "source_to_lens": -0.11868698447942734
+        },
+        "warning": null
+      },
+      "prompt": "change the wavelength and laser power",
+      "record_id": "stage1_invalid_009__edit_rand_04861__rand_00844__6537"
+    },
+    {
+      "category": "invalid",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "outside_canonical_setup:camera_tilt",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "decrease",
+          "lens_y": "increase",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0039978157281875615,
+          "camera_y": 0.001014072149991989,
+          "focal_length": 0.09420236974954606,
+          "lens_to_camera": -0.06272720158100129,
+          "lens_x": -0.002828014433383942,
+          "lens_y": 0.0013419138193130494,
+          "source_to_lens": 0.10834028944373131
+        },
+        "warning": null
+      },
+      "prompt": "tilt the camera sensor",
+      "record_id": "stage1_invalid_010__edit_rand_00659__rand_03765__1341"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "unchanged",
+          "camera_y": "decrease",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "increase",
+          "lens_y": "decrease",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": -0.00015800160169601442,
+          "camera_y": -0.0009647095799446106,
+          "focal_length": 0.07016417384147644,
+          "lens_to_camera": -0.17282243669033048,
+          "lens_x": 0.0030508192777633667,
+          "lens_y": -0.002003125011920929,
+          "source_to_lens": -0.02027474753558636
+        },
+        "warning": null
+      },
+      "prompt": "move the beam left and right",
+      "record_id": "stage1_ambiguous_multi_intent_001__edit_rand_03489__rand_03518__3929"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "decrease",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "unchanged",
+          "lens_y": "unchanged",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0038376020193099975,
+          "camera_y": -0.0020333343744277955,
+          "focal_length": 0.009085578359663487,
+          "lens_to_camera": -0.20242063969373703,
+          "lens_x": 0.0001740233972668648,
+          "lens_y": 4.8908293247222905e-05,
+          "source_to_lens": -0.10759873911738396
+        },
+        "warning": null
+      },
+      "prompt": "make it wider and smaller",
+      "record_id": "stage1_ambiguous_multi_intent_002__edit_rand_01148__rand_03531__9774"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "decrease",
+          "lens_to_camera": "increase",
+          "lens_x": "decrease",
+          "lens_y": "increase",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0026398558616638184,
+          "camera_y": 0.0012681914269924164,
+          "focal_length": -0.07117080688476562,
+          "lens_to_camera": 0.05490767620503902,
+          "lens_x": -0.0009301270544528962,
+          "lens_y": 0.001255002200603485,
+          "source_to_lens": 0.11408961117267609
+        },
+        "warning": null
+      },
+      "prompt": "keep everything fixed but move the beam",
+      "record_id": "stage1_ambiguous_multi_intent_003__edit_rand_04462__rand_02321__5464"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "unchanged",
+          "focal_length": "increase",
+          "lens_to_camera": "increase",
+          "lens_x": "decrease",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.000588675320148468,
+          "camera_y": 0.0001562299132347107,
+          "focal_length": 0.013903274014592171,
+          "lens_to_camera": 0.19632917970418928,
+          "lens_x": -0.002934822678565979,
+          "lens_y": -0.002315820872783661,
+          "source_to_lens": 0.07496834546327591
+        },
+        "warning": null
+      },
+      "prompt": "move the beam up and down at the same time",
+      "record_id": "stage1_ambiguous_multi_intent_004__edit_rand_04887__rand_00152__5147"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "unchanged",
+          "camera_y": "increase",
+          "focal_length": "increase",
+          "lens_to_camera": "increase",
+          "lens_x": "increase",
+          "lens_y": "decrease",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0001897607445716858,
+          "camera_y": 0.0007704949378967285,
+          "focal_length": 0.006819824203848839,
+          "lens_to_camera": 0.1542855218052864,
+          "lens_x": 0.000558516651391983,
+          "lens_y": -0.0020251071453094485,
+          "source_to_lens": 0.1944252446293831
+        },
+        "warning": null
+      },
+      "prompt": "make the beam tighter but also wider",
+      "record_id": "stage1_ambiguous_multi_intent_005__edit_rand_03569__rand_04412__1654"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "increase",
+          "lens_to_camera": "increase",
+          "lens_x": "unchanged",
+          "lens_y": "decrease",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0038381145000457766,
+          "camera_y": 0.0022735674977302552,
+          "focal_length": 0.015994520969688893,
+          "lens_to_camera": 0.1269318151473999,
+          "lens_x": 0.00033659745007753373,
+          "lens_y": -0.0006354485750198365,
+          "source_to_lens": -0.029950524866580962
+        },
+        "warning": null
+      },
+      "prompt": "change only focal_length and do not change focal_length",
+      "record_id": "stage1_ambiguous_multi_intent_006__edit_rand_00879__rand_01213__3919"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "increase",
+          "lens_to_camera": "increase",
+          "lens_x": "increase",
+          "lens_y": "increase",
+          "source_to_lens": "decrease"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0033234672546386718,
+          "camera_y": 0.0009660016894340515,
+          "focal_length": 0.1088816946744919,
+          "lens_to_camera": 0.2489153170585632,
+          "lens_x": 0.0019856348633766176,
+          "lens_y": 0.0016485729217529297,
+          "source_to_lens": -0.14752775877714158
+        },
+        "warning": null
+      },
+      "prompt": "keep camera fixed but move camera_x",
+      "record_id": "stage1_ambiguous_multi_intent_007__edit_rand_00495__rand_01453__8689"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "increase",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "decrease",
+          "lens_y": "increase",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x",
+          "camera_y"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.0030581949949264526,
+          "camera_y": 0.0005304206013679504,
+          "focal_length": 0.08187484860420227,
+          "lens_to_camera": -0.07307398796081542,
+          "lens_x": -0.0024106079936027525,
+          "lens_y": 0.002965910732746124,
+          "source_to_lens": 0.09871004596352577
+        },
+        "warning": null
+      },
+      "prompt": "increase and decrease lens_to_camera",
+      "record_id": "stage1_ambiguous_multi_intent_008__edit_rand_03809__rand_02157__750"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "increase",
+          "camera_y": "unchanged",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "increase",
+          "lens_y": "unchanged",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "camera_x"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": 0.001202861487865448,
+          "camera_y": -0.00019977740943431856,
+          "focal_length": 0.02576249957084656,
+          "lens_to_camera": -0.12433871030807495,
+          "lens_x": 0.001142738699913025,
+          "lens_y": 0.0001917690932750702,
+          "source_to_lens": 0.1558836579322815
+        },
+        "warning": null
+      },
+      "prompt": "move the beam left, unless it should go right",
+      "record_id": "stage1_ambiguous_multi_intent_009__edit_rand_04075__rand_01459__4554"
+    },
+    {
+      "category": "ambiguous_multi_intent",
+      "expected_change_direction": {
+        "camera_x": "unchanged",
+        "camera_y": "unchanged",
+        "focal_length": "unchanged",
+        "lens_to_camera": "unchanged",
+        "lens_x": "unchanged",
+        "lens_y": "unchanged",
+        "source_to_lens": "unchanged"
+      },
+      "expected_changed_variables": [],
+      "expected_fixed_variables": [],
+      "expected_rejection_reason": "ambiguous_or_conflicting_request",
+      "llm": {
+        "available": false,
+        "change_direction": null,
+        "changed_variables": null,
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "predicted_delta": null,
+        "rejected": null,
+        "rejection_reason": null,
+        "valid": null,
+        "warning": "missing LLM prediction row"
+      },
+      "local": {
+        "change_direction": {
+          "camera_x": "decrease",
+          "camera_y": "unchanged",
+          "focal_length": "increase",
+          "lens_to_camera": "decrease",
+          "lens_x": "decrease",
+          "lens_y": "increase",
+          "source_to_lens": "increase"
+        },
+        "changed_variables": [
+          "source_to_lens",
+          "lens_to_camera",
+          "focal_length",
+          "lens_x",
+          "lens_y",
+          "camera_x"
+        ],
+        "constraint_following_correct": null,
+        "fixed_variable_violations": {},
+        "forced_numerical_prediction": true,
+        "native_rejection": "not_applicable_no_rejection_head",
+        "predicted_delta": {
+          "camera_x": -0.0034997717142105102,
+          "camera_y": -0.0002513508573174477,
+          "focal_length": 0.10008709341287614,
+          "lens_to_camera": -0.1525650307536125,
+          "lens_x": -0.0011972714960575104,
+          "lens_y": 0.0016181087493896485,
+          "source_to_lens": 0.16331542879343033
+        },
+        "warning": null
+      },
+      "prompt": "match the target but keep all setup variables unchanged",
+      "record_id": "stage1_ambiguous_multi_intent_010__edit_rand_02909__rand_01580__7700"
+    }
+  ],
+  "tolerances": {
+    "camera_x": 0.0005,
+    "camera_y": 0.0005,
+    "focal_length": 0.005,
+    "lens_to_camera": 0.01,
+    "lens_x": 0.0005,
+    "lens_y": 0.0005,
+    "source_to_lens": 0.01
+  },
+  "warnings": [
+    "LLM predictions file not found: profile2setup/results/stage1_understanding/finetuned_llm_predictions.jsonl"
+  ]
+}

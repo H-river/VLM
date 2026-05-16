@@ -291,6 +291,45 @@ def _observed_profile_change(record: dict) -> dict[str, str] | None:
     }
 
 
+def normalize_observed_profile_label(field: str, value: Any) -> Any:
+    """Normalize common observed-profile label synonyms for opt-in evaluation."""
+    if not isinstance(value, str):
+        return value
+    text = value.strip().lower().replace("_", " ")
+    if text in {"n/a", "na", "none", "null", "unknown"}:
+        return "unknown"
+    if text in {"unchanged", "approximately unchanged", "same", "no change"}:
+        return "approximately_unchanged"
+
+    if field == "centroid_x":
+        if text in {"left", "moves left", "move left", "decrease", "decreases", "lower"}:
+            return "moves_left"
+        if text in {"right", "moves right", "move right", "increase", "increases", "higher"}:
+            return "moves_right"
+    elif field == "centroid_y":
+        if text in {"up", "moves up", "move up", "increase", "increases", "higher"}:
+            return "moves_up"
+        if text in {"down", "moves down", "move down", "decrease", "decreases", "lower"}:
+            return "moves_down"
+    elif field in {"beam_width_x", "beam_width_y"}:
+        if text in {"wider", "larger", "broader", "increase", "increases"}:
+            return "increases"
+        if text in {"narrower", "tighter", "smaller", "decrease", "decreases"}:
+            return "decreases"
+    elif field in {"peak_intensity", "total_intensity"}:
+        if text in {"brighter", "higher", "larger", "increase", "increases"}:
+            return "increases"
+        if text in {"dimmer", "lower", "smaller", "decrease", "decreases"}:
+            return "decreases"
+    return value
+
+
+def _observed_profile_equal(field: str, predicted: Any, target: Any, *, normalize_labels: bool = False) -> bool:
+    if not normalize_labels:
+        return predicted == target
+    return normalize_observed_profile_label(field, predicted) == normalize_observed_profile_label(field, target)
+
+
 def _mean(values: list[float]) -> float | None:
     return None if not values else float(np.mean(np.asarray(values, dtype=np.float64)))
 
@@ -381,6 +420,7 @@ def evaluate_llm_api_predictions(
     max_viz_examples: int | None = None,
     max_examples: int | None = None,
     repo_root=None,
+    normalize_observed_profile_labels: bool = False,
 ) -> dict[str, Any]:
     """Evaluate LLM API prediction JSONL against original profile2setup records."""
     if simulation_policy not in SIMULATION_POLICIES:
@@ -511,7 +551,12 @@ def evaluate_llm_api_predictions(
             for key, value in target_change.items():
                 if key in predicted_change:
                     observed_total += 1
-                    if predicted_change.get(key) == value:
+                    if _observed_profile_equal(
+                        key,
+                        predicted_change.get(key),
+                        value,
+                        normalize_labels=normalize_observed_profile_labels,
+                    ):
                         observed_correct += 1
 
         sim_metrics = None
@@ -619,6 +664,9 @@ def evaluate_llm_api_predictions(
             "change_direction_accuracy": _rate(direction_correct, direction_total),
             "fixed_variable_accuracy": _rate(fixed_correct, fixed_total),
             "observed_profile_change_accuracy": _rate(observed_correct, observed_total),
+        },
+        "understanding_metric_options": {
+            "normalize_observed_profile_labels": bool(normalize_observed_profile_labels),
         },
         "numerical_metrics": {
             "predicted_delta_mae": delta_mae,

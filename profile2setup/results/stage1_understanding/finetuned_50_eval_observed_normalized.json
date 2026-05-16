@@ -1,0 +1,944 @@
+{
+  "constraint_metrics": {
+    "fixed_variable_violation_rate": null,
+    "legacy_variable_output_count": 0,
+    "noncanonical_output_count": 0
+  },
+  "counts": {
+    "canonical_variables": 50,
+    "evaluated_rows": 50,
+    "json_valid": 50,
+    "legacy_variable_output_count": 0,
+    "matched_data_records": 50,
+    "noncanonical_output_count": 0,
+    "prediction_rows": 50,
+    "schema_valid": 49,
+    "skipped_rows": 0
+  },
+  "data_path": "profile2setup/data/all_modes/test_first50.jsonl",
+  "examples": [
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": 0.0017547547547547547,
+        "camera_y": -0.0017547547547547547,
+        "focal_length": 0.039999999999999994,
+        "lens_to_camera": 0.19999999999999998,
+        "lens_x": 0.0017547547547547547,
+        "lens_y": 0.0017547547547547547,
+        "source_to_lens": 0.06375475475475476
+      },
+      "record_id": "abs_rand_01667",
+      "routed_setup": {
+        "camera_x": 0.0017547547547547547,
+        "camera_y": -0.0017547547547547547,
+        "focal_length": 0.039999999999999994,
+        "lens_to_camera": 0.19999999999999998,
+        "lens_x": 0.0017547547547547547,
+        "lens_y": 0.0017547547547547547,
+        "source_to_lens": 0.06375475475475476
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.0023172624330638726,
+        "camera_y": -0.0007310532262072597,
+        "focal_length": 0.06023549744524757,
+        "lens_to_camera": 0.21164687040737462,
+        "lens_x": 0.0001006285906177116,
+        "lens_y": 0.0025198550754106886,
+        "source_to_lens": 0.41745349825432065
+      },
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": {
+        "camera_x": -0.0028805322295441904,
+        "camera_y": 0.0021466329606023913,
+        "focal_length": 0.059901709589603724,
+        "lens_to_camera": -0.050432387135955964,
+        "lens_x": 0.00017434611862570054,
+        "lens_y": 0.0031949992283091372,
+        "source_to_lens": -0.09086944080909604
+      },
+      "predicted_setup": {
+        "camera_x": -0.0005,
+        "camera_y": 0.002,
+        "focal_length": 0.25000000000000006,
+        "lens_to_camera": 0.19999999999999998,
+        "lens_x": 0.001,
+        "lens_y": 0.0005,
+        "source_to_lens": 0.4007547547547547
+      },
+      "record_id": "edit_rand_00148__rand_02659__2749",
+      "routed_setup": {
+        "camera_x": -0.0005,
+        "camera_y": 0.002,
+        "focal_length": 0.25000000000000006,
+        "lens_to_camera": 0.19999999999999998,
+        "lens_x": 0.001,
+        "lens_y": 0.0005,
+        "source_to_lens": 0.4007547547547547
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": {
+        "camera_x": 0.0006189287526187958,
+        "camera_y": 0.0018539604090310803,
+        "focal_length": 0.08202356560410612,
+        "lens_to_camera": -0.061427065281499105,
+        "lens_x": -0.0009590416194482482,
+        "lens_y": 0.002485391848606421,
+        "source_to_lens": -0.13893088896859146
+      },
+      "target_setup": {
+        "camera_x": 0.002999460982162986,
+        "camera_y": 0.001707327448428689,
+        "focal_length": 0.27212185601450245,
+        "lens_to_camera": 0.18900532185445684,
+        "lens_x": -0.00013338773807394875,
+        "lens_y": -0.00020960737970271643,
+        "source_to_lens": 0.35269330659525927
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": 0.0017452452452452452,
+        "camera_y": -0.0007547547547547548,
+        "focal_length": 0.19999999999999998,
+        "lens_to_camera": 0.18975475475475476,
+        "lens_x": 0.0002452452452452452,
+        "lens_y": 0.002245245245245245,
+        "source_to_lens": 0.2707547547547548
+      },
+      "record_id": "paired_no_setup_rand_00489__rand_02912__1084",
+      "routed_setup": {
+        "camera_x": 0.0017452452452452452,
+        "camera_y": -0.0007547547547547548,
+        "focal_length": 0.19999999999999998,
+        "lens_to_camera": 0.18975475475475476,
+        "lens_x": 0.0002452452452452452,
+        "lens_y": 0.002245245245245245,
+        "source_to_lens": 0.2707547547547548
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.0022460841382967835,
+        "camera_y": -0.001945963642264911,
+        "focal_length": 0.2678812083071225,
+        "lens_to_camera": 0.4478301325585906,
+        "lens_x": -0.0006370756679586315,
+        "lens_y": -0.0009799272285914364,
+        "source_to_lens": 0.2742018764556803
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": {
+        "camera_x": -0.003630428496094675,
+        "camera_y": -0.005142752384098026,
+        "focal_length": 0.17156371245006508,
+        "lens_to_camera": 0.19264911460619713,
+        "lens_x": 0.003175607982228344,
+        "lens_y": -0.0026152607917752963,
+        "source_to_lens": -0.16636768914719374
+      },
+      "predicted_setup": {
+        "camera_x": -0.0017547547547547547,
+        "camera_y": -0.0027547547547547547,
+        "focal_length": 0.2857547547547547,
+        "lens_to_camera": 0.2857547547547547,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": -0.0007547547547547547,
+        "source_to_lens": 0.2707547547547547
+      },
+      "record_id": "edit_rand_02921__rand_02313__2200",
+      "routed_setup": {
+        "camera_x": -0.0017547547547547547,
+        "camera_y": -0.0027547547547547547,
+        "focal_length": 0.2857547547547547,
+        "lens_to_camera": 0.2857547547547547,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": -0.0007547547547547547,
+        "source_to_lens": 0.2707547547547547
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": {
+        "camera_x": -0.004029250710099768,
+        "camera_y": -0.004630406381668715,
+        "focal_length": 0.10281884492734174,
+        "lens_to_camera": -0.008412803507122146,
+        "lens_x": 0.002552144811456831,
+        "lens_y": -0.002754978369254188,
+        "source_to_lens": -0.06287721843711686
+      },
+      "target_setup": {
+        "camera_x": -0.0021535769687598474,
+        "camera_y": -0.002242408752325443,
+        "focal_length": 0.21700988723203135,
+        "lens_to_camera": 0.08469283664143543,
+        "lens_x": 0.00013129158398324193,
+        "lens_y": -0.0008944723322336463,
+        "source_to_lens": 0.3742452254648316
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": -0.0017547547547547547,
+        "camera_y": 0.0017547547547547547,
+        "focal_length": 0.1861861861861862,
+        "lens_to_camera": 0.3743743743743744,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.2967547547547548
+      },
+      "record_id": "paired_no_setup_rand_01500__rand_02817__5947",
+      "routed_setup": {
+        "camera_x": -0.0017547547547547547,
+        "camera_y": 0.0017547547547547547,
+        "focal_length": 0.1861861861861862,
+        "lens_to_camera": 0.3743743743743744,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.2967547547547548
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": -0.0020378856933764016,
+        "camera_y": 0.0021973503433344423,
+        "focal_length": 0.2200745187073044,
+        "lens_to_camera": 0.34056931120548783,
+        "lens_x": -0.0029211974613457645,
+        "lens_y": -0.002879887870025593,
+        "source_to_lens": 0.3593819608533657
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": 0.0007547547547547548,
+        "camera_y": 0.0017547547547547547,
+        "focal_length": 0.0645045045045045,
+        "lens_to_camera": 0.06575475475475474,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.18675475475475475
+      },
+      "record_id": "abs_rand_00203",
+      "routed_setup": {
+        "camera_x": 0.0007547547547547548,
+        "camera_y": 0.0017547547547547547,
+        "focal_length": 0.0645045045045045,
+        "lens_to_camera": 0.06575475475475474,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.18675475475475475
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.0006082365768680874,
+        "camera_y": 0.0015830644037301486,
+        "focal_length": 0.12310444003768622,
+        "lens_to_camera": 0.040466345695912,
+        "lens_x": -0.0023982756090284987,
+        "lens_y": 0.0016969233938918717,
+        "source_to_lens": 0.4740819128638351
+      },
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": {
+        "camera_x": -0.002652585414219933,
+        "camera_y": 0.0011550655985438207,
+        "focal_length": -0.16790823313416486,
+        "lens_to_camera": 0.19467030219337084,
+        "lens_x": -0.000932972380484611,
+        "lens_y": -0.001136505582087732,
+        "source_to_lens": -0.14363316650957322
+      },
+      "predicted_setup": {
+        "camera_x": -0.0007547547547547547,
+        "camera_y": -0.0017547547547547547,
+        "focal_length": 0.05000000000000002,
+        "lens_to_camera": 0.4962452452452452,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.1867547547547547
+      },
+      "record_id": "edit_rand_03233__rand_01113__9246",
+      "routed_setup": {
+        "camera_x": -0.0007547547547547547,
+        "camera_y": -0.0017547547547547547,
+        "focal_length": 0.05000000000000002,
+        "lens_to_camera": 0.4962452452452452,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.1867547547547547
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": {
+        "camera_x": -0.00202362634837002,
+        "camera_y": 0.0009330689774411783,
+        "focal_length": -0.1388232384504713,
+        "lens_to_camera": 0.15438455273439855,
+        "lens_x": -1.5183515641387438e-06,
+        "lens_y": 0.0006881375630417167,
+        "source_to_lens": 0.10738759390975172
+      },
+      "target_setup": {
+        "camera_x": -0.00012579568890484175,
+        "camera_y": -0.001976751375857397,
+        "focal_length": 0.07908499468369361,
+        "lens_to_camera": 0.45595949578627293,
+        "lens_x": 0.001686208783675227,
+        "lens_y": 0.0025793978998842034,
+        "source_to_lens": 0.43777551517407964
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": 0.001001001001001001,
+        "camera_y": 0.001001001001001001,
+        "focal_length": 0.05045045045045045,
+        "lens_to_camera": 0.45645645645645644,
+        "lens_x": 0.001001001001001001,
+        "lens_y": 0.0009999999999999998,
+        "source_to_lens": 0.18975475475475476
+      },
+      "record_id": "paired_no_setup_rand_00035__rand_02102__6916",
+      "routed_setup": {
+        "camera_x": 0.001001001001001001,
+        "camera_y": 0.001001001001001001,
+        "focal_length": 0.05045045045045045,
+        "lens_to_camera": 0.45645645645645644,
+        "lens_x": 0.001001001001001001,
+        "lens_y": 0.0009999999999999998,
+        "source_to_lens": 0.18975475475475476
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.0017868668882483757,
+        "camera_y": 0.0014631236684944987,
+        "focal_length": 0.065385384894691,
+        "lens_to_camera": 0.29077307482251624,
+        "lens_x": 0.00016173232743130986,
+        "lens_y": -0.0005362950581477796,
+        "source_to_lens": 0.38743643736851724
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": {
+        "camera_x": -0.0015448608572488894,
+        "camera_y": 0.0007433506368245369,
+        "focal_length": 0.0687528853327817,
+        "lens_to_camera": -0.1398806993705394,
+        "lens_x": 0.001170187977750778,
+        "lens_y": -8.169739303696272e-05,
+        "source_to_lens": -0.01762758860183422
+      },
+      "predicted_setup": {
+        "camera_x": -0.0005000000000000004,
+        "camera_y": 0.002,
+        "focal_length": 0.25000000000000006,
+        "lens_to_camera": 0.20000000000000004,
+        "lens_x": 0.001,
+        "lens_y": 0.001,
+        "source_to_lens": 0.2507547547547547
+      },
+      "record_id": "edit_rand_01035__rand_00279__2536",
+      "routed_setup": {
+        "camera_x": -0.0005000000000000004,
+        "camera_y": 0.002,
+        "focal_length": 0.25000000000000006,
+        "lens_to_camera": 0.20000000000000004,
+        "lens_x": 0.001,
+        "lens_y": 0.001,
+        "source_to_lens": 0.2507547547547547
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": {
+        "camera_x": 3.2050452299734605e-05,
+        "camera_y": 0.00036572293591249916,
+        "focal_length": 0.048507280723177865,
+        "lens_to_camera": -0.14383461113517446,
+        "lens_x": 0.002249777275477679,
+        "lens_y": -0.0006037090771766067,
+        "source_to_lens": 0.06366238559063336
+      },
+      "target_setup": {
+        "camera_x": 0.0010769113095486236,
+        "camera_y": 0.0016223722990879623,
+        "focal_length": 0.22975439539039622,
+        "lens_to_camera": 0.19604608823536498,
+        "lens_x": 0.002079589297726901,
+        "lens_y": 0.00047798831586035604,
+        "source_to_lens": 0.3320447289472223
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": 0.0017547547547547549,
+        "camera_y": -0.0007547547547547548,
+        "focal_length": 0.06475475475475476,
+        "lens_to_camera": 0.06475475475475476,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.10175475475475475
+      },
+      "record_id": "paired_no_setup_rand_02565__rand_00965__588",
+      "routed_setup": {
+        "camera_x": 0.0017547547547547549,
+        "camera_y": -0.0007547547547547548,
+        "focal_length": 0.06475475475475476,
+        "lens_to_camera": 0.06475475475475476,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.10175475475475475
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.0025870165378424946,
+        "camera_y": -0.0006246893049116284,
+        "focal_length": 0.0740231043126589,
+        "lens_to_camera": 0.052603634962674437,
+        "lens_x": 0.002141023589792552,
+        "lens_y": 0.0019186055317128555,
+        "source_to_lens": 0.24153459948373163
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": -0.001001001001001001,
+        "camera_y": 0.002002002002002002,
+        "focal_length": 0.10010010010010009,
+        "lens_to_camera": 0.4904904904904905,
+        "lens_x": 0.002002002002002002,
+        "lens_y": 0.0009999999999999998,
+        "source_to_lens": 0.2707547547547548
+      },
+      "record_id": "abs_rand_03285",
+      "routed_setup": {
+        "camera_x": -0.001001001001001001,
+        "camera_y": 0.002002002002002002,
+        "focal_length": 0.10010010010010009,
+        "lens_to_camera": 0.4904904904904905,
+        "lens_x": 0.002002002002002002,
+        "lens_y": 0.0009999999999999998,
+        "source_to_lens": 0.2707547547547548
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": -0.002868074264138387,
+        "camera_y": 0.0024725321737064203,
+        "focal_length": 0.1952036919052702,
+        "lens_to_camera": 0.43915436521935347,
+        "lens_x": -0.0012195074610300187,
+        "lens_y": 0.0023775287891587473,
+        "source_to_lens": 0.3950071892076625
+      },
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": {
+        "camera_x": 0.0023864294590112143,
+        "camera_y": -0.0022583277235698014,
+        "focal_length": 0.04218389131852662,
+        "lens_to_camera": 0.15539518189308124,
+        "lens_x": 0.004572356917095388,
+        "lens_y": -0.0009028611905885517,
+        "source_to_lens": -0.20593834151204163
+      },
+      "predicted_setup": {
+        "camera_x": 0.001001001001001001,
+        "camera_y": -0.001001001001001001,
+        "focal_length": 0.10810810810810811,
+        "lens_to_camera": 0.3743743743743744,
+        "lens_x": 0.002002002002002002,
+        "lens_y": 0.0009999999999999998,
+        "source_to_lens": 0.1867547547547547
+      },
+      "record_id": "edit_rand_02812__rand_02942__9778",
+      "routed_setup": {
+        "camera_x": 0.001001001001001001,
+        "camera_y": -0.001001001001001001,
+        "focal_length": 0.10810810810810811,
+        "lens_to_camera": 0.3743743743743744,
+        "lens_x": 0.002002002002002002,
+        "lens_y": 0.0009999999999999998,
+        "source_to_lens": 0.1867547547547547
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": {
+        "camera_x": 0.004111260413084193,
+        "camera_y": -0.0026499915743117474,
+        "focal_length": 0.09709038897911085,
+        "lens_to_camera": 0.22345573582345638,
+        "lens_x": 0.004976839744718889,
+        "lens_y": -0.004799561391499474,
+        "source_to_lens": -0.010933071246309045
+      },
+      "target_setup": {
+        "camera_x": 0.0027258319550739797,
+        "camera_y": -0.001392664851742947,
+        "focal_length": 0.16301460576869234,
+        "lens_to_camera": 0.4424349283047495,
+        "lens_x": 0.0024064848296255032,
+        "lens_y": -0.0028967002009109228,
+        "source_to_lens": 0.3817600250204873
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": 0.0008588588588588589,
+        "camera_y": -0.0008588588588588589,
+        "focal_length": 0.10010010010010009,
+        "lens_to_camera": 0.4454454454454454,
+        "lens_x": 0.000968968968968969,
+        "lens_y": 0.000968968968968969,
+        "source_to_lens": 0.18975475475475476
+      },
+      "record_id": "paired_no_setup_rand_02310__rand_02037__6658",
+      "routed_setup": {
+        "camera_x": 0.0008588588588588589,
+        "camera_y": -0.0008588588588588589,
+        "focal_length": 0.10010010010010009,
+        "lens_to_camera": 0.4454454454454454,
+        "lens_x": 0.000968968968968969,
+        "lens_y": 0.000968968968968969,
+        "source_to_lens": 0.18975475475475476
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.00030934734515123286,
+        "camera_y": -0.0002447328993621144,
+        "focal_length": 0.0894478974240531,
+        "lens_to_camera": 0.3971376817029294,
+        "lens_x": 0.0010509193045726657,
+        "lens_y": -0.0012405125332404514,
+        "source_to_lens": 0.4480851879680188
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": {
+        "camera_x": 0.003194677280670723,
+        "camera_y": 0.0013904775757538224,
+        "focal_length": 0.11335846192627425,
+        "lens_to_camera": 0.10508498502121832,
+        "lens_x": -0.002242353906330942,
+        "lens_y": 0.0016602591098155341,
+        "source_to_lens": 0.13677338518963322
+      },
+      "predicted_setup": {
+        "camera_x": 0.0007547547547547547,
+        "camera_y": 0.0007547547547547547,
+        "focal_length": 0.2607547547547547,
+        "lens_to_camera": 0.2607547547547547,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.2967547547547547
+      },
+      "record_id": "edit_rand_00659__rand_03765__1341",
+      "routed_setup": {
+        "camera_x": 0.0007547547547547547,
+        "camera_y": 0.0007547547547547547,
+        "focal_length": 0.2607547547547547,
+        "lens_to_camera": 0.2607547547547547,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.2967547547547547
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": {
+        "camera_x": 0.003949650463217855,
+        "camera_y": 0.0007729771279889525,
+        "focal_length": 0.07628098326955679,
+        "lens_to_camera": -0.07928387374277315,
+        "lens_x": -0.005818287727739606,
+        "lens_y": -6.032027669904995e-06,
+        "source_to_lens": 0.08465601620610275
+      },
+      "target_setup": {
+        "camera_x": 0.001509727937301887,
+        "camera_y": 0.00013725430698988475,
+        "focal_length": 0.22367727609803723,
+        "lens_to_camera": 0.0763858959907632,
+        "lens_x": -0.002821179066653909,
+        "lens_y": -0.0009115363827306845,
+        "source_to_lens": 0.24463738577122424
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": 0.0027547547547547547,
+        "camera_y": -0.0027547547547547547,
+        "focal_length": 0.18475475475475475,
+        "lens_to_camera": 0.06475475475475476,
+        "lens_x": 0.0027547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.06275475475475475
+      },
+      "record_id": "paired_no_setup_rand_04068__rand_02147__7800",
+      "routed_setup": {
+        "camera_x": 0.0027547547547547547,
+        "camera_y": -0.0027547547547547547,
+        "focal_length": 0.18475475475475475,
+        "lens_to_camera": 0.06475475475475476,
+        "lens_x": 0.0027547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.06275475475475475
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.002999894930653434,
+        "camera_y": -0.002446398601875361,
+        "focal_length": 0.2780748165040221,
+        "lens_to_camera": 0.08993649463469056,
+        "lens_x": 0.0006020573008822996,
+        "lens_y": -0.0021388842273089596,
+        "source_to_lens": 0.3862754201399523
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": -0.0007547547547547548,
+        "camera_y": 0.0017547547547547549,
+        "focal_length": 0.18675475475475475,
+        "lens_to_camera": 0.18675475475475475,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.2707547547547548
+      },
+      "record_id": "abs_rand_04931",
+      "routed_setup": {
+        "camera_x": -0.0007547547547547548,
+        "camera_y": 0.0017547547547547549,
+        "focal_length": 0.18675475475475475,
+        "lens_to_camera": 0.18675475475475475,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.2707547547547548
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": -0.0005705230373576086,
+        "camera_y": 0.0024340855199449073,
+        "focal_length": 0.23109767672657042,
+        "lens_to_camera": 0.10052871456608918,
+        "lens_x": -0.0003220756025970927,
+        "lens_y": 0.0006174093790948356,
+        "source_to_lens": 0.46990112584164145
+      },
+      "task_type": "absolute",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": {
+        "camera_x": 0.0007876212234022625,
+        "camera_y": -0.0007642555577258035,
+        "focal_length": 0.08647482871725368,
+        "lens_to_camera": 0.08625262361049857,
+        "lens_x": 0.00017858860910004517,
+        "lens_y": 0.0006259913895443095,
+        "source_to_lens": 0.05353271972968751
+      },
+      "predicted_setup": {
+        "camera_x": -0.0017547547547547547,
+        "camera_y": 0.0007547547547547547,
+        "focal_length": 0.16075475475475476,
+        "lens_to_camera": 0.16075475475475476,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": -0.0007547547547547547,
+        "source_to_lens": 0.1867547547547547
+      },
+      "record_id": "edit_rand_01318__rand_04784__893",
+      "routed_setup": {
+        "camera_x": -0.0017547547547547547,
+        "camera_y": 0.0007547547547547547,
+        "focal_length": 0.16075475475475476,
+        "lens_to_camera": 0.16075475475475476,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": -0.0007547547547547547,
+        "source_to_lens": 0.1867547547547547
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": {
+        "camera_x": 0.0016213439542521156,
+        "camera_y": -0.000833561956877791,
+        "focal_length": 0.06298683127885196,
+        "lens_to_camera": 0.20051274709462769,
+        "lens_x": 0.0003798139100214203,
+        "lens_y": -0.0006225231500408205,
+        "source_to_lens": 0.25518413730974393
+      },
+      "target_setup": {
+        "camera_x": -0.0009210320239049015,
+        "camera_y": 0.0006854483556027672,
+        "focal_length": 0.13726675731635304,
+        "lens_to_camera": 0.2750148782388839,
+        "lens_x": 0.0009559800556761299,
+        "lens_y": -0.0020032692943398847,
+        "source_to_lens": 0.3884061723348111
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": -0.0027547547547547547,
+        "camera_y": -0.0017547547547547547,
+        "focal_length": 0.05075475475475475,
+        "lens_to_camera": 0.05075475475475475,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.16875475475475474
+      },
+      "record_id": "paired_no_setup_rand_04614__rand_04468__5590",
+      "routed_setup": {
+        "camera_x": -0.0027547547547547547,
+        "camera_y": -0.0017547547547547547,
+        "focal_length": 0.05075475475475475,
+        "lens_to_camera": 0.05075475475475475,
+        "lens_x": 0.0007547547547547548,
+        "lens_y": 0.0007547547547547548,
+        "source_to_lens": 0.16875475475475474
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": -0.0024219505474056924,
+        "camera_y": -0.0011693557344757536,
+        "focal_length": 0.05688211106088533,
+        "lens_to_camera": 0.09172697411597519,
+        "lens_x": -0.0012422265574759655,
+        "lens_y": -0.00016135631394117176,
+        "source_to_lens": 0.1502003371822238
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": {
+        "camera_x": -0.003455478622233966,
+        "camera_y": 0.002115033524868137,
+        "focal_length": 0.10295840823121806,
+        "lens_to_camera": -0.07507744402741201,
+        "lens_x": -0.001242456511880831,
+        "lens_y": -0.0015873158593810942,
+        "source_to_lens": 0.11238806374870108
+      },
+      "predicted_setup": {
+        "camera_x": -0.0017547547547547547,
+        "camera_y": -0.0007547547547547547,
+        "focal_length": 0.2127547547547547,
+        "lens_to_camera": 0.2127547547547547,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.2967547547547547
+      },
+      "record_id": "edit_rand_04373__rand_00872__8022",
+      "routed_setup": {
+        "camera_x": -0.0017547547547547547,
+        "camera_y": -0.0007547547547547547,
+        "focal_length": 0.2127547547547547,
+        "lens_to_camera": 0.2127547547547547,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.2967547547547547
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": {
+        "camera_x": -0.00394553902598381,
+        "camera_y": 0.002049217351510093,
+        "focal_length": 0.11675133247803234,
+        "lens_to_camera": -0.08900129635533016,
+        "lens_x": -0.0019566276286141896,
+        "lens_y": 0.00021010664338494845,
+        "source_to_lens": 0.311241657228835
+      },
+      "target_setup": {
+        "camera_x": -0.002244815158504599,
+        "camera_y": -0.0008205709281127985,
+        "focal_length": 0.22654767900156897,
+        "lens_to_camera": 0.19883090242683654,
+        "lens_x": 4.0583638021395984e-05,
+        "lens_y": 0.0025521772575207973,
+        "source_to_lens": 0.49560834823488864
+      },
+      "task_type": "edit",
+      "valid_json": true
+    },
+    {
+      "predicted_delta": null,
+      "predicted_setup": {
+        "camera_x": 0.0027547547547547547,
+        "camera_y": -0.0007547547547547547,
+        "focal_length": 0.19975475475475474,
+        "lens_to_camera": 0.05075475475475475,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.18975475475475476
+      },
+      "record_id": "paired_no_setup_rand_01193__rand_00992__4088",
+      "routed_setup": {
+        "camera_x": 0.0027547547547547547,
+        "camera_y": -0.0007547547547547547,
+        "focal_length": 0.19975475475475474,
+        "lens_to_camera": 0.05075475475475475,
+        "lens_x": 0.0007547547547547547,
+        "lens_y": 0.0007547547547547547,
+        "source_to_lens": 0.18975475475475476
+      },
+      "schema_valid": true,
+      "simulator_metrics": null,
+      "target_delta": null,
+      "target_setup": {
+        "camera_x": 0.001765195323917993,
+        "camera_y": 5.1256855664913014e-05,
+        "focal_length": 0.1905973219030606,
+        "lens_to_camera": 0.045775633211820654,
+        "lens_x": -0.0024257260340739767,
+        "lens_y": 0.00283013826257731,
+        "source_to_lens": 0.3490305530672221
+      },
+      "task_type": "paired_no_setup",
+      "valid_json": true
+    }
+  ],
+  "format_metrics": {
+    "canonical_variable_rate": 1.0,
+    "schema_valid_rate": 0.98,
+    "valid_json_rate": 1.0
+  },
+  "numerical_metrics": {
+    "per_variable_delta_mae": {
+      "camera_x": 0.001042345690112576,
+      "camera_y": 0.0005650166311856274,
+      "focal_length": 0.03831361309013446,
+      "lens_to_camera": 0.08071024642139359,
+      "lens_x": 0.017281598320279104,
+      "lens_y": 0.01737035148286582,
+      "source_to_lens": 0.15236337665544178
+    },
+    "per_variable_routed_setup_mae": {
+      "camera_x": 0.0007460822307354033,
+      "camera_y": 0.0005481596832735634,
+      "focal_length": 0.03899854021288138,
+      "lens_to_camera": 0.07916096381982843,
+      "lens_x": 0.007919678206473216,
+      "lens_y": 0.007962508284487383,
+      "source_to_lens": 0.1440015303545813
+    },
+    "per_variable_setup_mae": {
+      "camera_x": 0.0007460822307354033,
+      "camera_y": 0.0005481596832735634,
+      "focal_length": 0.03899854021288138,
+      "lens_to_camera": 0.07916096381982843,
+      "lens_x": 0.007919678206473216,
+      "lens_y": 0.007962508284487383,
+      "source_to_lens": 0.1440015303545813
+    },
+    "predicted_delta_mae": 0.04394950689877328,
+    "predicted_setup_mae": 0.03990535182746581,
+    "routed_setup_mae": 0.03990535182746581
+  },
+  "predictions_path": "profile2setup/results/llm_api_predictions/finetuned_50.jsonl",
+  "simulator_metrics": {
+    "centroid_error_px": null,
+    "enabled": false,
+    "errors": [],
+    "normalized_profile_mse": null,
+    "num_success": 0,
+    "sigma_error_px": null,
+    "simulation_policy": "target_base"
+  },
+  "tolerances": {
+    "camera_x": 0.0005,
+    "camera_y": 0.0005,
+    "focal_length": 0.005,
+    "lens_to_camera": 0.01,
+    "lens_x": 0.0005,
+    "lens_y": 0.0005,
+    "source_to_lens": 0.01
+  },
+  "understanding_metric_options": {
+    "normalize_observed_profile_labels": true
+  },
+  "understanding_metrics": {
+    "change_direction_accuracy": 0.7563025210084033,
+    "changed_variable_f1": 0.8999999999999999,
+    "changed_variable_precision": 0.8925619834710744,
+    "changed_variable_recall": 0.907563025210084,
+    "fixed_variable_accuracy": null,
+    "observed_profile_change_accuracy": 0.8632478632478633
+  },
+  "variables_config_path": "profile2setup/configs/variables.yaml",
+  "visualization": {
+    "enabled": false,
+    "errors": [],
+    "index_path": null,
+    "num_saved": 0,
+    "out_dir": "profile2setup/results/llm_api_eval/viz"
+  }
+}

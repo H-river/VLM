@@ -15,8 +15,19 @@ optical_sim/outputs/
 
 # profile2setup generated artifacts
 profile2setup/data/llm_api_sft/
+profile2setup/data/llm_api_sft/images/
+profile2setup/data/llm_api_sft/*upload*.jsonl
 profile2setup/checkpoints/
+profile2setup/checkpoints/**/*.pt
+profile2setup/local_archive/
 
-# profile2setup generated artifacts
-profile2setup/data/llm_api_sft/
-profile2setup/checkpoints/
+# profile2setup generated result clutter
+profile2setup/results/**/images/
+profile2setup/results/**/*smoke*/
+profile2setup/results/**/*dry_run*
+profile2setup/results/prediction_examples*/
+
+# Exception: final qualitative case-study images are intentionally retained.
+!profile2setup/results/stage1_understanding/images/
+!profile2setup/results/stage1_understanding/images/finetuned_llm_25/
+!profile2setup/results/stage1_understanding/images/finetuned_llm_25/**
