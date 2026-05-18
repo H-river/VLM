@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/optics_sft/sft_sample_schema.json",
+  "title": "Optics SFT Raw Training Sample",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "current_image_path",
+    "target_image_path",
+    "metadata",
+    "label"
+  ],
+  "properties": {
+    "current_image_path": {
+      "type": "string",
+      "description": "Path to the current beam image, relative to image_root unless absolute."
+    },
+    "target_image_path": {
+      "type": "string",
+      "description": "Path to the target beam image, relative to image_root unless absolute."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "wavelength_nm",
+        "beam_waist_mm",
+        "lens_focal_length_mm",
+        "source_to_lens_mm",
+        "lens_to_camera_mm"
+      ],
+      "properties": {
+        "wavelength_nm": {
+          "type": "number"
+        },
+        "beam_waist_mm": {
+          "type": "number"
+        },
+        "lens_focal_length_mm": {
+          "type": "number"
+        },
+        "source_to_lens_mm": {
+          "type": "number"
+        },
+        "lens_to_camera_mm": {
+          "type": "number"
+        }
+      }
+    },
+    "label": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "task",
+        "diagnosis",
+        "control_plan",
+        "confidence"
+      ],
+      "properties": {
+        "task": {
+          "type": "string",
+          "enum": [
+            "beam_alignment"
+          ]
+        },
+        "diagnosis": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "centroid_error_px",
+            "size_error",
+            "shape_notes"
+          ],
+          "properties": {
+            "centroid_error_px": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "x",
+                "y"
+              ],
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              }
+            },
+            "size_error": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "sigma_x_ratio",
+                "sigma_y_ratio"
+              ],
+              "properties": {
+                "sigma_x_ratio": {
+                  "type": "number"
+                },
+                "sigma_y_ratio": {
+                  "type": "number"
+                }
+              }
+            },
+            "shape_notes": {
+              "type": "string"
+            }
+          }
+        },
+        "control_plan": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "lens_x_delta_mm",
+            "lens_y_delta_mm",
+            "camera_x_delta_mm",
+            "camera_y_delta_mm"
+          ],
+          "properties": {
+            "lens_x_delta_mm": {
+              "type": "number"
+            },
+            "lens_y_delta_mm": {
+              "type": "number"
+            },
+            "camera_x_delta_mm": {
+              "type": "number"
+            },
+            "camera_y_delta_mm": {
+              "type": "number"
+            }
+          }
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "current_image_path": "path/to/current.png",
+      "target_image_path": "path/to/target.png",
+      "metadata": {
+        "wavelength_nm": 632.8,
+        "beam_waist_mm": 1.0,
+        "lens_focal_length_mm": 100,
+        "source_to_lens_mm": 200,
+        "lens_to_camera_mm": 150
+      },
+      "label": {
+        "task": "beam_alignment",
+        "diagnosis": {
+          "centroid_error_px": {
+            "x": 12.4,
+            "y": -5.1
+          },
+          "size_error": {
+            "sigma_x_ratio": 1.08,
+            "sigma_y_ratio": 0.97
+          },
+          "shape_notes": "Current beam is shifted right and slightly above target."
+        },
+        "control_plan": {
+          "lens_x_delta_mm": -0.04,
+          "lens_y_delta_mm": 0.02,
+          "camera_x_delta_mm": 0.0,
+          "camera_y_delta_mm": 0.0
+        },
+        "confidence": 0.86
+      }
+    }
+  ]
+}
