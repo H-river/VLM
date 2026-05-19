@@ -6,8 +6,8 @@ The script keeps the first executable path intentionally small:
 - load YAML config
 - load JSONL rows
 - load current/target images with PIL
-- build examples containing `images`, `prompt`, `completion`, and TRL-style
-  multimodal `messages`
+- build examples containing `images`, conversational `prompt`, and
+  assistant-only `completion`
 - load Qwen2.5-VL processor/model with 4-bit quantization
 - attach LoRA through TRL's `SFTTrainer`
 - save the trained adapter
@@ -23,6 +23,20 @@ import inspect
 import json
 from pathlib import Path
 from typing import Any, Iterable
+
+
+PROMPT_MODES = {"image_only", "setup_only", "metadata_assisted"}
+LABEL_MODES = {"continuous_control", "direction_classification"}
+SETUP_METADATA_KEYS = (
+    "wavelength_nm",
+    "beam_waist_mm",
+    "lens_focal_length_mm",
+    "source_to_lens_mm",
+    "lens_to_camera_mm",
+)
+ZERO_THRESHOLD_MM = 0.005
+SMALL_THRESHOLD_MM = 0.025
+MEDIUM_THRESHOLD_MM = 0.060
 
 
 def parse_args() -> argparse.Namespace:
@@ -100,51 +114,129 @@ def load_rgb_image(path: Path) -> Any:
     return image
 
 
-def build_prompt(metadata: dict[str, Any]) -> str:
-    return (
+def filtered_metadata(metadata: dict[str, Any], prompt_mode: str) -> dict[str, Any]:
+    if prompt_mode == "metadata_assisted":
+        return metadata
+    if prompt_mode == "setup_only":
+        return {key: metadata[key] for key in SETUP_METADATA_KEYS if key in metadata}
+    if prompt_mode == "image_only":
+        return {}
+    raise ValueError(f"Unsupported prompt_mode: {prompt_mode}. Expected one of {sorted(PROMPT_MODES)}")
+
+
+def direction_label(delta_mm: float) -> str:
+    if abs(delta_mm) < ZERO_THRESHOLD_MM:
+        return "zero"
+    return "positive" if delta_mm > 0 else "negative"
+
+
+def magnitude_class(delta_mm: float) -> str:
+    abs_delta = abs(delta_mm)
+    if abs_delta < ZERO_THRESHOLD_MM:
+        return "zero"
+    if abs_delta < SMALL_THRESHOLD_MM:
+        return "small"
+    if abs_delta < MEDIUM_THRESHOLD_MM:
+        return "medium"
+    return "large"
+
+
+def relative_position_from_direction(direction: str, axis: str) -> str:
+    if direction == "zero":
+        return "center"
+    if axis == "x":
+        return "left" if direction == "positive" else "right"
+    if axis == "y":
+        return "below" if direction == "negative" else "above"
+    raise ValueError(f"Unsupported axis: {axis}")
+
+
+def direction_classification_target(label: dict[str, Any]) -> dict[str, Any]:
+    plan = label.get("control_plan")
+    if not isinstance(plan, dict):
+        raise ValueError("Direction classification labels require label.control_plan.")
+
+    lens_x_delta = float(plan["lens_x_delta_mm"])
+    lens_y_delta = float(plan["lens_y_delta_mm"])
+    lens_x_direction = direction_label(lens_x_delta)
+    lens_y_direction = direction_label(lens_y_delta)
+    return {
+        "task": "beam_alignment_direction_classification",
+        "visual_diagnosis": {
+            "current_relative_to_target_x": relative_position_from_direction(lens_x_direction, "x"),
+            "current_relative_to_target_y": relative_position_from_direction(lens_y_direction, "y"),
+        },
+        "control_intent": {
+            "lens_x_direction": lens_x_direction,
+            "lens_x_magnitude_class": magnitude_class(lens_x_delta),
+            "lens_y_direction": lens_y_direction,
+            "lens_y_magnitude_class": magnitude_class(lens_y_delta),
+        },
+    }
+
+
+def target_for_label_mode(row: dict[str, Any], label_mode: str) -> dict[str, Any]:
+    if label_mode == "continuous_control":
+        return row["label"]
+    if label_mode == "direction_classification":
+        return direction_classification_target(row["label"])
+    raise ValueError(f"Unsupported label_mode: {label_mode}. Expected one of {sorted(LABEL_MODES)}")
+
+
+def build_prompt(
+    metadata: dict[str, Any],
+    prompt_mode: str = "metadata_assisted",
+    label_mode: str = "continuous_control",
+) -> str:
+    if prompt_mode not in PROMPT_MODES:
+        raise ValueError(f"Unsupported prompt_mode: {prompt_mode}. Expected one of {sorted(PROMPT_MODES)}")
+    if label_mode not in LABEL_MODES:
+        raise ValueError(f"Unsupported label_mode: {label_mode}. Expected one of {sorted(LABEL_MODES)}")
+
+    base = (
         "You are controlling an optical beam setup. Compare the current beam "
-        "image with the target beam image. Use the metadata below and return "
-        "only strict JSON containing these top-level keys: task, diagnosis, "
-        "control_plan, confidence. The control_plan must contain numeric "
-        "lens_x_delta_mm, lens_y_delta_mm, camera_x_delta_mm, and "
-        "camera_y_delta_mm values.\n\n"
-        f"metadata: {json.dumps(metadata, sort_keys=True)}"
+        "image with the target beam image. "
+    )
+    direction_schema = (
+        "Return only strict JSON with task, visual_diagnosis, and control_intent. "
+        "visual_diagnosis must classify current_relative_to_target_x as left, center, or right, "
+        "and current_relative_to_target_y as above, center, or below. "
+        "control_intent must classify lens_x_direction and lens_y_direction as negative, zero, or positive, "
+        "and lens_x_magnitude_class and lens_y_magnitude_class as zero, small, medium, or large."
+    )
+
+    if prompt_mode == "image_only":
+        if label_mode == "direction_classification":
+            return (
+                base
+                + "Use only the two images to classify the visual offset and lens correction intent. "
+                + direction_schema
+            )
+        return (
+            base
+            + "Use only the two images to infer the needed optical alignment correction. "
+            + "Return only strict JSON matching the training response format for this task."
+        )
+
+    prompt_metadata = filtered_metadata(metadata, prompt_mode)
+    metadata_label = "setup metadata" if prompt_mode == "setup_only" else "metadata"
+    if label_mode == "direction_classification":
+        return (
+            base
+            + f"Use the {metadata_label} below to classify the visual offset and lens correction intent. "
+            + direction_schema
+            + f"\n\n{metadata_label}: {json.dumps(prompt_metadata, sort_keys=True)}"
+        )
+    return (
+        base
+        + f"Use the {metadata_label} below and return only strict JSON containing these top-level keys: "
+        + "task, diagnosis, control_plan, confidence. The control_plan must contain numeric "
+        + "lens_x_delta_mm, lens_y_delta_mm, camera_x_delta_mm, and camera_y_delta_mm values.\n\n"
+        + f"{metadata_label}: {json.dumps(prompt_metadata, sort_keys=True)}"
     )
 
 
-def build_messages(prompt: str, completion: str) -> list[dict[str, Any]]:
-    return build_messages_with_images(prompt, completion, None)
-
-
-def build_messages_with_images(
-    prompt: str, completion: str | None, images: list[Any] | None
-) -> list[dict[str, Any]]:
-    image_items: list[dict[str, Any]]
-    if images is None:
-        image_items = [{"type": "image"}, {"type": "image"}]
-    else:
-        image_items = [{"type": "image", "image": image} for image in images]
-
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                *image_items,
-                {"type": "text", "text": prompt},
-            ],
-        }
-    ]
-    if completion is not None:
-        messages.append(
-            {
-                "role": "assistant",
-                "content": [{"type": "text", "text": completion}],
-            }
-        )
-    return messages
-
-
-def build_placeholder_messages(prompt: str, completion: str) -> list[dict[str, Any]]:
+def build_prompt_messages(prompt: str) -> list[dict[str, Any]]:
     return [
         {
             "role": "user",
@@ -153,27 +245,36 @@ def build_placeholder_messages(prompt: str, completion: str) -> list[dict[str, A
                 {"type": "image"},
                 {"type": "text", "text": prompt},
             ],
-        },
-        {
-            "role": "assistant",
-            "content": [{"type": "text", "text": completion}],
-        },
+        }
     ]
 
 
-def row_to_sft_example(row: dict[str, Any], image_root: Path) -> dict[str, Any]:
+def build_completion_messages(completion: str) -> list[dict[str, Any]]:
+    return [
+        {
+            "role": "assistant",
+            "content": [{"type": "text", "text": completion}],
+        }
+    ]
+
+
+def row_to_sft_example(
+    row: dict[str, Any],
+    image_root: Path,
+    prompt_mode: str,
+    label_mode: str,
+) -> dict[str, Any]:
     current_path = resolve_image_path(image_root, row["current_image_path"])
     target_path = resolve_image_path(image_root, row["target_image_path"])
     current_image = load_rgb_image(current_path)
     target_image = load_rgb_image(target_path)
-    prompt = build_prompt(row.get("metadata", {}))
-    completion = json.dumps(row["label"], sort_keys=True)
+    prompt = build_prompt(row.get("metadata", {}), prompt_mode, label_mode)
+    completion = json.dumps(target_for_label_mode(row, label_mode), sort_keys=True)
 
     return {
         "images": [current_image, target_image],
-        "prompt": prompt,
-        "completion": completion,
-        "messages": build_placeholder_messages(prompt, completion),
+        "prompt": build_prompt_messages(prompt),
+        "completion": build_completion_messages(completion),
     }
 
 
@@ -237,9 +338,8 @@ def build_sft_config(
 
     # max_length=None is important for VLM SFT: length truncation can remove
     # image tokens and corrupt multimodal samples.
-    # Smoke tests use full-sequence loss because TRL treats this as a language
-    # modeling dataset. Completion-only loss needs a prompt-completion dataset
-    # conversion that TRL recognizes.
+    # Prompt and completion are kept as separate conversational fields so TRL's
+    # VLM collator can mask the prompt when completion_only_loss=True.
     kwargs = {
         "output_dir": output_dir,
         "per_device_train_batch_size": int(train_cfg["per_device_train_batch_size"]),
@@ -305,8 +405,17 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
     output_cfg = config["output"]
     train_cfg = config["training"]
     lora_cfg = config["lora"]
+    output_dir = str(train_cfg.get("output_dir", output_cfg["output_dir"]))
+    if smoke_test:
+        output_dir = f"{output_dir}_smoke"
 
     image_root = Path(data_cfg["image_root"])
+    prompt_mode = str(data_cfg.get("prompt_mode", "metadata_assisted"))
+    label_mode = str(data_cfg.get("label_mode", "continuous_control"))
+    if prompt_mode not in PROMPT_MODES:
+        raise ValueError(f"Unsupported prompt_mode: {prompt_mode}. Expected one of {sorted(PROMPT_MODES)}")
+    if label_mode not in LABEL_MODES:
+        raise ValueError(f"Unsupported label_mode: {label_mode}. Expected one of {sorted(LABEL_MODES)}")
     train_rows = read_jsonl(Path(data_cfg["train_jsonl"]))
     val_path = Path(data_cfg["val_jsonl"])
     val_rows = read_jsonl(val_path) if val_path.exists() else []
@@ -318,8 +427,8 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
     else:
         print(f"Loaded {len(train_rows)} train rows and {len(val_rows)} val rows")
 
-    train_examples = [row_to_sft_example(row, image_root) for row in train_rows]
-    val_examples = [row_to_sft_example(row, image_root) for row in val_rows]
+    train_examples = [row_to_sft_example(row, image_root, prompt_mode, label_mode) for row in train_rows]
+    val_examples = [row_to_sft_example(row, image_root, prompt_mode, label_mode) for row in val_rows]
     train_dataset = examples_to_dataset(train_examples, deps["Dataset"])
     eval_dataset = examples_to_dataset(val_examples, deps["Dataset"]) if val_examples else None
 
@@ -357,7 +466,7 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
     sft_config = build_sft_config(
         deps["SFTConfig"],
         train_cfg,
-        str(output_cfg["output_dir"]),
+        output_dir,
         smoke_test=smoke_test,
         has_eval_dataset=eval_dataset is not None,
     )
@@ -372,8 +481,8 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
         peft_config=peft_config,
     )
     trainer.train()
-    trainer.save_model(str(output_cfg["output_dir"]))
-    print(f"Saved adapter to {output_cfg['output_dir']}")
+    trainer.save_model(output_dir)
+    print(f"Saved adapter to {output_dir}")
 
 
 def main() -> None:

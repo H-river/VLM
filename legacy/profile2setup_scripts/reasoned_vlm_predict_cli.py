@@ -9,14 +9,14 @@ from typing import Any
 
 import numpy as np
 
-from profile2setup.reasoning_vlm.image_rendering import render_reasoning_images
-from profile2setup.reasoning_vlm.intent_features import (
+from legacy.reasoning_vlm.image_rendering import render_reasoning_images
+from legacy.reasoning_vlm.intent_features import (
     build_allowed_change_mask,
     build_fixed_change_mask,
     build_relevance_prior,
     extract_canonical_prompt,
 )
-from profile2setup.reasoning_vlm.vlm_parser import build_vlm_user_payload, get_reasoning_command
+from legacy.reasoning_vlm.vlm_parser import build_vlm_user_payload, get_reasoning_command
 from profile2setup.schema import VARIABLE_ORDER, validate_setup_dict
 
 

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 
-from profile2setup.reasoning_vlm import (
+from legacy.reasoning_vlm import (
     CANONICAL_VARIABLE_ORDER,
     build_allowed_change_mask,
     build_fixed_change_mask,

@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 
-from profile2setup.evaluation.reasoning_vlm_eval import evaluate_reasoning_vlm_jsonl
+from legacy.reasoning_vlm.evaluation.reasoning_vlm_eval import evaluate_reasoning_vlm_jsonl
 
 
 def parse_args() -> argparse.Namespace:

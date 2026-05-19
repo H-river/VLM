@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 
-from profile2setup.data_prep.build_vlm_sft_dataset import build_vlm_sft_dataset
+from legacy.reasoning_vlm.data_prep.build_vlm_sft_dataset import build_vlm_sft_dataset
 
 
 def parse_args() -> argparse.Namespace:

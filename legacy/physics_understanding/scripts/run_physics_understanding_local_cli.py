@@ -18,7 +18,7 @@ from profile2setup.evaluation.param_metrics import (
     denormalize_setup_vector,
     load_tolerances,
 )
-from profile2setup.evaluation.physics_understanding_schema import (
+from legacy.physics_understanding.evaluation.physics_understanding_schema import (
     CANONICAL_VARIABLE_ORDER,
     load_probe_jsonl,
 )

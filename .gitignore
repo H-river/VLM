@@ -1,13 +1,16 @@
 # Python cache/artifacts
 __pycache__/
 *.py[cod]
+*.pyc
 *.pyo
 *.pyd
 .pytest_cache/
+.cache/
 
 # Local envs
 .venv/
 venv/
+optical_sim/venv/
 .env
 
 # Large generated simulation outputs (do not commit)
@@ -17,17 +20,51 @@ optical_sim/outputs/
 profile2setup/data/llm_api_sft/
 profile2setup/data/llm_api_sft/images/
 profile2setup/data/llm_api_sft/*upload*.jsonl
+profile2setup/data/all_modes/test_first*.jsonl
+profile2setup/data/physics_understanding/
+profile2setup/data/stage1_understanding/
 profile2setup/checkpoints/
 profile2setup/checkpoints/**/*.pt
 profile2setup/local_archive/
 
 # profile2setup generated result clutter
 profile2setup/results/**/images/
+profile2setup/results/*smoke*/
 profile2setup/results/**/*smoke*/
+profile2setup/results/*dry_run*
 profile2setup/results/**/*dry_run*
+profile2setup/results/*same10*
+profile2setup/results/**/*same10*
+profile2setup/results/*finetuned_small*
+profile2setup/results/**/*finetuned_small*
 profile2setup/results/prediction_examples*/
+profile2setup/results/prediction_examples/
+profile2setup/results/reasoned_vlm_prediction_smoke/
+profile2setup/results/llm_api_render_smoke/
+profile2setup/results/llm_api_setup_experiment/
+
+# legacy generated artifacts retained locally when present
+legacy/**/__pycache__/
+legacy/physics_understanding/data/
+legacy/physics_understanding/results/**/rendered_images*/
+legacy/physics_understanding/results/**/*smoke*/
 
 # Exception: final qualitative case-study images are intentionally retained.
 !profile2setup/results/stage1_understanding/images/
 !profile2setup/results/stage1_understanding/images/finetuned_llm_25/
 !profile2setup/results/stage1_understanding/images/finetuned_llm_25/**
+
+# optics_sft generated data and training artifacts
+data/optics_sft/images/
+data/optics_sft/*.jsonl
+outputs/
+!outputs/
+outputs/*
+!outputs/.gitkeep
+runs/
+checkpoints/
+*.safetensors
+*.pt
+*.pth
+wandb/
+.cache/

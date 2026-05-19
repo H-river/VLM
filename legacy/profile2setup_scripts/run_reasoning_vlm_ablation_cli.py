@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 
-from profile2setup.evaluation.reasoning_vlm_ablation import (
+from legacy.reasoning_vlm.evaluation.reasoning_vlm_ablation import (
     ABLATION_MODES,
     run_reasoning_vlm_ablation,
 )

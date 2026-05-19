@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 
-from profile2setup.reasoning_vlm.image_rendering import render_reasoning_images
+from legacy.reasoning_vlm.image_rendering import render_reasoning_images
 
 
 def parse_args() -> argparse.Namespace:

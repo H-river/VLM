@@ -1,6 +1,7 @@
 # profile2setup
 
-`profile2setup` is now centered on an LLM-API optical setup understanding experiment.
+`profile2setup` is centered on the multimodal LLM/API + SFT optical setup
+understanding workflow.
 
 The main question is whether a multimodal LLM API, after supervised fine-tuning
 (SFT), can read a user prompt plus beam profile images and predict a strict JSON
@@ -26,6 +27,27 @@ exactly these variables in this order:
 
 Do not introduce or accept legacy setup names such as `alignment`,
 `alignment_x`, or `alignment_y`.
+
+## Current Main Workflow
+
+The main workflow is:
+
+1. Check repository/data integrity.
+2. Render LLM/API profile images from `intensity.npy`.
+3. Build multimodal SFT JSONL data.
+4. Audit the SFT data.
+5. Create and check an SFT job.
+6. Run LLM/API inference.
+7. Evaluate predictions.
+
+The core current code lives in:
+
+- `profile2setup/llm_api/`
+- `profile2setup/data_prep/build_llm_api_sft_dataset.py`
+- `profile2setup/evaluation/llm_api_eval.py`
+- `profile2setup/evaluation/llm_api_visualization.py`
+- `profile2setup/experiments/llm_api_setup_understanding.py`
+- the LLM/API CLI modules in `profile2setup/scripts/`
 
 ## LLM/API Pipeline
 
@@ -84,6 +106,13 @@ python - <<'PY'
 from profile2setup.llm_api import schema, validator, image_rendering, sft_records
 print("llm_api imports OK")
 PY
+```
+
+Audit an SFT JSONL file:
+
+```bash
+python -m profile2setup.scripts.audit_llm_sft_data_cli \
+  --jsonl profile2setup/data/llm_api_sft/train.jsonl
 ```
 
 ## Build LLM/API SFT Data
@@ -162,6 +191,13 @@ python -m profile2setup.scripts.create_llm_api_sft_job_cli \
   --dry-run
 ```
 
+Check saved SFT job metadata:
+
+```bash
+python -m profile2setup.scripts.check_llm_api_sft_job_cli \
+  --job-metadata profile2setup/results/llm_api_sft_jobs/job.json
+```
+
 Evaluate predictions:
 
 ```bash
@@ -177,7 +213,8 @@ write API keys into source files, JSONL data, job metadata, notebooks, or docs.
 
 ## Local Baseline
 
-The local PyTorch model remains available as a baseline:
+The local PyTorch model is retained as a baseline/local-model tool, not the
+current main method:
 
 ```bash
 python -m profile2setup.scripts.evaluate_cli \
@@ -188,3 +225,6 @@ python -m profile2setup.scripts.evaluate_cli \
 
 Profiles for local training and LLM/API rendering are loaded from
 `intensity.npy`; do not use `beam_profile.png` as the training image source.
+
+Legacy text-to-discrete-bin, reasoning VLM, one-off stage/debug, and
+physics-understanding side-experiment files are under `legacy/`.

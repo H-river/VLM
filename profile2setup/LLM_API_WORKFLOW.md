@@ -25,8 +25,10 @@ profile2setup/
   evaluation/llm_api_eval.py
   experiments/llm_api_setup_understanding.py
   scripts/
+    check_v2_integrity_cli.py
     render_llm_api_images_cli.py
     build_llm_api_sft_dataset_cli.py
+    audit_llm_sft_data_cli.py
     run_llm_api_inference_cli.py
     create_llm_api_sft_job_cli.py
     check_llm_api_sft_job_cli.py
@@ -34,8 +36,25 @@ profile2setup/
     run_llm_api_setup_experiment_cli.py
 ```
 
-`reasoning_vlm/` is kept separate for older/local reasoning experiments.
-Shared concepts should be refactored deliberately rather than duplicated.
+Older/local reasoning experiments are preserved under `legacy/reasoning_vlm/`.
+Current development should stay on `profile2setup/llm_api/` unless deliberately
+working on legacy reproduction.
+
+## Workflow Order
+
+Run the pieces in this order for the current main path:
+
+1. `check_v2_integrity_cli`
+2. `render_llm_api_images_cli`
+3. `build_llm_api_sft_dataset_cli`
+4. `audit_llm_sft_data_cli`
+5. `create_llm_api_sft_job_cli`
+6. `check_llm_api_sft_job_cli`
+7. `run_llm_api_inference_cli`
+8. `evaluate_llm_api_predictions_cli`
+
+The experiment orchestrator `run_llm_api_setup_experiment_cli` wraps the same
+workflow when you want a single command for a controlled run.
 
 ## Canonical Output Contract
 
@@ -137,6 +156,13 @@ python -m profile2setup.scripts.build_llm_api_sft_dataset_cli \
   --strict
 ```
 
+Audit a built SFT file before upload:
+
+```bash
+python -m profile2setup.scripts.audit_llm_sft_data_cli \
+  --jsonl profile2setup/data/llm_api_sft/train.jsonl
+```
+
 Train subset:
 
 ```bash
@@ -205,6 +231,13 @@ python -m profile2setup.scripts.create_llm_api_sft_job_cli \
 For real API use, configure credentials through environment variables such as
 `OPENAI_API_KEY`. Never commit API keys.
 
+Check a saved job metadata file:
+
+```bash
+python -m profile2setup.scripts.check_llm_api_sft_job_cli \
+  --job-metadata profile2setup/results/llm_api_sft_jobs/job.json
+```
+
 ## Evaluate Predictions
 
 ```bash
@@ -218,6 +251,9 @@ python -m profile2setup.scripts.evaluate_llm_api_predictions_cli \
 Add `--run-simulator` only when simulator-backed profile agreement is intended.
 
 ## Local Baseline
+
+The local PyTorch path is retained only as a baseline/local-model comparison
+surface. It is not the current main method.
 
 ```bash
 python -m profile2setup.scripts.evaluate_cli \

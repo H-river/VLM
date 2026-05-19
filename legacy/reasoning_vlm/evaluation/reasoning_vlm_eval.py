@@ -6,8 +6,8 @@ import json
 from pathlib import Path
 from typing import Any
 
-from profile2setup.reasoning_vlm.validator import validate_reasoning_command
-from profile2setup.reasoning_vlm.vlm_parser import parse_vlm_json
+from legacy.reasoning_vlm.validator import validate_reasoning_command
+from legacy.reasoning_vlm.vlm_parser import parse_vlm_json
 
 
 _METRIC_NAMES = (

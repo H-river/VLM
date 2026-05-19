@@ -18,7 +18,7 @@ except ModuleNotFoundError as exc:
     ) from exc
 
 from profile2setup.models import Profile2SetupModel
-from profile2setup.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
+from legacy.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
 from profile2setup.schema import VARIABLE_ORDER, compute_delta_setup
 from profile2setup.training.dataset import Profile2SetupDataset, profile2setup_collate_fn
 from profile2setup.training.losses import compute_profile2setup_loss

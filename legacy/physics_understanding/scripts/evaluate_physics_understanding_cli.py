@@ -6,7 +6,7 @@ import argparse
 import json
 from pathlib import Path
 
-from profile2setup.evaluation.physics_understanding_eval import evaluate_physics_understanding
+from legacy.physics_understanding.evaluation.physics_understanding_eval import evaluate_physics_understanding
 
 
 def parse_args() -> argparse.Namespace:

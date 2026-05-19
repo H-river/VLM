@@ -7,7 +7,7 @@ from typing import Any
 import torch
 from torch import nn
 
-from profile2setup.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
+from legacy.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
 from profile2setup.schema import VARIABLE_ORDER
 
 from .heads import MultiVariableHeads

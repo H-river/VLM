@@ -8,8 +8,8 @@ from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
-from profile2setup.reasoning_vlm.image_rendering import render_reasoning_images
-from profile2setup.reasoning_vlm.sft_dataset import build_sft_record
+from legacy.reasoning_vlm.image_rendering import render_reasoning_images
+from legacy.reasoning_vlm.sft_dataset import build_sft_record
 
 NEGATIVE_PROMPTS = (
     "move the beam left and right",

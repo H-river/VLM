@@ -1,7 +1,7 @@
 # Lang2Setup — Full Workflow Summary
 
 > **Project:** Language-to-Optical-Setup Pipeline  
-> **Location:** `/home/jiamo/VLM/optical_sim/lang2setup/`  
+> **Location:** `/home/jiamo/VLM/legacy/lang2setup/`  
 > **Date:** April 2026  
 
 ---

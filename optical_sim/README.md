@@ -17,7 +17,7 @@ Laser source (TEM₀₀ Gaussian)
     Intensity image (H × W)
 ```
 
-The simulator generates realistic 2-D beam intensity profiles on a virtual camera sensor, with configurable misalignment (lateral offset, tilt, defocus). It is used to produce training data for the sibling [`lang2setup`](../lang2setup/) pipeline.
+The simulator generates realistic 2-D beam intensity profiles on a virtual camera sensor, with configurable misalignment (lateral offset, tilt, defocus). It is used to produce data for the main [`profile2setup`](../profile2setup/) project. The older `lang2setup` pipeline is preserved under [`legacy/lang2setup`](../legacy/lang2setup/).
 
 ## Features
 

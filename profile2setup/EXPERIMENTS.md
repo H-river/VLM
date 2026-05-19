@@ -1,4 +1,8 @@
-# profile2setup v2 Experiments
+# profile2setup Experiments
+
+The current main experiment path is the LLM/API + SFT workflow documented in
+`LLM_API_WORKFLOW.md`. The local PyTorch model described here is retained as a
+baseline/local-model comparison surface.
 
 ## Baseline Experiment
 
@@ -32,10 +36,11 @@ Training history is saved in each run directory as `history.csv` and
 `history.json`, with `loss_curve.png`, `component_loss_curves.png`, and
 `mae_curves.png` when the corresponding metrics are available.
 
-Qualitative prediction examples can be generated with:
+Legacy qualitative prediction examples can still be generated from the moved
+script, but this is not part of the current main LLM/API path:
 
 ```bash
-python -m profile2setup.scripts.visualize_predictions_cli \
+python legacy/profile2setup_scripts/visualize_predictions_cli.py \
   --checkpoint profile2setup/checkpoints/profile2setup_v2_all_modes_baseline/best.pt \
   --data profile2setup/data/all_modes/test.jsonl \
   --variables-config profile2setup/configs/variables.yaml \

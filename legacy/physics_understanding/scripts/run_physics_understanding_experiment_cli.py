@@ -175,7 +175,7 @@ def _build_probe_command(
     return [
         sys.executable,
         "-m",
-        "profile2setup.scripts.build_physics_understanding_probes_cli",
+        "legacy.physics_understanding.scripts.build_physics_understanding_probes_cli",
         "--data",
         str(data),
         "--out",
@@ -204,7 +204,7 @@ def _llm_command(
     cmd = [
         sys.executable,
         "-m",
-        "profile2setup.scripts.run_physics_understanding_llm_cli",
+        "legacy.physics_understanding.scripts.run_physics_understanding_llm_cli",
         "--model",
         model,
         "--probes",
@@ -242,7 +242,7 @@ def _local_command(
     cmd = [
         sys.executable,
         "-m",
-        "profile2setup.scripts.run_physics_understanding_local_cli",
+        "legacy.physics_understanding.scripts.run_physics_understanding_local_cli",
         "--checkpoint",
         str(checkpoint),
         "--probes",
@@ -269,7 +269,7 @@ def _eval_command(*, predictions: Path, probes: Path, out: Path, variables_confi
     return [
         sys.executable,
         "-m",
-        "profile2setup.scripts.evaluate_physics_understanding_cli",
+        "legacy.physics_understanding.scripts.evaluate_physics_understanding_cli",
         "--predictions",
         str(predictions),
         "--probes",

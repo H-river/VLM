@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 from pathlib import Path
 from typing import Any
 
@@ -15,10 +16,20 @@ CONTROL_KEYS = (
     "camera_x_delta_mm",
     "camera_y_delta_mm",
 )
+LENS_KEYS = ("lens_x_delta_mm", "lens_y_delta_mm")
+SIGN_EPSILON = 1e-6
 
 
 def is_number(value: Any) -> bool:
     return isinstance(value, (int, float)) and not isinstance(value, bool)
+
+
+def sign(value: float, epsilon: float = SIGN_EPSILON) -> int:
+    if value > epsilon:
+        return 1
+    if value < -epsilon:
+        return -1
+    return 0
 
 
 def parse_args() -> argparse.Namespace:
@@ -117,9 +128,11 @@ def has_numeric_actuators(row: Any) -> bool:
     return isinstance(plan, dict) and all(is_number(plan.get(key)) for key in CONTROL_KEYS)
 
 
-def action_mae(predictions: list[Any], labels: list[Any]) -> dict[str, float | None]:
-    totals = {key: 0.0 for key in CONTROL_KEYS}
-    counts = {key: 0 for key in CONTROL_KEYS}
+def paired_control_values(
+    predictions: list[Any],
+    labels: list[Any],
+) -> dict[str, list[tuple[float, float]]]:
+    pairs: dict[str, list[tuple[float, float]]] = {key: [] for key in CONTROL_KEYS}
 
     for pred_row, label_row in zip(predictions, labels):
         pred_plan = control_plan(pred_row)
@@ -130,13 +143,197 @@ def action_mae(predictions: list[Any], labels: list[Any]) -> dict[str, float | N
             pred_value = pred_plan.get(key)
             label_value = label_plan.get(key)
             if is_number(pred_value) and is_number(label_value):
-                totals[key] += abs(float(pred_value) - float(label_value))
-                counts[key] += 1
+                pairs[key].append((float(pred_value), float(label_value)))
 
+    return pairs
+
+
+def label_control_values(labels: list[Any]) -> dict[str, list[float]]:
+    values: dict[str, list[float]] = {key: [] for key in CONTROL_KEYS}
+    for label_row in labels:
+        label_plan = control_plan(label_row)
+        if label_plan is None:
+            continue
+        for key in CONTROL_KEYS:
+            label_value = label_plan.get(key)
+            if is_number(label_value):
+                values[key].append(float(label_value))
+    return values
+
+
+def action_mae(predictions: list[Any], labels: list[Any]) -> dict[str, float | None]:
+    pairs = paired_control_values(predictions, labels)
     return {
-        key: (totals[key] / counts[key] if counts[key] else None)
-        for key in CONTROL_KEYS
+        key: (
+            sum(abs(pred_value - label_value) for pred_value, label_value in values) / len(values)
+            if values
+            else None
+        )
+        for key, values in pairs.items()
     }
+
+
+def sign_accuracy(
+    predictions: list[Any],
+    labels: list[Any],
+    epsilon: float = SIGN_EPSILON,
+) -> dict[str, float | None]:
+    pairs = paired_control_values(predictions, labels)
+    accuracies: dict[str, float | None] = {}
+    for key, values in pairs.items():
+        total = 0
+        correct = 0
+        for pred_value, label_value in values:
+            label_sign = sign(label_value, epsilon)
+            if label_sign == 0:
+                continue
+            total += 1
+            if sign(pred_value, epsilon) == label_sign:
+                correct += 1
+        accuracies[key] = correct / total if total else None
+    return accuracies
+
+
+def overall_lens_sign_accuracy(
+    predictions: list[Any],
+    labels: list[Any],
+    epsilon: float = SIGN_EPSILON,
+) -> float | None:
+    pairs = paired_control_values(predictions, labels)
+    total = 0
+    correct = 0
+    for key in LENS_KEYS:
+        for pred_value, label_value in pairs[key]:
+            label_sign = sign(label_value, epsilon)
+            if label_sign == 0:
+                continue
+            total += 1
+            if sign(pred_value, epsilon) == label_sign:
+                correct += 1
+    return correct / total if total else None
+
+
+def zero_action_baseline_mae(labels: list[Any]) -> dict[str, float | None]:
+    values = label_control_values(labels)
+    return {
+        key: (sum(abs(label_value) for label_value in key_values) / len(key_values) if key_values else None)
+        for key, key_values in values.items()
+    }
+
+
+def zero_action_baseline_sign_accuracy(
+    labels: list[Any],
+    epsilon: float = SIGN_EPSILON,
+) -> dict[str, float | None]:
+    values = label_control_values(labels)
+    accuracies: dict[str, float | None] = {}
+    for key, key_values in values.items():
+        total = 0
+        correct = 0
+        for label_value in key_values:
+            label_sign = sign(label_value, epsilon)
+            if label_sign == 0:
+                continue
+            total += 1
+            if sign(0.0, epsilon) == label_sign:
+                correct += 1
+        accuracies[key] = correct / total if total else None
+    return accuracies
+
+
+def model_vs_zero_baseline(
+    model_mae: dict[str, float | None],
+    baseline_mae: dict[str, float | None],
+) -> dict[str, dict[str, float | None]]:
+    comparison: dict[str, dict[str, float | None]] = {}
+    for key in CONTROL_KEYS:
+        model_value = model_mae.get(key)
+        baseline_value = baseline_mae.get(key)
+        improvement = (
+            baseline_value - model_value
+            if model_value is not None and baseline_value is not None
+            else None
+        )
+        relative_improvement = (
+            improvement / baseline_value
+            if improvement is not None and baseline_value is not None and baseline_value > 0
+            else None
+        )
+        comparison[key] = {
+            "model_mae": model_value,
+            "zero_baseline_mae": baseline_value,
+            "improvement": improvement,
+            "relative_improvement": relative_improvement,
+        }
+    return comparison
+
+
+def mean(values: list[float]) -> float | None:
+    return sum(values) / len(values) if values else None
+
+
+def std(values: list[float]) -> float | None:
+    if not values:
+        return None
+    value_mean = sum(values) / len(values)
+    return math.sqrt(sum((value - value_mean) ** 2 for value in values) / len(values))
+
+
+def prediction_statistics(predictions: list[Any], labels: list[Any]) -> dict[str, dict[str, float | int | None]]:
+    pairs = paired_control_values(predictions, labels)
+    return {
+        key: {
+            "count": len(values),
+            "pred_mean": mean([pred_value for pred_value, _ in values]),
+            "label_mean": mean([label_value for _, label_value in values]),
+            "pred_std": std([pred_value for pred_value, _ in values]),
+            "label_std": std([label_value for _, label_value in values]),
+            "bias": mean([pred_value - label_value for pred_value, label_value in values]),
+        }
+        for key, values in pairs.items()
+    }
+
+
+def sample_details(
+    predictions: list[Any],
+    labels: list[Any],
+    epsilon: float = SIGN_EPSILON,
+) -> list[dict[str, Any]]:
+    details: list[dict[str, Any]] = []
+    for index, (pred_row, label_row) in enumerate(zip(predictions, labels)):
+        pred_plan = control_plan(pred_row)
+        label_plan = control_plan(label_row)
+        absolute_error: dict[str, float | None] = {}
+        sign_correct: dict[str, bool | None] = {}
+
+        for key in CONTROL_KEYS:
+            pred_value = pred_plan.get(key) if isinstance(pred_plan, dict) else None
+            label_value = label_plan.get(key) if isinstance(label_plan, dict) else None
+            if is_number(pred_value) and is_number(label_value):
+                pred_float = float(pred_value)
+                label_float = float(label_value)
+                absolute_error[key] = abs(pred_float - label_float)
+                sign_correct[key] = (
+                    None
+                    if sign(label_float, epsilon) == 0
+                    else sign(pred_float, epsilon) == sign(label_float, epsilon)
+                )
+            else:
+                absolute_error[key] = None
+                sign_correct[key] = None
+
+        sample_index = pred_row.get("sample_index", index) if isinstance(pred_row, dict) else index
+        details.append(
+            {
+                "sample_index": sample_index,
+                "label_control_plan": label_plan,
+                "predicted_control_plan": pred_plan,
+                "absolute_error": absolute_error,
+                "sign_correct": sign_correct,
+            }
+        )
+
+    return details
 
 
 def actuator_range_violation_rate(
@@ -170,6 +367,8 @@ def main() -> None:
     required_key_count = sum(1 for row in predictions if has_required_keys(row))
     numeric_actuator_count = sum(1 for row in predictions if has_numeric_actuators(row))
     parse_error_count = sum(1 for row in predictions if has_parse_error(row))
+    mae = action_mae(predictions, labels) if labels else None
+    baseline_mae = zero_action_baseline_mae(labels) if labels else None
 
     report = {
         "sample_count": prediction_count,
@@ -182,7 +381,17 @@ def main() -> None:
         "parse_error_count": parse_error_count,
         "invalid_prediction_json_lines": invalid_predictions,
         "invalid_label_json_lines": invalid_labels,
-        "action_mae": action_mae(predictions, labels) if labels else None,
+        "action_mae": mae,
+        "zero_action_baseline_mae": baseline_mae,
+        "zero_action_baseline_sign_accuracy": zero_action_baseline_sign_accuracy(labels) if labels else None,
+        "model_vs_zero_baseline": model_vs_zero_baseline(mae, baseline_mae)
+        if mae is not None and baseline_mae is not None
+        else None,
+        "sign_epsilon": SIGN_EPSILON,
+        "per_actuator_sign_accuracy": sign_accuracy(predictions, labels) if labels else None,
+        "overall_lens_sign_accuracy": overall_lens_sign_accuracy(predictions, labels) if labels else None,
+        "per_actuator_prediction_statistics": prediction_statistics(predictions, labels) if labels else None,
+        "sample_details": sample_details(predictions, labels) if labels else None,
         "actuator_range_violation_rate": actuator_range_violation_rate(predictions),
         "simulator_post_action_error": None,
         "todo": "Connect optional simulator post-action evaluation when the control loop is ready.",

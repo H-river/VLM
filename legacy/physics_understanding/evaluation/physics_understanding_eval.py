@@ -7,7 +7,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
 
-from profile2setup.evaluation.physics_understanding_schema import (
+from legacy.physics_understanding.evaluation.physics_understanding_schema import (
     CANONICAL_VARIABLE_ORDER,
     INPUT_MODES,
     load_probe_jsonl,

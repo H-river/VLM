@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from train_qwen25vl_qlora import build_prompt, load_rgb_image, load_yaml, resolve_image_path
+from train_qwen25vl_qlora import LABEL_MODES, PROMPT_MODES, build_prompt, load_rgb_image, load_yaml, resolve_image_path
 
 
 def parse_args() -> argparse.Namespace:
@@ -39,6 +39,18 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--sample-index", type=int, default=0)
     parser.add_argument("--image-root", type=Path, default=None)
+    parser.add_argument(
+        "--prompt-mode",
+        choices=sorted(PROMPT_MODES),
+        default=None,
+        help="Prompt content mode. Overrides data.prompt_mode from config.",
+    )
+    parser.add_argument(
+        "--label-mode",
+        choices=sorted(LABEL_MODES),
+        default=None,
+        help="Output label mode. Overrides data.label_mode from config.",
+    )
     parser.add_argument("--output-json", type=Path, required=True)
     parser.add_argument("--max-new-tokens", type=int, default=None)
     return parser.parse_args()
@@ -62,6 +74,32 @@ def resolve_base_model(args: argparse.Namespace, config: dict[str, Any]) -> str:
     if config.get("model_name"):
         return str(config["model_name"])
     raise ValueError("Base model path was not provided and was not found in config.")
+
+
+def resolve_prompt_mode(args: argparse.Namespace, config: dict[str, Any]) -> str:
+    if args.prompt_mode is not None:
+        return args.prompt_mode
+    data_cfg = config.get("data", {})
+    if isinstance(data_cfg, dict) and data_cfg.get("prompt_mode"):
+        prompt_mode = str(data_cfg["prompt_mode"])
+    else:
+        prompt_mode = "metadata_assisted"
+    if prompt_mode not in PROMPT_MODES:
+        raise ValueError(f"Unsupported prompt_mode: {prompt_mode}. Expected one of {sorted(PROMPT_MODES)}")
+    return prompt_mode
+
+
+def resolve_label_mode(args: argparse.Namespace, config: dict[str, Any]) -> str:
+    if args.label_mode is not None:
+        return args.label_mode
+    data_cfg = config.get("data", {})
+    if isinstance(data_cfg, dict) and data_cfg.get("label_mode"):
+        label_mode = str(data_cfg["label_mode"])
+    else:
+        label_mode = "continuous_control"
+    if label_mode not in LABEL_MODES:
+        raise ValueError(f"Unsupported label_mode: {label_mode}. Expected one of {sorted(LABEL_MODES)}")
+    return label_mode
 
 
 def validate_inputs(args: argparse.Namespace) -> None:
@@ -242,10 +280,12 @@ def generate_prediction(
     target_image_path: Path,
     metadata: dict[str, Any],
     base_model_path: str,
+    prompt_mode: str,
+    label_mode: str,
 ) -> dict[str, Any]:
     current_image = load_rgb_image(current_image_path)
     target_image = load_rgb_image(target_image_path)
-    prompt = build_prompt(metadata)
+    prompt = build_prompt(metadata, prompt_mode, label_mode)
 
     deps = require_inference_imports()
     model_cfg = config["model"]
@@ -322,6 +362,8 @@ def main() -> None:
     validate_inputs(args)
     config = load_yaml(args.config)
     base_model_path = resolve_base_model(args, config)
+    prompt_mode = resolve_prompt_mode(args, config)
+    label_mode = resolve_label_mode(args, config)
     current_image_path, target_image_path, metadata = resolve_inputs(args, config)
     result = generate_prediction(
         args,
@@ -330,6 +372,8 @@ def main() -> None:
         target_image_path,
         metadata,
         base_model_path,
+        prompt_mode,
+        label_mode,
     )
     args.output_json.parent.mkdir(parents=True, exist_ok=True)
     args.output_json.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")

@@ -5,7 +5,7 @@ from __future__ import annotations
 import torch
 from torch import nn
 
-from profile2setup.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
+from legacy.reasoning_vlm.intent_features import INTENT_FEATURE_DIM
 
 
 class IntentEncoder(nn.Module):

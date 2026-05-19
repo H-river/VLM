@@ -10,7 +10,7 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-from profile2setup.reasoning_vlm.intent_features import (
+from legacy.reasoning_vlm.intent_features import (
     INTENT_FEATURE_DIM,
     build_allowed_change_mask,
     build_fixed_change_mask,

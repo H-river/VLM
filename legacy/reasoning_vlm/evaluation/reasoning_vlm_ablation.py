@@ -30,13 +30,13 @@ from profile2setup.inference.routing import (
     apply_fixed_change_mask_to_delta,
     route_setup_prediction,
 )
-from profile2setup.reasoning_vlm.image_rendering import render_reasoning_images
-from profile2setup.reasoning_vlm.intent_features import (
+from legacy.reasoning_vlm.image_rendering import render_reasoning_images
+from legacy.reasoning_vlm.intent_features import (
     build_allowed_change_mask,
     build_fixed_change_mask,
     extract_canonical_prompt,
 )
-from profile2setup.reasoning_vlm.vlm_parser import get_reasoning_command
+from legacy.reasoning_vlm.vlm_parser import get_reasoning_command
 from profile2setup.schema import VARIABLE_ORDER
 from profile2setup.training.dataset import filter_records, load_jsonl
 from profile2setup.training.normalization import denormalize_setup_vector

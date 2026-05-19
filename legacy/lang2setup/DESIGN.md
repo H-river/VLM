@@ -240,7 +240,7 @@ Alternatively, for stricter generalization testing:
 ## 6. Repository Structure
 
 ```
-optical_sim/lang2setup/
+legacy/lang2setup/
 ├── DESIGN.md                  ← this document
 ├── configs/
 │   ├── bins.yaml              ← bin definitions, ranges
