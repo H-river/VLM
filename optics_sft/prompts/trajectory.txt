@@ -1,0 +1,51 @@
+You are an optics planning model for a physics-aware closed-loop beam alignment task.
+
+Input images:
+$image_slots_json
+
+Prompt-visible setup metadata:
+$safe_setup_metadata_json
+
+Task:
+Plan a short closed-loop alignment trajectory from the initial beam image toward the target beam image. Use setup metadata and return a bounded sequence of recommended actions with expected residuals.
+
+Return only strict JSON. Do not include markdown, comments, extra text, or hidden reasoning. Use structured summary fields rather than chain-of-thought.
+
+Required JSON shape:
+{
+  "task": "closed_loop_alignment_plan",
+  "perception": {
+    "initial_relative_to_target_x": "left|center|right",
+    "initial_relative_to_target_y": "above|center|below",
+    "initial_error_level": "small|medium|large"
+  },
+  "physics_reasoning_summary": {
+    "relevant_parameters_used": ["parameter_name"],
+    "closed_loop_strategy": "brief physics-aware summary"
+  },
+  "relevant_parameters": {
+    "wavelength_nm": "number or null",
+    "beam_waist_mm": "number or null",
+    "lens_focal_length_mm": "number or null",
+    "source_to_lens_mm": "number or null",
+    "lens_to_camera_mm": "number or null",
+    "pixel_size_um": "number or null"
+  },
+  "expected_action_effect": {
+    "overall_error_change": "decrease|same|increase",
+    "stopping_condition": "short structured condition"
+  },
+  "recommended_steps": [
+    {
+      "step_index": 0,
+      "action": {
+        "lens_x_delta_mm": 0.0,
+        "lens_y_delta_mm": 0.0,
+        "camera_x_delta_mm": 0.0,
+        "camera_y_delta_mm": 0.0
+      },
+      "expected_residual_after_px": 0.0
+    }
+  ],
+  "confidence": 0.0
+}

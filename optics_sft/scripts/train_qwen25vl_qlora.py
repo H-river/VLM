@@ -21,12 +21,20 @@ from __future__ import annotations
 import argparse
 import inspect
 import json
+import sys
 from pathlib import Path
 from typing import Any, Iterable
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from optics_sft.physics.prompt_builder import build_physics_prompt, expected_image_slots
 
 
 PROMPT_MODES = {"image_only", "setup_only", "metadata_assisted"}
 LABEL_MODES = {"continuous_control", "direction_classification"}
+DATASET_FORMATS = {"legacy_pair", "physics_mixed"}
 SETUP_METADATA_KEYS = (
     "wavelength_nm",
     "beam_waist_mm",
@@ -258,6 +266,18 @@ def build_completion_messages(completion: str) -> list[dict[str, Any]]:
     ]
 
 
+def build_variable_image_prompt_messages(prompt: str, image_count: int) -> list[dict[str, Any]]:
+    if image_count <= 0:
+        raise ValueError("Physics SFT examples require at least one image slot.")
+    return [
+        {
+            "role": "user",
+            "content": [{"type": "image"} for _ in range(image_count)]
+            + [{"type": "text", "text": prompt}],
+        }
+    ]
+
+
 def row_to_sft_example(
     row: dict[str, Any],
     image_root: Path,
@@ -274,6 +294,26 @@ def row_to_sft_example(
     return {
         "images": [current_image, target_image],
         "prompt": build_prompt_messages(prompt),
+        "completion": build_completion_messages(completion),
+    }
+
+
+def physics_row_to_sft_example(row: dict[str, Any], image_root: Path) -> dict[str, Any]:
+    sample_type = row["sample_type"]
+    if not isinstance(sample_type, str):
+        raise ValueError("Physics rows require string sample_type.")
+
+    prompt = build_physics_prompt(row)
+    image_slots = expected_image_slots(row)
+    images = [
+        load_rgb_image(resolve_image_path(image_root, slot["path"]))
+        for slot in image_slots
+    ]
+    completion = json.dumps(row["target"], sort_keys=True)
+
+    return {
+        "images": images,
+        "prompt": build_variable_image_prompt_messages(prompt, len(images)),
         "completion": build_completion_messages(completion),
     }
 
@@ -410,12 +450,18 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
         output_dir = f"{output_dir}_smoke"
 
     image_root = Path(data_cfg["image_root"])
+    dataset_format = str(data_cfg.get("dataset_format", "legacy_pair"))
+    if dataset_format not in DATASET_FORMATS:
+        raise ValueError(f"Unsupported dataset_format: {dataset_format}. Expected one of {sorted(DATASET_FORMATS)}")
+
     prompt_mode = str(data_cfg.get("prompt_mode", "metadata_assisted"))
     label_mode = str(data_cfg.get("label_mode", "continuous_control"))
-    if prompt_mode not in PROMPT_MODES:
-        raise ValueError(f"Unsupported prompt_mode: {prompt_mode}. Expected one of {sorted(PROMPT_MODES)}")
-    if label_mode not in LABEL_MODES:
-        raise ValueError(f"Unsupported label_mode: {label_mode}. Expected one of {sorted(LABEL_MODES)}")
+    if dataset_format == "legacy_pair":
+        if prompt_mode not in PROMPT_MODES:
+            raise ValueError(f"Unsupported prompt_mode: {prompt_mode}. Expected one of {sorted(PROMPT_MODES)}")
+        if label_mode not in LABEL_MODES:
+            raise ValueError(f"Unsupported label_mode: {label_mode}. Expected one of {sorted(LABEL_MODES)}")
+
     train_rows = read_jsonl(Path(data_cfg["train_jsonl"]))
     val_path = Path(data_cfg["val_jsonl"])
     val_rows = read_jsonl(val_path) if val_path.exists() else []
@@ -423,12 +469,17 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
     if smoke_test:
         train_rows = limit_rows(train_rows, min(smoke_max_samples, 2))
         val_rows = limit_rows(val_rows, 1)
-        print(f"[smoke] loaded {len(train_rows)} train rows and {len(val_rows)} val rows")
+        print(f"[smoke] loaded {len(train_rows)} train rows and {len(val_rows)} val rows ({dataset_format})")
     else:
-        print(f"Loaded {len(train_rows)} train rows and {len(val_rows)} val rows")
+        print(f"Loaded {len(train_rows)} train rows and {len(val_rows)} val rows ({dataset_format})")
 
-    train_examples = [row_to_sft_example(row, image_root, prompt_mode, label_mode) for row in train_rows]
-    val_examples = [row_to_sft_example(row, image_root, prompt_mode, label_mode) for row in val_rows]
+    if dataset_format == "legacy_pair":
+        train_examples = [row_to_sft_example(row, image_root, prompt_mode, label_mode) for row in train_rows]
+        val_examples = [row_to_sft_example(row, image_root, prompt_mode, label_mode) for row in val_rows]
+    else:
+        train_examples = [physics_row_to_sft_example(row, image_root) for row in train_rows]
+        val_examples = [physics_row_to_sft_example(row, image_root) for row in val_rows]
+
     train_dataset = examples_to_dataset(train_examples, deps["Dataset"])
     eval_dataset = examples_to_dataset(val_examples, deps["Dataset"]) if val_examples else None
 

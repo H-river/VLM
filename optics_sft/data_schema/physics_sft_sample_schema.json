@@ -1,0 +1,783 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/optics_sft/physics_sft_sample_schema.json",
+  "title": "Physics-Aware Optics SFT Training Sample",
+  "description": "Schema for physics-aware optics SFT rows that separate prompt-visible inputs from private evaluation metadata.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sample_id",
+    "sample_type",
+    "prompt_inputs",
+    "target",
+    "private_eval",
+    "split_tags"
+  ],
+  "properties": {
+    "sample_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable row identifier. It should not encode labels, actuator values, or split membership."
+    },
+    "sample_type": {
+      "type": "string",
+      "enum": [
+        "inverse_control",
+        "forward_transition",
+        "counterfactual_pair",
+        "trajectory"
+      ],
+      "description": "Training task family represented by this row."
+    },
+    "prompt_inputs": {
+      "$ref": "#/$defs/prompt_inputs"
+    },
+    "target": {
+      "$ref": "#/$defs/target"
+    },
+    "private_eval": {
+      "$ref": "#/$defs/private_eval"
+    },
+    "split_tags": {
+      "type": "array",
+      "description": "Non-secret split or provenance tags such as train, val, simulator_v2, or heldout_geometry.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "sample_type": {
+            "const": "inverse_control"
+          }
+        },
+        "required": [
+          "sample_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "target": {
+            "required": [
+              "task",
+              "perception",
+              "physics_reasoning",
+              "control_plan",
+              "prediction",
+              "confidence"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "sample_type": {
+            "const": "forward_transition"
+          }
+        },
+        "required": [
+          "sample_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "prompt_inputs": {
+            "required": [
+              "action"
+            ]
+          },
+          "target": {
+            "required": [
+              "predicted_after_state",
+              "predicted_change"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "sample_type": {
+            "const": "counterfactual_pair"
+          }
+        },
+        "required": [
+          "sample_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "target": {
+            "required": [
+              "action_comparison",
+              "explanation"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "sample_type": {
+            "const": "trajectory"
+          }
+        },
+        "required": [
+          "sample_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "target": {
+            "anyOf": [
+              {
+                "required": [
+                  "steps"
+                ]
+              },
+              {
+                "required": [
+                  "expected_progress"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "prompt_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "images",
+        "safe_setup_metadata"
+      ],
+      "properties": {
+        "images": {
+          "$ref": "#/$defs/images"
+        },
+        "safe_setup_metadata": {
+          "$ref": "#/$defs/safe_setup_metadata"
+        },
+        "action": {
+          "$ref": "#/$defs/action"
+        }
+      }
+    },
+    "images": {
+      "type": "object",
+      "description": "Prompt-visible image paths. Fields are optional because different sample types use different image sets.",
+      "additionalProperties": false,
+      "properties": {
+        "current_image_path": {
+          "type": "string",
+          "description": "Prompt-visible current beam image path, relative to the dataset image root unless absolute."
+        },
+        "target_image_path": {
+          "type": "string",
+          "description": "Prompt-visible target beam image path, relative to the dataset image root unless absolute."
+        },
+        "before_image_path": {
+          "type": "string",
+          "description": "Prompt-visible beam image before a candidate or applied action."
+        },
+        "after_image_path": {
+          "type": "string",
+          "description": "Prompt-visible beam image after an action when the task intentionally includes it."
+        },
+        "candidate_image_path": {
+          "type": "string",
+          "description": "Prompt-visible candidate outcome image for comparison or counterfactual tasks."
+        }
+      }
+    },
+    "safe_setup_metadata": {
+      "type": "object",
+      "description": "Prompt-visible setup metadata that should be safe to expose. Do not include labels, true actuator corrections, hidden target state, split identifiers, or simulator fields that reveal the answer.",
+      "additionalProperties": true,
+      "properties": {
+        "wavelength_nm": {
+          "type": "number",
+          "description": "Laser wavelength in nanometers."
+        },
+        "beam_waist_mm": {
+          "type": "number",
+          "description": "Source Gaussian beam waist in millimeters."
+        },
+        "power_w": {
+          "type": "number",
+          "description": "Optical power in watts, or normalized simulator power when real units are unavailable."
+        },
+        "lens_focal_length_mm": {
+          "type": "number",
+          "description": "Thin-lens focal length in millimeters."
+        },
+        "lens_aperture_mm": {
+          "type": "number",
+          "description": "Clear lens aperture diameter in millimeters."
+        },
+        "source_to_lens_mm": {
+          "type": "number",
+          "description": "Axial distance from source plane to lens in millimeters."
+        },
+        "lens_to_camera_mm": {
+          "type": "number",
+          "description": "Nominal axial distance from lens to camera plane in millimeters."
+        },
+        "sensor_resolution": {
+          "type": "array",
+          "description": "Sensor resolution as [height_px, width_px].",
+          "prefixItems": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "integer",
+              "minimum": 1
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "pixel_size_um": {
+          "type": "number",
+          "description": "Camera pixel pitch in micrometers."
+        },
+        "actuator_limits": {
+          "type": "object",
+          "description": "Prompt-visible actuator range constraints, typically in millimeters.",
+          "additionalProperties": {
+            "$ref": "#/$defs/range"
+          },
+          "properties": {
+            "lens_x_delta_mm": {
+              "$ref": "#/$defs/range"
+            },
+            "lens_y_delta_mm": {
+              "$ref": "#/$defs/range"
+            },
+            "camera_x_delta_mm": {
+              "$ref": "#/$defs/range"
+            },
+            "camera_y_delta_mm": {
+              "$ref": "#/$defs/range"
+            }
+          }
+        },
+        "coordinate_convention": {
+          "type": "string",
+          "description": "Human-readable coordinate convention for image axes and positive actuator directions."
+        }
+      }
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max"
+      ],
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        },
+        "units": {
+          "type": "string"
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "description": "Candidate or applied actuator deltas. Required for forward_transition samples and optional for other sample types.",
+      "additionalProperties": false,
+      "required": [
+        "lens_x_delta_mm",
+        "lens_y_delta_mm",
+        "camera_x_delta_mm",
+        "camera_y_delta_mm"
+      ],
+      "properties": {
+        "lens_x_delta_mm": {
+          "type": "number",
+          "description": "Lens x-axis actuator delta in millimeters."
+        },
+        "lens_y_delta_mm": {
+          "type": "number",
+          "description": "Lens y-axis actuator delta in millimeters."
+        },
+        "camera_x_delta_mm": {
+          "type": "number",
+          "description": "Camera x-axis actuator delta in millimeters."
+        },
+        "camera_y_delta_mm": {
+          "type": "number",
+          "description": "Camera y-axis actuator delta in millimeters."
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "description": "Assistant completion target. Supported shapes include inverse control, forward transition, counterfactual comparison, and trajectory progress targets.",
+      "additionalProperties": true,
+      "properties": {
+        "task": {
+          "type": "string",
+          "description": "Task name to emit in the assistant JSON, for example beam_alignment_inverse_control."
+        },
+        "perception": {
+          "type": "object",
+          "description": "Prompt-visible visual interpretation, such as relative position, size, or qualitative shape.",
+          "additionalProperties": true
+        },
+        "physics_reasoning": {
+          "type": "array",
+          "description": "Short reasoning steps that connect observed beam differences to an optical action.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "control_plan": {
+          "$ref": "#/$defs/action"
+        },
+        "prediction": {
+          "type": "object",
+          "description": "Expected outcome after the proposed inverse-control action.",
+          "additionalProperties": true
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0,
+          "description": "Model target confidence in [0, 1]."
+        },
+        "predicted_after_state": {
+          "type": "object",
+          "description": "Forward-transition target state after applying prompt_inputs.action.",
+          "additionalProperties": true
+        },
+        "predicted_change": {
+          "type": "object",
+          "description": "Forward-transition target change from before/current state to after state.",
+          "additionalProperties": true
+        },
+        "action_comparison": {
+          "type": "object",
+          "description": "Counterfactual comparison among candidate actions or candidate outcomes.",
+          "additionalProperties": true
+        },
+        "explanation": {
+          "type": "string",
+          "description": "Natural-language explanation for counterfactual or qualitative targets."
+        },
+        "steps": {
+          "type": "array",
+          "description": "Step-level trajectory targets. Each step may include an action and expected state/progress.",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "step_index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "action": {
+                "$ref": "#/$defs/action"
+              },
+              "expected_state": {
+                "type": "object",
+                "additionalProperties": true
+              },
+              "expected_progress": {
+                "type": "object",
+                "additionalProperties": true
+              }
+            }
+          }
+        },
+        "expected_progress": {
+          "type": "object",
+          "description": "Trajectory-level expected progress, such as monotonic residual-error reduction.",
+          "additionalProperties": true
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "centroid_px": {
+          "$ref": "#/$defs/vector2"
+        },
+        "sigma_px": {
+          "$ref": "#/$defs/vector2"
+        },
+        "peak_intensity": {
+          "type": "number"
+        }
+      }
+    },
+    "vector2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      }
+    },
+    "private_eval": {
+      "type": "object",
+      "description": "Private scoring and provenance metadata. This object is never prompt-visible and may include simulator internals, true labels, and hidden states.",
+      "additionalProperties": true,
+      "properties": {
+        "current_state": {
+          "$ref": "#/$defs/state"
+        },
+        "target_state": {
+          "$ref": "#/$defs/state"
+        },
+        "before_state": {
+          "$ref": "#/$defs/state"
+        },
+        "after_state": {
+          "$ref": "#/$defs/state"
+        },
+        "true_control_plan": {
+          "$ref": "#/$defs/action"
+        },
+        "simulator_config": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Full or partial simulator configuration used to generate this row."
+        },
+        "residual_error_px": {
+          "$ref": "#/$defs/vector2"
+        },
+        "initial_error_px": {
+          "$ref": "#/$defs/vector2"
+        },
+        "post_action_error_px": {
+          "$ref": "#/$defs/vector2"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "sample_id": "phys_inv_000001",
+      "sample_type": "inverse_control",
+      "prompt_inputs": {
+        "images": {
+          "current_image_path": "images/inverse/current_000001.png",
+          "target_image_path": "images/inverse/target_000001.png"
+        },
+        "safe_setup_metadata": {
+          "wavelength_nm": 632.8,
+          "beam_waist_mm": 1.0,
+          "power_w": 1.0,
+          "lens_focal_length_mm": 100.0,
+          "lens_aperture_mm": 25.0,
+          "source_to_lens_mm": 200.0,
+          "lens_to_camera_mm": 150.0,
+          "sensor_resolution": [
+            1024,
+            1024
+          ],
+          "pixel_size_um": 5.5,
+          "actuator_limits": {
+            "lens_x_delta_mm": {
+              "min": -0.2,
+              "max": 0.2,
+              "units": "mm"
+            },
+            "lens_y_delta_mm": {
+              "min": -0.2,
+              "max": 0.2,
+              "units": "mm"
+            },
+            "camera_x_delta_mm": {
+              "min": -0.1,
+              "max": 0.1,
+              "units": "mm"
+            },
+            "camera_y_delta_mm": {
+              "min": -0.1,
+              "max": 0.1,
+              "units": "mm"
+            }
+          },
+          "coordinate_convention": "Image x increases right, image y increases down; positive lens deltas move the lens in the corresponding physical axis."
+        }
+      },
+      "target": {
+        "task": "beam_alignment_inverse_control",
+        "perception": {
+          "current_relative_to_target_x": "right",
+          "current_relative_to_target_y": "above",
+          "size_match": "slightly wider"
+        },
+        "physics_reasoning": [
+          "The current beam centroid is displaced from the target.",
+          "A small lens correction should reduce the observed centroid residual."
+        ],
+        "control_plan": {
+          "lens_x_delta_mm": -0.042,
+          "lens_y_delta_mm": 0.018,
+          "camera_x_delta_mm": 0.0,
+          "camera_y_delta_mm": 0.0
+        },
+        "prediction": {
+          "residual_error_px_after_action": {
+            "x": 1.5,
+            "y": -1.0
+          },
+          "expected_result": "current beam nearly overlaps the target beam"
+        },
+        "confidence": 0.86
+      },
+      "private_eval": {
+        "current_state": {
+          "centroid_px": {
+            "x": 535.4,
+            "y": 500.2
+          },
+          "sigma_px": {
+            "x": 32.1,
+            "y": 29.8
+          }
+        },
+        "target_state": {
+          "centroid_px": {
+            "x": 512.0,
+            "y": 512.0
+          },
+          "sigma_px": {
+            "x": 30.0,
+            "y": 30.5
+          }
+        },
+        "true_control_plan": {
+          "lens_x_delta_mm": -0.042,
+          "lens_y_delta_mm": 0.018,
+          "camera_x_delta_mm": 0.0,
+          "camera_y_delta_mm": 0.0
+        },
+        "simulator_config": {
+          "source": "optical_sim/configs/random_config_v2.yaml",
+          "run_name": "rand_000001"
+        },
+        "initial_error_px": {
+          "x": 23.4,
+          "y": -11.8
+        },
+        "post_action_error_px": {
+          "x": 1.5,
+          "y": -1.0
+        },
+        "residual_error_px": {
+          "x": 1.5,
+          "y": -1.0
+        }
+      },
+      "split_tags": [
+        "train",
+        "simulator_v2"
+      ]
+    },
+    {
+      "sample_id": "phys_fwd_000042",
+      "sample_type": "forward_transition",
+      "prompt_inputs": {
+        "images": {
+          "before_image_path": "images/forward/before_000042.png",
+          "target_image_path": "images/forward/target_000042.png"
+        },
+        "safe_setup_metadata": {
+          "wavelength_nm": 632.8,
+          "beam_waist_mm": 1.0,
+          "power_w": 1.0,
+          "lens_focal_length_mm": 100.0,
+          "lens_aperture_mm": 25.0,
+          "source_to_lens_mm": 200.0,
+          "lens_to_camera_mm": 150.0,
+          "sensor_resolution": [
+            1024,
+            1024
+          ],
+          "pixel_size_um": 5.5,
+          "coordinate_convention": "Image x increases right and image y increases down."
+        },
+        "action": {
+          "lens_x_delta_mm": -0.03,
+          "lens_y_delta_mm": 0.01,
+          "camera_x_delta_mm": 0.0,
+          "camera_y_delta_mm": 0.0
+        }
+      },
+      "target": {
+        "predicted_after_state": {
+          "centroid_shift_px": {
+            "x": -16.0,
+            "y": 5.0
+          },
+          "relative_to_target": {
+            "x": "near_center",
+            "y": "slightly_above"
+          }
+        },
+        "predicted_change": {
+          "residual_error_px_before": {
+            "x": 18.5,
+            "y": -6.2
+          },
+          "residual_error_px_after": {
+            "x": 2.2,
+            "y": -1.4
+          },
+          "improves_alignment": true
+        }
+      },
+      "private_eval": {
+        "before_state": {
+          "centroid_px": {
+            "x": 530.5,
+            "y": 505.8
+          }
+        },
+        "after_state": {
+          "centroid_px": {
+            "x": 514.2,
+            "y": 510.6
+          }
+        },
+        "target_state": {
+          "centroid_px": {
+            "x": 512.0,
+            "y": 512.0
+          }
+        },
+        "initial_error_px": {
+          "x": 18.5,
+          "y": -6.2
+        },
+        "post_action_error_px": {
+          "x": 2.2,
+          "y": -1.4
+        },
+        "simulator_config": {
+          "run_name_before": "rand_000042_before",
+          "run_name_after": "rand_000042_after"
+        }
+      },
+      "split_tags": [
+        "val",
+        "simulator_v2",
+        "forward"
+      ]
+    },
+    {
+      "sample_id": "phys_cf_000017",
+      "sample_type": "counterfactual_pair",
+      "prompt_inputs": {
+        "images": {
+          "current_image_path": "images/counterfactual/current_000017.png",
+          "target_image_path": "images/counterfactual/target_000017.png",
+          "candidate_image_path": "images/counterfactual/candidate_000017_a.png"
+        },
+        "safe_setup_metadata": {
+          "wavelength_nm": 532.0,
+          "beam_waist_mm": 0.8,
+          "power_w": 1.0,
+          "lens_focal_length_mm": 75.0,
+          "lens_aperture_mm": 20.0,
+          "source_to_lens_mm": 180.0,
+          "lens_to_camera_mm": 140.0,
+          "sensor_resolution": [
+            1024,
+            1024
+          ],
+          "pixel_size_um": 5.5,
+          "coordinate_convention": "Image x increases right and image y increases down."
+        }
+      },
+      "target": {
+        "action_comparison": {
+          "preferred_action_id": "action_b",
+          "candidates": [
+            {
+              "action_id": "action_a",
+              "action": {
+                "lens_x_delta_mm": 0.04,
+                "lens_y_delta_mm": 0.0,
+                "camera_x_delta_mm": 0.0,
+                "camera_y_delta_mm": 0.0
+              },
+              "expected_result": "moves farther from target"
+            },
+            {
+              "action_id": "action_b",
+              "action": {
+                "lens_x_delta_mm": -0.04,
+                "lens_y_delta_mm": 0.0,
+                "camera_x_delta_mm": 0.0,
+                "camera_y_delta_mm": 0.0
+              },
+              "expected_result": "reduces horizontal residual"
+            }
+          ]
+        },
+        "explanation": "The preferred action moves the beam toward the target rather than increasing the horizontal error."
+      },
+      "private_eval": {
+        "current_state": {
+          "centroid_px": {
+            "x": 540.0,
+            "y": 512.0
+          }
+        },
+        "target_state": {
+          "centroid_px": {
+            "x": 512.0,
+            "y": 512.0
+          }
+        },
+        "initial_error_px": {
+          "x": 28.0,
+          "y": 0.0
+        },
+        "simulator_config": {
+          "candidate_action_a_run": "cf_000017_a",
+          "candidate_action_b_run": "cf_000017_b"
+        },
+        "candidate_scores": {
+          "action_a_residual_norm_px": 44.0,
+          "action_b_residual_norm_px": 5.0
+        }
+      },
+      "split_tags": [
+        "train",
+        "counterfactual",
+        "simulator_v2"
+      ]
+    }
+  ]
+}

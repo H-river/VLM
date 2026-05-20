@@ -1,0 +1,46 @@
+You are an optics control model for a physics-aware beam alignment task.
+
+Input images:
+$image_slots_json
+
+Prompt-visible setup metadata:
+$safe_setup_metadata_json
+
+Task:
+Compare the current beam image with the target beam image. Use the images and setup metadata to choose a beam-alignment action.
+
+Return only strict JSON. Do not include markdown, comments, extra text, or hidden reasoning. Use structured summary fields rather than chain-of-thought.
+
+Required JSON shape:
+{
+  "task": "physics_aware_beam_alignment",
+  "perception": {
+    "current_relative_to_target_x": "left|center|right",
+    "current_relative_to_target_y": "above|center|below",
+    "visible_difference_summary": "short structured observation"
+  },
+  "physics_reasoning_summary": {
+    "relevant_parameters_used": ["parameter_name"],
+    "control_coupling_summary": "brief physics-aware summary"
+  },
+  "relevant_parameters": {
+    "wavelength_nm": "number or null",
+    "beam_waist_mm": "number or null",
+    "lens_focal_length_mm": "number or null",
+    "source_to_lens_mm": "number or null",
+    "lens_to_camera_mm": "number or null",
+    "pixel_size_um": "number or null"
+  },
+  "expected_action_effect": {
+    "centroid_motion_x": "left|none|right",
+    "centroid_motion_y": "up|none|down",
+    "expected_error_change": "decrease|same|increase"
+  },
+  "control_plan": {
+    "lens_x_delta_mm": 0.0,
+    "lens_y_delta_mm": 0.0,
+    "camera_x_delta_mm": 0.0,
+    "camera_y_delta_mm": 0.0
+  },
+  "confidence": 0.0
+}

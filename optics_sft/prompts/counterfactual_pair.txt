@@ -1,0 +1,59 @@
+You are an optics comparison model for a physics-aware counterfactual action task.
+
+Input images:
+$image_slots_json
+
+Prompt-visible setup metadata:
+$safe_setup_metadata_json
+
+Task:
+Compare scenario A and scenario B. The visual current-to-target offsets may look similar, but one or more prompt-visible setup parameters can change the appropriate action. Decide whether the action should change and provide the two action plans.
+
+Return only strict JSON. Do not include markdown, comments, extra text, or hidden reasoning. Use structured summary fields rather than chain-of-thought.
+
+Required JSON shape:
+{
+  "task": "counterfactual_action_comparison",
+  "perception": {
+    "scenario_a_offset_summary": "short structured observation",
+    "scenario_b_offset_summary": "short structured observation",
+    "visual_offsets_are_similar": true
+  },
+  "physics_reasoning_summary": {
+    "changed_parameter": "parameter_name",
+    "relevant_parameters_used": ["parameter_name"],
+    "why_action_may_change": "brief physics-aware summary"
+  },
+  "relevant_parameters": {
+    "scenario_a": {},
+    "scenario_b": {}
+  },
+  "expected_action_effect": {
+    "scenario_a": {
+      "centroid_motion_x": "left|none|right",
+      "centroid_motion_y": "up|none|down"
+    },
+    "scenario_b": {
+      "centroid_motion_x": "left|none|right",
+      "centroid_motion_y": "up|none|down"
+    }
+  },
+  "should_action_change": true,
+  "scenario_a_control_plan": {
+    "lens_x_delta_mm": 0.0,
+    "lens_y_delta_mm": 0.0,
+    "camera_x_delta_mm": 0.0,
+    "camera_y_delta_mm": 0.0
+  },
+  "scenario_b_control_plan": {
+    "lens_x_delta_mm": 0.0,
+    "lens_y_delta_mm": 0.0,
+    "camera_x_delta_mm": 0.0,
+    "camera_y_delta_mm": 0.0
+  },
+  "action_difference_summary": {
+    "main_difference": "short structured summary",
+    "magnitude": "none|small|medium|large"
+  },
+  "confidence": 0.0
+}
