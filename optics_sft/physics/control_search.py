@@ -208,7 +208,12 @@ def choose_control_action(
     condition_limit: float = 1.0e4,
     current_state: Mapping[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Choose a simulator-scored action using Jacobian solve with grid fallback."""
+    """Choose the best simulator-scored action from Jacobian and grid candidates."""
+    candidates: list[dict[str, Any]] = []
+    no_action = score_action(setup, target_state, Action(0.0, 0.0, 0.0, 0.0))
+    no_action["method"] = "no_action"
+    candidates.append(no_action)
+
     jacobian = estimate_local_jacobian(
         setup,
         step_mm=jacobian_step_mm,
@@ -220,14 +225,42 @@ def choose_control_action(
             scored = score_action(setup, target_state, action)
             scored["method"] = "jacobian"
             scored["jacobian_condition"] = float(jacobian["condition"])
-            return scored
+            candidates.append(scored)
+            refined = refine_action_local(
+                setup,
+                target_state,
+                bounds,
+                action,
+                step_mm=max(jacobian_step_mm / 2.0, 1e-6),
+                grid_size=3,
+                enable_camera=enable_camera,
+            )
+            refined["method"] = "jacobian_local_refine"
+            refined["jacobian_condition"] = float(jacobian["condition"])
+            candidates.append(refined)
 
-    best = grid_search_action(
+    grid_best = grid_search_action(
         setup,
         target_state,
         bounds,
         grid_size=grid_size,
         enable_camera=enable_camera,
     )
-    best["method"] = "grid_search_fallback"
-    return best
+    grid_best["method"] = "grid_search"
+    candidates.append(grid_best)
+    refined_grid = refine_action_local(
+        setup,
+        target_state,
+        bounds,
+        grid_best["action"],
+        step_mm=max(
+            (bounds.lens_x_mm[1] - bounds.lens_x_mm[0]) / max(grid_size - 1, 1) / 2.0,
+            1e-6,
+        ),
+        grid_size=3,
+        enable_camera=enable_camera,
+    )
+    refined_grid["method"] = "grid_search_local_refine"
+    candidates.append(refined_grid)
+
+    return _best_of_scores(candidates)

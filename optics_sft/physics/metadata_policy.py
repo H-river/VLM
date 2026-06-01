@@ -23,6 +23,7 @@ SAFE_PROMPT_METADATA_KEYS: frozenset[str] = frozenset(
         "grid_extent_mm",
     }
 )
+COUNTERFACTUAL_METADATA_WRAPPERS: frozenset[str] = frozenset({"scenario_a", "scenario_b"})
 
 FORBIDDEN_PROMPT_PATTERNS: tuple[str, ...] = (
     "centroid",
@@ -78,6 +79,20 @@ def _unsafe_safe_setup_metadata_keys(prompt_inputs: dict[str, Any]) -> list[str]
     metadata = prompt_inputs.get("safe_setup_metadata")
     if not isinstance(metadata, dict):
         return []
+    keys = set(metadata.keys())
+    if keys and keys.issubset(COUNTERFACTUAL_METADATA_WRAPPERS):
+        unsafe: list[str] = []
+        for wrapper, nested in metadata.items():
+            if not isinstance(nested, dict):
+                unsafe.append(f"safe_setup_metadata.{wrapper}")
+                continue
+            unsafe.extend(
+                f"safe_setup_metadata.{wrapper}.{key}"
+                for key in nested
+                if key not in SAFE_PROMPT_METADATA_KEYS
+            )
+        return unsafe
+
     return [
         f"safe_setup_metadata.{key}"
         for key in metadata
@@ -90,5 +105,5 @@ def assert_no_prompt_leakage(prompt_inputs: dict[str, Any]) -> None:
     leakage_fields = find_leakage_fields(prompt_inputs)
     leakage_fields.extend(_unsafe_safe_setup_metadata_keys(prompt_inputs))
     if leakage_fields:
-        joined = ", ".join(sorted(leakage_fields))
+        joined = ", ".join(sorted(set(leakage_fields)))
         raise ValueError(f"Prompt inputs contain unsafe metadata fields: {joined}")

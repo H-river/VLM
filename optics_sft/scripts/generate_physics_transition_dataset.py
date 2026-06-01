@@ -47,6 +47,12 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--max-lens-delta-mm", type=float, default=0.05)
     parser.add_argument("--max-camera-delta-mm", type=float, default=0.02)
+    parser.add_argument(
+        "--target-mode",
+        choices=("centroid_only", "full_state"),
+        default="centroid_only",
+        help="Supervised forward target shape. centroid_only is the current control-relevant default.",
+    )
     parser.add_argument("--config", type=Path, default=Path("optical_sim/configs/base_config.yaml"))
     return parser.parse_args()
 
@@ -182,21 +188,64 @@ def rounded_state(state: dict[str, Any]) -> dict[str, float]:
     return {key: round(float(value), 8) for key, value in state.items()}
 
 
-def predicted_change(before_state: dict[str, Any], after_state: dict[str, Any]) -> dict[str, Any]:
+def centroid_after_state(after_state: dict[str, Any]) -> dict[str, float]:
     return {
-        "centroid_shift_px": {
-            "x": round(float(after_state["centroid_x_px"]) - float(before_state["centroid_x_px"]), 8),
-            "y": round(float(after_state["centroid_y_px"]) - float(before_state["centroid_y_px"]), 8),
-        },
-        "sigma_change_px": {
-            "x": round(float(after_state["sigma_x_px"]) - float(before_state["sigma_x_px"]), 8),
-            "y": round(float(after_state["sigma_y_px"]) - float(before_state["sigma_y_px"]), 8),
-        },
-        "peak_intensity_change": round(
-            float(after_state["peak_intensity"]) - float(before_state["peak_intensity"]),
-            8,
-        ),
+        "centroid_x_px": round(float(after_state["centroid_x_px"]), 8),
+        "centroid_y_px": round(float(after_state["centroid_y_px"]), 8),
     }
+
+
+def centroid_change(before_state: dict[str, Any], after_state: dict[str, Any]) -> dict[str, float]:
+    return {
+        "delta_centroid_x_px": round(float(after_state["centroid_x_px"]) - float(before_state["centroid_x_px"]), 8),
+        "delta_centroid_y_px": round(float(after_state["centroid_y_px"]) - float(before_state["centroid_y_px"]), 8),
+    }
+
+
+def full_state_after_state(after_state: dict[str, Any]) -> dict[str, float]:
+    rounded = rounded_state(after_state)
+    return {
+        "centroid_x_px": rounded["centroid_x_px"],
+        "centroid_y_px": rounded["centroid_y_px"],
+        "sigma_x_px": rounded["sigma_x_px"],
+        "sigma_y_px": rounded["sigma_y_px"],
+        "peak_intensity": rounded["peak_intensity"],
+    }
+
+
+def full_state_change(before_state: dict[str, Any], after_state: dict[str, Any]) -> dict[str, Any]:
+    change = centroid_change(before_state, after_state)
+    change.update(
+        {
+            "sigma_change_px": {
+                "x": round(float(after_state["sigma_x_px"]) - float(before_state["sigma_x_px"]), 8),
+                "y": round(float(after_state["sigma_y_px"]) - float(before_state["sigma_y_px"]), 8),
+            },
+            "peak_intensity_change": round(
+                float(after_state["peak_intensity"]) - float(before_state["peak_intensity"]),
+                8,
+            ),
+        }
+    )
+    return change
+
+
+def build_forward_target(before_state: dict[str, Any], after_state: dict[str, Any], target_mode: str) -> dict[str, Any]:
+    if target_mode == "centroid_only":
+        return {
+            "task": "forward_centroid_transition",
+            "target_mode": "centroid_only",
+            "predicted_after_state": centroid_after_state(after_state),
+            "predicted_change": centroid_change(before_state, after_state),
+        }
+    if target_mode == "full_state":
+        return {
+            "task": "forward_optics_prediction",
+            "target_mode": "full_state",
+            "predicted_after_state": full_state_after_state(after_state),
+            "predicted_change": full_state_change(before_state, after_state),
+        }
+    raise ValueError(f"Unsupported target_mode: {target_mode}")
 
 
 def split_assignments(num_samples: int, val_ratio: float, test_ratio: float, seed: int) -> dict[int, str]:
@@ -265,10 +314,7 @@ def generate_rows(args: argparse.Namespace) -> tuple[dict[str, list[dict[str, An
             "sample_id": sample_id,
             "sample_type": "forward_transition",
             "prompt_inputs": prompt_inputs,
-            "target": {
-                "predicted_after_state": rounded_state(after["state"]),
-                "predicted_change": predicted_change(before["state"], after["state"]),
-            },
+            "target": build_forward_target(before["state"], after["state"], args.target_mode),
             "private_eval": {
                 "before_state": rounded_state(before["state"]),
                 "after_state": rounded_state(after["state"]),
@@ -308,6 +354,7 @@ def generate_rows(args: argparse.Namespace) -> tuple[dict[str, list[dict[str, An
         "val_ratio": args.val_ratio,
         "test_ratio": args.test_ratio,
         "render_difficulty": args.render_difficulty,
+        "target_mode": args.target_mode,
         "parameter_ranges": ranges,
     }
     return rows_by_split, manifest

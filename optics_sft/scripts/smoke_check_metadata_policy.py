@@ -39,6 +39,18 @@ def main() -> None:
         "safe_setup_metadata": safe,
     }
     assert_no_prompt_leakage(safe_prompt_inputs)
+    assert_no_prompt_leakage(
+        {
+            "images": {
+                "scenario_a_current_image_path": "images/a_current.png",
+                "scenario_b_current_image_path": "images/b_current.png",
+            },
+            "safe_setup_metadata": {
+                "scenario_a": safe,
+                "scenario_b": safe,
+            },
+        }
+    )
 
     leaking_prompt_inputs = {
         "images": {

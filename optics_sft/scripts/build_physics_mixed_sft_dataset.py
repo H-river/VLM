@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import os
 import random
 import shutil
 import sys
@@ -17,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from optics_sft.physics.metadata_policy import find_leakage_fields
+from optics_sft.physics.prompt_builder import assert_prompt_inputs_safe
 
 
 SPLITS = ("train", "val", "test")
@@ -155,21 +156,24 @@ def materialize_images(
     source_prefix: str,
     strategy: str,
 ) -> dict[str, Any]:
-    if strategy == "keep_relative":
-        return row
-
     copied = copy.deepcopy(row)
+    output_image_root.mkdir(parents=True, exist_ok=True)
     images = copied.get("prompt_inputs", {}).get("images", {})
     for key_path, image_path in collect_image_paths(images):
         source_path = Path(image_path)
         if not source_path.is_absolute():
             source_path = input_image_root / source_path
+        if not source_path.exists():
+            raise FileNotFoundError(f"Image referenced by {copied.get('sample_id')} does not exist: {source_path}")
+        if strategy == "keep_relative":
+            relative_path = Path(os.path.relpath(source_path.resolve(), output_image_root.resolve()))
+            set_nested_dict_value(images, key_path, relative_path.as_posix())
+            continue
+
         relative_path = Path(source_prefix) / Path(image_path)
         dest_path = output_image_root / relative_path
         dest_path.parent.mkdir(parents=True, exist_ok=True)
 
-        if not source_path.exists():
-            raise FileNotFoundError(f"Image referenced by {copied.get('sample_id')} does not exist: {source_path}")
         if strategy == "copy":
             shutil.copy2(source_path, dest_path)
         elif strategy == "symlink":
@@ -284,10 +288,10 @@ def validate_schema(rows: Iterable[dict[str, Any]]) -> dict[str, Any]:
 def audit_leakage(rows: Iterable[dict[str, Any]]) -> None:
     failures: list[str] = []
     for row in rows:
-        prompt_inputs = row.get("prompt_inputs")
-        fields = find_leakage_fields(prompt_inputs)
-        if fields:
-            failures.append(f"{row.get('sample_id', '<missing-id>')}: {', '.join(fields)}")
+        try:
+            assert_prompt_inputs_safe(row)
+        except ValueError as exc:
+            failures.append(f"{row.get('sample_id', '<missing-id>')}: {exc}")
     if failures:
         joined = "\n".join(failures[:10])
         raise ValueError(f"Prompt leakage audit failed:\n{joined}")

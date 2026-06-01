@@ -27,6 +27,7 @@ ACTION_KEYS = (
     "camera_x_delta_mm",
     "camera_y_delta_mm",
 )
+FORWARD_TARGET_MODES = frozenset({"centroid_only", "full_state"})
 
 
 def _json_block(obj: Any) -> str:
@@ -158,6 +159,84 @@ def _candidate_action(row: Mapping[str, Any]) -> dict[str, Any]:
     return {key: action[key] for key in ACTION_KEYS if key in action}
 
 
+def _target(row: Mapping[str, Any]) -> Mapping[str, Any]:
+    target = row.get("target")
+    return target if isinstance(target, Mapping) else {}
+
+
+def forward_target_mode(row: Mapping[str, Any]) -> str:
+    """Return a forward target mode, defaulting old rows to full_state."""
+    mode = _target(row).get("target_mode")
+    if mode is None:
+        return "full_state"
+    if mode not in FORWARD_TARGET_MODES:
+        raise ValueError(
+            f"Unsupported forward target_mode: {mode!r}. Expected one of {sorted(FORWARD_TARGET_MODES)}"
+        )
+    return str(mode)
+
+
+def _forward_mode_instruction(mode: str) -> str:
+    if mode == "centroid_only":
+        return (
+            "You are given a before beam image, safe optical setup metadata, and a "
+            "candidate actuator action. Predict only the after-action centroid and "
+            "centroid displacement."
+        )
+    if mode == "full_state":
+        return (
+            "Predict the beam state after applying the candidate action to the setup "
+            "shown by the before image. This full-state target is valid only when the "
+            "prompt/rendering preserves enough information to infer beam size and raw "
+            "intensity."
+        )
+    raise ValueError(f"Unsupported forward target_mode: {mode}")
+
+
+def _forward_required_output(mode: str) -> dict[str, Any]:
+    if mode == "centroid_only":
+        return {
+            "task": "forward_centroid_transition",
+            "target_mode": "centroid_only",
+            "predicted_after_state": {
+                "centroid_x_px": 0.0,
+                "centroid_y_px": 0.0,
+            },
+            "predicted_change": {
+                "delta_centroid_x_px": 0.0,
+                "delta_centroid_y_px": 0.0,
+            },
+            "confidence": 0.0,
+        }
+    if mode == "full_state":
+        return {
+            "task": "forward_optics_prediction",
+            "target_mode": "full_state",
+            "perception": {
+                "before_beam_summary": "short structured observation",
+            },
+            "physics_reasoning_summary": {
+                "relevant_parameters_used": ["parameter_name"],
+                "action_coupling_summary": "brief physics-aware summary",
+            },
+            "predicted_after_state": {
+                "centroid_x_px": 0.0,
+                "centroid_y_px": 0.0,
+                "sigma_x_px": 0.0,
+                "sigma_y_px": 0.0,
+                "peak_intensity": 0.0,
+            },
+            "predicted_change": {
+                "delta_centroid_x_px": 0.0,
+                "delta_centroid_y_px": 0.0,
+                "sigma_change_px": {"x": 0.0, "y": 0.0},
+                "peak_intensity_change": 0.0,
+            },
+            "confidence": 0.0,
+        }
+    raise ValueError(f"Unsupported forward target_mode: {mode}")
+
+
 def build_physics_prompt(row: Mapping[str, Any]) -> str:
     """Build the prompt text for a physics-aware SFT row."""
     sample_type = row.get("sample_type")
@@ -167,8 +246,11 @@ def build_physics_prompt(row: Mapping[str, Any]) -> str:
 
     template = _load_template(sample_type)
     candidate_action = _candidate_action(row) if sample_type == "forward_transition" else {}
+    forward_mode = forward_target_mode(row) if sample_type == "forward_transition" else "full_state"
     return template.substitute(
         image_slots_json=_json_block(expected_image_slots(row)),
         safe_setup_metadata_json=_json_block(_safe_setup_metadata(row)),
         candidate_action_json=_json_block(candidate_action),
+        target_mode_instruction=_forward_mode_instruction(forward_mode),
+        required_output_json=_json_block(_forward_required_output(forward_mode)),
     )

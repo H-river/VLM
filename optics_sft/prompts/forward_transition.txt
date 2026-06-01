@@ -10,45 +10,9 @@ Candidate action:
 $candidate_action_json
 
 Task:
-Predict the beam state after applying the candidate action to the setup shown by the before image.
+$target_mode_instruction
 
 Return only strict JSON. Do not include markdown, comments, extra text, or hidden reasoning. Use structured summary fields rather than chain-of-thought.
 
 Required JSON shape:
-{
-  "task": "physics_aware_forward_transition",
-  "perception": {
-    "before_beam_summary": "short structured observation"
-  },
-  "physics_reasoning_summary": {
-    "relevant_parameters_used": ["parameter_name"],
-    "action_coupling_summary": "brief physics-aware summary"
-  },
-  "relevant_parameters": {
-    "wavelength_nm": "number or null",
-    "beam_waist_mm": "number or null",
-    "lens_focal_length_mm": "number or null",
-    "source_to_lens_mm": "number or null",
-    "lens_to_camera_mm": "number or null",
-    "pixel_size_um": "number or null"
-  },
-  "expected_action_effect": {
-    "centroid_motion_x": "left|none|right",
-    "centroid_motion_y": "up|none|down",
-    "spot_size_change": "smaller|same|larger",
-    "peak_intensity_change": "lower|same|higher"
-  },
-  "predicted_after_state": {
-    "centroid_x_px": 0.0,
-    "centroid_y_px": 0.0,
-    "sigma_x_px": 0.0,
-    "sigma_y_px": 0.0,
-    "peak_intensity": 0.0
-  },
-  "predicted_change": {
-    "centroid_shift_px": {"x": 0.0, "y": 0.0},
-    "sigma_change_px": {"x": 0.0, "y": 0.0},
-    "peak_intensity_change": 0.0
-  },
-  "confidence": 0.0
-}
+$required_output_json

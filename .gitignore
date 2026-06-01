@@ -61,6 +61,9 @@ outputs/
 !outputs/
 outputs/*
 !outputs/.gitkeep
+# Keep simulator-generated output trees ignored even though root outputs/ is kept.
+optical_sim/outputs/
+optical_sim/outputs/**
 runs/
 checkpoints/
 *.safetensors

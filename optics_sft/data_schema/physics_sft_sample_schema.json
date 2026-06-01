@@ -95,8 +95,37 @@
           },
           "target": {
             "required": [
+              "target_mode",
               "predicted_after_state",
               "predicted_change"
+            ],
+            "oneOf": [
+              {
+                "properties": {
+                  "target_mode": {
+                    "const": "centroid_only"
+                  },
+                  "predicted_after_state": {
+                    "$ref": "#/$defs/forward_centroid_after_state"
+                  },
+                  "predicted_change": {
+                    "$ref": "#/$defs/forward_centroid_change"
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "target_mode": {
+                    "const": "full_state"
+                  },
+                  "predicted_after_state": {
+                    "$ref": "#/$defs/forward_full_after_state"
+                  },
+                  "predicted_change": {
+                    "$ref": "#/$defs/forward_full_change"
+                  }
+                }
+              }
             ]
           }
         }
@@ -340,6 +369,14 @@
           "type": "string",
           "description": "Task name to emit in the assistant JSON, for example beam_alignment_inverse_control."
         },
+        "target_mode": {
+          "type": "string",
+          "enum": [
+            "centroid_only",
+            "full_state"
+          ],
+          "description": "Forward-transition target shape. centroid_only supervises centroid fields only; full_state also supervises sigma and raw peak intensity."
+        },
         "perception": {
           "type": "object",
           "description": "Prompt-visible visual interpretation, such as relative position, size, or qualitative shape.",
@@ -414,6 +451,91 @@
           "type": "object",
           "description": "Trajectory-level expected progress, such as monotonic residual-error reduction.",
           "additionalProperties": true
+        }
+      }
+    },
+    "forward_centroid_after_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "centroid_x_px",
+        "centroid_y_px"
+      ],
+      "properties": {
+        "centroid_x_px": {
+          "type": "number"
+        },
+        "centroid_y_px": {
+          "type": "number"
+        }
+      }
+    },
+    "forward_full_after_state": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "centroid_x_px",
+        "centroid_y_px",
+        "sigma_x_px",
+        "sigma_y_px",
+        "peak_intensity"
+      ],
+      "properties": {
+        "centroid_x_px": {
+          "type": "number"
+        },
+        "centroid_y_px": {
+          "type": "number"
+        },
+        "sigma_x_px": {
+          "type": "number",
+          "description": "Second-moment one-sigma width in pixels."
+        },
+        "sigma_y_px": {
+          "type": "number",
+          "description": "Second-moment one-sigma width in pixels."
+        },
+        "peak_intensity": {
+          "type": "number",
+          "description": "Raw simulator peak intensity, not rendered PNG intensity."
+        }
+      }
+    },
+    "forward_centroid_change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "delta_centroid_x_px",
+        "delta_centroid_y_px"
+      ],
+      "properties": {
+        "delta_centroid_x_px": {
+          "type": "number"
+        },
+        "delta_centroid_y_px": {
+          "type": "number"
+        }
+      }
+    },
+    "forward_full_change": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "delta_centroid_x_px",
+        "delta_centroid_y_px"
+      ],
+      "properties": {
+        "delta_centroid_x_px": {
+          "type": "number"
+        },
+        "delta_centroid_y_px": {
+          "type": "number"
+        },
+        "sigma_change_px": {
+          "$ref": "#/$defs/vector2"
+        },
+        "peak_intensity_change": {
+          "type": "number"
         }
       }
     },

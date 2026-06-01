@@ -60,7 +60,7 @@ ACTION_CHANGE_THRESHOLD_MM = 1e-4
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate counterfactual physics SFT rows.")
     parser.add_argument("--output-dir", type=Path, default=Path("../VLM_data/physics_sft_counterfactual_v1"))
-    parser.add_argument("--num-pairs", type=int, default=1000)
+    parser.add_argument("--num-pairs", "--num-samples", dest="num_pairs", type=int, default=1000)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--config", type=Path, default=Path("optical_sim/configs/base_config.yaml"))
     parser.add_argument("--val-ratio", type=float, default=0.1)
