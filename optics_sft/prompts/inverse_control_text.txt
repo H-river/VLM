@@ -1,0 +1,37 @@
+You are an optics control model for a physics-aware beam alignment task.
+
+Prompt-visible setup metadata:
+$safe_setup_metadata_json
+
+Observed beam measurements (current vs target):
+$text_observations_json
+
+Task:
+Use the setup metadata and observed beam measurements to choose a beam-alignment action.
+Do not assume hidden simulator internals beyond what is shown above.
+
+Return only strict JSON. Do not include markdown, comments, extra text, or chain-of-thought.
+
+Required JSON shape (must match training labels exactly):
+{
+  "task": "physics_aware_beam_alignment",
+  "perception": {
+    "current_relative_to_target_x": "left|right|near_center",
+    "current_relative_to_target_y": "above|below|near_center",
+    "initial_error_level": "small|medium|large"
+  },
+  "control_plan": {
+    "lens_x_delta_mm": 0.0,
+    "lens_y_delta_mm": 0.0,
+    "camera_x_delta_mm": 0.0,
+    "camera_y_delta_mm": 0.0
+  },
+  "confidence": 0.0
+}
+
+Perception rules (sensor y increases downward in pixel coordinates):
+- current_relative_to_target_x: "right" if current x_px > target x_px (and |delta| >= 1 px), "left" if smaller, else "near_center".
+- current_relative_to_target_y: "below" if current y_px > target y_px, "above" if smaller, else "near_center".
+- initial_error_level: classify overall centroid distance before the action.
+
+Control plan: signed actuator deltas in millimeters; use 0.0 when an axis should not move.

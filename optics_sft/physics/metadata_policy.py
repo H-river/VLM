@@ -5,6 +5,11 @@ from __future__ import annotations
 from typing import Any
 
 
+TEXT_OBSERVATION_KEYS: frozenset[str] = frozenset({"current", "target"})
+TEXT_OBSERVATION_VALUE_KEYS: frozenset[str] = frozenset(
+    {"x_px", "y_px", "width_x_px", "width_y_px"}
+)
+
 SAFE_PROMPT_METADATA_KEYS: frozenset[str] = frozenset(
     {
         "wavelength_nm",
@@ -64,6 +69,16 @@ def find_leakage_fields(obj: Any, prefix: str = "") -> list[str]:
             key_text = str(key)
             path = f"{prefix}.{key_text}" if prefix else key_text
             lowered = key_text.lower()
+            if prefix == "text_observations":
+                if key_text not in TEXT_OBSERVATION_KEYS:
+                    hits.append(path)
+                elif isinstance(value, dict):
+                    for nested_key in value:
+                        if nested_key not in TEXT_OBSERVATION_VALUE_KEYS:
+                            hits.append(f"{path}.{nested_key}")
+                continue
+            if prefix.startswith("text_observations."):
+                continue
             if any(pattern in lowered for pattern in FORBIDDEN_PROMPT_PATTERNS):
                 hits.append(path)
             hits.extend(find_leakage_fields(value, path))

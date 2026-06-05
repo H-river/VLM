@@ -1,0 +1,55 @@
+model:
+  name: ../HF_models/Qwen2.5-3B-Instruct
+  local_files_only: true
+  trust_remote_code: true
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_compute_dtype: bfloat16
+  bnb_4bit_use_double_quant: true
+
+data:
+  train_jsonl: ../VLM_data/text_inverse_v1/text/train.jsonl
+  val_jsonl: ../VLM_data/text_inverse_v1/text/val.jsonl
+
+output:
+  output_dir: ../VLM_runs/qwen25_3b_text_qlora_inverse_v1
+
+training:
+  output_dir: ../VLM_runs/qwen25_3b_text_qlora_inverse_v1
+  max_length: 4096
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 4
+  num_train_epochs: 3
+  max_steps: 200
+  learning_rate: 0.0001
+  warmup_ratio: 0.03
+  logging_steps: 5
+  eval_steps: 20
+  save_steps: 20
+  save_total_limit: 2
+  gradient_checkpointing: true
+  optim: paged_adamw_8bit
+  bf16: true
+  fp16: false
+  report_to: []
+  completion_only_loss: true
+  assistant_only_loss: false
+
+generation:
+  max_new_tokens: 512
+  do_sample: false
+  temperature: 0.0
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj

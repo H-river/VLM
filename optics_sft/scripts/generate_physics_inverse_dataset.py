@@ -224,6 +224,15 @@ def sample_hidden_target_action(rng: random.Random, ranges: dict[str, list[float
     return action
 
 
+def actuator_limits_from_bounds(bounds: ActionBounds) -> dict[str, dict[str, float | str]]:
+    return {
+        "lens_x_delta_mm": {"min": bounds.lens_x_mm[0], "max": bounds.lens_x_mm[1], "units": "mm"},
+        "lens_y_delta_mm": {"min": bounds.lens_y_mm[0], "max": bounds.lens_y_mm[1], "units": "mm"},
+        "camera_x_delta_mm": {"min": bounds.camera_x_mm[0], "max": bounds.camera_x_mm[1], "units": "mm"},
+        "camera_y_delta_mm": {"min": bounds.camera_y_mm[0], "max": bounds.camera_y_mm[1], "units": "mm"},
+    }
+
+
 def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
@@ -301,12 +310,14 @@ def generate_rows(args: argparse.Namespace) -> tuple[dict[str, list[dict[str, An
         save_intensity_png(current["intensity"], image_root / current_rel, render_options)
         save_intensity_png(target["intensity"], image_root / target_rel, render_options)
 
+        safe_setup_metadata = setup_to_safe_metadata(current_setup)
+        safe_setup_metadata["actuator_limits"] = actuator_limits_from_bounds(bounds)
         prompt_inputs = {
             "images": {
                 "current_image_path": current_rel,
                 "target_image_path": target_rel,
             },
-            "safe_setup_metadata": setup_to_safe_metadata(current_setup),
+            "safe_setup_metadata": safe_setup_metadata,
         }
         assert_no_prompt_leakage(prompt_inputs)
 

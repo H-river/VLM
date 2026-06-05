@@ -53,7 +53,7 @@ def _resolve_path(path: str, *, parent_config_path: str | None = None) -> Path:
 
 def load_yaml(path: str, *, parent_config_path: str | None = None) -> dict:
     resolved = _resolve_path(path, parent_config_path=parent_config_path)
-    with open(resolved, "r") as f:
+    with open(resolved, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 

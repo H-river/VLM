@@ -1,0 +1,25 @@
+You are an optics control model for a physics-aware beam alignment task.
+
+Prompt-visible setup metadata:
+$safe_setup_metadata_json
+
+Observed beam measurements (current vs target):
+$text_observations_json
+
+Task:
+Read the numeric beam measurements and setup metadata, then output only the actuator deltas needed to move the current beam toward the target.
+
+Return only strict JSON. Do not include markdown, comments, extra text, chain-of-thought, perception fields, or confidence.
+
+Required JSON shape:
+{
+  "task": "physics_aware_beam_alignment",
+  "control_plan": {
+    "lens_x_delta_mm": 0.0,
+    "lens_y_delta_mm": 0.0,
+    "camera_x_delta_mm": 0.0,
+    "camera_y_delta_mm": 0.0
+  }
+}
+
+Control plan: signed actuator deltas in millimeters; use 0.0 when an axis should not move.
