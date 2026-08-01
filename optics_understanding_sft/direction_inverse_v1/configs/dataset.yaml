@@ -1,0 +1,40 @@
+version: direction_inverse_v1
+seed: 20260717
+
+sources:
+  transition_root: optics_understanding_sft/data/native_hybrid_v1
+  pilot_root: optics_understanding_sft/data/pilot_v1
+  iid_eval_root: optics_understanding_sft/data/dev_v2
+  ood_eval_jsonl: optics_understanding_sft/data/native_hybrid_v1/eval_ood.jsonl
+
+direction:
+  balanced_quota_per_field_class:
+    train: 250
+    val: 15
+  all_field_train_limit: 1500
+  all_field_val_limit: 360
+  thresholds:
+    centroid_px: 1.0
+    width_px: 2.0
+    peak_relative: 0.05
+
+inverse:
+  image_size_px: 384
+  grid:
+    lens_mm: [-0.05, 0.0, 0.05]
+    camera_mm: [-0.02, 0.0, 0.02]
+  matching_tolerance:
+    centroid_vector_px: 0.5
+    width_each_px: 1.0
+    peak_relative: 0.02
+  target_statuses: [unique, ambiguous, infeasible_within_limits]
+  maximum_targets_per_status_per_setup:
+    train: 1
+    val: 1
+    eval_iid: 1
+    eval_ood: 1
+  minimum_selected_pairs_per_status:
+    train: 50
+    val: 5
+    eval_iid: 5
+    eval_ood: 5

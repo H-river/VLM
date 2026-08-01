@@ -1,0 +1,89 @@
+{
+  "cross_stage_group_overlap_count": 0,
+  "dev_overlap_count": 0,
+  "diagnostic_physical_group_count": 30,
+  "diagnostic_record_count": 120,
+  "diagnostic_status_counts": {
+    "constrained_intervention": {
+      "feasible": 30,
+      "infeasible_within_limits": 30
+    },
+    "information_sufficiency": {
+      "answerable": 30,
+      "insufficient_information": 30
+    }
+  },
+  "failures": [],
+  "holdout_physical_group_count": 60,
+  "holdout_record_count": 240,
+  "holdout_status_counts": {
+    "constrained_intervention": {
+      "feasible": 60,
+      "infeasible_within_limits": 60
+    },
+    "information_sufficiency": {
+      "answerable": 60,
+      "insufficient_information": 60
+    }
+  },
+  "mixed_physical_group_count": 50,
+  "mixed_record_count": 400,
+  "mixed_source_counts": {
+    "hard_pairs_v4": 200,
+    "hard_v4_preservation_anchor": 200
+  },
+  "mixed_status_counts": {
+    "causal_effects": {
+      "answerable": 40
+    },
+    "constrained_intervention": {
+      "feasible": 50,
+      "infeasible_within_limits": 50
+    },
+    "counterfactual_reasoning": {
+      "answerable": 40
+    },
+    "diagnosis": {
+      "ambiguous": 14,
+      "unique": 14,
+      "unsupported": 12
+    },
+    "forward_prediction": {
+      "answerable": 40
+    },
+    "information_sufficiency": {
+      "answerable": 50,
+      "insufficient_information": 50
+    },
+    "setup_interpretation": {
+      "answerable": 40
+    }
+  },
+  "mixed_task_counts": {
+    "causal_effects": 40,
+    "constrained_intervention": 100,
+    "counterfactual_reasoning": 40,
+    "diagnosis": 40,
+    "forward_prediction": 40,
+    "information_sufficiency": 100,
+    "setup_interpretation": 40
+  },
+  "mixed_visual_count": 10,
+  "passed": true,
+  "warmup_physical_group_count": 100,
+  "warmup_record_count": 400,
+  "warmup_status_counts": {
+    "constrained_intervention": {
+      "feasible": 100,
+      "infeasible_within_limits": 100
+    },
+    "information_sufficiency": {
+      "answerable": 100,
+      "insufficient_information": 100
+    }
+  },
+  "warmup_task_counts": {
+    "constrained_intervention": 200,
+    "information_sufficiency": 200
+  }
+}

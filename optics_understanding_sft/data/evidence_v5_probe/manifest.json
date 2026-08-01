@@ -1,0 +1,21 @@
+{
+  "canonical_hash": "997c075a8335611c865e1f279cf920452665e491060fb84b8dbffd3d95283685",
+  "dataset_version": "evidence_grounded_v5_probe",
+  "design_only": true,
+  "future_evaluation_eligible": false,
+  "master_hash": "faa414d9af1f3760081000a57d482dcef52b4336f12e18f144cd35c536e075c4",
+  "record_count": 400,
+  "scenario_count": 100,
+  "seed": 15051,
+  "source": "hard_pairs_v4 used warmup groups",
+  "status_counts": {
+    "answerable": 100,
+    "feasible": 100,
+    "infeasible_within_limits": 100,
+    "insufficient_information": 100
+  },
+  "task_counts": {
+    "constrained_intervention": 200,
+    "information_sufficiency": 200
+  }
+}

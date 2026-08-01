@@ -10,7 +10,7 @@ with the same signature.
 from __future__ import annotations
 
 import numpy as np
-from typing import Tuple
+from typing import Any, Tuple
 
 from .optical_elements import OpticalSetup
 
@@ -47,6 +47,31 @@ def gaussian_source_field(setup: OpticalSetup) -> Tuple[np.ndarray, np.ndarray, 
     E = np.exp(-r2 / w0 ** 2).astype(np.complex128)
 
     return E, X, Y, dx
+
+
+def normalize_field_to_power(
+    field: np.ndarray,
+    grid_pitch: float,
+    power_w: float,
+) -> tuple[np.ndarray, float]:
+    """Scale a sampled source field so its area integral equals ``power_w``.
+
+    This helper is opt-in.  The legacy simulator path deliberately continues
+    to use :func:`gaussian_source_field` without this normalization.
+    """
+
+    requested = float(power_w)
+    pitch = float(grid_pitch)
+    if not np.isfinite(requested) or requested < 0.0:
+        raise ValueError("source power must be finite and non-negative")
+    if not np.isfinite(pitch) or pitch <= 0.0:
+        raise ValueError("simulation-grid pitch must be finite and positive")
+    values = np.asarray(field, dtype=np.complex128)
+    integrated = float(np.square(np.abs(values)).sum() * pitch**2)
+    if not np.isfinite(integrated) or integrated <= 0.0:
+        raise ValueError("source field has no finite positive integrated power")
+    scale = 0.0 if requested == 0.0 else float(np.sqrt(requested / integrated))
+    return values * scale, scale
 
 
 # ──────────────────────────────────────────────────────────────
@@ -173,6 +198,195 @@ def _extract_sensor_region(E_cam: np.ndarray, X: np.ndarray, Y: np.ndarray,
 
     SX, SY = np.meshgrid(sx, sy)
     return intensity, SX, SY
+
+
+def sensor_pixel_center_coordinates(
+    setup: OpticalSetup,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Return explicit physical sensor-pixel centres in the lab frame.
+
+    Array columns increase with lab ``+x`` and rows increase with lab ``+y``.
+    The camera pose is the centre of the sensor's pixel-edge rectangle.  This
+    differs intentionally from the legacy inclusive-endpoint ``linspace``.
+    """
+
+    height, width = setup.sensor.resolution
+    pitch = float(setup.sensor.pixel_pitch)
+    if height < 1 or width < 1 or not np.isfinite(pitch) or pitch <= 0.0:
+        raise ValueError("sensor resolution and pixel pitch must be positive")
+    sx = float(setup.camera.x_offset) + (
+        np.arange(width, dtype=np.float64) - (width - 1) / 2.0
+    ) * pitch
+    sy = float(setup.camera.y_offset) + (
+        np.arange(height, dtype=np.float64) - (height - 1) / 2.0
+    ) * pitch
+    sensor_x, sensor_y = np.meshgrid(sx, sy)
+    return sx, sy, sensor_x, sensor_y
+
+
+def _bilinear_sample_uniform_zero(
+    values: np.ndarray,
+    grid_x: np.ndarray,
+    grid_y: np.ndarray,
+    sample_x: np.ndarray,
+    sample_y: np.ndarray,
+) -> np.ndarray:
+    """Bilinearly sample one uniform 2-D grid with explicit zero padding."""
+
+    source = np.asarray(values)
+    if source.ndim != 2 or min(source.shape) < 2:
+        raise ValueError("bilinear sampling requires a two-dimensional grid")
+    x_axis = np.asarray(grid_x[0, :], dtype=np.float64)
+    y_axis = np.asarray(grid_y[:, 0], dtype=np.float64)
+    if source.shape != (len(y_axis), len(x_axis)):
+        raise ValueError("field and coordinate-grid shapes differ")
+    dx = float(x_axis[1] - x_axis[0])
+    dy = float(y_axis[1] - y_axis[0])
+    if (
+        not np.allclose(np.diff(x_axis), dx, rtol=1e-10, atol=1e-15)
+        or not np.allclose(np.diff(y_axis), dy, rtol=1e-10, atol=1e-15)
+        or dx <= 0.0
+        or dy <= 0.0
+    ):
+        raise ValueError("continuous v12 sampler requires increasing uniform axes")
+
+    fractional_x = (np.asarray(sample_x, dtype=np.float64) - x_axis[0]) / dx
+    fractional_y = (np.asarray(sample_y, dtype=np.float64) - y_axis[0]) / dy
+    valid_x = (fractional_x >= 0.0) & (fractional_x <= len(x_axis) - 1)
+    valid_y = (fractional_y >= 0.0) & (fractional_y <= len(y_axis) - 1)
+
+    lower_x = np.floor(fractional_x).astype(np.int64)
+    lower_y = np.floor(fractional_y).astype(np.int64)
+    lower_x = np.clip(lower_x, 0, len(x_axis) - 2)
+    lower_y = np.clip(lower_y, 0, len(y_axis) - 2)
+    weight_x = fractional_x - lower_x
+    weight_y = fractional_y - lower_y
+
+    top_left = source[np.ix_(lower_y, lower_x)]
+    top_right = source[np.ix_(lower_y, lower_x + 1)]
+    bottom_left = source[np.ix_(lower_y + 1, lower_x)]
+    bottom_right = source[np.ix_(lower_y + 1, lower_x + 1)]
+    wx = weight_x[None, :]
+    wy = weight_y[:, None]
+    sampled = (
+        top_left * (1.0 - wx) * (1.0 - wy)
+        + top_right * wx * (1.0 - wy)
+        + bottom_left * (1.0 - wx) * wy
+        + bottom_right * wx * wy
+    )
+    valid = valid_y[:, None] & valid_x[None, :]
+    return np.where(valid, sampled, 0.0)
+
+
+def _extract_sensor_region_continuous(
+    E_cam: np.ndarray,
+    X: np.ndarray,
+    Y: np.ndarray,
+    setup: OpticalSetup,
+    *,
+    method: str = "pixel_area_bilinear_intensity",
+    quadrature_order: int = 3,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, dict[str, Any]]:
+    """Sample a continuously positioned sensor with explicit v12 semantics.
+
+    ``pixel_area_bilinear_intensity`` is the selected camera model: it averages
+    irradiance over each finite pixel using Gauss-Legendre quadrature.
+    ``point_bilinear_intensity`` and ``point_bilinear_complex_field`` are
+    retained for controlled diagnostics.  Wrapped phase is never interpolated.
+    Samples outside the propagated field are explicitly zero padded.
+    """
+
+    allowed = {
+        "pixel_area_bilinear_intensity",
+        "point_bilinear_intensity",
+        "point_bilinear_complex_field",
+    }
+    if method not in allowed:
+        raise ValueError(f"unknown continuous sensor sampling method: {method}")
+    sx, sy, sensor_x, sensor_y = sensor_pixel_center_coordinates(setup)
+    full_intensity = np.square(np.abs(np.asarray(E_cam)))
+    pitch = float(setup.sensor.pixel_pitch)
+
+    if method == "point_bilinear_intensity":
+        intensity = _bilinear_sample_uniform_zero(
+            full_intensity, X, Y, sx, sy
+        )
+        effective_order = 1
+    elif method == "point_bilinear_complex_field":
+        real = _bilinear_sample_uniform_zero(E_cam.real, X, Y, sx, sy)
+        imag = _bilinear_sample_uniform_zero(E_cam.imag, X, Y, sx, sy)
+        intensity = np.square(np.abs(real + 1j * imag))
+        effective_order = 1
+    else:
+        effective_order = int(quadrature_order)
+        if effective_order < 1 or effective_order > 9:
+            raise ValueError("pixel-area quadrature order must be in [1, 9]")
+        nodes, weights = np.polynomial.legendre.leggauss(effective_order)
+        intensity = np.zeros((len(sy), len(sx)), dtype=np.float64)
+        for y_node, y_weight in zip(nodes, weights, strict=True):
+            sample_y = sy + 0.5 * pitch * float(y_node)
+            for x_node, x_weight in zip(nodes, weights, strict=True):
+                sample_x = sx + 0.5 * pitch * float(x_node)
+                intensity += (
+                    float(x_weight)
+                    * float(y_weight)
+                    * _bilinear_sample_uniform_zero(
+                        full_intensity,
+                        X,
+                        Y,
+                        sample_x,
+                        sample_y,
+                    )
+                )
+        intensity *= 0.25
+
+    grid_x_axis = np.asarray(X[0, :], dtype=np.float64)
+    grid_y_axis = np.asarray(Y[:, 0], dtype=np.float64)
+    half_pitch = 0.5 * pitch
+    valid_x = (sx - half_pitch >= grid_x_axis[0]) & (
+        sx + half_pitch <= grid_x_axis[-1]
+    )
+    valid_y = (sy - half_pitch >= grid_y_axis[0]) & (
+        sy + half_pitch <= grid_y_axis[-1]
+    )
+    valid_region = valid_y[:, None] & valid_x[None, :]
+    grid_pitch_x = float(grid_x_axis[1] - grid_x_axis[0])
+    grid_pitch_y = float(grid_y_axis[1] - grid_y_axis[0])
+    metadata: dict[str, Any] = {
+        "method": method,
+        "measurement_model": (
+            "finite_pixel_area_average_of_bilinearly_interpolated_irradiance"
+            if method == "pixel_area_bilinear_intensity"
+            else "point_sample_of_bilinearly_interpolated_irradiance"
+            if method == "point_bilinear_intensity"
+            else "point_sample_of_bilinearly_interpolated_real_imaginary_field"
+        ),
+        "quadrature_order": effective_order,
+        "outside_propagated_field_rule": "zero_padding",
+        "simulation_grid_pitch_x_m": grid_pitch_x,
+        "simulation_grid_pitch_y_m": grid_pitch_y,
+        "sensor_pixel_pitch_m": pitch,
+        "sensor_first_center_x_m": float(sx[0]),
+        "sensor_first_center_y_m": float(sy[0]),
+        "sensor_last_center_x_m": float(sx[-1]),
+        "sensor_last_center_y_m": float(sy[-1]),
+        "center_fractional_grid_index_x": float(
+            (sx[len(sx) // 2] - grid_x_axis[0]) / grid_pitch_x
+        ),
+        "center_fractional_grid_index_y": float(
+            (sy[len(sy) // 2] - grid_y_axis[0]) / grid_pitch_y
+        ),
+        "axis_0_direction": "+y_lab",
+        "axis_1_direction": "+x_lab",
+        "valid_region_fraction": float(valid_region.mean()),
+    }
+    return (
+        np.asarray(intensity, dtype=np.float64),
+        sensor_x,
+        sensor_y,
+        valid_region,
+        metadata,
+    )
 
 
 # ──────────────────────────────────────────────────────────────

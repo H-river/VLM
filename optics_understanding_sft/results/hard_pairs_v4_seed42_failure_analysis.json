@@ -1,0 +1,320 @@
+{
+  "candidate_agreement": {
+    "mixed50__vs__mixed100": {
+      "exact_same_raw_response_count": 114,
+      "record_count": 120,
+      "same_status_count": 120
+    },
+    "warmup100__vs__mixed100": {
+      "exact_same_raw_response_count": 113,
+      "record_count": 120,
+      "same_status_count": 120
+    },
+    "warmup100__vs__mixed50": {
+      "exact_same_raw_response_count": 112,
+      "record_count": 120,
+      "same_status_count": 120
+    }
+  },
+  "candidates": {
+    "mixed100": {
+      "adapter_path": "/home/jiamo/VLM_runs/qwen25vl_3b_qlora_hard_v4_mixed_seed42/checkpoint-100",
+      "adapter_sha256": "e0091d32ebf3e9f4bbe161c3d4c86403266cde625b0a5a23cb3217d2c561e938",
+      "control_predicted_best_residual_vs_no_action": {
+        "absolute_error_px": {
+          "max": 0.999799999999996,
+          "mean": 0.020401666666681268,
+          "median": 2.842170943040401e-14,
+          "min": 4.440892098500626e-16
+        },
+        "exact_within_1e_4_count": 43,
+        "numeric_prediction_count": 60
+      },
+      "gates": {
+        "control_feasible_recall_at_least_0_60": false,
+        "control_infeasible_recall_at_least_0_60": true,
+        "control_simulator_success_at_least_0_40": false,
+        "control_status_macro_f1_at_least_0_60": false,
+        "minimal_pair_joint_accuracy_at_least_0_40": false,
+        "schema_valid_rate_at_least_0_93": true,
+        "sufficiency_status_macro_f1_at_least_0_60": false
+      },
+      "metrics": {
+        "control_feasible_recall": 0.0,
+        "control_feasible_simulator_success": 0.0,
+        "control_infeasible_recall": 1.0,
+        "control_status_macro_f1": 0.3333333333333333,
+        "minimal_pair_joint_status_accuracy": 0.0,
+        "schema_valid_rate": 1.0,
+        "sufficiency_status_macro_f1": 0.3333333333333333
+      },
+      "pair_sensitivity": {
+        "constrained_intervention": {
+          "exact_same_raw_response_count": 0,
+          "pair_count": 30,
+          "same_predicted_status_count": 30
+        },
+        "information_sufficiency": {
+          "exact_same_raw_response_count": 30,
+          "pair_count": 30,
+          "same_predicted_status_count": 30
+        }
+      },
+      "passed": false,
+      "predicted_status_counts": {
+        "constrained_intervention": {
+          "infeasible_within_limits": 60
+        },
+        "information_sufficiency": {
+          "insufficient_information": 60
+        }
+      },
+      "result_dir": "/home/jiamo/VLM/optics_understanding_sft/results/hard_v4_seed42_mixed100_diagnostic"
+    },
+    "mixed50": {
+      "adapter_path": "/home/jiamo/VLM_runs/qwen25vl_3b_qlora_hard_v4_mixed_seed42/checkpoint-50",
+      "adapter_sha256": "490bf5de2eeef76fb555659f164c22db1fd72300e612a3a9cfdda6e24d859db4",
+      "control_predicted_best_residual_vs_no_action": {
+        "absolute_error_px": {
+          "max": 2.003199999999986,
+          "mean": 0.05362666666667969,
+          "median": 2.8199664825478976e-14,
+          "min": 4.440892098500626e-16
+        },
+        "exact_within_1e_4_count": 43,
+        "numeric_prediction_count": 60
+      },
+      "gates": {
+        "control_feasible_recall_at_least_0_60": false,
+        "control_infeasible_recall_at_least_0_60": true,
+        "control_simulator_success_at_least_0_40": false,
+        "control_status_macro_f1_at_least_0_60": false,
+        "minimal_pair_joint_accuracy_at_least_0_40": false,
+        "schema_valid_rate_at_least_0_93": true,
+        "sufficiency_status_macro_f1_at_least_0_60": false
+      },
+      "metrics": {
+        "control_feasible_recall": 0.0,
+        "control_feasible_simulator_success": 0.0,
+        "control_infeasible_recall": 1.0,
+        "control_status_macro_f1": 0.3333333333333333,
+        "minimal_pair_joint_status_accuracy": 0.0,
+        "schema_valid_rate": 1.0,
+        "sufficiency_status_macro_f1": 0.3333333333333333
+      },
+      "pair_sensitivity": {
+        "constrained_intervention": {
+          "exact_same_raw_response_count": 0,
+          "pair_count": 30,
+          "same_predicted_status_count": 30
+        },
+        "information_sufficiency": {
+          "exact_same_raw_response_count": 30,
+          "pair_count": 30,
+          "same_predicted_status_count": 30
+        }
+      },
+      "passed": false,
+      "predicted_status_counts": {
+        "constrained_intervention": {
+          "infeasible_within_limits": 60
+        },
+        "information_sufficiency": {
+          "insufficient_information": 60
+        }
+      },
+      "result_dir": "/home/jiamo/VLM/optics_understanding_sft/results/hard_v4_seed42_mixed50_diagnostic"
+    },
+    "warmup100": {
+      "adapter_path": "/home/jiamo/VLM_runs/qwen25vl_3b_qlora_hard_v4_warmup_seed42/checkpoint-100",
+      "adapter_sha256": "6dc218400c11264b5e2e08cce63cc8dadb5e91c3a6eef8c55d01133447496fce",
+      "control_predicted_best_residual_vs_no_action": {
+        "absolute_error_px": {
+          "max": 0.9999999999999956,
+          "mean": 0.021135593220354517,
+          "median": 2.842170943040401e-14,
+          "min": 4.440892098500626e-16
+        },
+        "exact_within_1e_4_count": 41,
+        "numeric_prediction_count": 59
+      },
+      "gates": {
+        "control_feasible_recall_at_least_0_60": false,
+        "control_infeasible_recall_at_least_0_60": true,
+        "control_simulator_success_at_least_0_40": false,
+        "control_status_macro_f1_at_least_0_60": false,
+        "minimal_pair_joint_accuracy_at_least_0_40": false,
+        "schema_valid_rate_at_least_0_93": true,
+        "sufficiency_status_macro_f1_at_least_0_60": false
+      },
+      "metrics": {
+        "control_feasible_recall": 0.0,
+        "control_feasible_simulator_success": 0.0,
+        "control_infeasible_recall": 1.0,
+        "control_status_macro_f1": 0.3333333333333333,
+        "minimal_pair_joint_status_accuracy": 0.0,
+        "schema_valid_rate": 0.9916666666666667,
+        "sufficiency_status_macro_f1": 0.3333333333333333
+      },
+      "pair_sensitivity": {
+        "constrained_intervention": {
+          "exact_same_raw_response_count": 0,
+          "pair_count": 30,
+          "same_predicted_status_count": 30
+        },
+        "information_sufficiency": {
+          "exact_same_raw_response_count": 30,
+          "pair_count": 30,
+          "same_predicted_status_count": 30
+        }
+      },
+      "passed": false,
+      "predicted_status_counts": {
+        "constrained_intervention": {
+          "infeasible_within_limits": 60
+        },
+        "information_sufficiency": {
+          "insufficient_information": 60
+        }
+      },
+      "result_dir": "/home/jiamo/VLM/optics_understanding_sft/results/hard_v4_seed42_warmup100_diagnostic"
+    }
+  },
+  "conclusion": "prompt_evidence_mismatch_and_conservative_class_collapse",
+  "dataset": {
+    "constrained_intervention": {
+      "current_target_error_px": {
+        "feasible": {
+          "max": 4.818899999999985,
+          "mean": 2.582123333333334,
+          "median": 2.47614999999999,
+          "min": 2.0416000000000167
+        },
+        "infeasible_within_limits": {
+          "max": 5.975300000000004,
+          "mean": 2.939059999999997,
+          "median": 2.5851499999999987,
+          "min": 2.043100000000038
+        }
+      },
+      "current_target_errors_within_tolerance": {
+        "feasible": 0,
+        "infeasible_within_limits": 0
+      },
+      "hidden_grid_best_residual_px": {
+        "feasible": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0
+        },
+        "infeasible_within_limits": {
+          "max": 5.9753,
+          "mean": 2.939081766666667,
+          "median": 2.5851740000000003,
+          "min": 2.043102
+        }
+      },
+      "hidden_grid_canonical_residual_px": {
+        "feasible": {
+          "max": 1.938956,
+          "mean": 0.5557136,
+          "median": 0.250353,
+          "min": 0.0
+        },
+        "infeasible_within_limits": {
+          "max": 5.9753,
+          "mean": 2.939081766666667,
+          "median": 2.5851740000000003,
+          "min": 2.043102
+        }
+      },
+      "hidden_grid_local_turns": {
+        "feasible": {
+          "max": 6.0,
+          "mean": 3.2,
+          "median": 3.0,
+          "min": 1.0
+        },
+        "infeasible_within_limits": {
+          "max": 6.0,
+          "mean": 3.066666666666667,
+          "median": 3.0,
+          "min": 1.0
+        }
+      },
+      "success_tolerance_px": 2.0
+    },
+    "information_sufficiency": {
+      "changed_value_count_per_pair": {
+        "max": 4.0,
+        "mean": 1.9666666666666666,
+        "median": 2.0,
+        "min": 1.0
+      },
+      "maximum_replacement_delta_mm_per_pair": {
+        "max": 0.049999999999999996,
+        "mean": 0.023000000000000003,
+        "median": 0.020000000000000004,
+        "min": 0.01
+      },
+      "replacement_delta_mm": {
+        "max": 0.049999999999999996,
+        "mean": 0.01966101694915254,
+        "median": 0.019999999999999997,
+        "min": 0.009999999999999995
+      },
+      "sorted_completion_direction_changes": {
+        "answerable": {
+          "max": 0.0,
+          "mean": 0.0,
+          "median": 0.0,
+          "min": 0.0
+        },
+        "insufficient_information": {
+          "max": 4.0,
+          "mean": 2.2666666666666666,
+          "median": 2.0,
+          "min": 1.0
+        }
+      },
+      "unique_completion_directions": {
+        "answerable": {
+          "max": 1.0,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1.0
+        },
+        "insufficient_information": {
+          "max": 3.0,
+          "mean": 2.1333333333333333,
+          "median": 2.0,
+          "min": 2.0
+        }
+      }
+    },
+    "pair_count": 60,
+    "prompt_evidence_field_occurrences": {
+      "after_state": 0,
+      "completion_evidence": 0,
+      "expected_state": 0,
+      "grid_scores": 0
+    },
+    "record_count": 120,
+    "status_counts": {
+      "constrained_intervention": {
+        "feasible": 30,
+        "infeasible_within_limits": 30
+      },
+      "information_sufficiency": {
+        "answerable": 30,
+        "insufficient_information": 30
+      }
+    }
+  },
+  "diagnostic_records": "/home/jiamo/VLM/optics_understanding_sft/data/hard_pairs_v4/canonical/diagnostic.jsonl",
+  "distinct_adapter_hash_count": 3,
+  "later_stages_stopped": true,
+  "protocol": "hard_pairs_v4",
+  "sealed_test_evaluated": false
+}

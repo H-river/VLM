@@ -1,0 +1,155 @@
+{
+  "freeze_id": "qwen_orchestration_baseline_20260724",
+  "files": [
+    {
+      "role": "base_model_config",
+      "path": "../HF_models/Qwen2.5-VL-3B-Instruct/config.json"
+    },
+    {
+      "role": "base_model_preprocessor",
+      "path": "../HF_models/Qwen2.5-VL-3B-Instruct/preprocessor_config.json"
+    },
+    {
+      "role": "base_model_index",
+      "path": "../HF_models/Qwen2.5-VL-3B-Instruct/model.safetensors.index.json"
+    },
+    {
+      "role": "base_model_weights_1",
+      "path": "../HF_models/Qwen2.5-VL-3B-Instruct/model-00001-of-00002.safetensors"
+    },
+    {
+      "role": "base_model_weights_2",
+      "path": "../HF_models/Qwen2.5-VL-3B-Instruct/model-00002-of-00002.safetensors"
+    },
+    {
+      "role": "qwen_starting_adapter_config",
+      "path": "../VLM_runs/qwen25vl_3b_qlora_visual_tool_orchestration_v10_2_seed49/adapter_config.json"
+    },
+    {
+      "role": "qwen_starting_adapter_weights",
+      "path": "../VLM_runs/qwen25vl_3b_qlora_visual_tool_orchestration_v10_2_seed49/adapter_model.safetensors"
+    },
+    {
+      "role": "qwen_starting_adapter_training_config",
+      "path": "optics_understanding_sft/configs/qwen25vl_3b_qlora_visual_tool_orchestration_v10_2_seed49.yaml"
+    },
+    {
+      "role": "promoted_system_gate",
+      "path": "optics_understanding_sft/results/unified_system_v11_3_confirmed_seed49_gate/summary.json"
+    },
+    {
+      "role": "incomplete_direction_checkpoint_config",
+      "path": "../VLM_runs/qwen25vl_3b_qlora_direction_allfield_balanced_v2_seed173/checkpoint-150/adapter_config.json"
+    },
+    {
+      "role": "incomplete_direction_checkpoint_weights",
+      "path": "../VLM_runs/qwen25vl_3b_qlora_direction_allfield_balanced_v2_seed173/checkpoint-150/adapter_model.safetensors"
+    },
+    {
+      "role": "incomplete_direction_checkpoint_state",
+      "path": "../VLM_runs/qwen25vl_3b_qlora_direction_allfield_balanced_v2_seed173/checkpoint-150/trainer_state.json"
+    },
+    {
+      "role": "incomplete_direction_training_config",
+      "path": "optics_understanding_sft/direction_inverse_v1/configs/qwen25vl_3b_direction_allfield_balanced_v2_seed173.yaml"
+    },
+    {
+      "role": "direction_specialist",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/direction_small_v1/direction_small_ensemble.pkl"
+    },
+    {
+      "role": "direction_specialist_metrics",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/direction_small_v1/summary.json"
+    },
+    {
+      "role": "general_forward_specialist",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/forward_hybrid_v1/forward_hybrid.pkl"
+    },
+    {
+      "role": "general_forward_metrics",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/forward_hybrid_v1/summary.json"
+    },
+    {
+      "role": "grid_forward_specialist",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/forward_grid_hybrid_v1/forward_hybrid.pkl"
+    },
+    {
+      "role": "grid_forward_metrics",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/forward_grid_hybrid_v1/summary.json"
+    },
+    {
+      "role": "direct_inverse_specialist",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/inverse_direct_v1/inverse_direct.pkl"
+    },
+    {
+      "role": "direct_inverse_metrics",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/inverse_direct_v1/summary.json"
+    },
+    {
+      "role": "inverse_ensemble_policy",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/inverse_ensemble_v1/summary.json"
+    },
+    {
+      "role": "visual_pipeline_metrics",
+      "path": "optics_understanding_sft/direction_inverse_v1/results/visual_pipeline_sensor_v1/summary.json"
+    },
+    {
+      "role": "direction_source",
+      "path": "optics_understanding_sft/direction_inverse_v1/train_direction_small.py"
+    },
+    {
+      "role": "forward_source",
+      "path": "optics_understanding_sft/direction_inverse_v1/train_forward_small.py"
+    },
+    {
+      "role": "forward_blend_source",
+      "path": "optics_understanding_sft/direction_inverse_v1/train_forward_hybrid.py"
+    },
+    {
+      "role": "direct_inverse_source",
+      "path": "optics_understanding_sft/direction_inverse_v1/train_inverse_direct.py"
+    },
+    {
+      "role": "inverse_ensemble_source",
+      "path": "optics_understanding_sft/direction_inverse_v1/evaluate_inverse_ensemble.py"
+    },
+    {
+      "role": "visual_meter_and_pipeline_source",
+      "path": "optics_understanding_sft/direction_inverse_v1/evaluate_visual_pipeline.py"
+    },
+    {
+      "role": "inverse_matching_source",
+      "path": "optics_understanding_sft/direction_inverse_v1/build_inverse.py"
+    },
+    {
+      "role": "shared_qwen_trainer_source",
+      "path": "optics_sft/scripts/train_qwen25vl_qlora.py"
+    }
+  ],
+  "directories": [
+    {
+      "role": "direction_dataset",
+      "path": "optics_understanding_sft/direction_inverse_v1/data/v1/direction"
+    },
+    {
+      "role": "balanced_qwen_direction_export",
+      "path": "optics_understanding_sft/direction_inverse_v1/data/v1/exports/qwen/direction_allfield_balanced_v2"
+    },
+    {
+      "role": "grid_transition_dataset",
+      "path": "optics_understanding_sft/direction_inverse_v1/data/v1/grid_transitions"
+    },
+    {
+      "role": "inverse_public_dataset",
+      "path": "optics_understanding_sft/direction_inverse_v1/data/v1/inverse/canonical"
+    },
+    {
+      "role": "inverse_private_replay",
+      "path": "optics_understanding_sft/direction_inverse_v1/data/v1/inverse/private"
+    },
+    {
+      "role": "inverse_calibrated_images",
+      "path": "optics_understanding_sft/direction_inverse_v1/data/v1/images"
+    }
+  ]
+}

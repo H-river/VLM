@@ -1,0 +1,59 @@
+{
+  "checks": {
+    "control_action_exact_match": false,
+    "control_minimum_motion_correct": false,
+    "control_simulator_success": false,
+    "pair_joint_status_accuracy": false,
+    "per_status_recall": false,
+    "per_task_status_macro_f1": false,
+    "schema_valid_rate": false,
+    "sufficiency_answerable_direction_accuracy": false,
+    "sufficiency_witness_validity": false
+  },
+  "confirmation_may_open": false,
+  "metrics": {
+    "control_action_exact_match": 0.02,
+    "control_minimum_motion_correct": 0.02,
+    "control_simulator_success": 0.02,
+    "pair_metrics": {
+      "constrained_intervention": {
+        "both_statuses_correct_rate": 0.34,
+        "pair_count": 50,
+        "prediction_changes_with_pair_rate": 0.42
+      },
+      "information_sufficiency": {
+        "both_statuses_correct_rate": 0.0,
+        "pair_count": 50,
+        "prediction_changes_with_pair_rate": 0.0
+      }
+    },
+    "per_status_recall": {
+      "answerable": 1.0,
+      "feasible": 0.5,
+      "infeasible_within_limits": 0.76,
+      "insufficient_information": 0.0
+    },
+    "per_task_status_macro_f1": {
+      "constrained_intervention": 0.6236395076797885,
+      "information_sufficiency": 0.3333333333333333
+    },
+    "record_count": 200,
+    "schema_valid_rate": 0.825,
+    "split": "dev",
+    "sufficiency_answerable_direction_accuracy": 0.18,
+    "sufficiency_witness_validity": 0.0
+  },
+  "passed": false,
+  "split": "dev",
+  "thresholds": {
+    "control_action_exact_match": 0.6,
+    "control_minimum_motion_correct": 0.6,
+    "control_simulator_success": 0.7,
+    "pair_joint_status_accuracy": 0.7,
+    "per_status_recall": 0.7,
+    "per_task_status_macro_f1": 0.75,
+    "schema_valid_rate": 0.98,
+    "sufficiency_answerable_direction_accuracy": 0.75,
+    "sufficiency_witness_validity": 0.7
+  }
+}

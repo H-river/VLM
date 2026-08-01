@@ -1,0 +1,81 @@
+dataset:
+  name: optics_understanding_sft_pilot_v1
+  version: pilot_v1
+  seed: 42
+  scenarios:
+    train: 210
+    val: 30
+    test: 60
+  questions_per_scenario: 4
+  visual_records:
+    train: 84
+    val: 12
+    test: 24
+  task_counts:
+    train:
+      setup_interpretation: 84
+      information_sufficiency: 84
+      causal_effects: 126
+      forward_prediction: 168
+      diagnosis: 126
+      constrained_intervention: 168
+      counterfactual_reasoning: 84
+    val:
+      setup_interpretation: 12
+      information_sufficiency: 12
+      causal_effects: 18
+      forward_prediction: 24
+      diagnosis: 18
+      constrained_intervention: 24
+      counterfactual_reasoning: 12
+    test:
+      setup_interpretation: 24
+      information_sufficiency: 24
+      causal_effects: 36
+      forward_prediction: 48
+      diagnosis: 36
+      constrained_intervention: 48
+      counterfactual_reasoning: 24
+  ood_test_scenarios: 30
+
+simulation:
+  base_config: optical_sim/configs/base_config.yaml
+  iid_factors:
+    wavelength_nm: [0.97, 1.03]
+    beam_waist_mm: [0.70, 1.50]
+    lens_focal_length_mm: [0.80, 1.20]
+    lens_aperture_mm: [0.85, 1.10]
+    source_to_lens_mm: [0.80, 1.20]
+    lens_to_camera_mm: [0.80, 1.20]
+  ood_factors:
+    wavelength_nm: [[0.95, 0.97], [1.03, 1.05]]
+    beam_waist_mm: [[0.60, 0.70], [1.50, 1.80]]
+    lens_focal_length_mm: [[0.70, 0.80], [1.20, 1.30]]
+    lens_aperture_mm: [[0.75, 0.85], [1.10, 1.15]]
+    source_to_lens_mm: [[0.75, 0.80], [1.20, 1.25]]
+    lens_to_camera_mm: [[0.75, 0.80], [1.20, 1.25]]
+  offsets_mm:
+    lens_x: [-0.20, 0.20]
+    lens_y: [-0.20, 0.20]
+    camera_x: [-0.12, 0.12]
+    camera_y: [-0.12, 0.12]
+  action_bounds_mm:
+    lens: 0.06
+    camera: 0.03
+
+labels:
+  centroid_effect_threshold_px: 1.0
+  sigma_effect_threshold_px: 2.0
+  intensity_relative_threshold: 0.05
+  diagnosis_centroid_tolerance_px: 1.5
+  diagnosis_sigma_tolerance_px: 2.0
+  control_success_tolerance_px: 2.0
+  sufficiency_completions: 5
+  constrained_grid_values: 9
+
+rendering:
+  size_px: 384
+  difficulty: medium
+
+exports:
+  qwen_config: configs/qwen25vl_3b_qlora_pilot_v1.yaml

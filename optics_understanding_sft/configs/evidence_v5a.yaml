@@ -1,0 +1,26 @@
+dataset:
+  name: optics_understanding_sft_evidence_v5a
+  version: evidence_grounded_v5a
+  seed: 15053
+  record_suffix: __evidence_v5a
+  split_scenarios: {train: 200, dev: 50, confirmation: 50}
+  trial_train_scenarios: 50
+
+promotion_gates:
+  schema_valid_rate: 0.98
+  per_task_status_macro_f1: 0.75
+  per_status_recall: 0.70
+  pair_joint_status_accuracy: 0.70
+  control_action_exact_match: 0.60
+  control_simulator_success: 0.70
+  control_minimum_motion_correct: 0.60
+  sufficiency_answerable_direction_accuracy: 0.75
+  sufficiency_witness_validity: 0.70
+
+protocol:
+  max_training_steps: 50
+  checkpoint_steps: [25, 50]
+  seed: 42
+  paid_api_calls: 0
+  open_confirmation_only_after_dev_pass: true
+  sealed_pilot_test_opened: false

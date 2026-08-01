@@ -1,0 +1,167 @@
+{
+  "argument_extraction_accuracy": 0.15714285714285714,
+  "argument_extraction_given_correct_route": 0.5714285714285714,
+  "by_task_modality": [
+    {
+      "e2e_accuracy": 0.0,
+      "e2e_wilson_95_high": 0.2775327998628892,
+      "e2e_wilson_95_low": 0.0,
+      "modality": "image",
+      "n": 10,
+      "qwen_contract_gap": 0.0,
+      "specialist_accuracy": 0.0,
+      "task": "direction_prediction_v12"
+    },
+    {
+      "e2e_accuracy": 0.3,
+      "e2e_wilson_95_high": 0.6032218525388546,
+      "e2e_wilson_95_low": 0.10779126740630099,
+      "modality": "state",
+      "n": 10,
+      "qwen_contract_gap": 0.7,
+      "specialist_accuracy": 1.0,
+      "task": "direction_prediction_v12"
+    },
+    {
+      "e2e_accuracy": 0.0,
+      "e2e_wilson_95_high": 0.2775327998628892,
+      "e2e_wilson_95_low": 0.0,
+      "modality": "image",
+      "n": 10,
+      "qwen_contract_gap": 0.0,
+      "specialist_accuracy": 0.0,
+      "task": "forward_prediction_v12"
+    },
+    {
+      "e2e_accuracy": 0.5,
+      "e2e_wilson_95_high": 0.7634069094874361,
+      "e2e_wilson_95_low": 0.236593090512564,
+      "modality": "state",
+      "n": 10,
+      "qwen_contract_gap": 0.5,
+      "specialist_accuracy": 1.0,
+      "task": "forward_prediction_v12"
+    },
+    {
+      "e2e_accuracy": 0.0,
+      "e2e_wilson_95_high": 0.2775327998628892,
+      "e2e_wilson_95_low": 0.0,
+      "modality": "image",
+      "n": 10,
+      "qwen_contract_gap": 0.0,
+      "specialist_accuracy": 0.0,
+      "task": "inverse_control_v12"
+    },
+    {
+      "e2e_accuracy": 0.0,
+      "e2e_wilson_95_high": 0.2775327998628892,
+      "e2e_wilson_95_low": 0.0,
+      "modality": "state",
+      "n": 10,
+      "qwen_contract_gap": 1.0,
+      "specialist_accuracy": 1.0,
+      "task": "inverse_control_v12"
+    },
+    {
+      "e2e_accuracy": 0.0,
+      "e2e_wilson_95_high": 0.2775327998628892,
+      "e2e_wilson_95_low": 0.0,
+      "modality": "image",
+      "n": 10,
+      "qwen_contract_gap": 0.0,
+      "specialist_accuracy": 0.0,
+      "task": "measurement"
+    }
+  ],
+  "case_count": 105,
+  "clarification_accuracy": 0.0,
+  "direction_per_field_e2e_accuracy": 0.22,
+  "direction_per_field_specialist_accuracy": 0.5,
+  "elapsed_seconds": 2632.533763109008,
+  "failure_by_route_stage": {
+    "inverse_control_from_images_v12_h1": {
+      "Qwen invalid JSON/schema": 10
+    },
+    "inverse_control_from_states_v12_h1": {
+      "Qwen invalid JSON/schema": 10
+    },
+    "measure_beam_profile_v12": {
+      "Qwen invalid JSON/schema": 8,
+      "wrong status": 2
+    },
+    "needs_clarification": {
+      "Qwen invalid JSON/schema": 18,
+      "wrong status": 2
+    },
+    "predict_direction_from_image_v12": {
+      "Qwen invalid JSON/schema": 10
+    },
+    "predict_direction_from_state_v12": {
+      "Qwen invalid JSON/schema": 2,
+      "unit/sign/order error": 2,
+      "wrong task/route": 3
+    },
+    "predict_forward_from_image_v12": {
+      "Qwen invalid JSON/schema": 10
+    },
+    "predict_forward_from_state_v12": {
+      "Qwen invalid JSON/schema": 5
+    },
+    "unsupported": {
+      "Qwen invalid JSON/schema": 9,
+      "missing/wrong argument": 6
+    }
+  },
+  "failure_counts": {
+    "Qwen invalid JSON/schema": 82,
+    "missing/wrong argument": 6,
+    "unit/sign/order error": 2,
+    "wrong status": 4,
+    "wrong task/route": 3
+  },
+  "four_task_e2e_macro_accuracy": 0.1,
+  "four_task_e2e_stratified_bootstrap_95": {
+    "high": 0.15,
+    "low": 0.05,
+    "samples": 5000
+  },
+  "four_task_qwen_contract_gap": 0.275,
+  "four_task_specialist_macro_accuracy": 0.375,
+  "image_measurement_e2e_success": 0.0,
+  "image_measurement_specialist_success": 0.0,
+  "image_v12_downstream_state_success": 1.0,
+  "inverse": {
+    "e2e_actuator_violations": 0,
+    "e2e_average_steps_when_executed": null,
+    "e2e_success_rate": 0.0,
+    "specialist_actuator_violations": 0,
+    "specialist_average_steps": 0.4,
+    "specialist_failure_attribution": {
+      "measurement": 10
+    },
+    "specialist_success_rate": 0.5
+  },
+  "latency_seconds": {
+    "average": 24.875641279038003,
+    "p50": 29.124642426992068,
+    "p95": 38.36899547580688
+  },
+  "modality_route_balanced": {
+    "image": {
+      "e2e_route_balanced_accuracy": 0.0,
+      "specialist_route_balanced_accuracy": 0.0
+    },
+    "state": {
+      "e2e_route_balanced_accuracy": 0.26666666666666666,
+      "specialist_route_balanced_accuracy": 1.0
+    }
+  },
+  "ready_count": 70,
+  "ready_micro_e2e_accuracy": 0.11428571428571428,
+  "ready_micro_specialist_accuracy": 0.42857142857142855,
+  "route_accuracy": 0.2,
+  "run_id": "formal_20260731T201800_SGT",
+  "schema_validity": 0.21904761904761905,
+  "unit_conversion_accuracy": 0.15714285714285714,
+  "unsupported_rejection_accuracy": 0.0
+}

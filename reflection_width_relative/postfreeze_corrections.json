@@ -1,0 +1,18 @@
+{
+  "version": "reflection_width_relative_postfreeze_corrections_v1",
+  "corrections": [
+    {
+      "time": "2026-08-01T18:04:00+08:00",
+      "phase": "optional_severity_ood_generation",
+      "failed_command_output_written": false,
+      "partial_evaluator_only_images_may_exist": true,
+      "failure": "v12_mpcdiag_reflsig_ood_20260801_02_0001 passed the float match but had post-serialization maximum normalized per-metric difference 0.274828316116114, above the frozen 0.25 limit",
+      "scientific_response": "No threshold, generator parameter, suite, case list, serializer, model, or policy was changed; severity-OOD is marked unavailable and was not regenerated",
+      "code_correction": "Evaluation and paired-output aggregation now accept an absent optional severity-OOD dataset while retaining the unchanged IID path and gates",
+      "semantic_generator_change": false,
+      "iid_prediction_seen_before_correction": false,
+      "preregistered_generator_sha256": "ae3aaa76c93327366b011868f7c3adbe22e7e7252abe86c22a9a5b1b9b57f747",
+      "post_correction_module_sha256": "7d720c458e26f8ef05f9b28cc85fef4843abcd3a4757ce56f3cfa1b3d8605613"
+    }
+  ]
+}

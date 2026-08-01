@@ -1,0 +1,95 @@
+{
+  "balance": {
+    "causal_direction_labels": {
+      "decrease": 20,
+      "increase": 29,
+      "no_change": 251
+    },
+    "statuses": {
+      "causal_effects": {
+        "answerable": 60
+      },
+      "constrained_intervention": {
+        "feasible": 60,
+        "infeasible_within_limits": 60
+      },
+      "counterfactual_reasoning": {
+        "answerable": 60
+      },
+      "diagnosis": {
+        "ambiguous": 40,
+        "unique": 40,
+        "unsupported": 40
+      },
+      "forward_prediction": {
+        "answerable": 60
+      },
+      "information_sufficiency": {
+        "answerable": 60,
+        "insufficient_information": 60
+      },
+      "setup_interpretation": {
+        "answerable": 60
+      }
+    }
+  },
+  "counterbalanced_pair_count": 86,
+  "counterbalanced_pair_minimum": 0,
+  "dataset": "optics_understanding_sft_dev_v3_visual_confirmation",
+  "expected_record_counts": {
+    "test": 0,
+    "train": 0,
+    "val": 600
+  },
+  "expected_visual_counts": {
+    "test": 0,
+    "train": 0,
+    "val": 30
+  },
+  "failures": [],
+  "fixed_gain_baseline": {
+    "count": 0,
+    "success_rate": null,
+    "successes": 0
+  },
+  "match_groups": {
+    "cross_split_count": 0,
+    "group_count": 160,
+    "record_count": 360
+  },
+  "passed": true,
+  "record_counts": {
+    "test": 0,
+    "train": 0,
+    "val": 600
+  },
+  "replay": {
+    "skipped": true
+  },
+  "split_overlap": {
+    "train_test_groups": 0,
+    "train_test_ids": 0,
+    "train_val_groups": 0,
+    "train_val_ids": 0,
+    "val_test_groups": 0,
+    "val_test_ids": 0
+  },
+  "task_counts": {
+    "test": {},
+    "train": {},
+    "val": {
+      "causal_effects": 60,
+      "constrained_intervention": 120,
+      "counterfactual_reasoning": 60,
+      "diagnosis": 120,
+      "forward_prediction": 60,
+      "information_sufficiency": 120,
+      "setup_interpretation": 60
+    }
+  },
+  "visual_counts": {
+    "test": 0,
+    "train": 0,
+    "val": 30
+  }
+}

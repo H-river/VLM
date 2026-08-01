@@ -1,0 +1,10 @@
+[Unit]
+Description=Start VLM v4 12-hour quickcheck after dataset generation
+ConditionPathExists=!/home/jiamo/VLM_runs/control_rebuild_v4_quickcheck_12h/quickcheck_pipeline.complete
+
+[Path]
+PathExists=/home/jiamo/VLM_data/control_rebuild_v4_quickcheck/manifest.json
+Unit=vlm-v4-quickpost-12h.service
+
+[Install]
+WantedBy=default.target

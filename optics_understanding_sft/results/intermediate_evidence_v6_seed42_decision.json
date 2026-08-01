@@ -1,0 +1,39 @@
+{
+  "confirmation_opened": false,
+  "dataset_audit_passed": true,
+  "decision": "no_promotion",
+  "model": "Qwen2.5-VL-3B-Instruct",
+  "paid_api_calls": 0,
+  "reason": "Both checkpoints have a mathematically impossible development gate under the frozen thresholds.",
+  "seed": 42,
+  "step_60": {
+    "evaluated_slice": "first 13 constrained_intervention tool_call_construction records",
+    "invalid_json_count": 13,
+    "mathematically_impossible_gate": "schema_valid_rate",
+    "maximum_possible_full_dev_schema_valid_rate": 0.9783333333333334,
+    "passed": false,
+    "prediction_count": 13
+  },
+  "step_120": {
+    "evaluated_slice": "first 41 constrained_intervention tool_call_construction records",
+    "exact_argument_count": 0,
+    "executable_result_match_count": 0,
+    "invalid_json_count": 9,
+    "json_valid_count": 32,
+    "mathematically_impossible_gates": [
+      "tool_arguments_exact_match",
+      "tool_execution_result_match"
+    ],
+    "maximum_possible_full_call_argument_exact_match": 0.795,
+    "maximum_possible_full_call_execution_result_match": 0.795,
+    "passed": false,
+    "prediction_count": 41
+  },
+  "training": {
+    "checkpoint_steps": [60, 120],
+    "development_loss_step_60": 0.4664,
+    "development_loss_step_120": 0.4203,
+    "maximum_steps": 120,
+    "train_record_count": 480
+  }
+}

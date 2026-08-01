@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "all_records_visual_and_calibrated": true,
+    "curriculum_valid": true,
+    "images_present_and_384": true,
+    "pixel_shortcuts_absent": true,
+    "scenario_disjoint": true,
+    "targets_valid": true
+  },
+  "counts": {
+    "curriculum": 400,
+    "dev": 78,
+    "dev_groups": 29,
+    "train": 1011,
+    "train_groups": 94
+  },
+  "curriculum_source_counts": {
+    "visual_pair_v10": 180,
+    "visual_state_v10": 220
+  },
+  "failures": [],
+  "passed": true
+}

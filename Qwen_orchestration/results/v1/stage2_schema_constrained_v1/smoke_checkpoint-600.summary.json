@@ -1,0 +1,60 @@
+{
+  "adapter_path": "/home/jiamo/VLM_runs/qwen_orchestrator_v1_stage2_schema_refinement_v2_seed20260724/checkpoint-600",
+  "canonical_jsonl": "/home/jiamo/VLM_data/qwen_orchestration/v1/canonical/val.jsonl",
+  "constrained_decoding": {
+    "enabled": true,
+    "engine": "lm-format-enforcer",
+    "force_field_order": true,
+    "schema_path": "/home/jiamo/VLM/Qwen_orchestration/schemas/orchestration_generation.schema.json",
+    "schema_sha256": "016991d8ac2547b9816d5479874b0cadcd9c8a5678ccc82aec1a3ad397f109b9",
+    "version": "0.11.3"
+  },
+  "generation": {
+    "do_sample": false,
+    "json_schema_constraint": {
+      "engine": "lm-format-enforcer",
+      "force_field_order": true,
+      "schema": "Qwen_orchestration/schemas/orchestration_generation.schema.json",
+      "version": "0.11.3"
+    },
+    "max_new_tokens": 768,
+    "temperature": 0.0
+  },
+  "input_jsonl": "/home/jiamo/VLM_data/qwen_orchestration/v1/exports/qwen/val_stage2.jsonl",
+  "metrics": {
+    "clarification_fields_exact_accuracy": 0.0,
+    "clarification_recall": 0.0,
+    "count": 8,
+    "image_role_exact_accuracy": 1.0,
+    "numeric_value_unit_exact_accuracy": 1.0,
+    "ready_arguments_exact_accuracy": 1.0,
+    "ready_prediction_on_unsupported": 0.0,
+    "ready_route_exact_accuracy": 1.0,
+    "registry_invalid_ready_call_rate": 0.0,
+    "registry_valid_ready_call_rate": 1.0,
+    "required_argument_group_exact_accuracy": 1.0,
+    "route_confusion": {
+      "measure_beam_profile_v1->measure_beam_profile_v1": 8
+    },
+    "route_exact_accuracy_all": 1.0,
+    "schema_valid_rate": 1.0,
+    "stage2_denominators": {
+      "clarification_records": 0,
+      "numeric_values_with_unit_paths": 40,
+      "ready_records": 8,
+      "required_argument_groups": 8,
+      "visual_ready_records": 8
+    },
+    "status_confusion": {
+      "ready->ready": 8
+    },
+    "status_exact_accuracy": 1.0,
+    "task_confusion": {
+      "beam_profile_measurement->beam_profile_measurement": 8
+    },
+    "task_exact_accuracy": 1.0,
+    "unsupported_recall": 0.0
+  },
+  "stage": "stage2",
+  "subset": "all"
+}

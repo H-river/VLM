@@ -1,0 +1,74 @@
+{
+  "adapter_path": "/home/jiamo/VLM_runs/qwen_orchestrator_v1_stage2_schema_refinement_v2_seed20260724/checkpoint-600",
+  "canonical_jsonl": "/tmp/qwen-orch-smoke.2Ro53v/canonical.jsonl",
+  "constrained_decoding": {
+    "cache_scope": "generation_batch",
+    "enabled": true,
+    "engine": "lm-format-enforcer",
+    "force_field_order": true,
+    "schema_path": "/home/jiamo/VLM/Qwen_orchestration/schemas/orchestration_generation.schema.json",
+    "schema_sha256": "6910eb34cfbe0d1cb03b24ce3f98b9462e2c6fe44ee198dbb9b54399fc6edb3c",
+    "version": "0.11.3"
+  },
+  "generation": {
+    "do_sample": false,
+    "json_schema_constraint": {
+      "engine": "lm-format-enforcer",
+      "force_field_order": true,
+      "schema": "Qwen_orchestration/schemas/orchestration_generation.schema.json",
+      "version": "0.11.3"
+    },
+    "max_new_tokens": 768,
+    "temperature": 0.0
+  },
+  "input_jsonl": "/tmp/qwen-orch-smoke.2Ro53v/qwen.jsonl",
+  "metrics": {
+    "clarification_fields_exact_accuracy": 0.0,
+    "clarification_recall": 1.0,
+    "count": 9,
+    "image_role_exact_accuracy": 1.0,
+    "numeric_value_unit_exact_accuracy": 1.0,
+    "ready_arguments_exact_accuracy": 1.0,
+    "ready_prediction_on_unsupported": 0.0,
+    "ready_route_exact_accuracy": 1.0,
+    "registry_invalid_ready_call_rate": 0.0,
+    "registry_valid_ready_call_rate": 1.0,
+    "required_argument_group_exact_accuracy": 1.0,
+    "route_confusion": {
+      "None->None": 2,
+      "measure_beam_profile_v1->measure_beam_profile_v1": 1,
+      "predict_direction_from_image_v1->predict_direction_from_image_v1": 1,
+      "predict_direction_from_state_v1->predict_direction_from_state_v1": 1,
+      "predict_forward_from_image_v1->predict_forward_from_image_v1": 1,
+      "predict_forward_from_state_v1->predict_forward_from_state_v1": 1,
+      "select_inverse_action_from_images_v1->select_inverse_action_from_images_v1": 1,
+      "select_inverse_action_from_states_v1->select_inverse_action_from_states_v1": 1
+    },
+    "route_exact_accuracy_all": 1.0,
+    "schema_valid_rate": 1.0,
+    "stage2_denominators": {
+      "clarification_records": 1,
+      "numeric_values_with_unit_paths": 128,
+      "ready_records": 7,
+      "required_argument_groups": 18,
+      "visual_ready_records": 4
+    },
+    "status_confusion": {
+      "needs_clarification->needs_clarification": 1,
+      "ready->ready": 7,
+      "unsupported->unsupported": 1
+    },
+    "status_exact_accuracy": 1.0,
+    "task_confusion": {
+      "None->None": 1,
+      "beam_profile_measurement->beam_profile_measurement": 1,
+      "direction_prediction->direction_prediction": 2,
+      "forward_prediction->forward_prediction": 3,
+      "inverse_control->inverse_control": 2
+    },
+    "task_exact_accuracy": 1.0,
+    "unsupported_recall": 1.0
+  },
+  "stage": "stage2",
+  "subset": "all"
+}

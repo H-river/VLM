@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qwen_orchestration_route_v1",
+  "title": "Qwen orchestration route decision v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "status",
+    "task_type",
+    "route_name"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "qwen_orchestration_route_v1"
+    },
+    "status": {
+      "enum": ["ready", "needs_clarification", "unsupported"]
+    },
+    "task_type": {
+      "type": ["string", "null"],
+      "enum": [
+        "beam_profile_measurement",
+        "direction_prediction",
+        "forward_prediction",
+        "inverse_control",
+        null
+      ]
+    },
+    "route_name": {
+      "type": ["string", "null"],
+      "enum": [
+        "measure_beam_profile_v1",
+        "predict_direction_from_state_v1",
+        "predict_direction_from_image_v1",
+        "predict_forward_from_state_v1",
+        "predict_forward_from_image_v1",
+        "select_inverse_action_from_states_v1",
+        "select_inverse_action_from_images_v1",
+        null
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"status": {"const": "ready"}}
+      },
+      "then": {
+        "properties": {
+          "task_type": {"type": "string"},
+          "route_name": {"type": "string"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": ["needs_clarification", "unsupported"]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "route_name": {"type": "null"}
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {"status": {"const": "unsupported"}}
+      },
+      "then": {
+        "properties": {
+          "task_type": {"type": "null"}
+        }
+      }
+    }
+  ]
+}
+

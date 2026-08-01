@@ -63,7 +63,12 @@ def metrics_to_state_m(metrics: BeamMetrics | Mapping[str, Any]) -> dict[str, fl
 
 
 def state_m_to_state_px(state_m: Mapping[str, Any], setup: OpticalSetup) -> dict[str, float]:
-    """Convert meter state fields to pixel coordinates using sensor geometry."""
+    """Convert lab-frame meter fields to the legacy pseudo-pixel coordinates.
+
+    This preserves the published v1-v9 dataset convention.  It is not an
+    image-array coordinate when camera offsets are nonzero; new visual data
+    should use :func:`state_m_to_sensor_frame_px`.
+    """
     height_px, width_px = setup.sensor.resolution
     pitch = float(setup.sensor.pixel_pitch)
     return {
@@ -72,6 +77,38 @@ def state_m_to_state_px(state_m: Mapping[str, Any], setup: OpticalSetup) -> dict
         "sigma_x_px": float(state_m["sigma_x_m"]) / pitch,
         "sigma_y_px": float(state_m["sigma_y_m"]) / pitch,
     }
+
+
+def state_m_to_sensor_frame_px(
+    state_m: Mapping[str, Any], setup: OpticalSetup
+) -> dict[str, float]:
+    """Convert lab-frame beam metrics to camera sensor-array coordinates."""
+
+    height_px, width_px = setup.sensor.resolution
+    pitch = float(setup.sensor.pixel_pitch)
+    return {
+        "centroid_x_px": (
+            float(state_m["centroid_x_m"]) - float(setup.camera.x_offset)
+        )
+        / pitch
+        + (width_px - 1) / 2.0,
+        "centroid_y_px": (
+            float(state_m["centroid_y_m"]) - float(setup.camera.y_offset)
+        )
+        / pitch
+        + (height_px - 1) / 2.0,
+        "sigma_x_px": float(state_m["sigma_x_m"]) / pitch,
+        "sigma_y_px": float(state_m["sigma_y_m"]) / pitch,
+    }
+
+
+def metrics_to_sensor_frame_state(
+    metrics: BeamMetrics | Mapping[str, Any], setup: OpticalSetup
+) -> dict[str, float]:
+    """Return meter fields plus centroid/width fields aligned with PNG pixels."""
+
+    state_m = metrics_to_state_m(metrics)
+    return {**state_m, **state_m_to_sensor_frame_px(state_m, setup)}
 
 
 def metrics_to_state(metrics: BeamMetrics | Mapping[str, Any], setup: OpticalSetup) -> dict[str, float]:

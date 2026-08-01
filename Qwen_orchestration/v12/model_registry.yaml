@@ -1,0 +1,47 @@
+registry_version: qwen_orchestration_registry_v12_v1
+legacy_registry: Qwen_orchestration/configs/model_registry.yaml
+legacy_contract_preserved: true
+canonical_action_unit: mm
+routes:
+  measure_beam_profile_v12:
+    task_type: measurement
+    modality: image
+    backend: guarded_measurement_v4
+    required_argument_groups: [image_calibration]
+    required_image_roles: [beam]
+  predict_direction_from_state_v12:
+    task_type: direction_prediction_v12
+    modality: state
+    backend: continuous_forward_v12_then_locked_direction_threshold
+    required_argument_groups: [setup_context, actuator_position, current_beam_state, continuous_action]
+    required_image_roles: []
+  predict_direction_from_image_v12:
+    task_type: direction_prediction_v12
+    modality: image
+    backend: guarded_measurement_v4_then_continuous_forward_v12_then_locked_direction_threshold
+    required_argument_groups: [setup_context, actuator_position, continuous_action, image_calibration]
+    required_image_roles: [current_beam]
+  predict_forward_from_state_v12:
+    task_type: forward_prediction_v12
+    modality: state
+    backend: continuous_forward_v12
+    required_argument_groups: [setup_context, actuator_position, current_beam_state, continuous_action]
+    required_image_roles: []
+  predict_forward_from_image_v12:
+    task_type: forward_prediction_v12
+    modality: image
+    backend: guarded_measurement_v4_then_continuous_forward_v12
+    required_argument_groups: [setup_context, actuator_position, continuous_action, image_calibration]
+    required_image_roles: [current_beam]
+  inverse_control_from_states_v12_h1:
+    task_type: inverse_control_v12
+    modality: state
+    backend: learned_h1_cem
+    required_argument_groups: [setup_context, actuator_position, current_beam_state, target_beam_state]
+    required_image_roles: []
+  inverse_control_from_images_v12_h1:
+    task_type: inverse_control_v12
+    modality: image
+    backend: guarded_measurement_v4_then_learned_h1_cem
+    required_argument_groups: [setup_context, actuator_position, image_calibration]
+    required_image_roles: [current_beam, target_beam]

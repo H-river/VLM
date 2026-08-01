@@ -1,0 +1,34 @@
+# Environment used
+PY=/home/jiamo/miniconda3/envs/optical_sim/bin/python
+
+# Static source/document trace (representative exact commands)
+rg --files -g 'AGENTS.md' -g '!**/.git/**' ..
+nl -ba continuous_control_v12/simulator.py | sed -n '1,360p'
+nl -ba optical_sim/src/simulator.py | sed -n '1,420p'
+nl -ba optical_sim/src/optical_elements.py | sed -n '1,360p'
+nl -ba optical_sim/src/metrics.py | sed -n '1,360p'
+nl -ba optics_sft/physics/sim_adapter.py | sed -n '1,380p'
+nl -ba continuous_control_v12/contracts.py | sed -n '1,420p'
+nl -ba continuous_control_v12/world_model.py | sed -n '1,390p'
+nl -ba control_rebuild_v5/simulator_grid.py | sed -n '1,420p'
+
+# Diagnostic tests. The first command was blocked before collection by an
+# unrelated auto-loaded ROS launch_testing plugin with missing `lark`.
+$PY -m pytest -q audits/simulator_three_issue_audit_v1/tests/test_three_issue_audit.py
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 $PY -m pytest -q audits/simulator_three_issue_audit_v1/tests/test_three_issue_audit.py
+
+# Production-resolution deterministic audit
+/usr/bin/time -f 'elapsed=%e sec max_rss=%M KB' \
+  $PY -m audits.simulator_three_issue_audit_v1.scripts.run_audit
+
+# v11/v12 smoke-resolution deterministic comparison
+/usr/bin/time -f 'elapsed=%e sec max_rss=%M KB' \
+  $PY -m audits.simulator_three_issue_audit_v1.scripts.run_audit \
+  --grid-size 128 \
+  --sensor-resolution 128 \
+  --data-dir audits/simulator_three_issue_audit_v1/data/smoke_128 \
+  --plot-dir audits/simulator_three_issue_audit_v1/plots/smoke_128
+
+# Final verification
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 $PY -m pytest -q \
+  audits/simulator_three_issue_audit_v1/tests/test_three_issue_audit.py

@@ -1,0 +1,15 @@
+{
+  "end_to_end_exact_match": 0.0,
+  "intermediate_evidence_exact_match": 0.0,
+  "interpretation_answer_exact_match": 0.0,
+  "interpretation_status_macro_f1": {},
+  "json_valid_rate": 0.7804878048780488,
+  "pair_joint_status_accuracy": 0.0,
+  "prediction_count": 41,
+  "record_count": 41,
+  "schema_valid_rate": 0.7804878048780488,
+  "tool_arguments_exact_match": 0.0,
+  "tool_call_name_accuracy": 0.7804878048780488,
+  "tool_choice_accuracy": 0.0,
+  "tool_execution_result_match": 0.0
+}

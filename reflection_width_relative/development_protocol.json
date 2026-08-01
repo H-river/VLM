@@ -1,0 +1,81 @@
+{
+  "version": "reflection_width_relative_development_protocol_v1",
+  "frozen_at": "2026-08-01T17:58:40+08:00",
+  "frozen_from_new_development_set_only": true,
+  "previous_protected_results_used": false,
+  "development_search": {
+    "path": "/home/jiamo/VLM/reflection_width_relative/development_search.json",
+    "setup_groups": 12,
+    "grid_records": 1728,
+    "overall_pre_serialization_match_rate": 1.0,
+    "overall_post_serialization_match_rate": 1.0,
+    "maximum_post_serialization_per_metric_difference": 0.07273774386058918,
+    "maximum_post_serialization_l2_distance": 0.0867552513622105
+  },
+  "selection": {
+    "k_values": [2.25, 2.75],
+    "amplitude_values": [0.4, 0.5],
+    "width_ratio_values": [0.8, 1.0],
+    "direction_angles_radians": [
+      0.0,
+      0.7853981633974483,
+      1.5707963267948966,
+      2.356194490192345,
+      3.141592653589793,
+      3.9269908169872414,
+      4.71238898038469,
+      5.497787143782138
+    ],
+    "contiguous_and_physically_interpretable": true,
+    "reason": "This is the lowest contiguous k/amplitude region with strong development morphology at width ratio 0.8, while retaining the physically neutral equal-width component at 1.0. The 1.2 broad component was excluded because its expected-secondary contrast was consistently negative; lower k values produced merged shapes. No old or held-out result informed the choice.",
+    "selected_region_development_records": 384,
+    "selected_region_post_serialization_match_rate": 1.0,
+    "selected_region_visible_shoulder_consistency_rate": 0.6015625,
+    "selected_region_median_image_rms_difference": 0.05725188050362189,
+    "known_development_risk": "The Q1 narrow-beam quartile had only 27.1% thresholded shoulder consistency in the selected region; the frozen IID quartile gate will determine whether the scale-invariance hypothesis survives."
+  },
+  "parameter_protocol": {
+    "iid": {
+      "k_values": [2.25, 2.75],
+      "amplitude_values": [0.4, 0.5],
+      "width_ratio_values": [0.8, 1.0],
+      "direction_angles_radians": [
+        0.0,
+        0.7853981633974483,
+        1.5707963267948966,
+        2.356194490192345,
+        3.141592653589793,
+        3.9269908169872414,
+        4.71238898038469,
+        5.497787143782138
+      ]
+    },
+    "severity_ood": {
+      "k_values": [3.25],
+      "amplitude_values": [0.6],
+      "width_ratio_values": [0.7, 1.1],
+      "direction_angles_radians": [
+        0.0,
+        0.7853981633974483,
+        1.5707963267948966,
+        2.356194490192345,
+        3.141592653589793,
+        3.9269908169872414,
+        4.71238898038469,
+        5.497787143782138
+      ]
+    }
+  },
+  "model_protocol": {
+    "architecture": "previous_tiny_cnn_and_previous_image_plus_five_metrics_variant_unchanged",
+    "training_seeds": [2026081202, 2026081203, 2026081204],
+    "optimizer": "Adam",
+    "learning_rate": 0.002,
+    "weight_decay": 0.0001,
+    "epochs": 45,
+    "batch_size": 32,
+    "augmentation": "deterministic_rotations_0_90_180_270",
+    "selection_rule": "highest development balanced accuracy, then highest macro F1, then image-only over multimodal, then lowest seed",
+    "threshold": 0.5
+  }
+}

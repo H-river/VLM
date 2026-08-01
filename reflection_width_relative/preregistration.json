@@ -1,0 +1,202 @@
+{
+  "version": "reflection_width_relative_preregistration_v1",
+  "frozen_at": "2026-08-01T18:01:07+08:00",
+  "frozen_before_iid_or_severity_ood_suite_and_image_generation": true,
+  "protected_previous_results_used_for_tuning": false,
+  "qwen_vl_training_allowed": false,
+  "generator": {
+    "version": "secondary_reflection_primary_sigma_direction_v1",
+    "implementation": "/home/jiamo/VLM/vlm_optics_benchmark/reflection_width_relative.py",
+    "implementation_sha256": "ae3aaa76c93327366b011868f7c3adbe22e7e7252abe86c22a9a5b1b9b57f747",
+    "old_fixed_pixel_generator_modified": false,
+    "separation_mode": "primary_sigma_direction",
+    "sigma_direction_formula": "sqrt(u_transpose @ Sigma_primary @ u)",
+    "covariance_source": "clean_primary_before_reflection_injection_never_combined_anomalous_image",
+    "component_definition": "clean_primary_resampled_about_clean_centroid_by_scalar_width_ratio_then_peak_aligned",
+    "power_policy": "secondary_power_added_to_primary_then_diagnostic_view_peak_normalized",
+    "boundary_handling": "bilinear_zero_fill_no_wrap_component_truncation_with_retained_power_recorded",
+    "canonical_preprocessing": "previous_overlay_free_grayscale_128x128_peak_centered_pipeline_unchanged",
+    "serialization": "8_bit_grayscale_png"
+  },
+  "parameter_protocol": {
+    "iid": {
+      "k_values": [2.25, 2.75],
+      "amplitude_values": [0.4, 0.5],
+      "width_ratio_values": [0.8, 1.0],
+      "direction_angles_radians": [
+        0.0,
+        0.7853981633974483,
+        1.5707963267948966,
+        2.356194490192345,
+        3.141592653589793,
+        3.9269908169872414,
+        4.71238898038469,
+        5.497787143782138
+      ]
+    },
+    "severity_ood": {
+      "k_values": [3.25],
+      "amplitude_values": [0.6],
+      "width_ratio_values": [0.7, 1.1],
+      "direction_angles_radians": [
+        0.0,
+        0.7853981633974483,
+        1.5707963267948966,
+        2.356194490192345,
+        3.141592653589793,
+        3.9269908169872414,
+        4.71238898038469,
+        5.497787143782138
+      ],
+      "defined_before_iid_predictions": true
+    },
+    "deterministic_assignment": "sha256_width_relative_parameters_v1_case_id_split_then_uniform_choice_from_frozen_values"
+  },
+  "matching_protocol": {
+    "metric_order": ["centroid_x", "centroid_y", "width_x", "width_y", "peak_intensity"],
+    "tolerance_vector": [1.0, 1.0, 2.0, 2.0, 0.05],
+    "maximum_each_normalized_absolute_difference": 0.25,
+    "maximum_total_normalized_l2": 0.4,
+    "method": "previous_bounded_translation_and_anisotropic_scale_clean_counterfactual_fit",
+    "measure_before_serialization": true,
+    "measure_after_serialization": true,
+    "silent_threshold_relaxation_allowed": false
+  },
+  "split_protocol": {
+    "suite_generator": "/home/jiamo/VLM/continuous_control_v12/build_mpc_diagnostic_suite.py",
+    "suite_generator_sha256": "9b170dad738da98221e3cece804e187585aecac13adb845784ae4fd1b48cebd5",
+    "split_manifest": "/home/jiamo/VLM/reflection_width_relative/split_manifest.json",
+    "development": {
+      "root_seed": 2026082101,
+      "groups": 12,
+      "suite": "/home/jiamo/VLM/reflection_width_relative/suites/development_suite.json",
+      "suite_sha256": "f2da7570e1895d5dbdfaa98f4d0f8c1e8f8f74789e0b5d4fa5997fe8a73406a5"
+    },
+    "train": {
+      "root_seed": 2026082102,
+      "groups": 30,
+      "suite": "/home/jiamo/VLM/reflection_width_relative/suites/train_suite.json",
+      "suite_sha256": "951375b1b4ec2dbb9bf0f5addb028932d86a14e5f07985c6df8057ef55d54a01"
+    },
+    "iid_heldout": {
+      "root_seed": 2026082103,
+      "groups": 30,
+      "suite_label": "reflsig_iid_20260801",
+      "suite_config": "/home/jiamo/VLM/reflection_width_relative/configs/iid_suite_config.json",
+      "suite_config_sha256": "dbb4f5ac088ab71755074c9da260d391bb4d11cb4d904f8eefe456bc35b9dc86",
+      "suite_output": "/home/jiamo/VLM/reflection_width_relative/suites/iid_heldout_suite.json",
+      "generation_count": 1
+    },
+    "severity_ood": {
+      "root_seed": 2026082104,
+      "groups": 18,
+      "suite_label": "reflsig_ood_20260801",
+      "suite_config": "/home/jiamo/VLM/reflection_width_relative/configs/ood_suite_config.json",
+      "suite_config_sha256": "f2c493c4e716687af4a78bc11c26fd2faa411ca18b84682ac2dbe571aad99c95",
+      "suite_output": "/home/jiamo/VLM/reflection_width_relative/suites/severity_ood_suite.json",
+      "generation_count": 1
+    },
+    "previous_reflection_and_controller_suite_exclusions": [
+      {
+        "path": "/home/jiamo/VLM/runs/v12_mpc_h1_h3_diagnosis_20260731_111829/suite/evaluation_suite_manifest.json",
+        "sha256": "c0c8d1dd9bfbde9ac5a23323ead231dd542ddc4dabae65cf05949efb6fbd49b5"
+      },
+      {
+        "path": "/home/jiamo/VLM/runs/vlm_optics_benchmark_20260801_154812/external_suite_manifest.json",
+        "sha256": "02a7033a77d55ebbfa6bca4e81b6a46d47dfe30e1de8173525255147e04a98cf"
+      },
+      {
+        "path": "/home/jiamo/VLM/runs/active_diagnosis_v13_20260801_010051/development/fresh_setup_holdout/evaluation_suite_manifest.json",
+        "sha256": "eed5ec2e265d9ed6014aab332ae5f2bfdd6247ee4df544809a9d32e5ab6646c7"
+      },
+      {
+        "path": "/home/jiamo/VLM/runs/active_diagnosis_v13_20260801_010051/development/fresh_setup_holdout_b/evaluation_suite_manifest.json",
+        "sha256": "f16e6b8272568b450418377c126c54cfcb9f8ff42d005e792844449b19fe7b76"
+      },
+      {
+        "path": "/home/jiamo/VLM/runs/active_diagnosis_v13_20260801_010051/development/fresh_setup_holdout_matched/evaluation_suite_manifest.json",
+        "sha256": "48f30d711f224dae9e5b0a229be44c53859ddc5513f8e0199ca8faebf1be3b76"
+      }
+    ],
+    "iid_excludes_previous_plus_development_plus_train": true,
+    "severity_ood_excludes_previous_plus_development_plus_train_plus_iid": true,
+    "required_group_id_and_setup_hash_overlap": 0
+  },
+  "model_protocol": {
+    "development_selection_artifact": "/home/jiamo/VLM/reflection_width_relative/development_model_selection.json",
+    "development_selection_artifact_sha256": "2f4cc929ca0c48f2cdefa1cbf71d184e63d80729473a24174c0f99cae4af40c0",
+    "train_dataset_sha256": "4c2e70767a4c017a2cb42cecc90c91dc7a7efb4e2e1ac50b8fca84335013c2ef",
+    "development_dataset_sha256": "a4462f184308836425d9f8d98370d88f08dc9e27b7a1b17950e43d5031635de5",
+    "training_seeds": [2026081202, 2026081203, 2026081204],
+    "metrics_only": "StandardScaler_plus_balanced_LogisticRegression_max_iter_2000",
+    "metrics_history": "StandardScaler_plus_MLP_hidden_16_max_iter_2000_no_early_stopping",
+    "image_architecture": "previous_TinyCNN_1_8_16_32_channels_adaptive_4x4_pool_32_unit_head",
+    "multimodal_architecture": "same_TinyCNN_plus_five_standardized_metrics",
+    "training_budget": "45_epochs_batch_32_Adam_lr_0.002_weight_decay_0.0001_BCE_logits",
+    "preprocessing": "previous_128x128_grayscale_peak_normalization",
+    "augmentation": "deterministic_0_90_180_270_degree_rotations",
+    "selection_rule": "highest development balanced accuracy, then highest macro F1, then image-only over multimodal, then lowest seed",
+    "selected_model_name": "image_metrics_multimodal_small_model",
+    "selected_model_seed": 2026081202,
+    "selected_diagnostic_path": "/home/jiamo/VLM/reflection_width_relative/models/selected_diagnostic.pt",
+    "selected_diagnostic_sha256": "45f95f6c580842dcdd5dcaa61a7eff732f071343dd7ce8c748d701051e5555bb",
+    "decision_threshold": 0.5,
+    "small_cnn_is_vlm": false,
+    "no_model_receives_evaluator_only_fields": true
+  },
+  "leakage_checks": [
+    "shuffle_images_while_preserving_metrics",
+    "mask_eight_pixel_borders",
+    "mask_dark_irrelevant_background",
+    "metadata_only_classifier",
+    "nearest_neighbor_pixel_mse_across_train_and_iid",
+    "exact_image_sha256_overlap",
+    "new_split_setup_id_and_setup_hash_overlap",
+    "overlap_with_all_previous_reflection_cohorts",
+    "filename_label_token_audit",
+    "fixed_dimensions_channels_padding_and_peak_normalization_audit"
+  ],
+  "identifiability_gate": {
+    "primary_split": "iid_heldout",
+    "metrics_only_balanced_accuracy_maximum_or_all_pairs_matched": 0.65,
+    "selected_image_balanced_accuracy_minimum": 0.8,
+    "selected_image_minus_best_numeric_minimum": 0.15,
+    "each_width_quartile_balanced_accuracy_minimum": 0.7,
+    "maximum_width_quartile_balanced_accuracy_range": 0.25,
+    "border_mask_balanced_accuracy_minimum": 0.8,
+    "shuffled_image_balanced_accuracy_maximum": 0.65,
+    "metadata_only_balanced_accuracy_maximum": 0.65,
+    "exact_hash_and_setup_overlap_required": 0,
+    "severity_ood_cannot_replace_iid_gate": true
+  },
+  "control_protocol": {
+    "evaluation_suite": "/home/jiamo/VLM/reflection_width_relative/suites/iid_heldout_suite.json",
+    "arms": ["no_diagnosis", "oracle_diagnosis", "learned_image_diagnostic"],
+    "v13_config": "/home/jiamo/VLM/active_diagnosis_v13/config_v13.json",
+    "v13_config_sha256": "4f5652b0532c039d22684dc89e3c4c90aa2c34f5226c86a85db6f71ae65e3a18",
+    "base_simulator_config": "/home/jiamo/VLM/optical_sim/configs/base_config.yaml",
+    "base_simulator_config_sha256": "9de680016a79b08e9df7fd4f585c901f04443db38aaf4c15b2af7983bcdb03ff",
+    "corrected_v12_config_sha256": "77cb8bfc8cc064e32ab3cbf473e10f94df5c4ca53869ae235bb5eee782b81ff8",
+    "frozen_forward_checkpoint_sha256": "d9b30627c80817f6ecade1959d8cc9e91e7a9de9cc51485153fdbfaa173aca2e",
+    "controller": "frozen_h1_cem_sequential_max8",
+    "planner_seed": 2026082301,
+    "matched_initial_states_targets_controller_configs_and_planner_seeds": true,
+    "primary_spot_measurement_switch_unchanged": true,
+    "maximum_action_steps_each_arm": 8,
+    "recovery_adds_actuator_steps": false,
+    "success_threshold": 1.0,
+    "oracle_gate": {
+      "minimum_success_improvement": 0.05,
+      "alternative_minimum_matched_recoveries": 5,
+      "maximum_saturation_episode_rate_increase": 0.05,
+      "maximum_hard_constraint_violation_increase": 0
+    }
+  },
+  "decision_rules": {
+    "ready_for_qwen_vl": "identifiability_gate_passes_and_oracle_control_value_gate_passes_and_no_leakage_is_found",
+    "reflection_still_not_ready": "any_identifiability_control_or_leakage_gate_fails",
+    "no_parameter_model_threshold_policy_or_gate_tuning_after_iid_generation": true,
+    "if_failed_categorize_without_reopening_or_retuning_iid": true,
+    "qwen_vl_may_not_be_trained_in_this_run": true
+  }
+}

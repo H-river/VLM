@@ -1,0 +1,51 @@
+{
+  "method": "paired scenario-group nonparametric bootstrap",
+  "equal_task_macro": true,
+  "seed": 42,
+  "replicates": 10000,
+  "scenario_groups": 150,
+  "point_scores": {
+    "reference": 0.46811507936507935,
+    "seed42": 0.6888492063492063,
+    "seed123": 0.6907142857142857,
+    "seed314": 0.6942857142857143
+  },
+  "comparisons": {
+    "seed42": {
+      "candidate": "seed42",
+      "reference": "reference",
+      "point_difference": 0.22073412698412698,
+      "bootstrap_mean_difference": 0.2208883704760341,
+      "ci95": [
+        0.18989703755681095,
+        0.25142018904957353
+      ],
+      "probability_candidate_better": 1.0,
+      "probability_tie": 0.0
+    },
+    "seed123": {
+      "candidate": "seed123",
+      "reference": "reference",
+      "point_difference": 0.22259920634920638,
+      "bootstrap_mean_difference": 0.22274018250124755,
+      "ci95": [
+        0.192998804784933,
+        0.25263789814352905
+      ],
+      "probability_candidate_better": 1.0,
+      "probability_tie": 0.0
+    },
+    "seed314": {
+      "candidate": "seed314",
+      "reference": "reference",
+      "point_difference": 0.22617063492063494,
+      "bootstrap_mean_difference": 0.22627368331416592,
+      "ci95": [
+        0.19620609328421668,
+        0.2565145430407785
+      ],
+      "probability_candidate_better": 1.0,
+      "probability_tie": 0.0
+    }
+  }
+}

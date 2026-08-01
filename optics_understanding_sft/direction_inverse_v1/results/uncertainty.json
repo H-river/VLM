@@ -1,0 +1,63 @@
+{
+  "direction_small_macro_f1": {
+    "eval_iid": {
+      "bootstrap_95_percent": [
+        0.4381521505671769,
+        0.5504871505336488
+      ],
+      "bootstrap_samples": 5000,
+      "point": 0.5041812697635293,
+      "records": 54
+    },
+    "eval_ood": {
+      "bootstrap_95_percent": [
+        0.5145123187242672,
+        0.63577780701651
+      ],
+      "bootstrap_samples": 5000,
+      "point": 0.5831833723088284,
+      "records": 60
+    }
+  },
+  "numeric_inverse_target_success": {
+    "eval_iid": {
+      "cases": 30,
+      "point": 0.23333333333333334,
+      "successes": 7,
+      "wilson_95_percent": [
+        0.11792388144489496,
+        0.40928326158122164
+      ]
+    },
+    "eval_ood": {
+      "cases": 52,
+      "point": 0.3076923076923077,
+      "successes": 16,
+      "wilson_95_percent": [
+        0.1991472794928904,
+        0.4426958882470567
+      ]
+    }
+  },
+  "seed": 20260717,
+  "visual_measurement_all_five": {
+    "eval_iid": {
+      "point": 0.9333333333333333,
+      "states": 90,
+      "successes": 84,
+      "wilson_95_percent": [
+        0.8620990522567448,
+        0.9690900722541721
+      ]
+    },
+    "eval_ood": {
+      "point": 0.8141025641025641,
+      "states": 156,
+      "successes": 127,
+      "wilson_95_percent": [
+        0.7457745007891396,
+        0.8673330166412021
+      ]
+    }
+  }
+}

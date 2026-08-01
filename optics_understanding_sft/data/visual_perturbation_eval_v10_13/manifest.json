@@ -1,0 +1,25 @@
+{
+  "combined_hash": "ff7bd517d760d7f1dcf05b07f58dc852ff2bf0d5a648cab8ad52e98555411ea5",
+  "combined_records": 2700,
+  "dataset": "visual_perturbation_eval_v10_13",
+  "source_images": 900,
+  "source_records": 900,
+  "training_allowed": false,
+  "variants": {
+    "blur_1": {
+      "canonical_hash": "4da391912c384c83452226ef556b67751d90cd0ad605c645b514d04d449bf8e2",
+      "image_count": 900,
+      "record_count": 900
+    },
+    "dim_0_7_noise_2": {
+      "canonical_hash": "74948c547c1021048788a55b76ef6e715c8083dc1a4c489158ef3447ee548ced",
+      "image_count": 900,
+      "record_count": 900
+    },
+    "gaussian_noise_2": {
+      "canonical_hash": "8c49adb644ee1fd472f1524bcf62a101e947d80e69ed55d4ae321f4ce3b9c688",
+      "image_count": 900,
+      "record_count": 900
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "action_order_failure_count": 0,
+  "anchor_task_counts": {
+    "causal_effects": 32,
+    "counterfactual_reasoning": 32,
+    "diagnosis": 32,
+    "forward_prediction": 32,
+    "setup_interpretation": 32
+  },
+  "curriculum_jsonl": "/home/jiamo/VLM/optics_understanding_sft/data/action_first_v3/exports/qwen/train_curriculum.jsonl",
+  "dev_example_overlap_count": 0,
+  "dev_jsonl": "/home/jiamo/VLM/optics_understanding_sft/data/dev_v2/exports/qwen/val.jsonl",
+  "failures": [],
+  "focused_match_group_count": 280,
+  "focused_match_group_size_counts": {
+    "2": 200,
+    "3": 80
+  },
+  "focused_task_counts": {
+    "constrained_intervention": 320,
+    "information_sufficiency": 320
+  },
+  "noncontiguous_match_group_count": 0,
+  "passed": true,
+  "record_count": 800,
+  "source_counts": {
+    "action_first_v3": 640,
+    "preservation_anchor": 160
+  },
+  "task_counts": {
+    "causal_effects": 32,
+    "constrained_intervention": 320,
+    "counterfactual_reasoning": 32,
+    "diagnosis": 32,
+    "forward_prediction": 32,
+    "information_sufficiency": 320,
+    "setup_interpretation": 32
+  },
+  "unique_example_count": 800,
+  "unique_source_example_count": 800
+}

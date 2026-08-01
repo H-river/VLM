@@ -1,0 +1,36 @@
+{
+  "version": "qwen_v12_runtime_freeze_candidate_v1",
+  "v12_config": {
+    "path": "continuous_control_v12/config_v12_semantics_v2.json",
+    "sha256": "77cb8bfc8cc064e32ab3cbf473e10f94df5c4ca53869ae235bb5eee782b81ff8"
+  },
+  "v12_checkpoint": {
+    "path": "runs/overnight_v12_semantics_20260731_002709/models/lc_128g_v2/continuous_forward_v12_128g.pt",
+    "sha256": "d9b30627c80817f6ecade1959d8cc9e91e7a9de9cc51485153fdbfaa173aca2e"
+  },
+  "protected_data": {
+    "root": "runs/overnight_v12_semantics_20260731_002709/data/corrected_128_16_16_v2",
+    "manifest_sha256": "f4d6109cb386405434147e02bb97874f658ad3ae2d0d93bdd312e373d0d661fd",
+    "test_jsonl_sha256": "ebc26c9ecde7f8678878ebc57e795d15fc9e23c6cdb65699b2768bcce6508411"
+  },
+  "measurement": {
+    "model_path": "/home/jiamo/VLM_runs/measurement_rebuild_v3_one_seed/measurement_v3.pt",
+    "model_sha256": "a19ed29ef718e33b76ca635994a59cd76eb19ad1c68ca8efddbcea42dfba2b54",
+    "calibrator_path": "/home/jiamo/VLM_runs/measurement_rebuild_v4_one_seed/measurement_calibrator_v4.pt",
+    "calibrator_sha256": "3f4bd223a2f9c23b345f79cccd5d68330d95f00a4d11afba72cc166ce2a4c5b9"
+  },
+  "planner": {
+    "backend": "learned_h1_cem",
+    "horizon": 1,
+    "population": 256,
+    "elites": 32,
+    "cem_iterations": 5,
+    "max_control_steps": 5,
+    "termination_max_normalized_error": 1.0,
+    "seed_namespace": "qwen_v12_h1_cem"
+  },
+  "direction": {
+    "labels": ["decrease", "unchanged", "increase"],
+    "criterion": "normalized_delta_strict_outside_one_tolerance"
+  }
+}

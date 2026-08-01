@@ -1,0 +1,15 @@
+{
+  "canonical_hash": "727977fce243a51b30402b058da72045a17bf9b5c681e9b30e24b850286f9cce",
+  "dataset": "visual_robust_orchestration_probe_v10_15",
+  "record_count": 90,
+  "seed": 57,
+  "source_count": 30,
+  "source_counts": {
+    "blur_1:visual_pair_direction_extraction": 5,
+    "blur_1:visual_state_classification": 5,
+    "dim_0_7_noise_2:visual_pair_direction_extraction": 5,
+    "dim_0_7_noise_2:visual_state_classification": 5,
+    "gaussian_noise_2:visual_pair_direction_extraction": 5,
+    "gaussian_noise_2:visual_state_classification": 5
+  }
+}

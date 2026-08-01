@@ -1,0 +1,63 @@
+{
+  "base_config": "optical_sim/configs/base_config.yaml",
+  "config_hash": "b87f3afade9776a7704ce0cd2614cec210dcefbccc5afffce62411f09e317312",
+  "dataset": "optics_understanding_sft_pilot_v1",
+  "files": {
+    "master": "master/cases.jsonl",
+    "test_labels": "private/test_labels.jsonl",
+    "test_prompts": "canonical/test_prompts.jsonl",
+    "train": "canonical/train.jsonl",
+    "val": "canonical/val.jsonl"
+  },
+  "ground_truth_scope": "synthetic simulator truth; not laboratory validation",
+  "ood_test_scenarios": 30,
+  "prompt_contract_version": 2,
+  "record_counts": {
+    "test": 240,
+    "train": 840,
+    "val": 120
+  },
+  "scenario_counts": {
+    "test": 60,
+    "train": 210,
+    "val": 30
+  },
+  "seed": 42,
+  "simulator": "optical_sim:fresnel_numpy",
+  "task_counts": {
+    "test": {
+      "causal_effects": 36,
+      "constrained_intervention": 48,
+      "counterfactual_reasoning": 24,
+      "diagnosis": 36,
+      "forward_prediction": 48,
+      "information_sufficiency": 24,
+      "setup_interpretation": 24
+    },
+    "train": {
+      "causal_effects": 126,
+      "constrained_intervention": 168,
+      "counterfactual_reasoning": 84,
+      "diagnosis": 126,
+      "forward_prediction": 168,
+      "information_sufficiency": 84,
+      "setup_interpretation": 84
+    },
+    "val": {
+      "causal_effects": 18,
+      "constrained_intervention": 24,
+      "counterfactual_reasoning": 12,
+      "diagnosis": 18,
+      "forward_prediction": 24,
+      "information_sufficiency": 12,
+      "setup_interpretation": 12
+    }
+  },
+  "version": "pilot_v1",
+  "visual_counts": {
+    "test": 24,
+    "train": 84,
+    "val": 12
+  },
+  "visual_fraction": 0.1
+}

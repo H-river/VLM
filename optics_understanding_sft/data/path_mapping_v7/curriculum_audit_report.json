@@ -1,0 +1,42 @@
+{
+  "anchor_task_counts": {
+    "causal_effects": 20,
+    "constrained_intervention": 20,
+    "counterfactual_reasoning": 20,
+    "diagnosis": 20,
+    "forward_prediction": 20,
+    "information_sufficiency": 20,
+    "setup_interpretation": 20
+  },
+  "checks": {
+    "all_completions_valid": true,
+    "all_images_present": true,
+    "anchor_task_counts": true,
+    "focus_stage_counts": true,
+    "image_placeholders_match": true,
+    "record_count_620": true,
+    "source_counts": true,
+    "unique_example_ids": true,
+    "visual_anchor_counts": true
+  },
+  "completion_failures": [],
+  "focus_stage_counts": {
+    "tool_choice": 160,
+    "tool_result_interpretation": 160,
+    "tool_source_mapping": 160
+  },
+  "image_failures": [],
+  "passed": true,
+  "placeholder_failures": [],
+  "record_count": 620,
+  "source_counts": {
+    "path_mapping_v7": 480,
+    "seven_task_anchor": 140
+  },
+  "visual_anchor_task_counts": {
+    "causal_effects": 2,
+    "counterfactual_reasoning": 2,
+    "diagnosis": 2,
+    "forward_prediction": 2
+  }
+}

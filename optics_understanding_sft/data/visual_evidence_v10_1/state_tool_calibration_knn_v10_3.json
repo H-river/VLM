@@ -1,0 +1,2768 @@
+{
+  "classifier": "group_cv_knn_v1",
+  "dataset_split": "train_only",
+  "feature_extractor": "instrumented_moments_v1",
+  "feature_order": [
+    "centroid_x_px",
+    "centroid_y_px",
+    "rendered_sigma_x_px",
+    "rendered_sigma_y_px"
+  ],
+  "fields": {
+    "centroid_horizontal_region": {
+      "candidate_accuracies": {
+        "1": 0.6033519553072626,
+        "15": 0.4972067039106145,
+        "25": 0.5027932960893855,
+        "3": 0.5418994413407822,
+        "5": 0.5139664804469274,
+        "7": 0.5083798882681564,
+        "9": 0.5251396648044693
+      },
+      "cross_validation_accuracy": 0.6033519553072626,
+      "k": 1
+    },
+    "centroid_vertical_region": {
+      "candidate_accuracies": {
+        "1": 0.6089385474860335,
+        "15": 0.5698324022346368,
+        "25": 0.553072625698324,
+        "3": 0.5698324022346368,
+        "5": 0.6033519553072626,
+        "7": 0.6089385474860335,
+        "9": 0.5586592178770949
+      },
+      "cross_validation_accuracy": 0.6089385474860335,
+      "k": 1
+    },
+    "sigma_x_band": {
+      "candidate_accuracies": {
+        "1": 0.5977653631284916,
+        "15": 0.7039106145251397,
+        "25": 0.7318435754189944,
+        "3": 0.6033519553072626,
+        "5": 0.6480446927374302,
+        "7": 0.6703910614525139,
+        "9": 0.7318435754189944
+      },
+      "cross_validation_accuracy": 0.7318435754189944,
+      "k": 9
+    },
+    "sigma_y_band": {
+      "candidate_accuracies": {
+        "1": 0.664804469273743,
+        "15": 0.7094972067039106,
+        "25": 0.7318435754189944,
+        "3": 0.664804469273743,
+        "5": 0.7206703910614525,
+        "7": 0.7206703910614525,
+        "9": 0.7597765363128491
+      },
+      "cross_validation_accuracy": 0.7597765363128491,
+      "k": 9
+    }
+  },
+  "group_count": 94,
+  "normalization": {
+    "mean": [
+      510.06840357742414,
+      507.7771131902073,
+      107.16019121667568,
+      107.76754278326611
+    ],
+    "scale": [
+      11.583030217434558,
+      12.018025637529089,
+      16.37624222077266,
+      16.972904671197767
+    ]
+  },
+  "prototypes": [
+    {
+      "features": [
+        511.7745752118694,
+        532.2224649138764,
+        65.19316035091191,
+        82.84963467544114
+      ],
+      "group_id": "corr_v2_020002",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        519.3301218776003,
+        522.2341951600652,
+        95.20231555788371,
+        93.83769961796628
+      ],
+      "group_id": "corr_v2_020002",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        504.4684127169305,
+        528.8181220227959,
+        126.85258788304048,
+        123.09336790512428
+      ],
+      "group_id": "corr_v2_020006",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        502.8077796844948,
+        528.0604803713134,
+        112.54707629135756,
+        123.08231813571808
+      ],
+      "group_id": "corr_v2_020006",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        515.6663965817344,
+        515.4953985834677,
+        140.56693022240054,
+        139.4096192578385
+      ],
+      "group_id": "corr_v2_020014",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        515.6663965817344,
+        515.4953985834677,
+        140.56693022240054,
+        139.4096192578385
+      ],
+      "group_id": "corr_v2_020014",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        507.9744529986257,
+        500.5532129531655,
+        88.84118404664424,
+        60.69491823390348
+      ],
+      "group_id": "corr_v2_020018",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        507.9744529986257,
+        500.5532129531655,
+        88.84118404664424,
+        60.69491823390348
+      ],
+      "group_id": "corr_v2_020018",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        494.0090089413179,
+        514.1406892578957,
+        112.28174377190055,
+        110.95380175888577
+      ],
+      "group_id": "corr_v2_020030",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        494.0090089413179,
+        514.1406892578957,
+        112.28174377190055,
+        110.95380175888577
+      ],
+      "group_id": "corr_v2_020030",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        506.5318201827306,
+        486.9997847684822,
+        122.07743217309995,
+        116.48780914253507
+      ],
+      "group_id": "corr_v2_020032",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        506.47639969986994,
+        486.99136324323706,
+        122.0706354393447,
+        116.49893481798217
+      ],
+      "group_id": "corr_v2_020032",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        500.18306868328,
+        514.794837044622,
+        134.05389465718898,
+        115.79539365076425
+      ],
+      "group_id": "corr_v2_020034",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        495.51239836776585,
+        527.8246755401246,
+        123.60326868939535,
+        122.53108382240664
+      ],
+      "group_id": "corr_v2_020034",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        517.46124593802,
+        511.98703178251566,
+        77.51824396634353,
+        73.89113713435835
+      ],
+      "group_id": "corr_v2_020036",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        507.99919269913494,
+        504.0601540005648,
+        88.3796081269485,
+        87.46204037467919
+      ],
+      "group_id": "corr_v2_020036",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        517.2596443510272,
+        511.7753174477588,
+        77.89035787286038,
+        74.30180710877626
+      ],
+      "group_id": "corr_v2_020036",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        517.2596443510272,
+        511.7753174477588,
+        77.89035787286038,
+        74.30180710877626
+      ],
+      "group_id": "corr_v2_020036",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        516.5486358959922,
+        512.1546425782756,
+        97.41145615411561,
+        123.61958898397893
+      ],
+      "group_id": "corr_v2_020049",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        516.5486358959922,
+        512.1546425782756,
+        97.41145615411561,
+        123.61958898397893
+      ],
+      "group_id": "corr_v2_020049",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        511.75674908550593,
+        509.54965620692917,
+        62.51328735847749,
+        91.29094739992699
+      ],
+      "group_id": "corr_v2_020055",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        511.75674908550593,
+        509.54965620692917,
+        62.51328735847749,
+        91.29094739992699
+      ],
+      "group_id": "corr_v2_020055",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        514.2021240046004,
+        507.19412586801764,
+        88.58212713429903,
+        76.74899593941097
+      ],
+      "group_id": "corr_v2_020068",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        514.2021240046004,
+        507.19412586801764,
+        88.58212713429903,
+        76.74899593941097
+      ],
+      "group_id": "corr_v2_020068",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        492.51773058005017,
+        522.7488400108234,
+        117.49653530652496,
+        116.88622894720713
+      ],
+      "group_id": "corr_v2_020078",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        492.51773058005017,
+        522.7488400108234,
+        117.49653530652496,
+        116.88622894720713
+      ],
+      "group_id": "corr_v2_020078",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        507.060045434603,
+        493.63131902368036,
+        118.07392837653545,
+        125.63702616930442
+      ],
+      "group_id": "corr_v2_020085",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        507.060045434603,
+        493.63131902368036,
+        118.07392837653545,
+        125.63702616930442
+      ],
+      "group_id": "corr_v2_020085",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        485.15103661384785,
+        513.4936060968723,
+        106.5021200003742,
+        127.91380247305283
+      ],
+      "group_id": "corr_v2_020087",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        485.15103661384785,
+        513.4936060968723,
+        106.5021200003742,
+        127.91380247305283
+      ],
+      "group_id": "corr_v2_020087",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        495.363045314489,
+        531.53967545832,
+        138.193873156693,
+        108.04470480345697
+      ],
+      "group_id": "corr_v2_020090",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        495.363045314489,
+        531.53967545832,
+        138.193873156693,
+        108.04470480345697
+      ],
+      "group_id": "corr_v2_020090",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        510.09873669274316,
+        512.0044616829814,
+        127.73138692065821,
+        128.69927607904796
+      ],
+      "group_id": "corr_v2_020097",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        510.09873669274316,
+        512.0044616829814,
+        127.73138692065821,
+        128.69927607904796
+      ],
+      "group_id": "corr_v2_020097",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        512.8979579315493,
+        513.2479097004216,
+        90.942777997877,
+        85.95248805814315
+      ],
+      "group_id": "corr_v2_020103",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        512.8979579315493,
+        513.2479097004216,
+        90.942777997877,
+        85.95248805814315
+      ],
+      "group_id": "corr_v2_020103",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        513.0126337301945,
+        511.24673005779437,
+        112.66960968363128,
+        125.73709432053175
+      ],
+      "group_id": "corr_v2_020109",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        513.0126337301945,
+        511.24673005779437,
+        112.66960968363128,
+        125.73709432053175
+      ],
+      "group_id": "corr_v2_020109",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        513.0126337301945,
+        511.24673005779437,
+        112.66960968363128,
+        125.73709432053175
+      ],
+      "group_id": "corr_v2_020109",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        513.0126337301945,
+        511.24673005779437,
+        112.66960968363128,
+        125.73709432053175
+      ],
+      "group_id": "corr_v2_020109",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        489.50075887179594,
+        503.6492043427762,
+        109.27232532480501,
+        106.86496576958648
+      ],
+      "group_id": "corr_v2_020112",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        487.0632099288846,
+        505.4117824435823,
+        106.41398658633445,
+        104.05320740736012
+      ],
+      "group_id": "corr_v2_020112",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        521.1948585181494,
+        496.7963907233428,
+        117.28207948167015,
+        114.65723134099841
+      ],
+      "group_id": "corr_v2_020120",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        521.1948585181494,
+        496.7963907233428,
+        117.28207948167015,
+        114.65723134099841
+      ],
+      "group_id": "corr_v2_020120",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        506.9291851616348,
+        492.8106869326681,
+        102.42574667615669,
+        105.85829803042999
+      ],
+      "group_id": "corr_v2_020124",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        504.15540432448347,
+        493.7941945612273,
+        101.73418572568595,
+        99.57899290301192
+      ],
+      "group_id": "corr_v2_020124",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        523.924620391903,
+        486.8557519734893,
+        112.74640850928061,
+        135.20785522547274
+      ],
+      "group_id": "corr_v2_020125",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        494.6136209491109,
+        498.1732724331122,
+        121.063822052582,
+        114.07260572315073
+      ],
+      "group_id": "corr_v2_020125",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        509.4764926720827,
+        509.2650064181805,
+        75.93648963634122,
+        96.32575843854413
+      ],
+      "group_id": "corr_v2_020133",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        509.4764926720827,
+        509.2650064181805,
+        75.93648963634122,
+        96.32575843854413
+      ],
+      "group_id": "corr_v2_020133",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        519.521043553432,
+        510.16189404242834,
+        129.32794428609873,
+        130.83623350891202
+      ],
+      "group_id": "corr_v2_020138",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        519.521043553432,
+        510.16189404242834,
+        129.32794428609873,
+        130.83623350891202
+      ],
+      "group_id": "corr_v2_020138",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        505.02758318020085,
+        517.9060206268429,
+        98.680105195562,
+        102.43774115492111
+      ],
+      "group_id": "corr_v2_020147",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        536.5174933207433,
+        486.463567466948,
+        122.77393431620872,
+        117.47670835609136
+      ],
+      "group_id": "corr_v2_020155",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        531.535243502677,
+        497.83210144538214,
+        116.03010642524828,
+        112.79790352267241
+      ],
+      "group_id": "corr_v2_020156",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        531.535243502677,
+        497.83210144538214,
+        116.03010642524828,
+        112.79790352267241
+      ],
+      "group_id": "corr_v2_020156",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        510.67843523453826,
+        510.1188003646811,
+        118.23023496565422,
+        120.15425634928187
+      ],
+      "group_id": "corr_v2_020186",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        510.67843523453826,
+        510.1188003646811,
+        118.23023496565422,
+        120.15425634928187
+      ],
+      "group_id": "corr_v2_020186",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        504.5554036073996,
+        516.70807630024,
+        94.54844135441105,
+        88.66377845399506
+      ],
+      "group_id": "corr_v2_020192",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        504.5554036073996,
+        516.70807630024,
+        94.54844135441105,
+        88.66377845399506
+      ],
+      "group_id": "corr_v2_020192",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        505.54986828132064,
+        505.0122037796514,
+        120.1847138590287,
+        109.3860188848534
+      ],
+      "group_id": "corr_v2_020198",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        505.54986828132064,
+        505.0122037796514,
+        120.1847138590287,
+        109.3860188848534
+      ],
+      "group_id": "corr_v2_020198",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        490.0059665533631,
+        514.40544404909,
+        125.02593297244232,
+        122.61122285215407
+      ],
+      "group_id": "corr_v2_020208",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        501.3355347110697,
+        516.3596599353843,
+        116.11700534727869,
+        118.43991797561152
+      ],
+      "group_id": "corr_v2_020208",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        491.1675218139759,
+        522.7690557612655,
+        133.20134770055463,
+        134.91561366411892
+      ],
+      "group_id": "corr_v2_020209",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        491.1675218139759,
+        522.7690557612655,
+        133.20134770055463,
+        134.91561366411892
+      ],
+      "group_id": "corr_v2_020209",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        523.0798933797323,
+        515.7142595799693,
+        88.58478216975264,
+        91.76265988203772
+      ],
+      "group_id": "corr_v2_020225",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        523.0798933797323,
+        515.7142595799693,
+        88.58478216975264,
+        91.76265988203772
+      ],
+      "group_id": "corr_v2_020225",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        516.4825758509131,
+        491.03007495565953,
+        96.5204153193644,
+        78.88286264870938
+      ],
+      "group_id": "corr_v2_020252",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        516.4825758509131,
+        491.03007495565953,
+        96.5204153193644,
+        78.88286264870938
+      ],
+      "group_id": "corr_v2_020252",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        504.1746860210701,
+        512.3464659900337,
+        97.43046349210825,
+        98.54740689192603
+      ],
+      "group_id": "corr_v2_020254",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        504.1746860210701,
+        512.3464659900337,
+        97.43046349210825,
+        98.54740689192603
+      ],
+      "group_id": "corr_v2_020254",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        502.4660175262968,
+        495.41168469103775,
+        94.42041527624002,
+        93.7174561936733
+      ],
+      "group_id": "corr_v2_020269",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        530.2119046471219,
+        497.1313535175733,
+        106.01996867049678,
+        106.18307850732026
+      ],
+      "group_id": "corr_v2_020270",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        530.2119046471219,
+        497.1313535175733,
+        106.01996867049678,
+        106.18307850732026
+      ],
+      "group_id": "corr_v2_020270",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        493.83215730180495,
+        494.2558851806775,
+        107.79496789895403,
+        109.51497445732103
+      ],
+      "group_id": "corr_v2_020273",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        517.9203337720596,
+        522.8891732194372,
+        57.807021471608984,
+        83.83640140017725
+      ],
+      "group_id": "corr_v2_020273",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        531.6034076845053,
+        496.02370583363574,
+        123.25638644498771,
+        108.55889838373555
+      ],
+      "group_id": "corr_v2_020278",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        531.6342553824968,
+        496.0661670295316,
+        123.26798383519758,
+        108.56453130951697
+      ],
+      "group_id": "corr_v2_020278",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        496.12669781861587,
+        505.0303349220442,
+        93.46880238942936,
+        94.53218773965305
+      ],
+      "group_id": "corr_v2_020284",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        496.12669781861587,
+        505.0303349220442,
+        93.46880238942936,
+        94.53218773965305
+      ],
+      "group_id": "corr_v2_020284",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        504.61000727528165,
+        497.9006184649552,
+        105.10281334791624,
+        105.67118191578474
+      ],
+      "group_id": "corr_v2_020285",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        504.61000727528165,
+        497.9006184649552,
+        105.10281334791624,
+        105.67118191578474
+      ],
+      "group_id": "corr_v2_020285",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        515.5619257097487,
+        498.45650307933306,
+        101.89940663520629,
+        102.6167080920717
+      ],
+      "group_id": "corr_v2_020288",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        521.559029661923,
+        494.30008042682255,
+        106.41783395029677,
+        97.89404020360995
+      ],
+      "group_id": "corr_v2_020288",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        494.1549023637368,
+        516.2193254123486,
+        111.37613962721927,
+        96.25660086420997
+      ],
+      "group_id": "corr_v2_020292",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        496.115499117922,
+        495.6065129920721,
+        105.82870676408163,
+        102.7289846934495
+      ],
+      "group_id": "corr_v2_020300",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        515.8279979975246,
+        485.2282743233761,
+        118.89644618242602,
+        117.2406204040426
+      ],
+      "group_id": "corr_v2_020306",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        516.9187587526944,
+        523.3011458072674,
+        109.72021775904982,
+        109.60042877365733
+      ],
+      "group_id": "corr_v2_020308",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        513.6184777595204,
+        525.9122380293466,
+        105.92215796444886,
+        106.08012188057943
+      ],
+      "group_id": "corr_v2_020308",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        480.03170680730034,
+        484.04231423849285,
+        136.34489951170744,
+        117.68773670103224
+      ],
+      "group_id": "corr_v2_020309",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        474.0829607013842,
+        483.47917297330025,
+        126.83083741448426,
+        122.96672807722325
+      ],
+      "group_id": "corr_v2_020309",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        503.6609019956787,
+        510.89491103945625,
+        101.91244231009442,
+        108.27683625501764
+      ],
+      "group_id": "corr_v2_020311",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        503.6609019956787,
+        510.89491103945625,
+        101.91244231009442,
+        108.27683625501764
+      ],
+      "group_id": "corr_v2_020311",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        508.9905534417917,
+        528.476105358915,
+        118.40180727342296,
+        110.30191181209807
+      ],
+      "group_id": "corr_v2_020313",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        508.9905534417917,
+        528.476105358915,
+        118.40180727342296,
+        110.30191181209807
+      ],
+      "group_id": "corr_v2_020313",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        508.9905534417917,
+        528.476105358915,
+        118.40180727342296,
+        110.30191181209807
+      ],
+      "group_id": "corr_v2_020313",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        536.6518857764011,
+        500.3748806558565,
+        84.54445007972693,
+        79.07547011238997
+      ],
+      "group_id": "corr_v2_020317",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        536.6518857764011,
+        500.3748806558565,
+        84.54445007972693,
+        79.07547011238997
+      ],
+      "group_id": "corr_v2_020317",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        523.1819520003312,
+        506.86168006890284,
+        117.87702579064315,
+        131.73392970616604
+      ],
+      "group_id": "corr_v2_020319",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        523.1781882569451,
+        506.85255790340625,
+        117.88401734376684,
+        131.73846788568707
+      ],
+      "group_id": "corr_v2_020319",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        520.6693725728146,
+        489.5237131226829,
+        114.76252465346637,
+        112.04946374754815
+      ],
+      "group_id": "corr_v2_020321",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        520.6693725728146,
+        489.5237131226829,
+        114.76252465346637,
+        112.04946374754815
+      ],
+      "group_id": "corr_v2_020321",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        524.8870648007751,
+        493.00933038617245,
+        95.02386913416443,
+        87.3726233795561
+      ],
+      "group_id": "corr_v2_020323",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        524.8870648007751,
+        493.00933038617245,
+        95.02386913416443,
+        87.3726233795561
+      ],
+      "group_id": "corr_v2_020323",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        524.8870648007751,
+        493.00933038617245,
+        95.02386913416443,
+        87.3726233795561
+      ],
+      "group_id": "corr_v2_020323",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        525.7190674232154,
+        517.6836031126892,
+        116.3974826281826,
+        134.4906249483046
+      ],
+      "group_id": "corr_v2_020324",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        525.7190674232154,
+        517.6836031126892,
+        116.3974826281826,
+        134.4906249483046
+      ],
+      "group_id": "corr_v2_020324",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        494.55101735653443,
+        490.2846327658584,
+        108.13678069299846,
+        106.20445117416403
+      ],
+      "group_id": "corr_v2_020325",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        494.55101735653443,
+        490.2846327658584,
+        108.13678069299846,
+        106.20445117416403
+      ],
+      "group_id": "corr_v2_020325",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        510.0440676005986,
+        506.6393903056555,
+        82.62100125259839,
+        90.25332602973954
+      ],
+      "group_id": "corr_v2_020326",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        495.74570156083223,
+        526.4386683754262,
+        35.07935833857183,
+        35.45926245541441
+      ],
+      "group_id": "corr_v2_020326",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        515.6504950374917,
+        510.20606238928394,
+        106.40806080996173,
+        106.22200774831532
+      ],
+      "group_id": "corr_v2_020328",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        512.6095966177256,
+        504.0522644653156,
+        110.26947365039139,
+        110.6436784135284
+      ],
+      "group_id": "corr_v2_020328",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        509.8190955432375,
+        516.3427345555249,
+        104.50128804939295,
+        107.61484194493316
+      ],
+      "group_id": "corr_v2_020329",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        507.06976765590707,
+        515.6190036854056,
+        104.85647210508517,
+        105.45305574126257
+      ],
+      "group_id": "corr_v2_020329",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        514.2419277499787,
+        523.0660306829284,
+        99.98887166968025,
+        94.09949525980501
+      ],
+      "group_id": "corr_v2_020331",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        514.1977134173871,
+        522.934693208878,
+        99.79112207155923,
+        94.21496315254866
+      ],
+      "group_id": "corr_v2_020331",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        498.1840598823569,
+        519.8402631440626,
+        97.62410712110581,
+        100.62219318318004
+      ],
+      "group_id": "corr_v2_020334",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        498.1840598823569,
+        519.8402631440626,
+        97.62410712110581,
+        100.62219318318004
+      ],
+      "group_id": "corr_v2_020334",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        517.3167137456694,
+        513.1140841184831,
+        85.88858927026787,
+        98.62339001267456
+      ],
+      "group_id": "corr_v2_020340",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        506.85798859756267,
+        497.76272544550466,
+        84.09838391168131,
+        104.8690729507829
+      ],
+      "group_id": "corr_v2_020360",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        517.1901619877901,
+        506.8197813107894,
+        96.01039356496445,
+        97.8687745123321
+      ],
+      "group_id": "corr_v2_020368",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        515.9347255400348,
+        507.3550960952281,
+        90.347134489711,
+        94.62026308174244
+      ],
+      "group_id": "corr_v2_020368",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        509.35359061687757,
+        495.56743300706023,
+        112.36484795651874,
+        114.78219415266146
+      ],
+      "group_id": "corr_v2_020370",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        509.35359061687757,
+        495.56743300706023,
+        112.36484795651874,
+        114.78219415266146
+      ],
+      "group_id": "corr_v2_020370",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        499.7688542981349,
+        513.7742313840977,
+        130.9558821592546,
+        127.16505614878464
+      ],
+      "group_id": "corr_v2_020389",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        526.4667012321684,
+        536.2699276796195,
+        113.81130934661348,
+        115.1903947913572
+      ],
+      "group_id": "corr_v2_020389",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        499.89638166170903,
+        523.5333430713376,
+        125.17599345029286,
+        125.50156321123951
+      ],
+      "group_id": "corr_v2_020395",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        501.477628350837,
+        511.70018443327746,
+        116.82195069015864,
+        131.2326339668428
+      ],
+      "group_id": "corr_v2_020403",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        522.6248846781884,
+        520.5602789070757,
+        120.33827256395917,
+        132.20784373089688
+      ],
+      "group_id": "corr_v2_020411",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        508.6769321980063,
+        518.2086213191451,
+        115.75700725863685,
+        128.05367403971684
+      ],
+      "group_id": "corr_v2_020411",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        501.4939698392095,
+        521.1093412783133,
+        96.0381650665683,
+        101.46843184505781
+      ],
+      "group_id": "corr_v2_020415",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        498.278419167995,
+        525.7862093931706,
+        101.29278691784286,
+        104.25457231527344
+      ],
+      "group_id": "corr_v2_020415",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        504.4879967071139,
+        487.20932821187955,
+        93.54716040797695,
+        85.4702656875341
+      ],
+      "group_id": "corr_v2_020419",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        504.4879967071139,
+        487.20932821187955,
+        93.54716040797695,
+        85.4702656875341
+      ],
+      "group_id": "corr_v2_020419",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        506.44593046965633,
+        506.7848404767959,
+        109.78382123597386,
+        115.35276170750763
+      ],
+      "group_id": "corr_v2_020422",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        506.44593046965633,
+        506.7848404767959,
+        109.78382123597386,
+        115.35276170750763
+      ],
+      "group_id": "corr_v2_020422",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        523.354644233786,
+        506.1787869907978,
+        111.27965418229587,
+        111.87237658979461
+      ],
+      "group_id": "corr_v2_020423",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        521.8843241700365,
+        500.63125390861353,
+        114.40284193505039,
+        113.33821817784246
+      ],
+      "group_id": "corr_v2_020423",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        495.7771389009563,
+        498.67152735641423,
+        106.88572858525409,
+        106.5612268246183
+      ],
+      "group_id": "corr_v2_020426",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        495.7771389009563,
+        498.67152735641423,
+        106.88572858525409,
+        106.5612268246183
+      ],
+      "group_id": "corr_v2_020426",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        500.6027228059057,
+        491.9393236440984,
+        99.86135242958507,
+        101.22791795328266
+      ],
+      "group_id": "corr_v2_020427",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        500.6027228059057,
+        491.9393236440984,
+        99.86135242958507,
+        101.22791795328266
+      ],
+      "group_id": "corr_v2_020427",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        520.6545804308198,
+        508.6460830293556,
+        105.13613412553887,
+        126.85246076582912
+      ],
+      "group_id": "corr_v2_020431",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        520.6545804308198,
+        508.6460830293556,
+        105.13613412553887,
+        126.85246076582912
+      ],
+      "group_id": "corr_v2_020431",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        497.09082806697563,
+        525.4694640531073,
+        110.77347979283695,
+        110.96597027312481
+      ],
+      "group_id": "corr_v2_020432",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        521.022924229881,
+        499.5355065445782,
+        93.15310707964908,
+        89.15235531071092
+      ],
+      "group_id": "corr_v2_020433",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        513.6154422907246,
+        513.9446963492271,
+        106.09178508698257,
+        104.21028528586503
+      ],
+      "group_id": "corr_v2_020436",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        513.5382051076633,
+        513.9818424855277,
+        106.14515181433406,
+        104.16072449633428
+      ],
+      "group_id": "corr_v2_020436",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        491.6893297636617,
+        511.42073737088936,
+        121.40706548822675,
+        121.68765697778441
+      ],
+      "group_id": "corr_v2_020440",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        491.6893297636617,
+        511.42073737088936,
+        121.40706548822675,
+        121.68765697778441
+      ],
+      "group_id": "corr_v2_020440",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        523.6313721498883,
+        518.5600593582176,
+        114.32305123347636,
+        111.0156475473179
+      ],
+      "group_id": "corr_v2_020443",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        523.6313721498883,
+        518.5600593582176,
+        114.32305123347636,
+        111.0156475473179
+      ],
+      "group_id": "corr_v2_020443",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        512.16530161545,
+        495.429538442766,
+        124.31213035449731,
+        125.69805000611399
+      ],
+      "group_id": "corr_v2_020445",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        520.3640608569062,
+        489.4214013958667,
+        124.92045201131249,
+        128.08105597729525
+      ],
+      "group_id": "corr_v2_020445",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        512.1814176476839,
+        495.4529244987327,
+        124.30977945016433,
+        125.68664348175525
+      ],
+      "group_id": "corr_v2_020445",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        511.88478703968275,
+        497.0993176957512,
+        115.12356681668598,
+        116.57689215229176
+      ],
+      "group_id": "corr_v2_020445",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        516.7643407500607,
+        524.1415878271732,
+        123.43711043172955,
+        122.77290659564245
+      ],
+      "group_id": "corr_v2_020452",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        516.7643407500607,
+        524.1415878271732,
+        123.43711043172955,
+        122.77290659564245
+      ],
+      "group_id": "corr_v2_020452",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        509.7301099778632,
+        500.08346740626484,
+        99.9030177627572,
+        101.44916828083474
+      ],
+      "group_id": "corr_v2_020456",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        509.7301099778632,
+        500.08346740626484,
+        99.9030177627572,
+        101.44916828083474
+      ],
+      "group_id": "corr_v2_020456",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        509.7301099778632,
+        500.08346740626484,
+        99.9030177627572,
+        101.44916828083474
+      ],
+      "group_id": "corr_v2_020456",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        518.4952048092774,
+        506.11247472959235,
+        94.43471910547316,
+        93.31290359237194
+      ],
+      "group_id": "corr_v2_020462",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        518.4952048092774,
+        506.11247472959235,
+        94.43471910547316,
+        93.31290359237194
+      ],
+      "group_id": "corr_v2_020462",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        515.4608369768894,
+        497.31011867582765,
+        84.75714421659731,
+        97.73965046490999
+      ],
+      "group_id": "corr_v2_020468",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "narrow",
+        "sigma_y_band": "narrow"
+      }
+    },
+    {
+      "features": [
+        501.18730999680645,
+        510.97418494525414,
+        98.9771763451056,
+        66.50918773874778
+      ],
+      "group_id": "corr_v2_020469",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        507.68550533579867,
+        498.10192138834975,
+        125.83624135336102,
+        126.45343858745376
+      ],
+      "group_id": "corr_v2_020470",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        507.68550533579867,
+        498.10192138834975,
+        125.83624135336102,
+        126.45343858745376
+      ],
+      "group_id": "corr_v2_020470",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        514.0286716702642,
+        511.87862975358274,
+        97.78833902444951,
+        109.79488808957815
+      ],
+      "group_id": "corr_v2_020471",
+      "labels": {
+        "centroid_horizontal_region": "left_of_center",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        513.1877697010037,
+        490.98375100007036,
+        111.61762932215623,
+        114.58401267960262
+      ],
+      "group_id": "corr_v2_020476",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        513.1877697010037,
+        490.98375100007036,
+        111.61762932215623,
+        114.58401267960262
+      ],
+      "group_id": "corr_v2_020476",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        509.12017071728997,
+        520.1489763860118,
+        110.36092461716022,
+        107.76279191308123
+      ],
+      "group_id": "corr_v2_020479",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "below_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        510.47294922986146,
+        510.71294774806245,
+        110.11466087668299,
+        109.02478929945266
+      ],
+      "group_id": "corr_v2_020492",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        510.47294922986146,
+        510.71294774806245,
+        110.11466087668299,
+        109.02478929945266
+      ],
+      "group_id": "corr_v2_020492",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "centered",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        520.6440528843336,
+        508.06933329984815,
+        107.50806494185606,
+        104.6699052495876
+      ],
+      "group_id": "corr_v2_020495",
+      "labels": {
+        "centroid_horizontal_region": "right_of_center",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "medium",
+        "sigma_y_band": "medium"
+      }
+    },
+    {
+      "features": [
+        541.2491936481588,
+        535.8849486185106,
+        114.07164302810561,
+        113.45254144796377
+      ],
+      "group_id": "corr_v2_020497",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        506.4333867071664,
+        510.6089405196951,
+        130.81733528428998,
+        123.1241982155007
+      ],
+      "group_id": "corr_v2_020499",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    },
+    {
+      "features": [
+        510.36740662504644,
+        498.7689596268084,
+        124.82223129873232,
+        122.81787307457203
+      ],
+      "group_id": "corr_v2_020499",
+      "labels": {
+        "centroid_horizontal_region": "centered",
+        "centroid_vertical_region": "above_center",
+        "sigma_x_band": "wide",
+        "sigma_y_band": "wide"
+      }
+    }
+  ],
+  "record_count": 179
+}

@@ -1,0 +1,78 @@
+{
+  "canonical_hash": "bff67eb29235bf7b6e3d5d1205b7675432585c55599459dee8d95f5a4d45b912",
+  "generated_groups": 210,
+  "generated_records": 1512,
+  "label_counts": {
+    "pair": {
+      "centroid_x": {
+        "decrease": 11,
+        "increase": 16,
+        "no_change": 477
+      },
+      "centroid_y": {
+        "decrease": 13,
+        "increase": 14,
+        "no_change": 477
+      },
+      "peak_intensity": {
+        "decrease": 34,
+        "increase": 21,
+        "no_change": 449
+      },
+      "sigma_x": {
+        "decrease": 9,
+        "increase": 44,
+        "no_change": 451
+      },
+      "sigma_y": {
+        "decrease": 8,
+        "increase": 45,
+        "no_change": 451
+      }
+    },
+    "state": {
+      "centroid_horizontal_region": {
+        "centered": 228,
+        "left_of_center": 498,
+        "right_of_center": 282
+      },
+      "centroid_vertical_region": {
+        "above_center": 528,
+        "below_center": 234,
+        "centered": 246
+      },
+      "sigma_x_band": {
+        "medium": 297,
+        "narrow": 281,
+        "wide": 430
+      },
+      "sigma_y_band": {
+        "medium": 308,
+        "narrow": 279,
+        "wide": 421
+      }
+    }
+  },
+  "missing_target_classes": {
+    "pair": {},
+    "state": {}
+  },
+  "passed": true,
+  "rendering": {
+    "full_sensor": true,
+    "instrumented_overlay": false,
+    "sensor_crop_px": 1024,
+    "shared_pair_normalization": true,
+    "signed_difference": true,
+    "size_px": 384
+  },
+  "source_groups": 210,
+  "source_records": 504,
+  "source_task_counts": {
+    "causal_effects": 126,
+    "counterfactual_reasoning": 84,
+    "diagnosis": 126,
+    "forward_prediction": 168
+  },
+  "training_only": true
+}

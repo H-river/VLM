@@ -1,0 +1,13 @@
+{
+  "dataset_manifest_sha256": "351af55cacd9083d83d46b4f94347bb9f6bf26713b42252d5a3ce56fde4dc25c",
+  "example_ids_hash": "f9554b48878b38f00f861238cc3dfcd0eb78a2f00baf53e56ec82bb4429654d8",
+  "name": "evidence_v5a_seed42_trial50",
+  "physical_group_count": 50,
+  "record_count": 200,
+  "status_counts": {
+    "answerable": 50,
+    "feasible": 50,
+    "infeasible_within_limits": 50,
+    "insufficient_information": 50
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "config_sha256": "8b8db25871b06576ef9dae25a9de11bfcfe5f1136a93af6af529590b98c7ea13",
+  "dataset": "optics_understanding_sft_evidence_v5a_source",
+  "example_ids_hash": "74684d44b7aee4117d8ca3254cbe7098ced859cb9d8c39138d331142894a208a",
+  "generation_workers": 4,
+  "record_count": 1200,
+  "records_per_scenario": 4,
+  "same_setup_pair_count": 600,
+  "scenario_count": 300,
+  "scenario_ids_hash": "7a085e565be0d0f6bc25a569316cc3ad9d678e42a2deb19c138dc6b80b7aa88e",
+  "seed": 15052,
+  "status_counts": {
+    "constrained_intervention": {
+      "feasible": 300,
+      "infeasible_within_limits": 300
+    },
+    "information_sufficiency": {
+      "answerable": 300,
+      "insufficient_information": 300
+    }
+  },
+  "task_counts": {
+    "constrained_intervention": 600,
+    "information_sufficiency": 600
+  },
+  "version": "evidence_v5a_source",
+  "visual_record_count": 0
+}

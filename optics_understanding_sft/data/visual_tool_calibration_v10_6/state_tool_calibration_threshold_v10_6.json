@@ -1,0 +1,54 @@
+{
+  "centroid_x": {
+    "labels": [
+      "left_of_center",
+      "centered",
+      "right_of_center"
+    ],
+    "thresholds": [
+      506.57098417359305,
+      517.118189637677
+    ],
+    "train_accuracy": 0.9940476190476191
+  },
+  "centroid_y": {
+    "labels": [
+      "above_center",
+      "centered",
+      "below_center"
+    ],
+    "thresholds": [
+      506.4099978180473,
+      516.5750126386517
+    ],
+    "train_accuracy": 0.9910714285714286
+  },
+  "dataset_split": "train_only",
+  "feature_extractor": "instrumented_rgb_min_moment_v1",
+  "record_count": 1008,
+  "sensor_crop_px": 1024,
+  "sigma_x": {
+    "labels": [
+      "narrow",
+      "medium",
+      "wide"
+    ],
+    "thresholds": [
+      108.73136098945226,
+      133.4772813577501
+    ],
+    "train_accuracy": 0.9781746031746031
+  },
+  "sigma_y": {
+    "labels": [
+      "narrow",
+      "medium",
+      "wide"
+    ],
+    "thresholds": [
+      109.99960140468956,
+      133.48644965908477
+    ],
+    "train_accuracy": 0.9920634920634921
+  }
+}

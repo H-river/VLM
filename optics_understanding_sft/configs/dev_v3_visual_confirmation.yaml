@@ -1,0 +1,69 @@
+dataset:
+  name: optics_understanding_sft_dev_v3_visual_confirmation
+  version: dev_v3_visual_confirmation
+  seed: 2718
+  group_prefix: dev_v3
+  scenario_start_index: 50000
+  scenarios: {train: 0, val: 150, test: 0}
+  questions_per_scenario: 4
+  visual_records: {train: 0, val: 30, test: 0}
+  task_counts:
+    train: &zero_tasks
+      setup_interpretation: 0
+      information_sufficiency: 0
+      causal_effects: 0
+      forward_prediction: 0
+      diagnosis: 0
+      constrained_intervention: 0
+      counterfactual_reasoning: 0
+    val:
+      setup_interpretation: 60
+      information_sufficiency: 120
+      causal_effects: 60
+      forward_prediction: 60
+      diagnosis: 120
+      constrained_intervention: 120
+      counterfactual_reasoning: 60
+    test: *zero_tasks
+  status_counts:
+    val:
+      information_sufficiency: {answerable: 60, insufficient_information: 60}
+      diagnosis: {unique: 40, ambiguous: 40, unsupported: 40}
+      constrained_intervention: {feasible: 60, infeasible_within_limits: 60}
+  ood_test_scenarios: 0
+
+simulation:
+  base_config: optical_sim/configs/base_config.yaml
+  iid_factors:
+    wavelength_nm: [0.97, 1.03]
+    beam_waist_mm: [0.70, 1.50]
+    lens_focal_length_mm: [0.80, 1.20]
+    lens_aperture_mm: [0.85, 1.10]
+    source_to_lens_mm: [0.80, 1.20]
+    lens_to_camera_mm: [0.80, 1.20]
+  ood_factors:
+    wavelength_nm: [[0.95, 0.97], [1.03, 1.05]]
+    beam_waist_mm: [[0.60, 0.70], [1.50, 1.80]]
+    lens_focal_length_mm: [[0.70, 0.80], [1.20, 1.30]]
+    lens_aperture_mm: [[0.75, 0.85], [1.10, 1.15]]
+    source_to_lens_mm: [[0.75, 0.80], [1.20, 1.25]]
+    lens_to_camera_mm: [[0.75, 0.80], [1.20, 1.25]]
+  offsets_mm:
+    lens_x: [-0.20, 0.20]
+    lens_y: [-0.20, 0.20]
+    camera_x: [-0.12, 0.12]
+    camera_y: [-0.12, 0.12]
+  action_bounds_mm: {lens: 0.06, camera: 0.03}
+
+labels:
+  centroid_effect_threshold_px: 1.0
+  sigma_effect_threshold_px: 2.0
+  intensity_relative_threshold: 0.05
+  diagnosis_centroid_tolerance_px: 1.5
+  diagnosis_sigma_tolerance_px: 2.0
+  control_success_tolerance_px: 2.0
+  sufficiency_completions: 5
+  constrained_grid_values: 9
+
+rendering: {size_px: 384, difficulty: medium}
+exports: {qwen_config: configs/qwen25vl_3b_qlora_corrective_v2_seed42.yaml}

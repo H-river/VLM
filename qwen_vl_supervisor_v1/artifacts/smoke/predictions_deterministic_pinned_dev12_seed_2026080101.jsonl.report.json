@@ -1,0 +1,221 @@
+{
+  "adapter": {
+    "hashes": {
+      "adapter_config.json": "3d855b7b38b0bf5e8cda16220f3a0e4223db68b40e9221c0c8fcff403437bb8f",
+      "adapter_model.safetensors": "743789b04ad289bdbf554be14e80dbc6385339e45d3c8d4248930735133f2e54"
+    },
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/artifacts/training/smoke_qwen25vl_3b_midresume_reference_deterministic_pinned/final_adapter"
+  },
+  "completed_at_utc": "2026-08-01T13:52:07.094626+00:00",
+  "config": {
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/configs/training_smoke.yaml",
+    "sha256": "393c3fc9f2c34a4cb5761653ad8fea4ac0d8d392e59794313a290f77c8c43673"
+  },
+  "cuda": {
+    "device_index": 0,
+    "name": "NVIDIA GeForce RTX 4080 Laptop GPU"
+  },
+  "data": {
+    "frozen_or_protected_predictions_opened": false,
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/sft/sft_smoke_dev.jsonl",
+    "records": 12,
+    "sha256": "9f5137b1f578bb147b4c3660b6b41aa375e1a8e72a647c6a9a8851956018125b",
+    "split": "dev"
+  },
+  "decoding": {
+    "batch_size": 1,
+    "do_sample": false,
+    "json_extraction_or_repair": false,
+    "max_new_tokens": 128,
+    "num_beams": 1,
+    "text_policy": "decode_all_tokens_after_exact_chat_template_prompt_length"
+  },
+  "distributed": {
+    "local_rank": -1,
+    "rank": 0,
+    "world_size": 1
+  },
+  "image_integrity": {
+    "policy": "metadata_image_sha256_matches_actual_bytes_before_run_and_each_inference",
+    "verified_records_before_model_load": 12
+  },
+  "model": {
+    "architecture": "Qwen2_5_VLForConditionalGeneration",
+    "attention_implementation": "sdpa",
+    "compute_dtype": "bfloat16",
+    "id": "/home/jiamo/HF_models/Qwen2.5-VL-3B-Instruct",
+    "processor_pixel_budget": {
+      "max_pixels": 50176,
+      "min_pixels": 3136
+    },
+    "processor_pixel_budget_observed": {
+      "max_pixels": 50176,
+      "min_pixels": 3136
+    },
+    "processor_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "quantization": "NF4_4bit",
+    "revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "source_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "source_identity": {
+      "declared_processor_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "declared_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+      "expected_tree_sha256": "2e1bd29589b91134a667572080bec76a5fb1446c49acddfa7f13049314bf3175",
+      "expected_tree_sha256_verified": true,
+      "fingerprint": {
+        "excluded_volatile_components": [
+          ".cache",
+          ".git",
+          ".locks",
+          "__pycache__"
+        ],
+        "excluded_volatile_regular_files": [
+          ".cache/huggingface/.gitignore",
+          ".cache/huggingface/CACHEDIR.TAG",
+          ".cache/huggingface/download/.gitattributes.metadata",
+          ".cache/huggingface/download/LICENSE.metadata",
+          ".cache/huggingface/download/README.md.metadata",
+          ".cache/huggingface/download/chat_template.json.metadata",
+          ".cache/huggingface/download/config.json.metadata",
+          ".cache/huggingface/download/generation_config.json.metadata",
+          ".cache/huggingface/download/merges.txt.metadata",
+          ".cache/huggingface/download/model-00001-of-00002.safetensors.metadata",
+          ".cache/huggingface/download/model-00002-of-00002.safetensors.metadata",
+          ".cache/huggingface/download/model.safetensors.index.json.metadata",
+          ".cache/huggingface/download/preprocessor_config.json.metadata",
+          ".cache/huggingface/download/tokenizer.json.metadata",
+          ".cache/huggingface/download/tokenizer_config.json.metadata",
+          ".cache/huggingface/download/vocab.json.metadata"
+        ],
+        "excluded_volatile_suffixes": [
+          ".lock",
+          ".tmp",
+          ".incomplete"
+        ],
+        "file_count": 14,
+        "files": [
+          {
+            "bytes": 1519,
+            "path": ".gitattributes",
+            "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+          },
+          {
+            "bytes": 7387,
+            "path": "LICENSE",
+            "sha256": "b5c0e5cf74cf51af1ecbc4af597cfcd13fd9925611838884a681070838a14a50"
+          },
+          {
+            "bytes": 18276,
+            "path": "README.md",
+            "sha256": "0b6da5a154b923da4dc66e416140c9b7f235f9b08fbbcc27fd9df7b586e3150d"
+          },
+          {
+            "bytes": 1050,
+            "path": "chat_template.json",
+            "sha256": "ad60d90252ed0b0705ba14e2d0ad0fec0beac1ea955642b54059b36052d8bc96"
+          },
+          {
+            "bytes": 1373,
+            "path": "config.json",
+            "sha256": "7ed3eed5be6924cc800e8a5e53fc405c1aab1aaf36bad65c33403b36c56827f5"
+          },
+          {
+            "bytes": 216,
+            "path": "generation_config.json",
+            "sha256": "533f191cc257b7de37a4fccd0a7a1706d75e1aa660f93efaa54e5a2a9f9aace9"
+          },
+          {
+            "bytes": 1671839,
+            "path": "merges.txt",
+            "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+          },
+          {
+            "bytes": 3982649232,
+            "path": "model-00001-of-00002.safetensors",
+            "sha256": "41a8895c164b4d32bae6b302f4603fcbc1797f32dafa45c7e9bcda23c6755df8"
+          },
+          {
+            "bytes": 3526688744,
+            "path": "model-00002-of-00002.safetensors",
+            "sha256": "365531ff8752420e89dee707b79d021fb2d6e25abafe486f080555a4fe6972e4"
+          },
+          {
+            "bytes": 65448,
+            "path": "model.safetensors.index.json",
+            "sha256": "c7dd78a4c6bea60b51332f1baf37b8f8124ecab2c35395a29a29825bf2619768"
+          },
+          {
+            "bytes": 350,
+            "path": "preprocessor_config.json",
+            "sha256": "f2058c716eef96ccaed1cc1e2d0c08306b62586d535b28d9d08e691b2fab7ca0"
+          },
+          {
+            "bytes": 7031645,
+            "path": "tokenizer.json",
+            "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+          },
+          {
+            "bytes": 5702,
+            "path": "tokenizer_config.json",
+            "sha256": "4abd3520120e266da84c0864fee064d1fb10806f02225911a47253dd38dc5f56"
+          },
+          {
+            "bytes": 2776833,
+            "path": "vocab.json",
+            "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+          }
+        ],
+        "referenced_weight_shards": [
+          "model-00001-of-00002.safetensors",
+          "model-00002-of-00002.safetensors"
+        ],
+        "required_snapshot_files": [
+          "config.json",
+          "model.safetensors.index.json",
+          "preprocessor_config.json",
+          "tokenizer.json",
+          "tokenizer_config.json"
+        ],
+        "root": "/home/jiamo/HF_models/Qwen2.5-VL-3B-Instruct",
+        "schema": "qwen_vl_local_snapshot_tree_v1",
+        "total_bytes": 7520919614,
+        "tree_sha256": "2e1bd29589b91134a667572080bec76a5fb1446c49acddfa7f13049314bf3175"
+      },
+      "kind": "local_snapshot",
+      "model_id": "/home/jiamo/HF_models/Qwen2.5-VL-3B-Instruct",
+      "revision_enforcement": "local paths ignore Hub revision arguments; byte identity is the snapshot tree SHA-256",
+      "source_id": "Qwen/Qwen2.5-VL-3B-Instruct"
+    }
+  },
+  "output": "/home/jiamo/VLM/qwen_vl_supervisor_v1/artifacts/smoke/predictions_deterministic_pinned_dev12_seed_2026080101.jsonl",
+  "progress": {
+    "completed_records": 12,
+    "expected_records": 12,
+    "generated_this_invocation": 12
+  },
+  "resume": {
+    "records_found": 0,
+    "records_pending_at_start": 12
+  },
+  "runtime": {
+    "packages": {
+      "Pillow": "12.2.0",
+      "PyYAML": "6.0.3",
+      "bitsandbytes": "0.49.2",
+      "peft": "0.19.1",
+      "torch": "2.5.1+cu121",
+      "transformers": "5.8.1"
+    },
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "python": "3.10.20 (main, Mar 11 2026, 17:46:40) [GCC 14.3.0]"
+  },
+  "schema_version": "qwen_vl_supervisor_generation_v1.0.0",
+  "seed": 2026080101,
+  "started_at_utc": "2026-08-01T13:51:30.257485+00:00",
+  "status": "completed",
+  "telemetry": {
+    "generation_latency_seconds_mean_this_invocation": 2.119230866750513,
+    "generation_latency_seconds_total_this_invocation": 25.430770401006157,
+    "gpu_peak_allocated_bytes": 2650671104,
+    "gpu_peak_reserved_bytes": 2797600768
+  }
+}

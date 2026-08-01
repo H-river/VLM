@@ -1,0 +1,23 @@
+{
+  "equal_field_accuracy": 0.7546296296296297,
+  "equal_field_macro_f1": 0.7095521152072188,
+  "field_accuracy": {
+    "visual_state_classification.centroid_horizontal_region": 0.8518518518518519,
+    "visual_state_classification.centroid_vertical_region": 0.6481481481481481,
+    "visual_state_classification.sigma_x_band": 0.8148148148148148,
+    "visual_state_classification.sigma_y_band": 0.7037037037037037
+  },
+  "field_macro_f1": {
+    "visual_state_classification.centroid_horizontal_region": 0.8001876348625574,
+    "visual_state_classification.centroid_vertical_region": 0.6257130004498426,
+    "visual_state_classification.sigma_x_band": 0.7909363078854604,
+    "visual_state_classification.sigma_y_band": 0.621371517631015
+  },
+  "joint_exact_match": 0.4074074074074074,
+  "json_valid_rate": 1.0,
+  "record_count": 54,
+  "schema_valid_rate": 1.0,
+  "task_joint_exact_match": {
+    "visual_state_classification": 0.4074074074074074
+  }
+}

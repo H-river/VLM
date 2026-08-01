@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qwen_vl_supervisor_dev_checkpoint_selection_v1.0.0",
+  "title": "Qwen-VL supervisor dev-only checkpoint selection artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_kind",
+    "selection_split",
+    "ranking_rule",
+    "training_config",
+    "dev_data",
+    "training_seeds",
+    "checkpoint_schedule",
+    "seed_results",
+    "coverage",
+    "protected_or_frozen_data_used",
+    "frozen_predictions_opened",
+    "selector"
+  ],
+  "properties": {
+    "schema_version": {"const": "qwen_vl_supervisor_dev_checkpoint_selection_v1.0.0"},
+    "artifact_kind": {"const": "deterministic_dev_only_checkpoint_selection"},
+    "selection_split": {"const": "dev"},
+    "ranking_rule": {
+      "const": [
+        "highest_joint_diagnosis_policy_action_exact_accuracy",
+        "highest_diagnosis_macro_f1",
+        "highest_valid_json_rate",
+        "lowest_optimizer_step",
+        "lexicographically_lowest_checkpoint_tree_sha256"
+      ]
+    },
+    "training_config": {"$ref": "#/$defs/fileEntry"},
+    "dev_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sft", "source_manifest", "record_count", "sample_id_sets_equal"],
+      "properties": {
+        "sft": {"$ref": "#/$defs/fileEntry"},
+        "source_manifest": {"$ref": "#/$defs/fileEntry"},
+        "record_count": {"type": "integer", "minimum": 1},
+        "sample_id_sets_equal": {"const": true}
+      }
+    },
+    "training_seeds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "integer"}
+    },
+    "checkpoint_schedule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["expected_steps", "expected_checkpoints_per_seed", "source"],
+      "properties": {
+        "expected_steps": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 1}
+        },
+        "expected_checkpoints_per_seed": {"type": "integer", "minimum": 1},
+        "source": {"const": "training.max_steps_training.save_steps_and_save_total_limit"}
+      }
+    },
+    "seed_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/seedResult"}
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expected_training_seeds",
+        "observed_training_seeds",
+        "expected_checkpoints_total",
+        "observed_checkpoints_total",
+        "complete"
+      ],
+      "properties": {
+        "expected_training_seeds": {"type": "integer", "minimum": 1},
+        "observed_training_seeds": {"type": "integer", "minimum": 1},
+        "expected_checkpoints_total": {"type": "integer", "minimum": 1},
+        "observed_checkpoints_total": {"type": "integer", "minimum": 1},
+        "complete": {"const": true}
+      }
+    },
+    "protected_or_frozen_data_used": {"const": false},
+    "frozen_predictions_opened": {"const": false},
+    "selector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implementation",
+        "json_schema",
+        "offline_report_recomputed_from_raw_predictions",
+        "timestamp_in_artifact"
+      ],
+      "properties": {
+        "implementation": {"$ref": "#/$defs/fileEntry"},
+        "json_schema": {"$ref": "#/$defs/fileEntry"},
+        "offline_report_recomputed_from_raw_predictions": {"const": true},
+        "timestamp_in_artifact": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "fileEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "hash_algorithm", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "hash_algorithm": {"const": "sha256_file_v1"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "treeEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "hash_algorithm", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "hash_algorithm": {"const": "sha256_tree_relative_path_nul_file_sha256_lf_v1"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "rankingMetrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["joint_exact_accuracy", "diagnosis_macro_f1", "valid_json_rate"],
+      "properties": {
+        "joint_exact_accuracy": {"type": "number", "minimum": 0, "maximum": 1},
+        "diagnosis_macro_f1": {"type": "number", "minimum": 0, "maximum": 1},
+        "valid_json_rate": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "training_seed",
+        "optimizer_step",
+        "selection_rank",
+        "checkpoint",
+        "generation_report",
+        "predictions",
+        "offline_report",
+        "dev_coverage",
+        "ranking_metrics",
+        "eligible",
+        "protected_or_frozen_data_used",
+        "frozen_predictions_opened"
+      ],
+      "properties": {
+        "training_seed": {"type": "integer"},
+        "optimizer_step": {"type": "integer", "minimum": 1},
+        "selection_rank": {"type": "integer", "minimum": 1},
+        "checkpoint": {"$ref": "#/$defs/treeEntry"},
+        "generation_report": {"$ref": "#/$defs/fileEntry"},
+        "predictions": {"$ref": "#/$defs/fileEntry"},
+        "offline_report": {"$ref": "#/$defs/fileEntry"},
+        "dev_coverage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "manifest_records",
+            "supplied_predictions",
+            "missing_predictions",
+            "coverage_rate",
+            "expected_seed_enforced"
+          ],
+          "properties": {
+            "manifest_records": {"type": "integer", "minimum": 1},
+            "supplied_predictions": {"type": "integer", "minimum": 1},
+            "missing_predictions": {"const": 0},
+            "coverage_rate": {"const": 1.0},
+            "expected_seed_enforced": {"const": true}
+          }
+        },
+        "ranking_metrics": {"$ref": "#/$defs/rankingMetrics"},
+        "eligible": {"const": true},
+        "protected_or_frozen_data_used": {"const": false},
+        "frozen_predictions_opened": {"const": false}
+      }
+    },
+    "selected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["optimizer_step", "selection_rank", "checkpoint", "ranking_metrics"],
+      "properties": {
+        "optimizer_step": {"type": "integer", "minimum": 1},
+        "selection_rank": {"const": 1},
+        "checkpoint": {"$ref": "#/$defs/treeEntry"},
+        "ranking_metrics": {"$ref": "#/$defs/rankingMetrics"}
+      }
+    },
+    "seedResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "training_seed",
+        "training_run_manifest",
+        "expected_checkpoint_steps",
+        "observed_checkpoint_steps",
+        "complete_checkpoint_coverage",
+        "candidates",
+        "selected"
+      ],
+      "properties": {
+        "training_seed": {"type": "integer"},
+        "training_run_manifest": {"$ref": "#/$defs/fileEntry"},
+        "expected_checkpoint_steps": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 1}
+        },
+        "observed_checkpoint_steps": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "integer", "minimum": 1}
+        },
+        "complete_checkpoint_coverage": {"const": true},
+        "candidates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/candidate"}
+        },
+        "selected": {"$ref": "#/$defs/selected"}
+      }
+    }
+  }
+}

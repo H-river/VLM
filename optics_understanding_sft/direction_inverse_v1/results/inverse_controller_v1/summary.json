@@ -1,0 +1,41 @@
+{
+  "calibration": {
+    "ambiguity_margin": 0.2,
+    "feasibility_cutoff": 1.75,
+    "validation_status_macro_f1": 0.3899917287014061
+  },
+  "calibration_selected_on": "val",
+  "eval_iid": {
+    "count": 45,
+    "selected_acceptable_feasible": 0.3,
+    "selected_action_target_success_feasible": 0.3,
+    "selected_exact_all": 0.044444444444444446,
+    "selected_exact_feasible": 0.06666666666666667,
+    "status_accuracy": 0.4,
+    "status_macro_f1": 0.31570881226053643,
+    "zero_action_target_success_feasible": 0.0
+  },
+  "eval_ood": {
+    "count": 78,
+    "selected_acceptable_feasible": 0.19230769230769232,
+    "selected_action_target_success_feasible": 0.19230769230769232,
+    "selected_exact_all": 0.038461538461538464,
+    "selected_exact_feasible": 0.057692307692307696,
+    "status_accuracy": 0.3717948717948718,
+    "status_macro_f1": 0.27353266888150607,
+    "zero_action_target_success_feasible": 0.0
+  },
+  "private_cached_simulator_states_used_for_scoring_only": true,
+  "simulator_at_inference": false,
+  "val": {
+    "count": 36,
+    "selected_acceptable_feasible": 0.20833333333333334,
+    "selected_action_target_success_feasible": 0.20833333333333334,
+    "selected_exact_all": 0.0,
+    "selected_exact_feasible": 0.0,
+    "status_accuracy": 0.4444444444444444,
+    "status_macro_f1": 0.3899917287014061,
+    "zero_action_target_success_feasible": 0.0
+  },
+  "version": "direction_inverse_v1_inverse_controller"
+}

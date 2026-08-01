@@ -1,0 +1,60 @@
+experiment:
+  name: qwen25vl_3b_orchestrator_stage1_v1_seed20260724
+
+model:
+  name: ../HF_models/Qwen2.5-VL-3B-Instruct
+  adapter_path: ../VLM_runs/qwen25vl_3b_qlora_visual_tool_orchestration_v10_2_seed49
+  local_files_only: true
+  trust_remote_code: true
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_compute_dtype: bfloat16
+  bnb_4bit_use_double_quant: true
+  expected_language_lora_tensors: 504
+  expected_visual_lora_tensors: 192
+
+data:
+  dataset_format: prebuilt_chat
+  train_jsonl: ../VLM_data/qwen_orchestration/v1/exports/qwen/train_stage1.jsonl
+  val_jsonl: ../VLM_data/qwen_orchestration/v1/exports/qwen/val_stage1.jsonl
+  image_root: ../VLM_data/qwen_orchestration/v1
+
+output:
+  output_dir: ../VLM_runs/qwen_orchestrator_v1_stage1_seed20260724
+
+training:
+  output_dir: ../VLM_runs/qwen_orchestrator_v1_stage1_seed20260724
+  seed: 20260724
+  data_seed: 20260724
+  sequential_train_sampler: false
+  max_length: null
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 8
+  num_train_epochs: 1
+  max_steps: 1250
+  learning_rate: 0.00001
+  warmup_ratio: 0.08
+  logging_steps: 10
+  eval_steps: 250
+  save_steps: 250
+  save_total_limit: 5
+  gradient_checkpointing: true
+  optim: paged_adamw_8bit
+  bf16: true
+  fp16: false
+  report_to: []
+  completion_only_loss: true
+  assistant_only_loss: false
+  decision_span_weight: 1.0
+
+generation:
+  max_new_tokens: 96
+  do_sample: false
+  temperature: 0.0
+
+lora:
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]

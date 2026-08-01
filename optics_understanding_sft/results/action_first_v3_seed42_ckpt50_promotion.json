@@ -1,0 +1,39 @@
+{
+  "candidate_count": 1,
+  "candidates": {
+    "seed42_ckpt50": {
+      "gates": {
+        "all_status_macro_f1_at_least_0_60": false,
+        "control_feasible_recall_at_least_0_60": true,
+        "control_infeasible_recall_at_least_0_60": false,
+        "control_simulator_success_at_least_0_40": true,
+        "no_anchor_regression_below_minus_0_05": true,
+        "schema_valid_rate_at_least_0_93": false
+      },
+      "macro_task_score": 0.6232738095238096,
+      "metrics": {
+        "anchor_regressions": {
+          "causal_effects": 0.1000000000000002,
+          "counterfactual_reasoning": 0.18333333333333335,
+          "forward_prediction": 0.0027777777777777124,
+          "setup_interpretation": 0.5611111111111111
+        },
+        "control_feasible_recall": 0.7,
+        "control_feasible_simulator_success": 0.4166666666666667,
+        "control_infeasible_recall": 0.43333333333333335,
+        "schema_valid_rate": 0.8416666666666667,
+        "status_macro_f1": {
+          "constrained_intervention": 0.5588235294117647,
+          "diagnosis": 0.8611111111111112,
+          "information_sufficiency": 0.40683430045132174
+        }
+      },
+      "passed": false
+    }
+  },
+  "passing_seeds": [],
+  "promotion_status": "no_promotion",
+  "protocol": "corrective_v2",
+  "required_passing_seeds": 2,
+  "sealed_test_evaluated": false
+}

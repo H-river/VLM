@@ -34,7 +34,13 @@ from optics_sft.physics.prompt_builder import build_physics_prompt, expected_ima
 
 PROMPT_MODES = {"image_only", "setup_only", "metadata_assisted"}
 LABEL_MODES = {"continuous_control", "direction_classification"}
-DATASET_FORMATS = {"legacy_pair", "physics_mixed"}
+DATASET_FORMATS = {"legacy_pair", "physics_mixed", "prebuilt_chat"}
+DEFAULT_DECISION_LABELS = (
+    "feasible",
+    "infeasible_within_limits",
+    "answerable",
+    "insufficient_information",
+)
 SETUP_METADATA_KEYS = (
     "wavelength_nm",
     "beam_waist_mm",
@@ -318,11 +324,62 @@ def physics_row_to_sft_example(row: dict[str, Any], image_root: Path) -> dict[st
     }
 
 
+def _image_placeholder_count(messages: Any) -> int:
+    if not isinstance(messages, list):
+        raise ValueError("prebuilt_chat prompt must be a list of messages")
+    count = 0
+    for message in messages:
+        if not isinstance(message, dict) or not isinstance(message.get("content"), list):
+            raise ValueError("prebuilt_chat messages require list-valued content")
+        count += sum(
+            isinstance(item, dict) and item.get("type") == "image"
+            for item in message["content"]
+        )
+    return count
+
+
+def prebuilt_chat_row_to_sft_example(row: dict[str, Any], image_root: Path) -> dict[str, Any]:
+    """Load a prebuilt prompt/completion row with zero or more images."""
+    prompt = row.get("prompt")
+    completion = row.get("completion")
+    if not isinstance(prompt, list) or not isinstance(completion, list):
+        raise ValueError("prebuilt_chat training rows require prompt and completion message lists")
+    image_paths = row.get("images", [])
+    if not isinstance(image_paths, list) or not all(isinstance(value, str) for value in image_paths):
+        raise ValueError("prebuilt_chat images must be a list of paths")
+    placeholder_count = _image_placeholder_count(prompt)
+    if placeholder_count != len(image_paths):
+        raise ValueError(
+            f"prebuilt_chat image placeholder/path mismatch for {row.get('example_id')}: "
+            f"{placeholder_count} placeholders versus {len(image_paths)} paths"
+        )
+    images = [load_rgb_image(resolve_image_path(image_root, value)) for value in image_paths]
+    return {"images": images, "prompt": prompt, "completion": completion}
+
+
+def prebuilt_smoke_rows(rows: list[dict[str, Any]], limit: int) -> list[dict[str, Any]]:
+    """Prefer one text-only and one visual row for a prebuilt-chat smoke run."""
+    if limit <= 0:
+        return []
+    text_row = next((row for row in rows if not row.get("images")), None)
+    visual_row = next((row for row in rows if row.get("images")), None)
+    selected: list[dict[str, Any]] = []
+    for row in (text_row, visual_row):
+        if row is not None and row not in selected and len(selected) < limit:
+            selected.append(row)
+    for row in rows:
+        if len(selected) >= limit:
+            break
+        if row not in selected:
+            selected.append(row)
+    return selected
+
+
 def require_training_imports() -> dict[str, Any]:
     try:
         import torch
         from datasets import Dataset
-        from peft import LoraConfig, prepare_model_for_kbit_training
+        from peft import LoraConfig, PeftModel, prepare_model_for_kbit_training
         from transformers import (
             AutoProcessor,
             BitsAndBytesConfig,
@@ -339,6 +396,7 @@ def require_training_imports() -> dict[str, Any]:
         "torch": torch,
         "Dataset": Dataset,
         "LoraConfig": LoraConfig,
+        "PeftModel": PeftModel,
         "prepare_model_for_kbit_training": prepare_model_for_kbit_training,
         "AutoProcessor": AutoProcessor,
         "BitsAndBytesConfig": BitsAndBytesConfig,
@@ -359,6 +417,91 @@ def dtype_from_name(torch_module: Any, name: str) -> Any:
     if not hasattr(torch_module, name):
         raise ValueError(f"Unsupported torch dtype in config: {name}")
     return getattr(torch_module, name)
+
+
+def decision_token_sequences(processor: Any, values: Iterable[str]) -> list[list[int]]:
+    """Return unique token sequences for decision-label values without JSON punctuation."""
+    tokenizer = getattr(processor, "tokenizer", processor)
+    sequences: list[list[int]] = []
+    for value in values:
+        sequence = list(tokenizer.encode(str(value), add_special_tokens=False))
+        if not sequence:
+            raise ValueError(f"decision label tokenized to an empty sequence: {value!r}")
+        if sequence not in sequences:
+            sequences.append(sequence)
+    return sequences
+
+
+def token_sequence_mask(torch_module: Any, labels: Any, sequences: list[list[int]]) -> Any:
+    """Mark every token belonging to an exact decision-label subsequence."""
+    mask = torch_module.zeros_like(labels, dtype=torch_module.bool)
+    if labels.ndim != 2:
+        raise ValueError(f"expected rank-2 labels, got shape {tuple(labels.shape)}")
+    for sequence in sequences:
+        width = len(sequence)
+        if width > labels.shape[1]:
+            continue
+        needle = torch_module.tensor(sequence, dtype=labels.dtype, device=labels.device)
+        for offset in range(labels.shape[1] - width + 1):
+            matches = (labels[:, offset : offset + width] == needle).all(dim=1)
+            if matches.any():
+                mask[matches, offset : offset + width] = True
+    return mask
+
+
+def token_sequence_weights(
+    torch_module: Any,
+    labels: Any,
+    sequences: list[list[int]],
+    span_weight: float,
+) -> tuple[Any, Any]:
+    """Assign equal total weight to each non-overlapping matched label span."""
+    weights = torch_module.ones_like(labels, dtype=torch_module.float32)
+    covered = torch_module.zeros_like(labels, dtype=torch_module.bool)
+    for sequence in sorted(sequences, key=len, reverse=True):
+        width = len(sequence)
+        if width > labels.shape[1]:
+            continue
+        needle = torch_module.tensor(sequence, dtype=labels.dtype, device=labels.device)
+        per_token_weight = float(span_weight) / width
+        for offset in range(labels.shape[1] - width + 1):
+            window = labels[:, offset : offset + width]
+            available = ~covered[:, offset : offset + width].any(dim=1)
+            matches = (window == needle).all(dim=1) & available
+            if matches.any():
+                weights[matches, offset : offset + width] = per_token_weight
+                covered[matches, offset : offset + width] = True
+    return weights, covered
+
+
+def decision_weighted_loss(
+    torch_module: Any,
+    logits: Any,
+    labels: Any,
+    sequences: list[list[int]],
+    decision_span_weight: float,
+) -> tuple[Any, int]:
+    """Compute completion CE with equal total mass on each decision-value span."""
+    if decision_span_weight < 1.0:
+        raise ValueError("decision_span_weight must be at least 1.0")
+    if sequences and decision_span_weight < max(len(sequence) for sequence in sequences):
+        raise ValueError("decision_span_weight must not down-weight the longest configured label")
+    shift_logits = logits[..., :-1, :].contiguous()
+    shift_labels = labels[..., 1:].contiguous()
+    valid = shift_labels != -100
+    weights, decision_mask = token_sequence_weights(
+        torch_module, shift_labels, sequences, decision_span_weight
+    )
+    decision_mask &= valid
+    per_token = torch_module.nn.functional.cross_entropy(
+        shift_logits.view(-1, shift_logits.shape[-1]),
+        shift_labels.view(-1),
+        reduction="none",
+        ignore_index=-100,
+    ).view_as(shift_labels)
+    weights = weights.to(dtype=per_token.dtype)
+    denominator = (weights * valid).sum().clamp_min(1.0)
+    return (per_token * weights * valid).sum() / denominator, int(decision_mask.sum().item())
 
 
 def build_sft_config(
@@ -388,6 +531,8 @@ def build_sft_config(
         if smoke_test
         else int(train_cfg["gradient_accumulation_steps"]),
         "learning_rate": float(train_cfg["learning_rate"]),
+        "seed": int(train_cfg.get("seed", 42)),
+        "data_seed": int(train_cfg.get("data_seed", train_cfg.get("seed", 42))),
         "warmup_ratio": float(train_cfg.get("warmup_ratio", 0.0)),
         "num_train_epochs": float(train_cfg["num_train_epochs"]),
         "max_steps": max_steps,
@@ -467,7 +612,12 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
     val_rows = read_jsonl(val_path) if val_path.exists() else []
 
     if smoke_test:
-        train_rows = limit_rows(train_rows, min(smoke_max_samples, 2))
+        smoke_limit = min(smoke_max_samples, 2)
+        train_rows = (
+            prebuilt_smoke_rows(train_rows, smoke_limit)
+            if dataset_format == "prebuilt_chat"
+            else limit_rows(train_rows, smoke_limit)
+        )
         val_rows = limit_rows(val_rows, 1)
         print(f"[smoke] loaded {len(train_rows)} train rows and {len(val_rows)} val rows ({dataset_format})")
     else:
@@ -476,9 +626,12 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
     if dataset_format == "legacy_pair":
         train_examples = [row_to_sft_example(row, image_root, prompt_mode, label_mode) for row in train_rows]
         val_examples = [row_to_sft_example(row, image_root, prompt_mode, label_mode) for row in val_rows]
-    else:
+    elif dataset_format == "physics_mixed":
         train_examples = [physics_row_to_sft_example(row, image_root) for row in train_rows]
         val_examples = [physics_row_to_sft_example(row, image_root) for row in val_rows]
+    else:
+        train_examples = [prebuilt_chat_row_to_sft_example(row, image_root) for row in train_rows]
+        val_examples = [prebuilt_chat_row_to_sft_example(row, image_root) for row in val_rows]
 
     train_dataset = examples_to_dataset(train_examples, deps["Dataset"])
     eval_dataset = examples_to_dataset(val_examples, deps["Dataset"]) if val_examples else None
@@ -506,13 +659,27 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
     )
     model = deps["prepare_model_for_kbit_training"](model)
 
-    peft_config = deps["LoraConfig"](
-        r=int(lora_cfg["r"]),
-        lora_alpha=int(lora_cfg["alpha"]),
-        lora_dropout=float(lora_cfg["dropout"]),
-        target_modules=list(lora_cfg["target_modules"]),
-        task_type="CAUSAL_LM",
-    )
+    adapter_path = model_cfg.get("adapter_path")
+    if adapter_path:
+        adapter = Path(str(adapter_path))
+        if not adapter.exists():
+            raise FileNotFoundError(f"Initial adapter does not exist: {adapter}")
+        model = deps["PeftModel"].from_pretrained(
+            model,
+            adapter,
+            is_trainable=True,
+            local_files_only=True,
+        )
+        peft_config = None
+        print(f"Continuing trainable adapter from {adapter}")
+    else:
+        peft_config = deps["LoraConfig"](
+            r=int(lora_cfg["r"]),
+            lora_alpha=int(lora_cfg["alpha"]),
+            lora_dropout=float(lora_cfg["dropout"]),
+            target_modules=list(lora_cfg["target_modules"]),
+            task_type="CAUSAL_LM",
+        )
 
     sft_config = build_sft_config(
         deps["SFTConfig"],
@@ -522,15 +689,73 @@ def train(config: dict[str, Any], smoke_test: bool = False, smoke_max_samples: i
         has_eval_dataset=eval_dataset is not None,
     )
 
-    trainer = build_trainer(
-        deps["SFTTrainer"],
-        processor,
-        model=model,
-        args=sft_config,
-        train_dataset=train_dataset,
-        eval_dataset=eval_dataset,
-        peft_config=peft_config,
+    trainer_class = deps["SFTTrainer"]
+    if bool(train_cfg.get("sequential_train_sampler", False)):
+        torch_module = deps["torch"]
+
+        class SequentialSFTTrainer(trainer_class):
+            def _get_train_sampler(self, train_dataset: Any = None) -> Any:
+                dataset = train_dataset if train_dataset is not None else self.train_dataset
+                return torch_module.utils.data.SequentialSampler(dataset)
+
+        trainer_class = SequentialSFTTrainer
+        print("Using sequential train sampler for pre-grouped curriculum units")
+
+    decision_weight = float(
+        train_cfg.get("decision_span_weight", train_cfg.get("decision_token_weight", 1.0))
     )
+    if decision_weight > 1.0:
+        torch_module = deps["torch"]
+        label_values = train_cfg.get("decision_labels", DEFAULT_DECISION_LABELS)
+        if not isinstance(label_values, (list, tuple)) or not all(
+            isinstance(value, str) for value in label_values
+        ):
+            raise ValueError("training.decision_labels must be a list of strings")
+        sequences = decision_token_sequences(processor, label_values)
+        base_trainer_class = trainer_class
+
+        class DecisionWeightedSFTTrainer(base_trainer_class):
+            def compute_loss(
+                self,
+                model: Any,
+                inputs: dict[str, Any],
+                return_outputs: bool = False,
+                num_items_in_batch: Any = None,
+            ) -> Any:
+                labels = inputs.get("labels")
+                base_loss, outputs = super().compute_loss(
+                    model,
+                    inputs,
+                    return_outputs=True,
+                    num_items_in_batch=num_items_in_batch,
+                )
+                if not model.training or labels is None:
+                    loss = base_loss
+                else:
+                    loss, matched = decision_weighted_loss(
+                        torch_module,
+                        outputs.logits,
+                        labels,
+                        sequences,
+                        decision_weight,
+                    )
+                return (loss, outputs) if return_outputs else loss
+
+        trainer_class = DecisionWeightedSFTTrainer
+        print(
+            f"Using decision-span weight {decision_weight:g} for labels: "
+            + ", ".join(label_values)
+        )
+
+    trainer_kwargs = {
+        "model": model,
+        "args": sft_config,
+        "train_dataset": train_dataset,
+        "eval_dataset": eval_dataset,
+    }
+    if peft_config is not None:
+        trainer_kwargs["peft_config"] = peft_config
+    trainer = build_trainer(trainer_class, processor, **trainer_kwargs)
     trainer.train()
     trainer.save_model(output_dir)
     print(f"Saved adapter to {output_dir}")

@@ -1,0 +1,31 @@
+[Unit]
+Description=Train and evaluate VLM numerical control v5
+ConditionPathExists=/home/jiamo/VLM_runs/control_rebuild_v5_one_seed/stages/generation.complete
+ConditionPathExists=!/home/jiamo/VLM_runs/control_rebuild_v5_one_seed/pipeline.complete
+After=vlm-v5-numdata.service
+StartLimitIntervalSec=3600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/bin/bash /home/jiamo/VLM/control_rebuild_v5/run_final_pipeline.sh
+Environment=OMP_NUM_THREADS=4
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+Nice=8
+IOSchedulingClass=idle
+CPUQuota=300%
+CPUAffinity=0 1 8 9
+MemoryHigh=6442450944
+MemoryMax=7516192768
+MemorySwapMax=268435456
+TasksMax=64
+Restart=on-failure
+RestartSec=20
+StandardOutput=append:/tmp/vlm-v5-final.log
+StandardError=append:/tmp/vlm-v5-final.log
+
+[Install]
+WantedBy=default.target

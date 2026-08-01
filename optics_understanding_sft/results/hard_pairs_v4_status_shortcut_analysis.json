@@ -1,0 +1,29 @@
+{
+  "constrained_intervention": {
+    "active_actuator_majority_accuracy": 0.5,
+    "count": 480,
+    "target_error_threshold": {
+      "accuracy": 0.6354166666666666,
+      "low_is_positive": true,
+      "threshold": 2.670649999999995
+    }
+  },
+  "information_sufficiency": {
+    "both_signs_present_accuracy": 0.5,
+    "count": 480,
+    "exact_rank_order_majority_accuracy": 0.5,
+    "first_value_is_minimum_accuracy": 0.5,
+    "sorted_values_accuracy": 0.5
+  },
+  "record_count": 960,
+  "status_counts": {
+    "constrained_intervention": {
+      "feasible": 240,
+      "infeasible_within_limits": 240
+    },
+    "information_sufficiency": {
+      "answerable": 240,
+      "insufficient_information": 240
+    }
+  }
+}

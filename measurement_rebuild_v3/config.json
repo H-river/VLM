@@ -1,0 +1,106 @@
+{
+  "version": "measurement_rebuild_v3_one_seed",
+  "seed": 20260726,
+  "source_dataset_version": "specialist_rebuild_v2_one_seed",
+  "stored_resolution_px": 512,
+  "stored_bit_depth": 16,
+  "conditions": [
+    "clean",
+    "noise",
+    "blur",
+    "dim_noise",
+    "saturation",
+    "crop_boundary",
+    "gamma_shift"
+  ],
+  "condition_parameters": {
+    "clean": {
+      "exposure": 1.0,
+      "gamma": 1.0,
+      "noise_std": 0.0,
+      "blur_sigma_px": 0.0,
+      "saturation_level": 1.0,
+      "crop_left_px": 0,
+      "crop_right_px": 0,
+      "crop_top_px": 0,
+      "crop_bottom_px": 0
+    },
+    "noise": {
+      "exposure": 1.0,
+      "gamma": 1.0,
+      "noise_std": 0.02,
+      "blur_sigma_px": 0.0,
+      "saturation_level": 1.0,
+      "crop_left_px": 0,
+      "crop_right_px": 0,
+      "crop_top_px": 0,
+      "crop_bottom_px": 0
+    },
+    "blur": {
+      "exposure": 1.0,
+      "gamma": 1.0,
+      "noise_std": 0.0,
+      "blur_sigma_px": 1.4,
+      "saturation_level": 1.0,
+      "crop_left_px": 0,
+      "crop_right_px": 0,
+      "crop_top_px": 0,
+      "crop_bottom_px": 0
+    },
+    "dim_noise": {
+      "exposure": 0.55,
+      "gamma": 1.0,
+      "noise_std": 0.016,
+      "blur_sigma_px": 0.0,
+      "saturation_level": 1.0,
+      "crop_left_px": 0,
+      "crop_right_px": 0,
+      "crop_top_px": 0,
+      "crop_bottom_px": 0
+    },
+    "saturation": {
+      "exposure": 1.5,
+      "gamma": 1.0,
+      "noise_std": 0.0,
+      "blur_sigma_px": 0.0,
+      "saturation_level": 1.0,
+      "crop_left_px": 0,
+      "crop_right_px": 0,
+      "crop_top_px": 0,
+      "crop_bottom_px": 0
+    },
+    "crop_boundary": {
+      "exposure": 1.0,
+      "gamma": 1.0,
+      "noise_std": 0.0,
+      "blur_sigma_px": 0.0,
+      "saturation_level": 1.0,
+      "crop_left_px": 32,
+      "crop_right_px": 0,
+      "crop_top_px": 0,
+      "crop_bottom_px": 32
+    },
+    "gamma_shift": {
+      "exposure": 1.0,
+      "gamma": 0.78,
+      "noise_std": 0.0,
+      "blur_sigma_px": 0.0,
+      "saturation_level": 1.0,
+      "crop_left_px": 0,
+      "crop_right_px": 0,
+      "crop_top_px": 0,
+      "crop_bottom_px": 0
+    }
+  },
+  "training": {
+    "seed": 20260726,
+    "epochs": 14,
+    "batch_size": 32,
+    "validation_batch_size": 48,
+    "learning_rate": 0.0008,
+    "weight_decay": 0.0002,
+    "num_workers": 1,
+    "clean_score_weight": 0.6,
+    "all_condition_score_weight": 0.4
+  }
+}

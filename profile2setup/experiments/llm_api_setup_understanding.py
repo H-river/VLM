@@ -92,7 +92,7 @@ def _record_step(steps: list[dict[str, Any]], name: str, status: str, **extra) -
 
 def _run_profile2setup_baseline(
     *,
-    checkpoint_path,
+    checkpoint_path,how 
     test_jsonl,
     out_path,
     variables_config,

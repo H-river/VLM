@@ -1,0 +1,1009 @@
+{
+  "coordinate_frame_audit": {
+    "corrected_better_fraction": 1.0,
+    "corrected_centroid_error_mean_px": 2.636291982499387,
+    "corrected_centroid_error_median_px": 1.8484829478659424,
+    "finding": "The rendered array is sensor-indexed, but legacy state_m_to_state_px does not subtract camera offsets before converting to sensor pixels.",
+    "legacy_centroid_error_mean_px": 16.76369806514253,
+    "legacy_centroid_error_median_px": 16.316468362816604
+  },
+  "image_count": 54,
+  "per_image": [
+    {
+      "corrected_error_px": 1.4178654881038322,
+      "corrected_sensor_centroid_px": [
+        485.1851444367891,
+        496.61845006085434
+      ],
+      "estimated_centroid_sensor_px": [
+        484.405575466287,
+        495.4341296808109
+      ],
+      "example_id": "dev_v2_030000_cf_000",
+      "image_path": "images/val/dev_v2_030000_cf_000_scenario_a_after.png",
+      "legacy_error_px": 21.78598643029754,
+      "legacy_label_centroid_px": [
+        504.4365,
+        504.001
+      ]
+    },
+    {
+      "corrected_error_px": 0.5653625501759387,
+      "corrected_sensor_centroid_px": [
+        488.09494443678904,
+        499.7752500608544
+      ],
+      "estimated_centroid_sensor_px": [
+        488.54123266739975,
+        500.12232588594134
+      ],
+      "example_id": "dev_v2_030000_cf_000",
+      "image_path": "images/val/dev_v2_030000_cf_000_scenario_b_after.png",
+      "legacy_error_px": 20.078059004625374,
+      "legacy_label_centroid_px": [
+        507.3463,
+        507.1578
+      ]
+    },
+    {
+      "corrected_error_px": 1.1057427326809053,
+      "corrected_sensor_centroid_px": [
+        514.192527962292,
+        486.1319688466243
+      ],
+      "estimated_centroid_sensor_px": [
+        513.8080254920969,
+        487.1687064418192
+      ],
+      "example_id": "dev_v2_030002_forward_000",
+      "image_path": "images/val/dev_v2_030002_forward_000_before.png",
+      "legacy_error_px": 17.377292863909023,
+      "legacy_label_centroid_px": [
+        508.3265,
+        503.6588
+      ]
+    },
+    {
+      "corrected_error_px": 2.163422060436362,
+      "corrected_sensor_centroid_px": [
+        492.10433158831773,
+        522.5426743480996
+      ],
+      "estimated_centroid_sensor_px": [
+        494.2466151331126,
+        522.240985393572
+      ],
+      "example_id": "dev_v2_030012_diagnosis_012",
+      "image_path": "images/val/dev_v2_030012_diagnosis_012_before.png",
+      "legacy_error_px": 20.955518976669058,
+      "legacy_label_centroid_px": [
+        508.9092,
+        507.2696
+      ]
+    },
+    {
+      "corrected_error_px": 0.9925492800120712,
+      "corrected_sensor_centroid_px": [
+        490.49673158831774,
+        522.5426743480996
+      ],
+      "estimated_centroid_sensor_px": [
+        491.46533972683613,
+        522.3259894449604
+      ],
+      "example_id": "dev_v2_030012_diagnosis_012",
+      "image_path": "images/val/dev_v2_030012_diagnosis_012_observed.png",
+      "legacy_error_px": 21.851361572169907,
+      "legacy_label_centroid_px": [
+        507.3016,
+        507.2696
+      ]
+    },
+    {
+      "corrected_error_px": 3.4527649319828897,
+      "corrected_sensor_centroid_px": [
+        489.9734823156553,
+        487.5920009240488
+      ],
+      "estimated_centroid_sensor_px": [
+        490.8553561795986,
+        490.93024659559916
+      ],
+      "example_id": "dev_v2_030029_diagnosis_029",
+      "image_path": "images/val/dev_v2_030029_diagnosis_029_before.png",
+      "legacy_error_px": 19.54790858675139,
+      "legacy_label_centroid_px": [
+        506.1005,
+        503.1657
+      ]
+    },
+    {
+      "corrected_error_px": 0.19745715406905529,
+      "corrected_sensor_centroid_px": [
+        490.4385823156553,
+        488.7216009240488
+      ],
+      "estimated_centroid_sensor_px": [
+        490.51865384256934,
+        488.902094354042
+      ],
+      "example_id": "dev_v2_030029_diagnosis_029",
+      "image_path": "images/val/dev_v2_030029_diagnosis_029_observed.png",
+      "legacy_error_px": 22.23634999360805,
+      "legacy_label_centroid_px": [
+        506.5656,
+        504.2953
+      ]
+    },
+    {
+      "corrected_error_px": 0.21959056002981484,
+      "corrected_sensor_centroid_px": [
+        517.3768371658332,
+        515.6553586013914
+      ],
+      "estimated_centroid_sensor_px": [
+        517.4478520596796,
+        515.8631491182737
+      ],
+      "example_id": "dev_v2_030033_cf_008",
+      "image_path": "images/val/dev_v2_030033_cf_008_scenario_a_after.png",
+      "legacy_error_px": 14.156036484271809,
+      "legacy_label_centroid_px": [
+        505.1745,
+        508.8092
+      ]
+    },
+    {
+      "corrected_error_px": 1.8124702057503403,
+      "corrected_sensor_centroid_px": [
+        517.3760371658332,
+        515.6611586013914
+      ],
+      "estimated_centroid_sensor_px": [
+        518.0779126021044,
+        513.9901053052062
+      ],
+      "example_id": "dev_v2_030033_cf_008",
+      "image_path": "images/val/dev_v2_030033_cf_008_scenario_b_after.png",
+      "legacy_error_px": 13.903252058431663,
+      "legacy_label_centroid_px": [
+        505.1737,
+        508.815
+      ]
+    },
+    {
+      "corrected_error_px": 1.220152948987977,
+      "corrected_sensor_centroid_px": [
+        516.3405745328739,
+        490.2577289774054
+      ],
+      "estimated_centroid_sensor_px": [
+        515.8377999733788,
+        491.36948028109185
+      ],
+      "example_id": "dev_v2_030034_diagnosis_034",
+      "image_path": "images/val/dev_v2_030034_diagnosis_034_before.png",
+      "legacy_error_px": 21.81100407176076,
+      "legacy_label_centroid_px": [
+        504.5816,
+        510.0515
+      ]
+    },
+    {
+      "corrected_error_px": 1.9096473651605923,
+      "corrected_sensor_centroid_px": [
+        514.1367745328739,
+        498.3603289774054
+      ],
+      "estimated_centroid_sensor_px": [
+        513.0250033682419,
+        499.91297766167287
+      ],
+      "example_id": "dev_v2_030034_diagnosis_034",
+      "image_path": "images/val/dev_v2_030034_diagnosis_034_observed.png",
+      "legacy_error_px": 21.12111464214229,
+      "legacy_label_centroid_px": [
+        502.3778,
+        518.1541
+      ]
+    },
+    {
+      "corrected_error_px": 2.657305582695169,
+      "corrected_sensor_centroid_px": [
+        513.0093406500959,
+        524.2500566860351
+      ],
+      "estimated_centroid_sensor_px": [
+        511.50335140490563,
+        522.0607030478135
+      ],
+      "example_id": "dev_v2_030036_diagnosis_036",
+      "image_path": "images/val/dev_v2_030036_diagnosis_036_before.png",
+      "legacy_error_px": 14.562848329851175,
+      "legacy_label_centroid_px": [
+        508.2794,
+        507.8592
+      ]
+    },
+    {
+      "corrected_error_px": 4.606454771961113,
+      "corrected_sensor_centroid_px": [
+        512.0345406500959,
+        524.2500566860351
+      ],
+      "estimated_centroid_sensor_px": [
+        508.932058047177,
+        520.8450563534788
+      ],
+      "example_id": "dev_v2_030036_diagnosis_036",
+      "image_path": "images/val/dev_v2_030036_diagnosis_036_observed.png",
+      "legacy_error_px": 13.087439968477643,
+      "legacy_label_centroid_px": [
+        507.3046,
+        507.8592
+      ]
+    },
+    {
+      "corrected_error_px": 2.222781127298771,
+      "corrected_sensor_centroid_px": [
+        490.73297453408037,
+        497.3199833245567
+      ],
+      "estimated_centroid_sensor_px": [
+        492.95266350338824,
+        497.4371875028464
+      ],
+      "example_id": "dev_v2_030040_cf_010",
+      "image_path": "images/val/dev_v2_030040_cf_010_scenario_a_after.png",
+      "legacy_error_px": 12.514299890622393,
+      "legacy_label_centroid_px": [
+        503.8841,
+        503.5291
+      ]
+    },
+    {
+      "corrected_error_px": 2.211408907870826,
+      "corrected_sensor_centroid_px": [
+        490.73297453408037,
+        497.3199833245567
+      ],
+      "estimated_centroid_sensor_px": [
+        492.6603651134635,
+        496.23578089312815
+      ],
+      "example_id": "dev_v2_030040_cf_010",
+      "image_path": "images/val/dev_v2_030040_cf_010_scenario_b_after.png",
+      "legacy_error_px": 13.385242933840177,
+      "legacy_label_centroid_px": [
+        503.8841,
+        503.5291
+      ]
+    },
+    {
+      "corrected_error_px": 1.36727000345609,
+      "corrected_sensor_centroid_px": [
+        507.9015892527862,
+        514.138495555109
+      ],
+      "estimated_centroid_sensor_px": [
+        507.66324909763745,
+        515.4848317808693
+      ],
+      "example_id": "dev_v2_030044_causal_011",
+      "image_path": "images/val/dev_v2_030044_causal_011_before.png",
+      "legacy_error_px": 11.925834999740319,
+      "legacy_label_centroid_px": [
+        504.7683,
+        503.9157
+      ]
+    },
+    {
+      "corrected_error_px": 3.434884393423601,
+      "corrected_sensor_centroid_px": [
+        507.9015892527862,
+        514.257595555109
+      ],
+      "estimated_centroid_sensor_px": [
+        506.7048747407053,
+        511.0379208552736
+      ],
+      "example_id": "dev_v2_030044_causal_011",
+      "image_path": "images/val/dev_v2_030044_causal_011_after.png",
+      "legacy_error_px": 7.265949589689284,
+      "legacy_label_centroid_px": [
+        504.7683,
+        504.0348
+      ]
+    },
+    {
+      "corrected_error_px": 1.319278895743959,
+      "corrected_sensor_centroid_px": [
+        522.4775547956457,
+        503.38435951876875
+      ],
+      "estimated_centroid_sensor_px": [
+        522.6942628474901,
+        502.0830008345386
+      ],
+      "example_id": "dev_v2_030049_diagnosis_049",
+      "image_path": "images/val/dev_v2_030049_diagnosis_049_before.png",
+      "legacy_error_px": 16.098245838054197,
+      "legacy_label_centroid_px": [
+        506.7363,
+        504.2036
+      ]
+    },
+    {
+      "corrected_error_px": 2.099519602090339,
+      "corrected_sensor_centroid_px": [
+        522.4775547956457,
+        507.8860595187688
+      ],
+      "estimated_centroid_sensor_px": [
+        523.2316320625978,
+        509.84548546404653
+      ],
+      "example_id": "dev_v2_030049_diagnosis_049",
+      "image_path": "images/val/dev_v2_030049_diagnosis_049_observed.png",
+      "legacy_error_px": 16.53469088757901,
+      "legacy_label_centroid_px": [
+        506.7363,
+        508.7053
+      ]
+    },
+    {
+      "corrected_error_px": 5.353956283215506,
+      "corrected_sensor_centroid_px": [
+        512.5572020714436,
+        527.1101722262056
+      ],
+      "estimated_centroid_sensor_px": [
+        508.4694061141291,
+        530.5677395927142
+      ],
+      "example_id": "dev_v2_030050_cf_012",
+      "image_path": "images/val/dev_v2_030050_cf_012_scenario_a_after.png",
+      "legacy_error_px": 24.005824420033044,
+      "legacy_label_centroid_px": [
+        503.4194,
+        507.0991
+      ]
+    },
+    {
+      "corrected_error_px": 2.320068804779123,
+      "corrected_sensor_centroid_px": [
+        514.2995020714436,
+        526.4404722262055
+      ],
+      "estimated_centroid_sensor_px": [
+        512.8030198417015,
+        528.2133964194454
+      ],
+      "example_id": "dev_v2_030050_cf_012",
+      "image_path": "images/val/dev_v2_030050_cf_012_scenario_b_after.png",
+      "legacy_error_px": 23.08532583537846,
+      "legacy_label_centroid_px": [
+        505.1617,
+        506.4294
+      ]
+    },
+    {
+      "corrected_error_px": 6.39509447706263,
+      "corrected_sensor_centroid_px": [
+        495.2632857384313,
+        501.62954749834785
+      ],
+      "estimated_centroid_sensor_px": [
+        490.77631559140036,
+        497.0727578093003
+      ],
+      "example_id": "dev_v2_030056_diagnosis_056",
+      "image_path": "images/val/dev_v2_030056_diagnosis_056_before.png",
+      "legacy_error_px": 23.463396132803606,
+      "legacy_label_centroid_px": [
+        509.7466,
+        510.8807
+      ]
+    },
+    {
+      "corrected_error_px": 11.61464392130759,
+      "corrected_sensor_centroid_px": [
+        497.2745857384313,
+        501.62954749834785
+      ],
+      "estimated_centroid_sensor_px": [
+        486.9681471024032,
+        496.27443068724523
+      ],
+      "example_id": "dev_v2_030056_diagnosis_056",
+      "image_path": "images/val/dev_v2_030056_diagnosis_056_observed.png",
+      "legacy_error_px": 28.77281619794336,
+      "legacy_label_centroid_px": [
+        511.7579,
+        510.8807
+      ]
+    },
+    {
+      "corrected_error_px": 0.6485573281616824,
+      "corrected_sensor_centroid_px": [
+        490.87375983668636,
+        503.9402566007367
+      ],
+      "estimated_centroid_sensor_px": [
+        490.22947054520904,
+        504.01453928243217
+      ],
+      "example_id": "dev_v2_030057_forward_014",
+      "image_path": "images/val/dev_v2_030057_forward_014_before.png",
+      "legacy_error_px": 16.982818763253366,
+      "legacy_label_centroid_px": [
+        506.645,
+        508.3673
+      ]
+    },
+    {
+      "corrected_error_px": 0.8156237757075473,
+      "corrected_sensor_centroid_px": [
+        494.13766866168504,
+        493.46583631193215
+      ],
+      "estimated_centroid_sensor_px": [
+        493.5657233201444,
+        494.047317755995
+      ],
+      "example_id": "dev_v2_030062_causal_015",
+      "image_path": "images/val/dev_v2_030062_causal_015_before.png",
+      "legacy_error_px": 18.93022324409586,
+      "legacy_label_centroid_px": [
+        510.9122,
+        501.6271
+      ]
+    },
+    {
+      "corrected_error_px": 2.361900667081408,
+      "corrected_sensor_centroid_px": [
+        494.13766866168504,
+        493.5941363119322
+      ],
+      "estimated_centroid_sensor_px": [
+        493.09518021934264,
+        491.47475135191615
+      ],
+      "example_id": "dev_v2_030062_causal_015",
+      "image_path": "images/val/dev_v2_030062_causal_015_after.png",
+      "legacy_error_px": 20.57031673284793,
+      "legacy_label_centroid_px": [
+        510.9122,
+        501.7554
+      ]
+    },
+    {
+      "corrected_error_px": 0.6767654664465977,
+      "corrected_sensor_centroid_px": [
+        492.5389690674848,
+        487.76466780621655
+      ],
+      "estimated_centroid_sensor_px": [
+        492.588525438458,
+        488.43961644327766
+      ],
+      "example_id": "dev_v2_030066_diagnosis_066",
+      "image_path": "images/val/dev_v2_030066_diagnosis_066_before.png",
+      "legacy_error_px": 23.759504237768063,
+      "legacy_label_centroid_px": [
+        505.7579,
+        508.2154
+      ]
+    },
+    {
+      "corrected_error_px": 1.012245885681646,
+      "corrected_sensor_centroid_px": [
+        493.1435690674848,
+        487.76466780621655
+      ],
+      "estimated_centroid_sensor_px": [
+        493.79323304695026,
+        488.5409270714524
+      ],
+      "example_id": "dev_v2_030066_diagnosis_066",
+      "image_path": "images/val/dev_v2_030066_diagnosis_066_observed.png",
+      "legacy_error_px": 23.346763303575504,
+      "legacy_label_centroid_px": [
+        506.3625,
+        508.2154
+      ]
+    },
+    {
+      "corrected_error_px": 0.9592591872265459,
+      "corrected_sensor_centroid_px": [
+        515.7717990103478,
+        507.89417048584164
+      ],
+      "estimated_centroid_sensor_px": [
+        516.4705435624234,
+        508.55138752702607
+      ],
+      "example_id": "dev_v2_030069_diagnosis_069",
+      "image_path": "images/val/dev_v2_030069_diagnosis_069_before.png",
+      "legacy_error_px": 6.680182496588619,
+      "legacy_label_centroid_px": [
+        509.8221,
+        509.2018
+      ]
+    },
+    {
+      "corrected_error_px": 0.12126618315648444,
+      "corrected_sensor_centroid_px": [
+        515.7717990103478,
+        502.71137048584166
+      ],
+      "estimated_centroid_sensor_px": [
+        515.754054457531,
+        502.8313313879001
+      ],
+      "example_id": "dev_v2_030069_diagnosis_069",
+      "image_path": "images/val/dev_v2_030069_diagnosis_069_observed.png",
+      "legacy_error_px": 6.049681017904096,
+      "legacy_label_centroid_px": [
+        509.8221,
+        504.019
+      ]
+    },
+    {
+      "corrected_error_px": 1.8137659034902927,
+      "corrected_sensor_centroid_px": [
+        508.67107968779356,
+        487.15201147610696
+      ],
+      "estimated_centroid_sensor_px": [
+        507.6792283341674,
+        488.67055605726813
+      ],
+      "example_id": "dev_v2_030070_cf_017",
+      "image_path": "images/val/dev_v2_030070_cf_017_scenario_a_after.png",
+      "legacy_error_px": 19.6614296715146,
+      "legacy_label_centroid_px": [
+        504.2431,
+        508.0294
+      ]
+    },
+    {
+      "corrected_error_px": 0.9318698390504848,
+      "corrected_sensor_centroid_px": [
+        506.5978796877935,
+        488.19641147610696
+      ],
+      "estimated_centroid_sensor_px": [
+        506.55323342075684,
+        489.1272111902086
+      ],
+      "example_id": "dev_v2_030070_cf_017",
+      "image_path": "images/val/dev_v2_030070_cf_017_scenario_b_after.png",
+      "legacy_error_px": 20.42253698795574,
+      "legacy_label_centroid_px": [
+        502.1699,
+        509.0738
+      ]
+    },
+    {
+      "corrected_error_px": 2.9791521823407816,
+      "corrected_sensor_centroid_px": [
+        489.1502210358514,
+        506.03578644272386
+      ],
+      "estimated_centroid_sensor_px": [
+        491.51969740078795,
+        507.8415908290163
+      ],
+      "example_id": "dev_v2_030073_forward_018",
+      "image_path": "images/val/dev_v2_030073_forward_018_before.png",
+      "legacy_error_px": 15.932757575833923,
+      "legacy_label_centroid_px": [
+        506.9961,
+        504.0556
+      ]
+    },
+    {
+      "corrected_error_px": 1.0446082794981257,
+      "corrected_sensor_centroid_px": [
+        527.4172328919842,
+        528.5341297471736
+      ],
+      "estimated_centroid_sensor_px": [
+        527.3825189258135,
+        527.4900984266909
+      ],
+      "example_id": "dev_v2_030077_cf_019",
+      "image_path": "images/val/dev_v2_030077_cf_019_scenario_a_after.png",
+      "legacy_error_px": 28.39645407537517,
+      "legacy_label_centroid_px": [
+        507.329,
+        507.385
+      ]
+    },
+    {
+      "corrected_error_px": 0.4209970110657728,
+      "corrected_sensor_centroid_px": [
+        528.3203328919842,
+        528.7742297471735
+      ],
+      "estimated_centroid_sensor_px": [
+        528.4707592476125,
+        528.381024463818
+      ],
+      "example_id": "dev_v2_030077_cf_019",
+      "image_path": "images/val/dev_v2_030077_cf_019_scenario_b_after.png",
+      "legacy_error_px": 28.989855613450185,
+      "legacy_label_centroid_px": [
+        508.2321,
+        507.6251
+      ]
+    },
+    {
+      "corrected_error_px": 0.7141523377940536,
+      "corrected_sensor_centroid_px": [
+        502.1473397506666,
+        521.1948466668533
+      ],
+      "estimated_centroid_sensor_px": [
+        502.5951690571815,
+        521.7511401809294
+      ],
+      "example_id": "dev_v2_030081_cf_020",
+      "image_path": "images/val/dev_v2_030081_cf_020_scenario_a_after.png",
+      "legacy_error_px": 13.644691625762551,
+      "legacy_label_centroid_px": [
+        509.9055,
+        510.23
+      ]
+    },
+    {
+      "corrected_error_px": 2.073147723830909,
+      "corrected_sensor_centroid_px": [
+        502.1532397506666,
+        521.2060466668534
+      ],
+      "estimated_centroid_sensor_px": [
+        504.0848542695191,
+        521.9589124154325
+      ],
+      "example_id": "dev_v2_030081_cf_020",
+      "image_path": "images/val/dev_v2_030081_cf_020_scenario_b_after.png",
+      "legacy_error_px": 13.086382976214832,
+      "legacy_label_centroid_px": [
+        509.9114,
+        510.2412
+      ]
+    },
+    {
+      "corrected_error_px": 6.981074251162105,
+      "corrected_sensor_centroid_px": [
+        485.3522563912137,
+        510.48641120207094
+      ],
+      "estimated_centroid_sensor_px": [
+        490.7285499758835,
+        506.0332252648259
+      ],
+      "example_id": "dev_v2_030082_cf_021",
+      "image_path": "images/val/dev_v2_030082_cf_021_scenario_a_after.png",
+      "legacy_error_px": 15.648197726833525,
+      "legacy_label_centroid_px": [
+        506.3088,
+        507.4899
+      ]
+    },
+    {
+      "corrected_error_px": 7.4552837546019575,
+      "corrected_sensor_centroid_px": [
+        486.0169563912137,
+        509.436911202071
+      ],
+      "estimated_centroid_sensor_px": [
+        493.3537854836996,
+        510.7606161273788
+      ],
+      "example_id": "dev_v2_030082_cf_021",
+      "image_path": "images/val/dev_v2_030082_cf_021_scenario_b_after.png",
+      "legacy_error_px": 14.288488054821887,
+      "legacy_label_centroid_px": [
+        506.9735,
+        506.4404
+      ]
+    },
+    {
+      "corrected_error_px": 9.429384766957078,
+      "corrected_sensor_centroid_px": [
+        485.3522563912137,
+        512.1690112020709
+      ],
+      "estimated_centroid_sensor_px": [
+        493.9915034491294,
+        515.9474642394417
+      ],
+      "example_id": "dev_v2_030082_forward_021",
+      "image_path": "images/val/dev_v2_030082_forward_021_before.png",
+      "legacy_error_px": 14.05759349134135,
+      "legacy_label_centroid_px": [
+        506.3088,
+        509.1725
+      ]
+    },
+    {
+      "corrected_error_px": 8.530861248561886,
+      "corrected_sensor_centroid_px": [
+        487.0788801111364,
+        496.8271632298498
+      ],
+      "estimated_centroid_sensor_px": [
+        493.3523254716956,
+        502.6081213641294
+      ],
+      "example_id": "dev_v2_030087_forward_024",
+      "image_path": "images/val/dev_v2_030087_forward_024_before.png",
+      "legacy_error_px": 10.987279009450473,
+      "legacy_label_centroid_px": [
+        503.7007,
+        506.3002
+      ]
+    },
+    {
+      "corrected_error_px": 3.3619079520359407,
+      "corrected_sensor_centroid_px": [
+        509.82688899312126,
+        517.1615529953903
+      ],
+      "estimated_centroid_sensor_px": [
+        512.2287703129224,
+        514.8092368594185
+      ],
+      "example_id": "dev_v2_030093_diagnosis_087",
+      "image_path": "images/val/dev_v2_030093_diagnosis_087_before.png",
+      "legacy_error_px": 8.279125903643626,
+      "legacy_label_centroid_px": [
+        505.9634,
+        509.3973
+      ]
+    },
+    {
+      "corrected_error_px": 1.8831999922415923,
+      "corrected_sensor_centroid_px": [
+        509.82688899312126,
+        517.5149529953903
+      ],
+      "estimated_centroid_sensor_px": [
+        511.6937675395335,
+        517.2675531091243
+      ],
+      "example_id": "dev_v2_030093_diagnosis_087",
+      "image_path": "images/val/dev_v2_030093_diagnosis_087_observed.png",
+      "legacy_error_px": 9.4519941177664,
+      "legacy_label_centroid_px": [
+        505.9634,
+        509.7507
+      ]
+    },
+    {
+      "corrected_error_px": 2.248330576993937,
+      "corrected_sensor_centroid_px": [
+        519.7245411819251,
+        505.94799111105993
+      ],
+      "estimated_centroid_sensor_px": [
+        518.6946367372957,
+        507.94656240535454
+      ],
+      "example_id": "dev_v2_030114_forward_039",
+      "image_path": "images/val/dev_v2_030114_forward_039_before.png",
+      "legacy_error_px": 12.622597472350764,
+      "legacy_label_centroid_px": [
+        506.1673,
+        509.4944
+      ]
+    },
+    {
+      "corrected_error_px": 0.8484581058596792,
+      "corrected_sensor_centroid_px": [
+        490.6417491825604,
+        512.4323803607658
+      ],
+      "estimated_centroid_sensor_px": [
+        490.9231222579427,
+        513.2328242062971
+      ],
+      "example_id": "dev_v2_030116_cf_041",
+      "image_path": "images/val/dev_v2_030116_cf_041_scenario_a_after.png",
+      "legacy_error_px": 17.82124360799818,
+      "legacy_label_centroid_px": [
+        507.1728,
+        505.9154
+      ]
+    },
+    {
+      "corrected_error_px": 0.7379726320790062,
+      "corrected_sensor_centroid_px": [
+        491.1704491825604,
+        511.90468036076584
+      ],
+      "estimated_centroid_sensor_px": [
+        491.3335555684387,
+        512.6244024686542
+      ],
+      "example_id": "dev_v2_030116_cf_041",
+      "image_path": "images/val/dev_v2_030116_cf_041_scenario_b_after.png",
+      "legacy_error_px": 17.896353470316363,
+      "legacy_label_centroid_px": [
+        507.7015,
+        505.3877
+      ]
+    },
+    {
+      "corrected_error_px": 2.0407295953692883,
+      "corrected_sensor_centroid_px": [
+        496.1220200695029,
+        518.6774714600008
+      ],
+      "estimated_centroid_sensor_px": [
+        497.65507382347397,
+        517.3305032091309
+      ],
+      "example_id": "dev_v2_030126_causal_046",
+      "image_path": "images/val/dev_v2_030126_causal_046_before.png",
+      "legacy_error_px": 12.505113383063831,
+      "legacy_label_centroid_px": [
+        504.656,
+        506.9688
+      ]
+    },
+    {
+      "corrected_error_px": 4.305030051383769,
+      "corrected_sensor_centroid_px": [
+        496.3501200695029,
+        518.6774714600008
+      ],
+      "estimated_centroid_sensor_px": [
+        500.5447468750369,
+        517.708766290399
+      ],
+      "example_id": "dev_v2_030126_causal_046",
+      "image_path": "images/val/dev_v2_030126_causal_046_after.png",
+      "legacy_error_px": 11.583473635401193,
+      "legacy_label_centroid_px": [
+        504.8841,
+        506.9688
+      ]
+    },
+    {
+      "corrected_error_px": 5.313606916614017,
+      "corrected_sensor_centroid_px": [
+        520.6353980215432,
+        487.1183708258008
+      ],
+      "estimated_centroid_sensor_px": [
+        524.7065745857936,
+        490.5330362335657
+      ],
+      "example_id": "dev_v2_030136_causal_052",
+      "image_path": "images/val/dev_v2_030136_causal_052_before.png",
+      "legacy_error_px": 26.368840069446986,
+      "legacy_label_centroid_px": [
+        503.058,
+        505.5881
+      ]
+    },
+    {
+      "corrected_error_px": 8.83650454104141,
+      "corrected_sensor_centroid_px": [
+        524.6793980215432,
+        487.1183708258008
+      ],
+      "estimated_centroid_sensor_px": [
+        528.5735161153069,
+        495.05056199695065
+      ],
+      "example_id": "dev_v2_030136_causal_052",
+      "image_path": "images/val/dev_v2_030136_causal_052_after.png",
+      "legacy_error_px": 23.917895213743098,
+      "legacy_label_centroid_px": [
+        507.102,
+        505.5881
+      ]
+    },
+    {
+      "corrected_error_px": 0.7059452944456869,
+      "corrected_sensor_centroid_px": [
+        510.6138867634163,
+        500.0045747606027
+      ],
+      "estimated_centroid_sensor_px": [
+        509.9964774826008,
+        500.3468678202941
+      ],
+      "example_id": "dev_v2_030143_diagnosis_116",
+      "image_path": "images/val/dev_v2_030143_diagnosis_116_before.png",
+      "legacy_error_px": 7.9530630420731105,
+      "legacy_label_centroid_px": [
+        504.3469,
+        505.9445
+      ]
+    },
+    {
+      "corrected_error_px": 1.0668363717332148,
+      "corrected_sensor_centroid_px": [
+        511.7392867634163,
+        500.0045747606027
+      ],
+      "estimated_centroid_sensor_px": [
+        512.7517108883789,
+        499.66821597114307
+      ],
+      "example_id": "dev_v2_030143_diagnosis_116",
+      "image_path": "images/val/dev_v2_030143_diagnosis_116_observed.png",
+      "legacy_error_px": 9.611532869045028,
+      "legacy_label_centroid_px": [
+        505.4723,
+        505.9445
+      ]
+    },
+    {
+      "corrected_error_px": 0.981093547845014,
+      "corrected_sensor_centroid_px": [
+        507.3771774855289,
+        514.5985969171463
+      ],
+      "estimated_centroid_sensor_px": [
+        506.5852376814839,
+        515.1777133962697
+      ],
+      "example_id": "dev_v2_030146_diagnosis_118",
+      "image_path": "images/val/dev_v2_030146_diagnosis_118_before.png",
+      "legacy_error_px": 8.530962267047144,
+      "legacy_label_centroid_px": [
+        506.9511,
+        506.6546
+      ]
+    },
+    {
+      "corrected_error_px": 0.40054363721449215,
+      "corrected_sensor_centroid_px": [
+        507.2758774855289,
+        516.2703969171463
+      ],
+      "estimated_centroid_sensor_px": [
+        507.59403530441045,
+        516.0270642074718
+      ],
+      "example_id": "dev_v2_030146_diagnosis_118",
+      "image_path": "images/val/dev_v2_030146_diagnosis_118_observed.png",
+      "legacy_error_px": 7.736544152563728,
+      "legacy_label_centroid_px": [
+        506.8498,
+        508.3264
+      ]
+    }
+  ],
+  "pixel_ablation": {
+    "full_minus_withheld_macro": -0.01388888888888884,
+    "full_visual_macro": 0.6180555555555556,
+    "images_withheld_macro": 0.6319444444444444,
+    "per_task_full": {
+      "causal_effects": 0.95,
+      "counterfactual_reasoning": 0.24444444444444446,
+      "diagnosis": 1.0,
+      "forward_prediction": 0.27777777777777773
+    },
+    "per_task_images_withheld": {
+      "causal_effects": 0.95,
+      "counterfactual_reasoning": 0.35555555555555557,
+      "diagnosis": 1.0,
+      "forward_prediction": 0.2222222222222222
+    }
+  },
+  "record_count": 30,
+  "render_calibration_audit": {
+    "finding": "Paired images use independently sampled normalization, gamma, noise, blur, and saturation, so brightness and width changes are not calibrated across images.",
+    "paired_records": 24,
+    "paired_records_with_independent_render_options": 24,
+    "per_image_normalization_erases_absolute_peak": true
+  }
+}

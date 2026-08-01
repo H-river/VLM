@@ -1,0 +1,31 @@
+[Unit]
+Description=Generate 3,000 targeted v7 optical setup grids
+ConditionPathExists=!/home/jiamo/VLM_data/joint_forward_direction_targeted_v7/manifest.json
+OnSuccess=vlm-v7-targeted-post.service
+StartLimitIntervalSec=3600
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/home/jiamo/miniconda3/envs/optical_sim/bin/python joint_forward_direction_v7/build_targeted_dataset.py --workers 1
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+Nice=10
+IOSchedulingClass=idle
+CPUQuota=35%
+CPUAffinity=0
+MemoryHigh=4G
+MemoryMax=5G
+MemorySwapMax=256M
+TasksMax=32
+Restart=on-failure
+RestartSec=20
+StandardOutput=append:/tmp/vlm-v7-targeted-data.log
+StandardError=append:/tmp/vlm-v7-targeted-data.log
+
+[Install]
+WantedBy=default.target

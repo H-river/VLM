@@ -1,0 +1,36 @@
+{
+  "adapter_path": "/home/jiamo/VLM_runs/qwen25vl_3b_qlora_visual_mapping_repair_v10_10_seed55/checkpoint-10",
+  "config_hash": "85ace4112dbbe10a6dc59a9c92dec65e9c47150d54697e3153e19502e2c2fca2",
+  "example_ids": [
+    "dev_v2_030007_forward_001__v10_pair__original__v10_9_tool_source_mapping",
+    "dev_v2_030086_diagnosis_083__v10_state_0__original__v10_9_tool_source_mapping",
+    "dev_v2_030115_cf_040__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030118_causal_041__v10_state_0__original__v10_9_tool_source_mapping",
+    "dev_v2_030122_causal_044__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030110_cf_037__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030039_cf_009__v10_state_0__original__v10_9_tool_source_mapping",
+    "dev_v2_030088_diagnosis_084__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030122_diagnosis_104__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030012_diagnosis_012__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030033_diagnosis_033__v10_state_0__original__v10_9_tool_source_mapping",
+    "dev_v2_030037_diagnosis_037__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030074_diagnosis_074__v10_state_0__original__v10_9_tool_source_mapping",
+    "dev_v2_030104_causal_033__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030107_cf_035__v10_state_0__original__v10_9_tool_source_mapping",
+    "dev_v2_030001_diagnosis_001__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030149_cf_059__v10_state_0__original__v10_9_tool_source_mapping",
+    "dev_v2_030074_diagnosis_074__v10_state_1__original__v10_9_tool_source_mapping",
+    "dev_v2_030085_cf_023__v10_state_0__original__v10_9_tool_source_mapping",
+    "dev_v2_030063_diagnosis_063__v10_state_1__original__v10_9_tool_source_mapping"
+  ],
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 192
+  },
+  "image_root": "/home/jiamo/VLM/optics_understanding_sft/data/visual_eval_expanded_fullsensor_v10_6",
+  "input_jsonl": "/home/jiamo/VLM/optics_understanding_sft/data/visual_mapping_repair_v10_10/dev_panel120_canonical.jsonl",
+  "input_records_hash": "7196f825e7d60be708c90effa7cfb893015148709bdfea3ccb934b7aacc5cfea",
+  "model_kind": "adapter",
+  "model_name": "../HF_models/Qwen2.5-VL-3B-Instruct",
+  "record_count": 20
+}

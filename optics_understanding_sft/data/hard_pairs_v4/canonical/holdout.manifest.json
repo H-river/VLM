@@ -1,0 +1,8 @@
+{
+  "example_ids_hash": "86182b5f2e766e7e3cf6a7402f224a282fe06d20a6f7901d1c9991bbe830bdbf",
+  "name": "hard_pairs_v4_scenario_disjoint_holdout",
+  "physical_group_count": 60,
+  "record_count": 240,
+  "seed": 9041,
+  "source_sha256": "05ec2eb025438a168212654bfe94eb9dc8c3998293c453077e5d9b47500da488"
+}

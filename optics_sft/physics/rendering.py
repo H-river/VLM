@@ -75,7 +75,15 @@ def intensity_to_uint8_image(intensity: Any, options: RenderOptions = None) -> I
 
     normalize = bool(_option(options, "normalize", True))
     percentile_clip = _option(options, "percentile_clip", None)
-    if normalize:
+    normalization_bounds = _option(options, "normalization_bounds", None)
+    if normalization_bounds is not None:
+        if len(normalization_bounds) != 2:
+            raise ValueError("normalization_bounds must contain exactly two values")
+        lo, hi = float(normalization_bounds[0]), float(normalization_bounds[1])
+        if not np.isfinite(lo) or not np.isfinite(hi) or hi <= lo:
+            raise ValueError("normalization_bounds must be finite with high > low")
+        array = np.clip((array - lo) / (hi - lo), 0.0, 1.0)
+    elif normalize:
         array = _normalize(array, percentile_clip)
     elif percentile_clip is not None:
         lo, hi = np.percentile(array, [float(percentile_clip[0]), float(percentile_clip[1])])

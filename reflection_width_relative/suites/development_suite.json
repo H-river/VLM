@@ -1,0 +1,1460 @@
+{
+  "cases": [
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_00_0000",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": -0.0019673804734979764,
+        "camera_y_delta_mm": 0.0,
+        "lens_x_delta_mm": -0.005684054718385197,
+        "lens_y_delta_mm": 0.0
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.8876255508980105,
+        "captured_power_w": 0.8876255508980105,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 421.9026715008092,
+        "peak_intensity_abs": 2545952.5,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 700.6931455015739,
+        "source_integrated_power_w": 0.8876255480161936,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_00_0000",
+      "group_seed": 3873227188811464740,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.8876255472389664,
+        "captured_power_w": 0.8876255472389664,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 421.9026715031658,
+        "peak_intensity_abs": 2545909.5,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 700.6931455015739,
+        "source_integrated_power_w": 0.8876255480161936,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "low",
+      "initial_metrics": {
+        "centroid_x_px": 454.9201675971312,
+        "centroid_y_px": 453.85932947208863,
+        "peak_intensity": 2545909.5,
+        "sigma_x_px": 42.82836400305668,
+        "sigma_y_px": 42.828364080114696
+      },
+      "initial_normalized_distance": 1.4871613078029213,
+      "initial_positions_mm": {
+        "camera_x_mm": -0.14591100358254389,
+        "camera_y_mm": 0.17576161882907554,
+        "lens_x_mm": -0.2162528596357383,
+        "lens_y_mm": -0.2203074714255516
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 1,
+      "q_goal_mm": {
+        "camera_x_mm": -0.14787838405604187,
+        "camera_y_mm": 0.17576161882907554,
+        "lens_x_mm": -0.2219369143541235,
+        "lens_y_mm": -0.2203074714255516
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "ordinary",
+      "setup_context": {
+        "beam_waist_mm": 1.0728205634554944,
+        "lens_aperture_mm": 26.8252337161636,
+        "lens_focal_length_mm": 98.84059058636193,
+        "lens_to_camera_mm": 142.23216471002155,
+        "pixel_size_um": 5.5,
+        "power_w": 0.8876255480161939,
+        "source_to_lens_mm": 218.02505966723172,
+        "wavelength_nm": 629.4782437874139
+      },
+      "setup_hash": "9fd227db5932b9cc9b60c57d023f13c53e2c54afe68d7e608afff9e0c3508412",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "one_step_reachable_interior",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 453.43300628932826,
+        "centroid_y_px": 453.859329469732,
+        "peak_intensity": 2545952.5,
+        "sigma_x_px": 42.828364087541125,
+        "sigma_y_px": 42.82836407687131
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_00_0001",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": 0.0,
+        "camera_y_delta_mm": 0.004826089903982681,
+        "lens_x_delta_mm": -0.01197960367514627,
+        "lens_y_delta_mm": -0.011900059348500674
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.074824977113524,
+        "captured_power_w": 1.074824977113524,
+        "clipping_fraction": 1.1102230246251565e-16,
+        "distance_to_camera_boundary_px": 450.69564665307075,
+        "peak_intensity_abs": 938173.5,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 768.720016058099,
+        "source_integrated_power_w": 1.0748249807178327,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_00_0001",
+      "group_seed": 3949611404594846599,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.0748249750613839,
+        "captured_power_w": 1.0748249750613839,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 446.7889517241665,
+        "peak_intensity_abs": 938168.875,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 768.720016058099,
+        "source_integrated_power_w": 1.0748249807178327,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "low",
+      "initial_metrics": {
+        "centroid_x_px": 584.5883191952605,
+        "centroid_y_px": 532.7126913482728,
+        "peak_intensity": 938168.875,
+        "sigma_x_px": 77.63822324499303,
+        "sigma_y_px": 77.63822862022813
+      },
+      "initial_normalized_distance": 3.9066949289043578,
+      "initial_positions_mm": {
+        "camera_x_mm": 0.04607499005684823,
+        "camera_y_mm": 0.015011779738904218,
+        "lens_x_mm": 0.22412013981168852,
+        "lens_y_mm": 0.06504720981512005
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 1,
+      "q_goal_mm": {
+        "camera_x_mm": 0.04607499005684823,
+        "camera_y_mm": 0.019837869642886898,
+        "lens_x_mm": 0.21214053613654224,
+        "lens_y_mm": 0.05314715046661937
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "focusing",
+      "setup_context": {
+        "beam_waist_mm": 1.0760705551860819,
+        "lens_aperture_mm": 19.337644175743563,
+        "lens_focal_length_mm": 118.23049039200501,
+        "lens_to_camera_mm": 212.06025610298826,
+        "pixel_size_um": 5.5,
+        "power_w": 1.0748249807178327,
+        "source_to_lens_mm": 260.99409619897904,
+        "wavelength_nm": 628.2697935008817
+      },
+      "setup_hash": "063894e71f8b106596b07a8b9a636be914e75f12633a7ff1405b08e9e7a2449f",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "one_step_reachable_interior",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 580.6816242663562,
+        "centroid_y_px": 528.831936337722,
+        "peak_intensity": 938173.5,
+        "sigma_x_px": 77.63822461103524,
+        "sigma_y_px": 77.63822855019251
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_00_0002",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": 0.013586739410661037,
+        "camera_y_delta_mm": 0.013508410241001995,
+        "lens_x_delta_mm": 0.02599177551617152,
+        "lens_y_delta_mm": -0.030250095517638968
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.762193833769074,
+        "captured_power_w": 0.762193833769074,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 454.98102518313743,
+        "peak_intensity_abs": 15423670.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 746.8083864351742,
+        "source_integrated_power_w": 0.7621926022153126,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_00_0002",
+      "group_seed": 396770333053357897,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.7621931032267916,
+        "captured_power_w": 0.7621931032267916,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 464.8749025676287,
+        "peak_intensity_abs": 15422831.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 746.8083864351742,
+        "source_integrated_power_w": 0.7621926022153126,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "medium",
+      "initial_metrics": {
+        "centroid_x_px": 423.0522581767093,
+        "centroid_y_px": 426.1305500071374,
+        "peak_intensity": 15422831.0,
+        "sigma_x_px": 17.737396273545304,
+        "sigma_y_px": 17.737389297661007
+      },
+      "initial_normalized_distance": 7.192195336290865,
+      "initial_positions_mm": {
+        "camera_x_mm": -0.23174426233153808,
+        "camera_y_mm": -0.19372176280245648,
+        "lens_x_mm": -0.37200945138701724,
+        "lens_y_mm": -0.35906217634598736
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 1,
+      "q_goal_mm": {
+        "camera_x_mm": -0.21815752292087703,
+        "camera_y_mm": -0.1802133525614545,
+        "lens_x_mm": -0.3460176758708457,
+        "lens_y_mm": -0.3893122718636263
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "high_offset_interaction",
+      "setup_context": {
+        "beam_waist_mm": 0.9327456660579233,
+        "lens_aperture_mm": 14.408860890587185,
+        "lens_focal_length_mm": 116.86189760406603,
+        "lens_to_camera_mm": 138.92353229107147,
+        "pixel_size_um": 5.0,
+        "power_w": 0.7621926022153124,
+        "source_to_lens_mm": 248.75466951981477,
+        "wavelength_nm": 639.0652945965904
+      },
+      "setup_hash": "c2bf332d907f4fdff8bc0634192e5a42885bb847bf30f3bee03cbffa6fe1e62c",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "one_step_reachable_interior",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 429.2319476834707,
+        "centroid_y_px": 418.93835467084654,
+        "peak_intensity": 15423670.0,
+        "sigma_x_px": 17.737388894287367,
+        "sigma_y_px": 17.737391862106513
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_00_0003",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": 0.0,
+        "camera_y_delta_mm": -0.017109292568411386,
+        "lens_x_delta_mm": 0.03827406450767759,
+        "lens_y_delta_mm": 0.0
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.020073875957726,
+        "captured_power_w": 1.020073875957726,
+        "clipping_fraction": -2.220446049250313e-16,
+        "distance_to_camera_boundary_px": 447.3633813654094,
+        "peak_intensity_abs": 459914592.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 1010.5402963392847,
+        "source_integrated_power_w": 1.0201549131207956,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_00_0003",
+      "group_seed": 4331770932704279580,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.0201956186145047,
+        "captured_power_w": 1.0201956186145047,
+        "clipping_fraction": -2.220446049250313e-16,
+        "distance_to_camera_boundary_px": 454.13215025437114,
+        "peak_intensity_abs": 463739328.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 1010.5402963392847,
+        "source_integrated_power_w": 1.0201549131207956,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "medium",
+      "initial_metrics": {
+        "centroid_x_px": 545.6436072491429,
+        "centroid_y_px": 479.96997964498826,
+        "peak_intensity": 463739328.0,
+        "sigma_x_px": 3.3812184207889717,
+        "sigma_y_px": 3.3822904788163988
+      },
+      "initial_normalized_distance": 6.768768888961745,
+      "initial_positions_mm": {
+        "camera_x_mm": -0.1277333337306729,
+        "camera_y_mm": -0.14589542028113733,
+        "lens_x_mm": 0.19310777966175066,
+        "lens_y_mm": -0.17831789568758488
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 1,
+      "q_goal_mm": {
+        "camera_x_mm": -0.1277333337306729,
+        "camera_y_mm": -0.1630047128495487,
+        "lens_x_mm": 0.23138184416942825,
+        "lens_y_mm": -0.17831789568758488
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "ordinary",
+      "setup_context": {
+        "beam_waist_mm": 0.7974794268980117,
+        "lens_aperture_mm": 28.043592313032885,
+        "lens_focal_length_mm": 114.00473966673852,
+        "lens_to_camera_mm": 110.86622037349666,
+        "pixel_size_um": 5.5,
+        "power_w": 1.0201549131207959,
+        "source_to_lens_mm": 254.32253698774807,
+        "wavelength_nm": 618.8055781175012
+      },
+      "setup_hash": "0340dbfc4f4e1421585f41542f3e9284c6ba9fe52e508505fb40f2ab4b929938",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "one_step_reachable_interior",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 552.4123761381046,
+        "centroid_y_px": 479.9721605275819,
+        "peak_intensity": 459914592.0,
+        "sigma_x_px": 3.3814203656315684,
+        "sigma_y_px": 3.3822951023189383
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_01_0000",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": 0.0,
+        "camera_y_delta_mm": 0.0,
+        "lens_x_delta_mm": 0.08476126598097071,
+        "lens_y_delta_mm": -0.059722611130034166
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.0478597423391012,
+        "captured_power_w": 1.0478597423391012,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 455.35732564902673,
+        "peak_intensity_abs": 2635517.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 768.6973546012263,
+        "source_integrated_power_w": 1.0478597308681583,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_01_0000",
+      "group_seed": 2409549616336234967,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.047859744854894,
+        "captured_power_w": 1.047859744854894,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 439.3586451308887,
+        "peak_intensity_abs": 2635458.25,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 768.6973546012263,
+        "source_integrated_power_w": 1.0478597308681583,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "high",
+      "initial_metrics": {
+        "centroid_x_px": 544.9414136077881,
+        "centroid_y_px": 551.569092770309,
+        "peak_intensity": 2635458.25,
+        "sigma_x_px": 45.73616553911961,
+        "sigma_y_px": 45.73616562247649
+      },
+      "initial_normalized_distance": 22.706113951654288,
+      "initial_positions_mm": {
+        "camera_x_mm": 0.028907404422516852,
+        "camera_y_mm": -0.1763974415434129,
+        "lens_x_mm": 0.12483582764718928,
+        "lens_y_mm": 0.14957676227922354
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 2,
+      "q_goal_mm": {
+        "camera_x_mm": 0.028907404422516852,
+        "camera_y_mm": -0.1763974415434129,
+        "lens_x_mm": 0.20959709362815998,
+        "lens_y_mm": 0.08985415114918938
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "ordinary",
+      "setup_context": {
+        "beam_waist_mm": 1.0625178881237753,
+        "lens_aperture_mm": 22.377688687883094,
+        "lens_focal_length_mm": 107.64437827360496,
+        "lens_to_camera_mm": 158.59862768571253,
+        "pixel_size_um": 5.5,
+        "power_w": 1.0478597308681583,
+        "source_to_lens_mm": 226.5486671757658,
+        "wavelength_nm": 629.6139254943754
+      },
+      "setup_hash": "37b88fdb800eff6c1188a901fce3d241f8f6083272637ad39e3e6e8565407fe2",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "multi_step_reachable_interior",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 567.6475275594424,
+        "centroid_y_px": 535.5704122521709,
+        "peak_intensity": 2635517.0,
+        "sigma_x_px": 45.736165592602575,
+        "sigma_y_px": 45.73616555701072
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_01_0001",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": -0.04091367390092646,
+        "camera_y_delta_mm": 0.0,
+        "lens_x_delta_mm": -0.050725162964367014,
+        "lens_y_delta_mm": 0.14399440203101962
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.168567771495115,
+        "captured_power_w": 1.168567771495115,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 406.364115882663,
+        "peak_intensity_abs": 212612.96875,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 780.8172222748096,
+        "source_integrated_power_w": 1.2019844878621098,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_01_0001",
+      "group_seed": 9942807332244371925,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.1759548619579083,
+        "captured_power_w": 1.1759548619579083,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 423.69774457412086,
+        "peak_intensity_abs": 212614.234375,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 780.8172222748096,
+        "source_integrated_power_w": 1.2019844878621098,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "high",
+      "initial_metrics": {
+        "centroid_x_px": 433.0941085558054,
+        "centroid_y_px": 500.35080510365606,
+        "peak_intensity": 212614.234375,
+        "sigma_x_px": 181.19324090690503,
+        "sigma_y_px": 184.1141004948728
+      },
+      "initial_normalized_distance": 72.91903723988605,
+      "initial_positions_mm": {
+        "camera_x_mm": 0.04698181990842262,
+        "camera_y_mm": 0.03553907251686192,
+        "lens_x_mm": -0.15729102017979085,
+        "lens_y_mm": -0.022756163316771827
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 3,
+      "q_goal_mm": {
+        "camera_x_mm": 0.00606814600749616,
+        "camera_y_mm": 0.03553907251686192,
+        "lens_x_mm": -0.20801618314415787,
+        "lens_y_mm": 0.1212382387142478
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "focusing",
+      "setup_context": {
+        "beam_waist_mm": 1.1203148923152235,
+        "lens_aperture_mm": 25.3047195372025,
+        "lens_focal_length_mm": 94.67734587433344,
+        "lens_to_camera_mm": 255.0,
+        "pixel_size_um": 5.0,
+        "power_w": 1.2019844878621098,
+        "source_to_lens_mm": 133.15112186295644,
+        "wavelength_nm": 627.7048540380143
+      },
+      "setup_hash": "443e010a78de72626fca6c4a2b012392f31c37b8551bfb822e7ddb4d6e64d7ba",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "multi_step_reachable_interior",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 407.57774508416225,
+        "centroid_y_px": 573.2698423435421,
+        "peak_intensity": 212612.96875,
+        "sigma_x_px": 179.82510264164787,
+        "sigma_y_px": 183.07832096890496
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_01_0002",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": -0.07516118652329974,
+        "camera_y_delta_mm": -0.03935570248740843,
+        "lens_x_delta_mm": 0.020452948533918713,
+        "lens_y_delta_mm": -0.07685052912106771
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.154576641200024,
+        "captured_power_w": 1.154576641200024,
+        "clipping_fraction": 2.220446049250313e-16,
+        "distance_to_camera_boundary_px": 386.63540800855685,
+        "peak_intensity_abs": 237129328.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 904.0181034759754,
+        "source_integrated_power_w": 1.1546301842232427,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_01_0002",
+      "group_seed": 15779781687294412154,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 1.1545838413381264,
+        "captured_power_w": 1.1545838413381264,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 400.45304366282954,
+        "peak_intensity_abs": 236878576.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 904.0181034759754,
+        "source_integrated_power_w": 1.1546301842232427,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "medium",
+      "initial_metrics": {
+        "centroid_x_px": 575.4699624644006,
+        "centroid_y_px": 454.20209766912467,
+        "peak_intensity": 236878576.0,
+        "sigma_x_px": 5.557964458788263,
+        "sigma_y_px": 5.557801117915972
+      },
+      "initial_normalized_distance": 14.562467723837926,
+      "initial_positions_mm": {
+        "camera_x_mm": -0.20993142899169898,
+        "camera_y_mm": 0.26874527003147564,
+        "lens_x_mm": 0.33757407483387736,
+        "lens_y_mm": -0.3023637655324993
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 4,
+      "q_goal_mm": {
+        "camera_x_mm": -0.2850926155149987,
+        "camera_y_mm": 0.2293895675440672,
+        "lens_x_mm": 0.35802702336779607,
+        "lens_y_mm": -0.379214294653567
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "high_offset_interaction",
+      "setup_context": {
+        "beam_waist_mm": 0.9483843685139883,
+        "lens_aperture_mm": 17.516124571618374,
+        "lens_focal_length_mm": 105.25301276045633,
+        "lens_to_camera_mm": 99.72672913148344,
+        "pixel_size_um": 5.0,
+        "power_w": 1.1546301842232427,
+        "source_to_lens_mm": 209.77735543732848,
+        "wavelength_nm": 634.8703780961046
+      },
+      "setup_hash": "679dd0131107682173d3ebca604db3ef7c26c5b44897063370c35f8f14991c75",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "multi_step_reachable_interior",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 579.3460688884435,
+        "centroid_y_px": 439.63962994528674,
+        "peak_intensity": 237129328.0,
+        "sigma_x_px": 5.5579138017942045,
+        "sigma_y_px": 5.557915769324701
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_01_0003",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": 0.0,
+        "camera_y_delta_mm": -0.03389316062551927,
+        "lens_x_delta_mm": 0.0,
+        "lens_y_delta_mm": 0.0207881996303318
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.8536028334349343,
+        "captured_power_w": 0.8536028334349343,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 485.8905601664851,
+        "peak_intensity_abs": 920051072.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 808.5359234803753,
+        "source_integrated_power_w": 0.8535265189951927,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_01_0003",
+      "group_seed": 8005474898368407250,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.8535409689659914,
+        "captured_power_w": 0.8535409689659914,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 485.8905601638073,
+        "peak_intensity_abs": 908159616.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 808.5359234803753,
+        "source_integrated_power_w": 0.8535265189951927,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "low",
+      "initial_metrics": {
+        "centroid_x_px": 548.3028074736092,
+        "centroid_y_px": 488.12235683617615,
+        "peak_intensity": 908159616.0,
+        "sigma_x_px": 2.2006594336069276,
+        "sigma_y_px": 2.2009790302992616
+      },
+      "initial_normalized_distance": 3.7648462947294092,
+      "initial_positions_mm": {
+        "camera_x_mm": 0.06156352200579038,
+        "camera_y_mm": -0.13948006584600361,
+        "lens_x_mm": 0.2030901519610184,
+        "lens_y_mm": -0.12901001434785697
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 2,
+      "q_goal_mm": {
+        "camera_x_mm": 0.06156352200579038,
+        "camera_y_mm": -0.17337322647152287,
+        "lens_x_mm": 0.2030901519610184,
+        "lens_y_mm": -0.10822181471752518
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "ordinary",
+      "setup_context": {
+        "beam_waist_mm": 0.9116943231035486,
+        "lens_aperture_mm": 23.203477407113052,
+        "lens_focal_length_mm": 103.99801407317754,
+        "lens_to_camera_mm": 103.65644828222999,
+        "pixel_size_um": 5.5,
+        "power_w": 0.8535265189951926,
+        "source_to_lens_mm": 200.95131027163401,
+        "wavelength_nm": 628.1591134522287
+      },
+      "setup_hash": "2885a2930a04b555e75b26ee004d3fc455a39b84bf2048a524fdd5cf4606a7c3",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "multi_step_reachable_interior",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 548.3028074709314,
+        "centroid_y_px": 491.88720313090556,
+        "peak_intensity": 920051072.0,
+        "sigma_x_px": 2.2006594281731466,
+        "sigma_y_px": 2.200284462055067
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_02_0000",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": 0.0,
+        "camera_y_delta_mm": 0.0,
+        "lens_x_delta_mm": -0.09092731924549964,
+        "lens_y_delta_mm": 0.025131283179410026
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.8074883307716141,
+        "captured_power_w": 0.8074883307716141,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 22.00119814312194,
+        "peak_intensity_abs": 15101815.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 580.3567915946388,
+        "source_integrated_power_w": 0.9301255656128656,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_02_0000",
+      "group_seed": 9992368626100961340,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.7593016334716612,
+        "captured_power_w": 0.7593016334716612,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 19.745653377859526,
+        "peak_intensity_abs": 15094084.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 580.3567915946388,
+        "source_integrated_power_w": 0.9301255656128656,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "medium",
+      "initial_metrics": {
+        "centroid_x_px": 497.79803958417705,
+        "centroid_y_px": 503.8225468803289,
+        "peak_intensity": 15094084.0,
+        "sigma_x_px": 16.50105985459885,
+        "sigma_y_px": 12.786772937520498
+      },
+      "initial_normalized_distance": 12.904130828378925,
+      "initial_positions_mm": {
+        "camera_x_mm": 0.14384114782009305,
+        "camera_y_mm": 2.9044613610148162,
+        "lens_x_mm": -0.09654911874468444,
+        "lens_y_mm": -0.0919510290106319
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 2,
+      "q_goal_mm": {
+        "camera_x_mm": 0.14384114782009305,
+        "camera_y_mm": 2.9044613610148162,
+        "lens_x_mm": -0.1874764379901841,
+        "lens_y_mm": -0.06681974583122188
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "camera_boundary",
+      "setup_context": {
+        "beam_waist_mm": 1.3259152973788153,
+        "lens_aperture_mm": 31.69508039119501,
+        "lens_focal_length_mm": 114.02365394351779,
+        "lens_to_camera_mm": 97.09135864482114,
+        "pixel_size_um": 6.0,
+        "power_w": 0.9301255656128655,
+        "source_to_lens_mm": 221.77537007278858,
+        "wavelength_nm": 628.4526019393978
+      },
+      "setup_hash": "561bd398eb2687a0d3efe541545131ad2724293a8e06fcdb832b63b050c06e92",
+      "setup_resample_attempt": 1,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "reachable_boundary_or_clipping",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 484.8939087557981,
+        "centroid_y_px": 506.07809164559126,
+        "peak_intensity": 15101815.0,
+        "sigma_x_px": 16.501060140279623,
+        "sigma_y_px": 13.449384208670784
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_02_0001",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": 0.018305770970096006,
+        "camera_y_delta_mm": -0.03119453950414738,
+        "lens_x_delta_mm": 0.0,
+        "lens_y_delta_mm": 0.14316181075678203
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.9056053479550548,
+        "captured_power_w": 0.9056053479550548,
+        "clipping_fraction": 0.13845289483843592,
+        "distance_to_camera_boundary_px": 324.785095913708,
+        "peak_intensity_abs": 77501544.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 868.388878351571,
+        "source_integrated_power_w": 1.0515624221335098,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_02_0001",
+      "group_seed": 2773285584469670273,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.9396395742411469,
+        "captured_power_w": 0.9396395742411469,
+        "clipping_fraction": 0.1061047142706526,
+        "distance_to_camera_boundary_px": 321.1918477723091,
+        "peak_intensity_abs": 75699032.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 868.388878351571,
+        "source_integrated_power_w": 1.0515624221335098,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "high",
+      "initial_metrics": {
+        "centroid_x_px": 670.199690156383,
+        "centroid_y_px": 603.2655729829705,
+        "peak_intensity": 75699032.0,
+        "sigma_x_px": 13.929606462175027,
+        "sigma_y_px": 12.063290242494823
+      },
+      "initial_normalized_distance": 28.398479714843802,
+      "initial_positions_mm": {
+        "camera_x_mm": -0.1738465413921934,
+        "camera_y_mm": -0.17881458150183327,
+        "lens_x_mm": 0.7942324638453699,
+        "lens_y_mm": 0.459196921572999
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 3,
+      "q_goal_mm": {
+        "camera_x_mm": -0.1555407704220974,
+        "camera_y_mm": -0.21000912100598065,
+        "lens_x_mm": 0.7942324638453699,
+        "lens_y_mm": 0.602358732329781
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "clipping",
+      "setup_context": {
+        "beam_waist_mm": 0.9422005161466706,
+        "lens_aperture_mm": 3.1983452955875746,
+        "lens_focal_length_mm": 86.69896614987175,
+        "lens_to_camera_mm": 96.30906621643604,
+        "pixel_size_um": 5.5,
+        "power_w": 1.0515624221335098,
+        "source_to_lens_mm": 253.1075245951053,
+        "wavelength_nm": 642.6836761299035
+      },
+      "setup_hash": "838a1b94365701ef7420443e696c415b6f57c7999b57bf54c67ede72aff15779",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "reachable_boundary_or_clipping",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 669.934764009547,
+        "centroid_y_px": 631.6640526978143,
+        "peak_intensity": 77501544.0,
+        "sigma_x_px": 14.434023999902605,
+        "sigma_y_px": 13.225659550414353
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_02_0002",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": -0.012100914065187153,
+        "camera_y_delta_mm": 0.0063002905591964834,
+        "lens_x_delta_mm": -0.18915583192393015,
+        "lens_y_delta_mm": 0.1676325499809992
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.30453681718103204,
+        "captured_power_w": 0.30453681718103204,
+        "clipping_fraction": 1.1102230246251565e-16,
+        "distance_to_camera_boundary_px": 42.96067833467396,
+        "peak_intensity_abs": 1223028.5,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 588.5687121524045,
+        "source_integrated_power_w": 0.8957755653141711,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_02_0002",
+      "group_seed": 17858309499122541022,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.595083751276249,
+        "captured_power_w": 0.595083751276249,
+        "clipping_fraction": 0.0,
+        "distance_to_camera_boundary_px": 63.0781627727452,
+        "peak_intensity_abs": 1335993.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 588.5687121524045,
+        "source_integrated_power_w": 0.8957755653141711,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "high",
+      "initial_metrics": {
+        "centroid_x_px": 500.8523635187485,
+        "centroid_y_px": 551.476551571924,
+        "peak_intensity": 1335993.0,
+        "sigma_x_px": 44.595522536078484,
+        "sigma_y_px": 65.3340345656736
+      },
+      "initial_normalized_distance": 50.59688151698663,
+      "initial_positions_mm": {
+        "camera_x_mm": 2.1888710037300165,
+        "camera_y_mm": -0.13305575644213277,
+        "lens_x_mm": -0.15407708588946573,
+        "lens_y_mm": 0.13244613954316206
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 4,
+      "q_goal_mm": {
+        "camera_x_mm": 2.176770089664829,
+        "camera_y_mm": -0.1267554658829363,
+        "lens_x_mm": -0.3432329178133959,
+        "lens_y_mm": 0.3000786895241613
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "camera_boundary",
+      "setup_context": {
+        "beam_waist_mm": 1.2830467937098011,
+        "lens_aperture_mm": 23.550505561073997,
+        "lens_focal_length_mm": 90.82011366800573,
+        "lens_to_camera_mm": 137.06243757107333,
+        "pixel_size_um": 5.0,
+        "power_w": 0.8957755653141714,
+        "source_to_lens_mm": 203.62022172448783,
+        "wavelength_nm": 619.421894973756
+      },
+      "setup_hash": "a04d3ff7f7e47281165cfb25d2b56e3ce7c97f0e62d71ed09abd2069b02eb1c6",
+      "setup_resample_attempt": 1,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "reachable_boundary_or_clipping",
+      "target_attempt": 0,
+      "target_metrics": {
+        "centroid_x_px": 478.3146962676398,
+        "centroid_y_px": 602.0734330889106,
+        "peak_intensity": 1223028.5,
+        "sigma_x_px": 34.76157825520359,
+        "sigma_y_px": 65.33377158692272
+      }
+    },
+    {
+      "case_id": "v12_mpcdiag_reflsig_dev_20260801_02_0003",
+      "exact_q_goal_replay_max_abs_metric_error": 0.0,
+      "generating_delta_mm": {
+        "camera_x_delta_mm": 0.0,
+        "camera_y_delta_mm": -0.038078540102774276,
+        "lens_x_delta_mm": 0.014932162019790224,
+        "lens_y_delta_mm": 0.0
+      },
+      "goal_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.8173724581979367,
+        "captured_power_w": 0.8173724581979367,
+        "clipping_fraction": 0.1242052346707998,
+        "distance_to_camera_boundary_px": 316.1307289072939,
+        "peak_intensity_abs": 2644217.0,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 802.4309867428711,
+        "source_integrated_power_w": 0.9340934106869028,
+        "valid_region_fraction": 1.0
+      },
+      "group_id": "v12_mpcdiag_reflsig_dev_20260801_02_0003",
+      "group_seed": 4068996822517480880,
+      "initial_auxiliary": {
+        "actuator_limit_indicator": false,
+        "camera_boundary_indicator": false,
+        "captured_power": 0.8121237613333613,
+        "captured_power_w": 0.8121237613333613,
+        "clipping_fraction": 0.1297896969227339,
+        "distance_to_camera_boundary_px": 312.69119744683053,
+        "peak_intensity_abs": 2639773.5,
+        "phase_descriptor": null,
+        "simulator_valid": true,
+        "source_amplitude_scale": 802.4309867428711,
+        "source_integrated_power_w": 0.9340934106869028,
+        "valid_region_fraction": 1.0
+      },
+      "initial_distance_band": "low",
+      "initial_metrics": {
+        "centroid_x_px": 305.85859256484844,
+        "centroid_y_px": 429.8587362026468,
+        "peak_intensity": 2639773.5,
+        "sigma_x_px": 38.36389175682469,
+        "sigma_y_px": 40.10988183767203
+      },
+      "initial_normalized_distance": 3.4395314604633995,
+      "initial_positions_mm": {
+        "camera_x_mm": -0.04099562929189249,
+        "camera_y_mm": 0.026944032538381874,
+        "lens_x_mm": -0.8422846235451236,
+        "lens_y_mm": -0.33432050999796364
+      },
+      "known_reachability": "verified_by_q_goal_simulator_replay",
+      "minimum_bounded_position_steps": 2,
+      "q_goal_mm": {
+        "camera_x_mm": -0.04099562929189249,
+        "camera_y_mm": -0.011134507564392403,
+        "lens_x_mm": -0.8273524615253334,
+        "lens_y_mm": -0.33432050999796364
+      },
+      "q_goal_visibility": "evaluator_only_never_planner_input",
+      "regime": "clipping",
+      "setup_context": {
+        "beam_waist_mm": 0.9610091542559933,
+        "lens_aperture_mm": 3.0954394175675315,
+        "lens_focal_length_mm": 99.64813670777488,
+        "lens_to_camera_mm": 152.6108251553176,
+        "pixel_size_um": 6.0,
+        "power_w": 0.9340934106869032,
+        "source_to_lens_mm": 225.16176226254936,
+        "wavelength_nm": 632.4033329046837
+      },
+      "setup_hash": "374636be03b4fc8f2af4dcfdf18a4d7f3ff463a72efde16177c836fa6666a4cf",
+      "setup_resample_attempt": 0,
+      "simulator_fixed": {
+        "alignment_defocus_mm": 0.0,
+        "axis_convention": "array_axis_0_plus_y_lab_axis_1_plus_x_lab",
+        "grid_extent_mm": 6.25,
+        "grid_size": 1536,
+        "image_frame": "sensor_frame",
+        "intensity_normalization": "none_raw_irradiance_w_per_m2",
+        "lab_to_sensor_transform": "centroid_sensor_px=centroid_lab_px-camera_pose_m/pitch_m;sigma_sensor_px=sigma_lab_px",
+        "maximum_setup_resample_attempts": 16,
+        "metrics_frame": "lab_frame_legacy_pseudo_pixels",
+        "minimum_initial_captured_power_fraction": 0.01,
+        "outside_propagated_field_rule": "zero_padding",
+        "pixel_area_quadrature_order": 3,
+        "power_semantics": "source_integrated_optical_power_w",
+        "propagation_backend": "fresnel_numpy",
+        "sensor_measurement_model": "finite_pixel_area_average_of_bilinearly_interpolated_irradiance",
+        "sensor_origin_convention": "camera_pose_is_center_of_sensor_pixel_edge_rectangle",
+        "sensor_pixel_center_convention": "camera_pose_plus_index_minus_half_extent_times_declared_pitch",
+        "sensor_resolution_px": [
+          1024,
+          1024
+        ],
+        "sensor_sampling_method": "pixel_area_bilinear_intensity",
+        "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+        "source_phase_mode": "fixed_zero",
+        "source_shape": "fundamental_gaussian",
+        "target_control_frame": "lab_frame_legacy_pseudo_pixels"
+      },
+      "stratum": "reachable_boundary_or_clipping",
+      "target_attempt": 2,
+      "target_metrics": {
+        "centroid_x_px": 309.29812402531184,
+        "centroid_y_px": 429.76710931742423,
+        "peak_intensity": 2644217.0,
+        "sigma_x_px": 38.45967425976626,
+        "sigma_y_px": 40.155210193701265
+      }
+    }
+  ],
+  "elapsed_seconds": 24.046232554999733,
+  "locked_config": "/home/jiamo/VLM/reflection_width_relative/configs/development_suite_config.json",
+  "locked_config_sha256": "3e86b24bfe7fe109dd20d799a14b36c3566c3934bdfbe0181ccf66e90f1070f1",
+  "root_seed": 2026082101,
+  "schema_version": "v12.1.0",
+  "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+  "source_checkpoint": "/home/jiamo/VLM/runs/overnight_v12_semantics_20260731_002709/models/lc_128g_v2/continuous_forward_v12_128g.pt",
+  "source_training_dataset": "/home/jiamo/VLM/runs/overnight_v12_semantics_20260731_002709/data/corrected_128_16_16_v2",
+  "suite_label": "reflsig_dev_20260801",
+  "training_action_distribution": {
+    "axis_order": [
+      "lens_x_delta_mm",
+      "lens_y_delta_mm",
+      "camera_x_delta_mm",
+      "camera_y_delta_mm"
+    ],
+    "central_quantiles": [
+      0.05,
+      0.95
+    ],
+    "per_axis": {
+      "camera_x_delta_mm": {
+        "maximum": 0.02,
+        "median": 0.0,
+        "minimum": -0.02,
+        "q01": -0.02,
+        "q05": -0.02,
+        "q95": 0.02,
+        "q99": 0.02
+      },
+      "camera_y_delta_mm": {
+        "maximum": 0.02,
+        "median": 0.0,
+        "minimum": -0.02,
+        "q01": -0.02,
+        "q05": -0.019932115730986643,
+        "q95": 0.02,
+        "q99": 0.02
+      },
+      "lens_x_delta_mm": {
+        "maximum": 0.05,
+        "median": 0.0,
+        "minimum": -0.05,
+        "q01": -0.05,
+        "q05": -0.04915362478362768,
+        "q95": 0.05,
+        "q99": 0.05
+      },
+      "lens_y_delta_mm": {
+        "maximum": 0.05,
+        "median": 0.0,
+        "minimum": -0.05,
+        "q01": -0.05,
+        "q05": -0.05,
+        "q95": 0.05,
+        "q99": 0.05
+      }
+    },
+    "rows": 8832,
+    "tail_quantiles": [
+      0.01,
+      0.99
+    ]
+  },
+  "validation": {
+    "boundary_stratum_definition": "camera boundary indicator true or centroid within 64 px of an image edge; clipping regime requires aperture clipping fraction > 0.01",
+    "distance_band_counts": {
+      "high": 4,
+      "low": 4,
+      "medium": 4
+    },
+    "groups": 12,
+    "initial_strict_successes": 0,
+    "maximum_initial_distance": 72.91903723988605,
+    "minimum_initial_distance": 1.4871613078029213,
+    "prior_group_id_overlap": 0,
+    "prior_setup_hash_overlap": 0,
+    "q_goal_deployed_input": false,
+    "q_goal_replay_max_abs_metric_error": 0.0,
+    "stratum_counts": {
+      "multi_step_reachable_interior": 4,
+      "one_step_reachable_interior": 4,
+      "reachable_boundary_or_clipping": 4
+    },
+    "unique_group_ids": 12,
+    "unique_setup_hashes": 12
+  },
+  "version": "v12_mpc_h1_h3_evaluation_suite_v1"
+}

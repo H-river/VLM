@@ -1,0 +1,70 @@
+{
+  "confirmation_target_leak_count": 0,
+  "dataset_version": "evidence_grounded_v5a",
+  "failures": [],
+  "forbidden_input_key_counts": {},
+  "minimal_pair_count": 600,
+  "nonfinite_count": 0,
+  "pair_invariant_failure_count": 0,
+  "passed": true,
+  "physical_scenario_count": 300,
+  "record_count": 1200,
+  "reference_overlap": {
+    "action_first_v3": {
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0,
+      "setup_hash_overlap": 0
+    },
+    "corrective_v2": {
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0,
+      "setup_hash_overlap": 0
+    },
+    "dev_v2": {
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0,
+      "setup_hash_overlap": 0
+    },
+    "hard_pairs_v4": {
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0,
+      "setup_hash_overlap": 0
+    },
+    "pilot_v1": {
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0,
+      "setup_hash_overlap": 0
+    }
+  },
+  "scaffold_failure_count": 0,
+  "shortcut_metrics": {
+    "confirmation": {
+      "control_current_error_threshold_accuracy": 0.58,
+      "control_fixed_position_max_accuracy": 0.58,
+      "sufficiency_visible_evidence_rule_accuracy": 1.0
+    },
+    "dev": {
+      "control_current_error_threshold_accuracy": 0.58,
+      "control_fixed_position_max_accuracy": 0.58,
+      "sufficiency_visible_evidence_rule_accuracy": 1.0
+    },
+    "train": {
+      "control_current_error_threshold_accuracy": 0.5625,
+      "control_fixed_position_max_accuracy": 0.5725,
+      "sufficiency_visible_evidence_rule_accuracy": 1.0
+    }
+  },
+  "solver_failure_count": 0,
+  "split_record_counts": {
+    "confirmation": 200,
+    "dev": 200,
+    "train": 800
+  },
+  "trial_record_count": 200,
+  "trial_status_counts": {
+    "answerable": 50,
+    "feasible": 50,
+    "infeasible_within_limits": 50,
+    "insufficient_information": 50
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "continuous_control_v12/transition_v12.schema.json",
+  "title": "V12 optical transition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "transition_id",
+    "group_id",
+    "split",
+    "simulator_seed",
+    "generator_version",
+    "setup_context",
+    "simulator_fixed",
+    "positions_mm",
+    "image_ref",
+    "metrics",
+    "action_mm",
+    "next_positions_mm",
+    "next_image_ref",
+    "next_metrics",
+    "flags",
+    "auxiliary",
+    "sampling",
+    "setup_hash",
+    "context_hash"
+  ],
+  "properties": {
+    "schema_version": {"enum": ["v12.0.0", "v12.1.0"]},
+    "transition_id": {"type": "string", "minLength": 1},
+    "group_id": {"type": "string", "minLength": 1},
+    "split": {"enum": ["train", "development", "test"]},
+    "simulator_seed": {"type": "integer", "minimum": 0},
+    "generator_version": {"type": "string", "minLength": 1},
+    "simulator_semantics_version": {"type": "string", "minLength": 1},
+    "sampling_method": {"type": "string", "minLength": 1},
+    "setup_context": {"$ref": "#/$defs/setup_context"},
+    "simulator_fixed": {"$ref": "#/$defs/simulator_fixed"},
+    "positions_mm": {"$ref": "#/$defs/positions"},
+    "image_ref": {"type": ["string", "null"]},
+    "metrics": {"$ref": "#/$defs/metrics"},
+    "action_mm": {"$ref": "#/$defs/action"},
+    "requested_action_mm": {"$ref": "#/$defs/action"},
+    "next_positions_mm": {"$ref": "#/$defs/positions"},
+    "requested_next_positions_mm": {"$ref": "#/$defs/positions"},
+    "next_image_ref": {"type": ["string", "null"]},
+    "next_metrics": {"$ref": "#/$defs/metrics"},
+    "metrics_lab_frame": {"$ref": "#/$defs/metrics"},
+    "next_metrics_lab_frame": {"$ref": "#/$defs/metrics"},
+    "metrics_sensor_frame": {"$ref": "#/$defs/metrics"},
+    "next_metrics_sensor_frame": {"$ref": "#/$defs/metrics"},
+    "coordinate_semantics": {"type": "object"},
+    "next_coordinate_semantics": {"type": "object"},
+    "sampling_metadata": {"type": "object"},
+    "next_sampling_metadata": {"type": "object"},
+    "power_semantics": {"type": "string", "minLength": 1},
+    "intensity_normalization": {"type": "string", "minLength": 1},
+    "flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["terminated", "boundary", "invalid_simulation"],
+      "properties": {
+        "terminated": {"type": "boolean"},
+        "boundary": {"type": "boolean"},
+        "invalid_simulation": {"type": "boolean"}
+      }
+    },
+    "auxiliary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "captured_power",
+        "clipping_fraction",
+        "camera_boundary_indicator",
+        "actuator_limit_indicator",
+        "phase_descriptor",
+        "simulator_valid",
+        "distance_to_camera_boundary_px"
+      ],
+      "properties": {
+        "captured_power": {"type": ["number", "null"]},
+        "captured_power_w": {"type": ["number", "null"]},
+        "clipping_fraction": {"type": ["number", "null"]},
+        "camera_boundary_indicator": {"type": ["boolean", "null"]},
+        "actuator_limit_indicator": {"type": ["boolean", "null"]},
+        "phase_descriptor": {"type": ["array", "null"], "items": {"type": "number"}},
+        "simulator_valid": {"type": ["boolean", "null"]},
+        "distance_to_camera_boundary_px": {"type": ["number", "null"]},
+        "valid_region_fraction": {"type": ["number", "null"]},
+        "source_integrated_power_w": {"type": ["number", "null"]},
+        "source_amplitude_scale": {"type": ["number", "null"]},
+        "peak_intensity_abs": {"type": ["number", "null"]}
+      }
+    },
+    "sampling": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["kind"],
+      "properties": {"kind": {"type": "string"}}
+    },
+    "oracle_metadata": {
+      "type": "object",
+      "description": "Training/audit only. Never included in deployed model inputs."
+    },
+    "setup_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "context_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  },
+  "$defs": {
+    "setup_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wavelength_nm",
+        "beam_waist_mm",
+        "power_w",
+        "lens_focal_length_mm",
+        "lens_aperture_mm",
+        "source_to_lens_mm",
+        "lens_to_camera_mm",
+        "pixel_size_um"
+      ],
+      "properties": {
+        "wavelength_nm": {"type": "number"},
+        "beam_waist_mm": {"type": "number"},
+        "power_w": {"type": "number"},
+        "lens_focal_length_mm": {"type": "number"},
+        "lens_aperture_mm": {"type": "number"},
+        "source_to_lens_mm": {"type": "number"},
+        "lens_to_camera_mm": {"type": "number"},
+        "pixel_size_um": {"type": "number"}
+      }
+    },
+    "simulator_fixed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sensor_resolution_px",
+        "grid_size",
+        "grid_extent_mm",
+        "propagation_backend",
+        "alignment_defocus_mm",
+        "source_phase_mode",
+        "source_shape"
+      ],
+      "properties": {
+        "sensor_resolution_px": {
+          "type": "array",
+          "prefixItems": [{"type": "integer"}, {"type": "integer"}],
+          "items": false
+        },
+        "grid_size": {"type": "integer"},
+        "grid_extent_mm": {"type": "number"},
+        "propagation_backend": {"type": "string"},
+        "alignment_defocus_mm": {"type": "number"},
+        "source_phase_mode": {"type": "string"},
+        "source_shape": {"type": "string"}
+        ,
+        "simulator_semantics_version": {"type": "string"},
+        "sensor_sampling_method": {"type": "string"},
+        "sensor_measurement_model": {"type": "string"},
+        "sensor_pixel_center_convention": {"type": "string"},
+        "sensor_origin_convention": {"type": "string"},
+        "axis_convention": {"type": "string"},
+        "outside_propagated_field_rule": {"type": "string"},
+        "pixel_area_quadrature_order": {"type": "integer", "minimum": 1},
+        "power_semantics": {"type": "string"},
+        "intensity_normalization": {"type": "string"},
+        "metrics_frame": {"type": "string"},
+        "image_frame": {"type": "string"},
+        "target_control_frame": {"type": "string"},
+        "lab_to_sensor_transform": {"type": "string"},
+        "minimum_initial_captured_power_fraction": {
+          "type": "number",
+          "minimum": 0.0,
+          "exclusiveMaximum": 1.0
+        },
+        "maximum_setup_resample_attempts": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "positions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lens_x_mm", "lens_y_mm", "camera_x_mm", "camera_y_mm"],
+      "properties": {
+        "lens_x_mm": {"type": "number"},
+        "lens_y_mm": {"type": "number"},
+        "camera_x_mm": {"type": "number"},
+        "camera_y_mm": {"type": "number"}
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lens_x_delta_mm",
+        "lens_y_delta_mm",
+        "camera_x_delta_mm",
+        "camera_y_delta_mm"
+      ],
+      "properties": {
+        "lens_x_delta_mm": {"type": "number"},
+        "lens_y_delta_mm": {"type": "number"},
+        "camera_x_delta_mm": {"type": "number"},
+        "camera_y_delta_mm": {"type": "number"}
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "centroid_x_px",
+        "centroid_y_px",
+        "sigma_x_px",
+        "sigma_y_px",
+        "peak_intensity"
+      ],
+      "properties": {
+        "centroid_x_px": {"type": "number"},
+        "centroid_y_px": {"type": "number"},
+        "sigma_x_px": {"type": "number"},
+        "sigma_y_px": {"type": "number"},
+        "peak_intensity": {"type": "number"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"schema_version": {"const": "v12.1.0"}},
+        "required": ["schema_version"]
+      },
+      "then": {
+        "required": [
+          "simulator_semantics_version",
+          "sampling_method",
+          "requested_action_mm",
+          "requested_next_positions_mm",
+          "metrics_lab_frame",
+          "next_metrics_lab_frame",
+          "metrics_sensor_frame",
+          "next_metrics_sensor_frame",
+          "coordinate_semantics",
+          "next_coordinate_semantics",
+          "sampling_metadata",
+          "next_sampling_metadata",
+          "power_semantics",
+          "intensity_normalization"
+        ]
+      }
+    }
+  ]
+}

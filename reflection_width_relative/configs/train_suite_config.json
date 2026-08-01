@@ -1,0 +1,95 @@
+{
+  "action_distribution": {
+    "central_quantile_high": 0.95,
+    "central_quantile_low": 0.05,
+    "tail_quantile_high": 0.99,
+    "tail_quantile_low": 0.01
+  },
+  "base_simulator_config": "/home/jiamo/VLM/optical_sim/configs/base_config.yaml",
+  "base_simulator_config_sha256": "9de680016a79b08e9df7fd4f585c901f04443db38aaf4c15b2af7983bcdb03ff",
+  "bootstrap": {
+    "samples": 4000,
+    "seed": 2026073109
+  },
+  "checkpoint": "/home/jiamo/VLM/runs/overnight_v12_semantics_20260731_002709/models/lc_128g_v2/continuous_forward_v12_128g.pt",
+  "checkpoint_sha256": "d9b30627c80817f6ecade1959d8cc9e91e7a9de9cc51485153fdbfaa173aca2e",
+  "corrected_v12_config": "/home/jiamo/VLM/continuous_control_v12/config_v12_semantics_v2.json",
+  "corrected_v12_config_sha256": "77cb8bfc8cc064e32ab3cbf473e10f94df5c4ca53869ae235bb5eee782b81ff8",
+  "created_at": "2026-07-31T11:18:29+08:00",
+  "created_for": "train",
+  "oracle_retry": {
+    "cem_iterations": 5,
+    "elites": 12,
+    "enabled_only_if_primary_unreliable": true,
+    "max_closed_loop_steps": 4,
+    "maximum_deterministic_failed_cases": 12,
+    "population": 48
+  },
+  "primary": {
+    "allowed_dofs": [
+      "lens_x",
+      "lens_y",
+      "camera_x",
+      "camera_y"
+    ],
+    "boundary_penalty": 1.0,
+    "candidate_audit_every_step": true,
+    "candidate_audit_reference_k": 10,
+    "candidate_audit_top_k": 10,
+    "cem_iterations": 3,
+    "elites": 6,
+    "horizons": [
+      1,
+      3
+    ],
+    "limit_penalty": 10.0,
+    "max_closed_loop_steps": 4,
+    "mean_error_weight": 0.15,
+    "methods": [
+      "oracle",
+      "learned"
+    ],
+    "movement_weight": 0.02,
+    "parallel_shards": 3,
+    "population": 24,
+    "success_threshold": 1.0,
+    "target_cost": "max_absolute_error_in_initial_state_tolerances",
+    "uncertainty_weight": 0.1
+  },
+  "privilege_policy": {
+    "candidate_simulator_evaluation_planner_input": false,
+    "future_simulator_state_deployed_input": false,
+    "q_goal_deployed_input": false,
+    "q_goal_location": "evaluation_manifest_only",
+    "reachability_label_deployed_input": false
+  },
+  "root_seed": 2026082102,
+  "schema_version": "v12.1.0",
+  "simulator_semantics_version": "v12_sensor_power_semantics_v1",
+  "smoke": {
+    "candidate_audit_reference_k": 5,
+    "candidate_audit_top_k": 5,
+    "cem_iterations": 1,
+    "elites": 6,
+    "episodes": 6,
+    "max_closed_loop_steps": 1,
+    "population": 24
+  },
+  "suite": {
+    "groups": 48,
+    "groups_per_stratum": 16,
+    "maximum_setup_attempts": 16,
+    "maximum_target_attempts": 48,
+    "minimum_initial_captured_power_fraction": 0.01,
+    "minimum_initial_distance": 1.25,
+    "store_images": false,
+    "strata": [
+      "one_step_reachable_interior",
+      "multi_step_reachable_interior",
+      "reachable_boundary_or_clipping"
+    ]
+  },
+  "training_dataset": "/home/jiamo/VLM/runs/overnight_v12_semantics_20260731_002709/data/corrected_128_16_16_v2",
+  "training_dataset_manifest_sha256": "f4d6109cb386405434147e02bb97874f658ad3ae2d0d93bdd312e373d0d661fd",
+  "version": "reflection_width_relative_suite_config_v1"
+}

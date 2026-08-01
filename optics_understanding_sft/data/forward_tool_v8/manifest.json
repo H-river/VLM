@@ -1,0 +1,36 @@
+{
+  "canonical_hashes": {
+    "dev": "6046ee2549c9e493e8d07d1bab5b0be5aae28888d4ec73f7e47c7d15d9c94764",
+    "train": "9d2e3d1503f8f0c02466ef354d6ef0de4745f80fd151b5dd91a1b64be15e7a07"
+  },
+  "dataset": "optics_understanding_forward_tool_v8",
+  "focus_record_count": 300,
+  "focus_source_count": 100,
+  "split_record_counts": {
+    "dev": 180,
+    "train": 603
+  },
+  "split_source_counts": {
+    "dev": 60,
+    "train": 201
+  },
+  "split_stage_counts": {
+    "dev": {
+      "compact_tool_result_interpretation": 60,
+      "tool_choice": 60,
+      "tool_source_mapping": 60
+    },
+    "train": {
+      "compact_tool_result_interpretation": 201,
+      "tool_choice": 201,
+      "tool_source_mapping": 201
+    }
+  },
+  "stages": [
+    "tool_choice",
+    "tool_source_mapping",
+    "compact_tool_result_interpretation"
+  ],
+  "state_handle_policy": "opaque handle; private registry never appears in public prompts",
+  "version": "forward_tool_v8"
+}

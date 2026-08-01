@@ -1,0 +1,45 @@
+{
+  "decision": "diagnostic_stop_no_promotion",
+  "experiment": "schema_repair_v3_1",
+  "frozen_gate_thresholds_changed": false,
+  "paid_api_calls": 0,
+  "reason": "Both seed-42 checkpoints repaired schema validity but retained severe information-sufficiency and constrained-intervention status collapse on the pre-promotion diagnostic slice.",
+  "sealed_test_evaluated": false,
+  "seed_42": {
+    "checkpoint_25": {
+      "control_feasible_recall": 0.8125,
+      "control_feasible_simulator_success": 0.5,
+      "control_infeasible_recall": 0.2,
+      "control_status_macro_f1": 0.45993031358885017,
+      "diagnosis_status_macro_f1": 0.8352941176470589,
+      "evaluated_records": 122,
+      "full_dev_candidate": false,
+      "macro_task_score": 0.6533772218564845,
+      "schema_valid_rate": 0.9918032786885246,
+      "sufficiency_status_macro_f1": 0.4034090909090909
+    },
+    "checkpoint_50": {
+      "control_feasible_recall": 0.9375,
+      "control_feasible_simulator_success": 0.5625,
+      "control_infeasible_recall": 0.07142857142857142,
+      "control_status_macro_f1": 0.4034090909090909,
+      "diagnosis_status_macro_f1": 0.8222222222222223,
+      "evaluated_records": 120,
+      "full_dev_candidate": false,
+      "macro_task_score": 0.6476757369614513,
+      "schema_valid_rate": 0.9916666666666667,
+      "sufficiency_status_macro_f1": 0.3333333333333333
+    },
+    "training": {
+      "checkpoint_25_eval_loss": 0.137360081076622,
+      "checkpoint_50_eval_loss": 0.13796758651733398,
+      "completed_optimizer_steps": 50,
+      "output_dir": "/home/jiamo/VLM_runs/qwen25vl_3b_qlora_schema_repair_v3_1_seed42"
+    }
+  },
+  "seeds_123_and_314_started": false,
+  "tests": {
+    "command": "PYTHONPATH=. /home/jiamo/miniconda3/envs/optical_sim/bin/pytest optics_understanding_sft/tests -q",
+    "passed": 32
+  }
+}

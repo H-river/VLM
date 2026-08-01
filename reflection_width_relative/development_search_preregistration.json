@@ -1,0 +1,52 @@
+{
+  "version": "reflection_width_relative_development_search_preregistration_v1",
+  "created_at": "2026-08-01T17:53:00+08:00",
+  "protected_previous_results_used": false,
+  "scientific_question": "Can width-relative separation produce setup-scale-consistent morphology while preserving the frozen five-metric match and primary-spot recovery viability?",
+  "grid": {
+    "k_values": [1.25, 1.75, 2.25, 2.75],
+    "amplitude_values": [0.3, 0.4, 0.5],
+    "width_ratio_values": [0.8, 1.0, 1.2],
+    "direction_angles_radians": [0.0, 0.7853981633974483, 1.5707963267948966, 2.356194490192345]
+  },
+  "development_setup_groups": 12,
+  "required_diversity": [
+    "four clean-primary beam-width quartiles",
+    "different centroid positions",
+    "different width_x_to_width_y ratios",
+    "horizontal vertical and diagonal directions",
+    "boundary and non-boundary strata"
+  ],
+  "frozen_pair_thresholds": {
+    "metric_order": ["centroid_x", "centroid_y", "width_x", "width_y", "peak_intensity"],
+    "tolerance_vector": [1.0, 1.0, 2.0, 2.0, 0.05],
+    "maximum_each_normalized_absolute_difference": 0.25,
+    "maximum_total_normalized_l2": 0.4,
+    "required_post_serialization_match_rate": 0.95
+  },
+  "diagnostic_morphology": {
+    "visible_shoulder_consistent_definition": "image RMS difference from matched clean >= 0.02 and mean anomaly-minus-clean contrast in the expected secondary region >= 0.02",
+    "report_by": ["beam_width_quartile", "k", "amplitude", "width_ratio", "direction", "boundary_status"],
+    "montage_inputs_are_evaluator_only": true
+  },
+  "selection_constraints": {
+    "selected_k_values_must_be_adjacent_in_the_grid": true,
+    "selected_amplitude_values_must_be_adjacent_in_the_grid": true,
+    "selected_width_ratio_values_must_be_adjacent_or_all_three": true,
+    "primary_spot_specialist_viability_rate_required": 1.0,
+    "prefer_the_lowest_severity_contiguous_region_with_consistent_visible_morphology": true,
+    "do_not_use_any_previous_or_future_heldout_prediction": true
+  },
+  "model_protocol": {
+    "architecture": "previous_tiny_cnn_and_previous_image_plus_five_metrics_variant_unchanged",
+    "training_seeds": [2026081202, 2026081203, 2026081204],
+    "optimizer": "Adam",
+    "learning_rate": 0.002,
+    "weight_decay": 0.0001,
+    "epochs": 45,
+    "batch_size": 32,
+    "augmentation": "deterministic_rotations_0_90_180_270",
+    "selection_rule": "highest development balanced accuracy, then highest macro F1, then image-only over multimodal, then lowest seed",
+    "threshold": 0.5
+  }
+}

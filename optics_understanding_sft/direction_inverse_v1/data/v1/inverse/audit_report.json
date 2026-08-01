@@ -1,0 +1,97 @@
+{
+  "action_grid_size": 81,
+  "group_overlap": {
+    "eval_iid:eval_ood": 0,
+    "train:eval_iid": 0,
+    "train:eval_ood": 0,
+    "train:val": 0,
+    "val:eval_iid": 0,
+    "val:eval_ood": 0
+  },
+  "image_errors": [],
+  "image_reference_count": 744,
+  "minimum_status_count_failures": {},
+  "passed": true,
+  "prompt_forbidden_token_hits": {
+    "candidate_states": 0,
+    "selected_index": 0,
+    "setup_state_handle": 0,
+    "source_target_action": 0
+  },
+  "public_record_counts": {
+    "eval_iid": 90,
+    "eval_ood": 156,
+    "train": 426,
+    "val": 72
+  },
+  "record_hashes": {
+    "eval_iid": "3f073626b389e413d8affd087d3a758a9439020a58b3abcb9bbc0557b528aaba",
+    "eval_ood": "f5c83b1a3da3636814cc7206775040172ac6006bec33a7f15bff1b85e897db9b",
+    "train": "d1c7312a2f841c8fbff357df9111426e25d433aaadda498f781a76c88d2c4f07",
+    "val": "922402ef6113fad47dca07bdc8dda785dda0283ef910e44c89eec3fac894051e"
+  },
+  "scenario_counts": {
+    "eval_iid": 54,
+    "eval_ood": 60,
+    "train": 210,
+    "val": 30
+  },
+  "seed": 20260717,
+  "selected_pair_counts": {
+    "eval_iid": 45,
+    "eval_ood": 78,
+    "train": 213,
+    "val": 36
+  },
+  "selected_status_counts": {
+    "eval_iid": {
+      "ambiguous": 15,
+      "infeasible_within_limits": 15,
+      "unique": 15
+    },
+    "eval_ood": {
+      "ambiguous": 26,
+      "infeasible_within_limits": 26,
+      "unique": 26
+    },
+    "train": {
+      "ambiguous": 71,
+      "infeasible_within_limits": 71,
+      "unique": 71
+    },
+    "val": {
+      "ambiguous": 12,
+      "infeasible_within_limits": 12,
+      "unique": 12
+    }
+  },
+  "simulator_role": "offline label generation and replay audit only",
+  "source_status_availability": {
+    "eval_iid": {
+      "ambiguous": 54,
+      "infeasible_within_limits": 54,
+      "unique": 15
+    },
+    "eval_ood": {
+      "ambiguous": 56,
+      "infeasible_within_limits": 60,
+      "unique": 26
+    },
+    "train": {
+      "ambiguous": 209,
+      "infeasible_within_limits": 210,
+      "unique": 71
+    },
+    "val": {
+      "ambiguous": 30,
+      "infeasible_within_limits": 30,
+      "unique": 12
+    }
+  },
+  "version": "direction_inverse_v1",
+  "visual_sensor_frame_audit": {
+    "coordinate_frame": "camera_sensor_array",
+    "passed": true,
+    "path": "inverse/visual_sensor_frame_audit.json"
+  }
+}

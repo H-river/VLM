@@ -1,0 +1,2251 @@
+{
+  "arms": {
+    "learned_image_diagnostic": {
+      "actuator_saturation_count": 0,
+      "actuator_saturation_episode_rate": 0.0,
+      "episodes": 30,
+      "executed_step_distribution": {
+        "1": 9,
+        "2": 8,
+        "3": 4,
+        "4": 3,
+        "5": 4,
+        "7": 1,
+        "8": 1
+      },
+      "final_normalized_target_distance_distribution": [
+        0.13827781660302207,
+        0.21637811688106012,
+        0.25202539325766793,
+        0.3076460841041353,
+        0.3280766605230383,
+        0.35178660425196995,
+        0.37278585249805474,
+        0.4328555808129977,
+        0.45185396969026215,
+        0.5118882541906942,
+        0.5184790514601332,
+        0.5362160843440051,
+        0.5459907522780441,
+        0.5785974222952177,
+        0.5905157015528175,
+        0.6516742508700872,
+        0.6899067071544778,
+        0.756842599829838,
+        0.7684112727589536,
+        0.8833671665830707,
+        0.9468110166601491,
+        0.9511027619735728,
+        0.9792989519634148,
+        2.1636944386700634,
+        3.288304794334863,
+        3.573533932101895,
+        3.921956396656981,
+        13.0582524515965,
+        14.49210545709127,
+        53.650235123521725
+      ],
+      "hard_constraint_violations": 0,
+      "mean_executed_steps": 2.8,
+      "mean_final_normalized_target_distance": 3.5636290222169995,
+      "median_executed_steps": 2.0,
+      "median_final_normalized_target_distance": 0.6210949762114524,
+      "strict_success_count": 23,
+      "strict_success_rate": 0.7666666666666667
+    },
+    "no_diagnosis": {
+      "actuator_saturation_count": 0,
+      "actuator_saturation_episode_rate": 0.0,
+      "episodes": 30,
+      "executed_step_distribution": {
+        "2": 2,
+        "4": 18,
+        "5": 4,
+        "6": 4,
+        "8": 2
+      },
+      "final_normalized_target_distance_distribution": [
+        2.1636944386700634,
+        3.288304794334863,
+        3.921956396656981,
+        5.126294085976156,
+        6.094857580796884,
+        14.49210545709127,
+        15.600586012970098,
+        15.85788575106153,
+        17.31015635277174,
+        19.325937233438765,
+        21.7734085116507,
+        24.742011611541557,
+        25.5761833820344,
+        25.87769200841302,
+        25.908700026728752,
+        26.789908579613893,
+        28.262435356202275,
+        29.388303924878812,
+        29.960848238425115,
+        33.4176398039009,
+        37.433571636080046,
+        38.09510233567801,
+        39.87342155093802,
+        40.23905710218219,
+        40.70696783974461,
+        40.75623464215073,
+        41.33360050384243,
+        53.650235123521725,
+        62.786306035130906,
+        81.5453574945767
+      ],
+      "hard_constraint_violations": 0,
+      "mean_executed_steps": 4.533333333333333,
+      "mean_final_normalized_target_distance": 28.37662546036677,
+      "median_executed_steps": 4.0,
+      "median_final_normalized_target_distance": 26.349304303171323,
+      "strict_success_count": 0,
+      "strict_success_rate": 0.0
+    },
+    "oracle_diagnosis": {
+      "actuator_saturation_count": 0,
+      "actuator_saturation_episode_rate": 0.0,
+      "episodes": 30,
+      "executed_step_distribution": {
+        "1": 11,
+        "2": 7,
+        "3": 4,
+        "4": 3,
+        "5": 3,
+        "7": 2
+      },
+      "final_normalized_target_distance_distribution": [
+        0.0836666030608626,
+        0.13827781660302207,
+        0.21637811688106012,
+        0.25202539325766793,
+        0.2777108686269685,
+        0.3280766605230383,
+        0.35178660425196995,
+        0.37278585249805474,
+        0.4328555808129977,
+        0.45185396969026215,
+        0.5118882541906942,
+        0.5184790514601332,
+        0.5362160843440051,
+        0.5459907522780441,
+        0.5597647002763324,
+        0.5785974222952177,
+        0.5905157015528175,
+        0.6374784908368838,
+        0.6516742508700872,
+        0.6899067071544778,
+        0.7401273476447727,
+        0.756842599829838,
+        0.7684112727589536,
+        0.8833671665830707,
+        0.9468110166601491,
+        0.9511027619735728,
+        0.9792989519634148,
+        3.573533932101895,
+        5.51608142285787,
+        13.0582524515965
+      ],
+      "hard_constraint_violations": 0,
+      "mean_executed_steps": 2.6,
+      "mean_final_normalized_target_distance": 1.229991926847821,
+      "median_executed_steps": 2.0,
+      "median_final_normalized_target_distance": 0.5691810612857751,
+      "strict_success_count": 27,
+      "strict_success_rate": 0.9
+    }
+  },
+  "backbone": "externally_validated_frozen_h1_cem_sequential_max8",
+  "both_gates_passed": false,
+  "by_amplitude": {
+    "0.4": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "1": 5,
+          "2": 4,
+          "3": 4,
+          "4": 1,
+          "5": 4,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.21637811688106012,
+          0.3076460841041353,
+          0.3280766605230383,
+          0.35178660425196995,
+          0.4328555808129977,
+          0.5118882541906942,
+          0.5362160843440051,
+          0.5785974222952177,
+          0.5905157015528175,
+          0.6516742508700872,
+          0.6899067071544778,
+          0.7684112727589536,
+          0.8833671665830707,
+          0.9468110166601491,
+          0.9511027619735728,
+          2.1636944386700634,
+          3.288304794334863,
+          13.0582524515965,
+          53.650235123521725
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.9473684210526314,
+        "mean_final_normalized_target_distance": 4.258195815425232,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.6516742508700872,
+        "strict_success_count": 15,
+        "strict_success_rate": 0.7894736842105263
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "2": 2,
+          "4": 10,
+          "5": 2,
+          "6": 4,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          2.1636944386700634,
+          3.288304794334863,
+          5.126294085976156,
+          15.600586012970098,
+          15.85788575106153,
+          17.31015635277174,
+          19.325937233438765,
+          21.7734085116507,
+          25.908700026728752,
+          26.789908579613893,
+          29.388303924878812,
+          29.960848238425115,
+          33.4176398039009,
+          37.433571636080046,
+          38.09510233567801,
+          40.70696783974461,
+          41.33360050384243,
+          53.650235123521725,
+          81.5453574945767
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.526315789473684,
+        "mean_final_normalized_target_distance": 28.35139487830868,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 26.789908579613893,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "1": 6,
+          "2": 3,
+          "3": 4,
+          "4": 2,
+          "5": 3,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.0836666030608626,
+          0.21637811688106012,
+          0.2777108686269685,
+          0.3280766605230383,
+          0.35178660425196995,
+          0.4328555808129977,
+          0.5118882541906942,
+          0.5362160843440051,
+          0.5785974222952177,
+          0.5905157015528175,
+          0.6374784908368838,
+          0.6516742508700872,
+          0.6899067071544778,
+          0.7401273476447727,
+          0.7684112727589536,
+          0.8833671665830707,
+          0.9468110166601491,
+          0.9511027619735728,
+          13.0582524515965
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.8421052631578947,
+        "mean_final_normalized_target_distance": 1.2228854401377949,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.5905157015528175,
+        "strict_success_count": 18,
+        "strict_success_rate": 0.9473684210526315
+      }
+    },
+    "0.5": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "1": 4,
+          "2": 4,
+          "4": 2,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.25202539325766793,
+          0.37278585249805474,
+          0.45185396969026215,
+          0.5184790514601332,
+          0.5459907522780441,
+          0.756842599829838,
+          0.9792989519634148,
+          3.573533932101895,
+          3.921956396656981,
+          14.49210545709127
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.5454545454545454,
+        "mean_final_normalized_target_distance": 2.363922743039144,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5459907522780441,
+        "strict_success_count": 8,
+        "strict_success_rate": 0.7272727272727273
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "4": 8,
+          "5": 2,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          3.921956396656981,
+          6.094857580796884,
+          14.49210545709127,
+          24.742011611541557,
+          25.5761833820344,
+          25.87769200841302,
+          28.262435356202275,
+          39.87342155093802,
+          40.23905710218219,
+          40.75623464215073,
+          62.786306035130906
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.545454545454546,
+        "mean_final_normalized_target_distance": 28.42020555664893,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 25.87769200841302,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "1": 5,
+          "2": 4,
+          "4": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.25202539325766793,
+          0.37278585249805474,
+          0.45185396969026215,
+          0.5184790514601332,
+          0.5459907522780441,
+          0.5597647002763324,
+          0.756842599829838,
+          0.9792989519634148,
+          3.573533932101895,
+          5.51608142285787
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.1818181818181817,
+        "mean_final_normalized_target_distance": 1.2422667675287757,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5459907522780441,
+        "strict_success_count": 9,
+        "strict_success_rate": 0.8181818181818182
+      }
+    }
+  },
+  "by_boundary_status": {
+    "boundary": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 10,
+        "executed_step_distribution": {
+          "1": 1,
+          "2": 2,
+          "3": 2,
+          "4": 2,
+          "5": 2,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.3076460841041353,
+          0.35178660425196995,
+          0.45185396969026215,
+          0.5362160843440051,
+          0.5785974222952177,
+          2.1636944386700634,
+          3.573533932101895,
+          3.921956396656981,
+          13.0582524515965,
+          14.49210545709127
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.7,
+        "mean_final_normalized_target_distance": 3.9435642840802303,
+        "median_executed_steps": 3.5,
+        "median_final_normalized_target_distance": 1.3711459304826406,
+        "strict_success_count": 5,
+        "strict_success_rate": 0.5
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 10,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 4,
+          "5": 2,
+          "6": 1,
+          "8": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          2.1636944386700634,
+          3.921956396656981,
+          5.126294085976156,
+          6.094857580796884,
+          14.49210545709127,
+          15.600586012970098,
+          15.85788575106153,
+          21.7734085116507,
+          25.908700026728752,
+          40.75623464215073
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 5.0,
+        "mean_final_normalized_target_distance": 15.169572290375317,
+        "median_executed_steps": 4.5,
+        "median_final_normalized_target_distance": 15.046345735030684,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 10,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 2,
+          "3": 2,
+          "4": 2,
+          "5": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.0836666030608626,
+          0.35178660425196995,
+          0.45185396969026215,
+          0.5362160843440051,
+          0.5597647002763324,
+          0.5785974222952177,
+          0.7401273476447727,
+          3.573533932101895,
+          5.51608142285787,
+          13.0582524515965
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.2,
+        "mean_final_normalized_target_distance": 2.544988053811969,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.5691810612857751,
+        "strict_success_count": 7,
+        "strict_success_rate": 0.7
+      }
+    },
+    "non_boundary": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 20,
+        "executed_step_distribution": {
+          "1": 8,
+          "2": 6,
+          "3": 2,
+          "4": 1,
+          "5": 2,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.21637811688106012,
+          0.25202539325766793,
+          0.3280766605230383,
+          0.37278585249805474,
+          0.4328555808129977,
+          0.5118882541906942,
+          0.5184790514601332,
+          0.5459907522780441,
+          0.5905157015528175,
+          0.6516742508700872,
+          0.6899067071544778,
+          0.756842599829838,
+          0.7684112727589536,
+          0.8833671665830707,
+          0.9468110166601491,
+          0.9511027619735728,
+          0.9792989519634148,
+          3.288304794334863,
+          53.650235123521725
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.35,
+        "mean_final_normalized_target_distance": 3.373661391285384,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.6210949762114524,
+        "strict_success_count": 18,
+        "strict_success_rate": 0.9
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 20,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 14,
+          "5": 2,
+          "6": 3
+        },
+        "final_normalized_target_distance_distribution": [
+          3.288304794334863,
+          17.31015635277174,
+          19.325937233438765,
+          24.742011611541557,
+          25.5761833820344,
+          25.87769200841302,
+          26.789908579613893,
+          28.262435356202275,
+          29.388303924878812,
+          29.960848238425115,
+          33.4176398039009,
+          37.433571636080046,
+          38.09510233567801,
+          39.87342155093802,
+          40.23905710218219,
+          40.70696783974461,
+          41.33360050384243,
+          53.650235123521725,
+          62.786306035130906,
+          81.5453574945767
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.3,
+        "mean_final_normalized_target_distance": 34.980152045362495,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 31.689244021163006,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 20,
+        "executed_step_distribution": {
+          "1": 9,
+          "2": 5,
+          "3": 2,
+          "4": 1,
+          "5": 2,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.21637811688106012,
+          0.25202539325766793,
+          0.2777108686269685,
+          0.3280766605230383,
+          0.37278585249805474,
+          0.4328555808129977,
+          0.5118882541906942,
+          0.5184790514601332,
+          0.5459907522780441,
+          0.5905157015528175,
+          0.6374784908368838,
+          0.6516742508700872,
+          0.6899067071544778,
+          0.756842599829838,
+          0.7684112727589536,
+          0.8833671665830707,
+          0.9468110166601491,
+          0.9511027619735728,
+          0.9792989519634148
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.3,
+        "mean_final_normalized_target_distance": 0.5724938633657473,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5682532269154308,
+        "strict_success_count": 20,
+        "strict_success_rate": 1.0
+      }
+    }
+  },
+  "by_direction": {
+    "east": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 2,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.25202539325766793,
+          53.650235123521725
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.0,
+        "mean_final_normalized_target_distance": 26.951130258389696,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 26.951130258389696,
+        "strict_success_count": 1,
+        "strict_success_rate": 0.5
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 2,
+        "executed_step_distribution": {
+          "4": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          25.87769200841302,
+          53.650235123521725
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.0,
+        "mean_final_normalized_target_distance": 39.76396356596737,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 39.76396356596737,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 2,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.25202539325766793,
+          0.6374784908368838
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.0,
+        "mean_final_normalized_target_distance": 0.44475194204727586,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.44475194204727586,
+        "strict_success_count": 2,
+        "strict_success_rate": 1.0
+      }
+    },
+    "north": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "1": 1,
+          "3": 1,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.21637811688106012,
+          0.6899067071544778,
+          14.49210545709127
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.0,
+        "mean_final_normalized_target_distance": 5.132796760375602,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.6899067071544778,
+        "strict_success_count": 2,
+        "strict_success_rate": 0.6666666666666666
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "4": 2,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          14.49210545709127,
+          19.325937233438765,
+          33.4176398039009
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 5.333333333333333,
+        "mean_final_normalized_target_distance": 22.41189416481031,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 19.325937233438765,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "1": 1,
+          "3": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.21637811688106012,
+          0.6899067071544778,
+          5.51608142285787
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.6666666666666665,
+        "mean_final_normalized_target_distance": 2.1407887489644692,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.6899067071544778,
+        "strict_success_count": 2,
+        "strict_success_rate": 0.6666666666666666
+      }
+    },
+    "north_east": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 5,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 1,
+          "3": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          0.4328555808129977,
+          0.45185396969026215,
+          0.5459907522780441,
+          0.5785974222952177,
+          0.8833671665830707
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.0,
+        "mean_final_normalized_target_distance": 0.5785329783319184,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5459907522780441,
+        "strict_success_count": 5,
+        "strict_success_rate": 1.0
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 5,
+        "executed_step_distribution": {
+          "4": 3,
+          "5": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          6.094857580796884,
+          25.908700026728752,
+          26.789908579613893,
+          29.388303924878812,
+          62.786306035130906
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.4,
+        "mean_final_normalized_target_distance": 30.19361522942985,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 26.789908579613893,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 5,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 1,
+          "3": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          0.4328555808129977,
+          0.45185396969026215,
+          0.5459907522780441,
+          0.5785974222952177,
+          0.8833671665830707
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.0,
+        "mean_final_normalized_target_distance": 0.5785329783319184,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5459907522780441,
+        "strict_success_count": 5,
+        "strict_success_rate": 1.0
+      }
+    },
+    "north_west": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 4,
+        "executed_step_distribution": {
+          "1": 1,
+          "2": 2,
+          "3": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.5362160843440051,
+          0.756842599829838,
+          0.9468110166601491,
+          3.288304794334863
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.0,
+        "mean_final_normalized_target_distance": 1.3820436237922138,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.8518268082449936,
+        "strict_success_count": 3,
+        "strict_success_rate": 0.75
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 4,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 2,
+          "5": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          3.288304794334863,
+          15.600586012970098,
+          24.742011611541557,
+          37.433571636080046
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.75,
+        "mean_final_normalized_target_distance": 20.26611851373164,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 20.171298812255827,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 4,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 1,
+          "3": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.2777108686269685,
+          0.5362160843440051,
+          0.756842599829838,
+          0.9468110166601491
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 1.75,
+        "mean_final_normalized_target_distance": 0.6293951423652402,
+        "median_executed_steps": 1.5,
+        "median_final_normalized_target_distance": 0.6465293420869216,
+        "strict_success_count": 4,
+        "strict_success_rate": 1.0
+      }
+    },
+    "south": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 6,
+        "executed_step_distribution": {
+          "1": 1,
+          "2": 1,
+          "4": 2,
+          "5": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.5118882541906942,
+          0.5905157015528175,
+          0.6516742508700872,
+          0.7684112727589536,
+          3.573533932101895,
+          3.921956396656981
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.8333333333333335,
+        "mean_final_normalized_target_distance": 1.6696633013552382,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 0.7100427618145204,
+        "strict_success_count": 4,
+        "strict_success_rate": 0.6666666666666666
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 6,
+        "executed_step_distribution": {
+          "4": 4,
+          "6": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          3.921956396656981,
+          29.960848238425115,
+          40.70696783974461,
+          40.75623464215073,
+          41.33360050384243,
+          81.5453574945767
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.666666666666667,
+        "mean_final_normalized_target_distance": 39.7041608525661,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 40.73160124094767,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 6,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 1,
+          "4": 1,
+          "5": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.5118882541906942,
+          0.5597647002763324,
+          0.5905157015528175,
+          0.6516742508700872,
+          0.7684112727589536,
+          3.573533932101895
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.3333333333333335,
+        "mean_final_normalized_target_distance": 1.10929801862513,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.6210949762114524,
+        "strict_success_count": 5,
+        "strict_success_rate": 0.8333333333333334
+      }
+    },
+    "south_east": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 4,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 1,
+          "5": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.3280766605230383,
+          0.35178660425196995,
+          0.9511027619735728
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.25,
+        "mean_final_normalized_target_distance": 0.4423109608379008,
+        "median_executed_steps": 1.5,
+        "median_final_normalized_target_distance": 0.3399316323875041,
+        "strict_success_count": 4,
+        "strict_success_rate": 1.0
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 4,
+        "executed_step_distribution": {
+          "4": 2,
+          "5": 1,
+          "6": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          15.85788575106153,
+          17.31015635277174,
+          25.5761833820344,
+          38.09510233567801
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.75,
+        "mean_final_normalized_target_distance": 24.20983195538642,
+        "median_executed_steps": 4.5,
+        "median_final_normalized_target_distance": 21.44316986740307,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 4,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 1,
+          "5": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.3280766605230383,
+          0.35178660425196995,
+          0.9511027619735728
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.25,
+        "mean_final_normalized_target_distance": 0.4423109608379008,
+        "median_executed_steps": 1.5,
+        "median_final_normalized_target_distance": 0.3399316323875041,
+        "strict_success_count": 4,
+        "strict_success_rate": 1.0
+      }
+    },
+    "south_west": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "1": 1,
+          "5": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          0.3076460841041353,
+          0.37278585249805474,
+          13.0582524515965
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.6666666666666665,
+        "mean_final_normalized_target_distance": 4.579561462732896,
+        "median_executed_steps": 5.0,
+        "median_final_normalized_target_distance": 0.37278585249805474,
+        "strict_success_count": 2,
+        "strict_success_rate": 0.6666666666666666
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "4": 1,
+          "6": 1,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          5.126294085976156,
+          21.7734085116507,
+          39.87342155093802
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 6.0,
+        "mean_final_normalized_target_distance": 22.257708049521625,
+        "median_executed_steps": 6.0,
+        "median_final_normalized_target_distance": 21.7734085116507,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "1": 1,
+          "4": 1,
+          "5": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.0836666030608626,
+          0.37278585249805474,
+          13.0582524515965
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.3333333333333335,
+        "mean_final_normalized_target_distance": 4.504901635718473,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 0.37278585249805474,
+        "strict_success_count": 2,
+        "strict_success_rate": 0.6666666666666666
+      }
+    },
+    "west": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "1": 1,
+          "2": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          0.5184790514601332,
+          0.9792989519634148,
+          2.1636944386700634
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 1.6666666666666667,
+        "mean_final_normalized_target_distance": 1.2204908140312039,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.9792989519634148,
+        "strict_success_count": 2,
+        "strict_success_rate": 0.6666666666666666
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          2.1636944386700634,
+          28.262435356202275,
+          40.23905710218219
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.3333333333333335,
+        "mean_final_normalized_target_distance": 23.555062299018175,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 28.262435356202275,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 3,
+        "executed_step_distribution": {
+          "1": 1,
+          "2": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          0.5184790514601332,
+          0.7401273476447727,
+          0.9792989519634148
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 1.6666666666666667,
+        "mean_final_normalized_target_distance": 0.7459684503561069,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.7401273476447727,
+        "strict_success_count": 3,
+        "strict_success_rate": 1.0
+      }
+    }
+  },
+  "by_k": {
+    "2.25": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 4,
+          "3": 2,
+          "4": 1,
+          "5": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.21637811688106012,
+          0.4328555808129977,
+          0.5118882541906942,
+          0.5184790514601332,
+          0.5905157015528175,
+          0.6516742508700872,
+          0.6899067071544778,
+          0.756842599829838,
+          0.9468110166601491,
+          2.1636944386700634,
+          53.650235123521725
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.909090909090909,
+        "mean_final_normalized_target_distance": 5.557207349236731,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.6516742508700872,
+        "strict_success_count": 9,
+        "strict_success_rate": 0.8181818181818182
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 8,
+          "6": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          2.1636944386700634,
+          19.325937233438765,
+          24.742011611541557,
+          26.789908579613893,
+          28.262435356202275,
+          29.960848238425115,
+          33.4176398039009,
+          37.433571636080046,
+          40.70696783974461,
+          53.650235123521725,
+          81.5453574945767
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.181818181818182,
+        "mean_final_normalized_target_distance": 34.363509759610515,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 29.960848238425115,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "1": 2,
+          "2": 4,
+          "3": 2,
+          "4": 1,
+          "5": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.21637811688106012,
+          0.4328555808129977,
+          0.5118882541906942,
+          0.5184790514601332,
+          0.5905157015528175,
+          0.6374784908368838,
+          0.6516742508700872,
+          0.6899067071544778,
+          0.7401273476447727,
+          0.756842599829838,
+          0.9468110166601491
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.909090909090909,
+        "mean_final_normalized_target_distance": 0.6084506470812646,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.6374784908368838,
+        "strict_success_count": 11,
+        "strict_success_rate": 1.0
+      }
+    },
+    "2.75": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "1": 7,
+          "2": 4,
+          "3": 2,
+          "4": 2,
+          "5": 3,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.25202539325766793,
+          0.3076460841041353,
+          0.3280766605230383,
+          0.35178660425196995,
+          0.37278585249805474,
+          0.45185396969026215,
+          0.5362160843440051,
+          0.5459907522780441,
+          0.5785974222952177,
+          0.7684112727589536,
+          0.8833671665830707,
+          0.9511027619735728,
+          0.9792989519634148,
+          3.288304794334863,
+          3.573533932101895,
+          3.921956396656981,
+          13.0582524515965,
+          14.49210545709127
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.736842105263158,
+        "mean_final_normalized_target_distance": 2.4094520960476813,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5785974222952177,
+        "strict_success_count": 14,
+        "strict_success_rate": 0.7368421052631579
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 10,
+          "5": 4,
+          "6": 2,
+          "8": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          3.288304794334863,
+          3.921956396656981,
+          5.126294085976156,
+          6.094857580796884,
+          14.49210545709127,
+          15.600586012970098,
+          15.85788575106153,
+          17.31015635277174,
+          21.7734085116507,
+          25.5761833820344,
+          25.87769200841302,
+          25.908700026728752,
+          29.388303924878812,
+          38.09510233567801,
+          39.87342155093802,
+          40.23905710218219,
+          40.75623464215073,
+          41.33360050384243,
+          62.786306035130906
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.7368421052631575,
+        "mean_final_normalized_target_distance": 24.91053455027829,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 25.5761833820344,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "1": 9,
+          "2": 3,
+          "3": 2,
+          "4": 2,
+          "5": 2,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.0836666030608626,
+          0.13827781660302207,
+          0.25202539325766793,
+          0.2777108686269685,
+          0.3280766605230383,
+          0.35178660425196995,
+          0.37278585249805474,
+          0.45185396969026215,
+          0.5362160843440051,
+          0.5459907522780441,
+          0.5597647002763324,
+          0.5785974222952177,
+          0.7684112727589536,
+          0.8833671665830707,
+          0.9511027619735728,
+          0.9792989519634148,
+          3.573533932101895,
+          5.51608142285787,
+          13.0582524515965
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.4210526315789473,
+        "mean_final_normalized_target_distance": 1.5898316151337224,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5459907522780441,
+        "strict_success_count": 16,
+        "strict_success_rate": 0.8421052631578947
+      }
+    }
+  },
+  "by_width_quartile": {
+    "Q1": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 8,
+        "executed_step_distribution": {
+          "1": 1,
+          "2": 2,
+          "3": 1,
+          "4": 2,
+          "5": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          0.3076460841041353,
+          0.35178660425196995,
+          0.5785974222952177,
+          2.1636944386700634,
+          3.288304794334863,
+          3.573533932101895,
+          3.921956396656981,
+          13.0582524515965
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.25,
+        "mean_final_normalized_target_distance": 3.4054715155014534,
+        "median_executed_steps": 3.5,
+        "median_final_normalized_target_distance": 2.725999616502463,
+        "strict_success_count": 3,
+        "strict_success_rate": 0.375
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 8,
+        "executed_step_distribution": {
+          "2": 2,
+          "4": 3,
+          "5": 1,
+          "6": 1,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          2.1636944386700634,
+          3.288304794334863,
+          3.921956396656981,
+          5.126294085976156,
+          15.85788575106153,
+          21.7734085116507,
+          25.908700026728752,
+          40.75623464215073
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.375,
+        "mean_final_normalized_target_distance": 14.849559830903722,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 10.492089918518843,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 8,
+        "executed_step_distribution": {
+          "1": 3,
+          "2": 1,
+          "3": 1,
+          "4": 2,
+          "5": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.0836666030608626,
+          0.2777108686269685,
+          0.35178660425196995,
+          0.5597647002763324,
+          0.5785974222952177,
+          0.7401273476447727,
+          3.573533932101895,
+          13.0582524515965
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.625,
+        "mean_final_normalized_target_distance": 2.402929991231815,
+        "median_executed_steps": 2.5,
+        "median_final_normalized_target_distance": 0.5691810612857751,
+        "strict_success_count": 6,
+        "strict_success_rate": 0.75
+      }
+    },
+    "Q2": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 7,
+        "executed_step_distribution": {
+          "2": 3,
+          "3": 2,
+          "5": 1,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.21637811688106012,
+          0.25202539325766793,
+          0.45185396969026215,
+          0.5184790514601332,
+          0.5362160843440051,
+          0.5905157015528175,
+          14.49210545709127
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.5714285714285716,
+        "mean_final_normalized_target_distance": 2.4367962534681737,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.5184790514601332,
+        "strict_success_count": 6,
+        "strict_success_rate": 0.8571428571428571
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 7,
+        "executed_step_distribution": {
+          "4": 4,
+          "5": 1,
+          "6": 1,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          6.094857580796884,
+          14.49210545709127,
+          15.600586012970098,
+          19.325937233438765,
+          25.87769200841302,
+          28.262435356202275,
+          29.960848238425115
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 5.0,
+        "mean_final_normalized_target_distance": 19.94492312676249,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 19.325937233438765,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 7,
+        "executed_step_distribution": {
+          "2": 3,
+          "3": 2,
+          "5": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.21637811688106012,
+          0.25202539325766793,
+          0.45185396969026215,
+          0.5184790514601332,
+          0.5362160843440051,
+          0.5905157015528175,
+          5.51608142285787
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.4285714285714284,
+        "mean_final_normalized_target_distance": 1.1545071057205452,
+        "median_executed_steps": 3.0,
+        "median_final_normalized_target_distance": 0.5184790514601332,
+        "strict_success_count": 6,
+        "strict_success_rate": 0.8571428571428571
+      }
+    },
+    "Q3": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 8,
+        "executed_step_distribution": {
+          "1": 5,
+          "2": 1,
+          "3": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.37278585249805474,
+          0.4328555808129977,
+          0.6516742508700872,
+          0.756842599829838,
+          0.8833671665830707,
+          0.9511027619735728,
+          0.9792989519634148
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.125,
+        "mean_final_normalized_target_distance": 0.6457756226417573,
+        "median_executed_steps": 1.0,
+        "median_final_normalized_target_distance": 0.7042584253499626,
+        "strict_success_count": 8,
+        "strict_success_rate": 1.0
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 8,
+        "executed_step_distribution": {
+          "4": 6,
+          "5": 1,
+          "6": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          17.31015635277174,
+          24.742011611541557,
+          25.5761833820344,
+          26.789908579613893,
+          29.388303924878812,
+          39.87342155093802,
+          40.23905710218219,
+          40.70696783974461
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.375,
+        "mean_final_normalized_target_distance": 30.578251292963152,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 28.089106252246353,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 8,
+        "executed_step_distribution": {
+          "1": 5,
+          "2": 1,
+          "3": 1,
+          "7": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.37278585249805474,
+          0.4328555808129977,
+          0.6516742508700872,
+          0.756842599829838,
+          0.8833671665830707,
+          0.9511027619735728,
+          0.9792989519634148
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.125,
+        "mean_final_normalized_target_distance": 0.6457756226417573,
+        "median_executed_steps": 1.0,
+        "median_final_normalized_target_distance": 0.7042584253499626,
+        "strict_success_count": 8,
+        "strict_success_rate": 1.0
+      }
+    },
+    "Q4": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 7,
+        "executed_step_distribution": {
+          "1": 3,
+          "2": 2,
+          "4": 1,
+          "5": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.3280766605230383,
+          0.5118882541906942,
+          0.5459907522780441,
+          0.6899067071544778,
+          0.7684112727589536,
+          0.9468110166601491,
+          53.650235123521725
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.2857142857142856,
+        "mean_final_normalized_target_distance": 8.205902826726726,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.6899067071544778,
+        "strict_success_count": 6,
+        "strict_success_rate": 0.8571428571428571
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 7,
+        "executed_step_distribution": {
+          "4": 5,
+          "5": 1,
+          "6": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          33.4176398039009,
+          37.433571636080046,
+          38.09510233567801,
+          41.33360050384243,
+          53.650235123521725,
+          62.786306035130906,
+          81.5453574945767
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.428571428571429,
+        "mean_final_normalized_target_distance": 49.75168756181868,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 41.33360050384243,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 7,
+        "executed_step_distribution": {
+          "1": 3,
+          "2": 2,
+          "4": 1,
+          "5": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.3280766605230383,
+          0.5118882541906942,
+          0.5459907522780441,
+          0.6374784908368838,
+          0.6899067071544778,
+          0.7684112727589536,
+          0.9468110166601491
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.2857142857142856,
+        "mean_final_normalized_target_distance": 0.6326518792003201,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.6374784908368838,
+        "strict_success_count": 7,
+        "strict_success_rate": 1.0
+      }
+    }
+  },
+  "by_width_ratio": {
+    "0.8": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "1": 6,
+          "2": 5,
+          "3": 3,
+          "4": 2,
+          "5": 3
+        },
+        "final_normalized_target_distance_distribution": [
+          0.13827781660302207,
+          0.21637811688106012,
+          0.25202539325766793,
+          0.3076460841041353,
+          0.3280766605230383,
+          0.35178660425196995,
+          0.37278585249805474,
+          0.4328555808129977,
+          0.45185396969026215,
+          0.5184790514601332,
+          0.5785974222952177,
+          0.6899067071544778,
+          0.756842599829838,
+          0.7684112727589536,
+          0.9792989519634148,
+          2.1636944386700634,
+          3.573533932101895,
+          13.0582524515965,
+          53.650235123521725
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.526315789473684,
+        "mean_final_normalized_target_distance": 4.188891475261812,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5184790514601332,
+        "strict_success_count": 15,
+        "strict_success_rate": 0.7894736842105263
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 13,
+          "5": 2,
+          "6": 2,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          2.1636944386700634,
+          5.126294085976156,
+          6.094857580796884,
+          15.85788575106153,
+          19.325937233438765,
+          21.7734085116507,
+          24.742011611541557,
+          25.5761833820344,
+          25.87769200841302,
+          25.908700026728752,
+          26.789908579613893,
+          28.262435356202275,
+          33.4176398039009,
+          38.09510233567801,
+          39.87342155093802,
+          40.23905710218219,
+          40.75623464215073,
+          41.33360050384243,
+          53.650235123521725
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.421052631578948,
+        "mean_final_normalized_target_distance": 27.09812103307063,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 25.908700026728752,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 19,
+        "executed_step_distribution": {
+          "1": 6,
+          "2": 5,
+          "3": 3,
+          "4": 3,
+          "5": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          0.0836666030608626,
+          0.13827781660302207,
+          0.21637811688106012,
+          0.25202539325766793,
+          0.3280766605230383,
+          0.35178660425196995,
+          0.37278585249805474,
+          0.4328555808129977,
+          0.45185396969026215,
+          0.5184790514601332,
+          0.5785974222952177,
+          0.6374784908368838,
+          0.6899067071544778,
+          0.7401273476447727,
+          0.756842599829838,
+          0.7684112727589536,
+          0.9792989519634148,
+          3.573533932101895,
+          13.0582524515965
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.473684210526316,
+        "mean_final_normalized_target_distance": 1.3120334118537382,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5184790514601332,
+        "strict_success_count": 17,
+        "strict_success_rate": 0.8947368421052632
+      }
+    },
+    "1.0": {
+      "learned_image_diagnostic": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "1": 3,
+          "2": 3,
+          "3": 1,
+          "4": 1,
+          "5": 1,
+          "7": 1,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          0.5118882541906942,
+          0.5362160843440051,
+          0.5459907522780441,
+          0.5905157015528175,
+          0.6516742508700872,
+          0.8833671665830707,
+          0.9468110166601491,
+          0.9511027619735728,
+          3.288304794334863,
+          3.921956396656981,
+          14.49210545709127
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 3.272727272727273,
+        "mean_final_normalized_target_distance": 2.4836302396850503,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.8833671665830707,
+        "strict_success_count": 8,
+        "strict_success_rate": 0.7272727272727273
+      },
+      "no_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "2": 1,
+          "4": 5,
+          "5": 2,
+          "6": 2,
+          "8": 1
+        },
+        "final_normalized_target_distance_distribution": [
+          3.288304794334863,
+          3.921956396656981,
+          14.49210545709127,
+          15.600586012970098,
+          17.31015635277174,
+          29.388303924878812,
+          29.960848238425115,
+          37.433571636080046,
+          40.70696783974461,
+          62.786306035130906,
+          81.5453574945767
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 4.7272727272727275,
+        "mean_final_normalized_target_distance": 30.58495128933283,
+        "median_executed_steps": 4.0,
+        "median_final_normalized_target_distance": 29.388303924878812,
+        "strict_success_count": 0,
+        "strict_success_rate": 0.0
+      },
+      "oracle_diagnosis": {
+        "actuator_saturation_count": 0,
+        "actuator_saturation_episode_rate": 0.0,
+        "episodes": 11,
+        "executed_step_distribution": {
+          "1": 5,
+          "2": 2,
+          "3": 1,
+          "5": 1,
+          "7": 2
+        },
+        "final_normalized_target_distance_distribution": [
+          0.2777108686269685,
+          0.5118882541906942,
+          0.5362160843440051,
+          0.5459907522780441,
+          0.5597647002763324,
+          0.5905157015528175,
+          0.6516742508700872,
+          0.8833671665830707,
+          0.9468110166601491,
+          0.9511027619735728,
+          5.51608142285787
+        ],
+        "hard_constraint_violations": 0,
+        "mean_executed_steps": 2.8181818181818183,
+        "mean_final_normalized_target_distance": 1.0882839072921464,
+        "median_executed_steps": 2.0,
+        "median_final_normalized_target_distance": 0.5905157015528175,
+        "strict_success_count": 10,
+        "strict_success_rate": 0.9090909090909091
+      }
+    }
+  },
+  "classification_correct_but_control_failed_episode_ids": [
+    "v12_mpcdiag_reflsig_iid_20260801_02_0004__secondary_reflection_width_relative__learned_image_diagnostic",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0008__secondary_reflection_width_relative__learned_image_diagnostic"
+  ],
+  "classification_wrong_but_accidentally_recovered_episode_ids": [
+    "v12_mpcdiag_reflsig_iid_20260801_02_0005__secondary_reflection_width_relative__learned_image_diagnostic"
+  ],
+  "control_value_gate": {
+    "improvement_is_measurement_switch_not_extra_action_budget": true,
+    "no_material_safety_regression": true,
+    "oracle_improves_at_least_5pp_or_five_recoveries": true,
+    "passed": true
+  },
+  "evaluation_split": "new_preregistered_iid_heldout_setup_disjoint",
+  "learned_minus_no_diagnosis_percentage_points": 76.66666666666667,
+  "learned_oracle_disagreements": [
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_00_0003__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.43544963002204895,
+      "learned_switch": false,
+      "observation_index": 0,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_00_0003"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_00_0003__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.4457624852657318,
+      "learned_switch": false,
+      "observation_index": 1,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_00_0003"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_00_0003__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.44224241375923157,
+      "learned_switch": false,
+      "observation_index": 2,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_00_0003"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.018090147525072098,
+      "learned_switch": false,
+      "observation_index": 0,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.02008415386080742,
+      "learned_switch": false,
+      "observation_index": 1,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.019390258938074112,
+      "learned_switch": false,
+      "observation_index": 2,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.019390258938074112,
+      "learned_switch": false,
+      "observation_index": 3,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.019390258938074112,
+      "learned_switch": false,
+      "observation_index": 4,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_01_0004"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.01788787543773651,
+      "learned_switch": false,
+      "observation_index": 0,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.005495244171470404,
+      "learned_switch": false,
+      "observation_index": 1,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.00816535297781229,
+      "learned_switch": false,
+      "observation_index": 2,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.00538984127342701,
+      "learned_switch": false,
+      "observation_index": 3,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.01815883256494999,
+      "learned_switch": false,
+      "observation_index": 4,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.0537966825067997,
+      "learned_switch": false,
+      "observation_index": 5,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.10069681704044342,
+      "learned_switch": false,
+      "observation_index": 6,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.1180054321885109,
+      "learned_switch": false,
+      "observation_index": 7,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.13394063711166382,
+      "learned_switch": false,
+      "observation_index": 8,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0002"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.47113871574401855,
+      "learned_switch": false,
+      "observation_index": 0,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.4637719988822937,
+      "learned_switch": false,
+      "observation_index": 1,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.4585166573524475,
+      "learned_switch": false,
+      "observation_index": 2,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.4593978226184845,
+      "learned_switch": false,
+      "observation_index": 3,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.47398218512535095,
+      "learned_switch": false,
+      "observation_index": 4,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0003"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0005__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.49303269386291504,
+      "learned_switch": false,
+      "observation_index": 3,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0005"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0005__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.4898020327091217,
+      "learned_switch": false,
+      "observation_index": 5,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0005"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0006__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.4034534692764282,
+      "learned_switch": false,
+      "observation_index": 0,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0006"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0006__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.39138782024383545,
+      "learned_switch": false,
+      "observation_index": 1,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0006"
+    },
+    {
+      "episode_id": "v12_mpcdiag_reflsig_iid_20260801_02_0006__secondary_reflection_width_relative__learned_image_diagnostic",
+      "learned_probability": 0.3969992697238922,
+      "learned_switch": false,
+      "observation_index": 2,
+      "oracle_switch": true,
+      "setup_id": "v12_mpcdiag_reflsig_iid_20260801_02_0006"
+    }
+  ],
+  "learned_recovery_setup_ids": [
+    "v12_mpcdiag_reflsig_iid_20260801_00_0000",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0001",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0002",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0004",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0005",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0006",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0007",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0008",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0009",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0000",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0001",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0002",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0003",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0005",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0006",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0007",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0008",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0009",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0000",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0001",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0005",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0007",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0009"
+  ],
+  "learned_regression_setup_ids": [],
+  "matched_learned_recoveries": 23,
+  "matched_learned_regressions": 0,
+  "matched_oracle_recoveries": 27,
+  "matched_oracle_regressions": 0,
+  "oracle_minus_no_diagnosis_percentage_points": 90.0,
+  "oracle_recovery_setup_ids": [
+    "v12_mpcdiag_reflsig_iid_20260801_00_0000",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0001",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0002",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0003",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0004",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0005",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0006",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0007",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0008",
+    "v12_mpcdiag_reflsig_iid_20260801_00_0009",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0000",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0001",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0002",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0003",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0004",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0005",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0006",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0007",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0008",
+    "v12_mpcdiag_reflsig_iid_20260801_01_0009",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0000",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0001",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0003",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0005",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0006",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0007",
+    "v12_mpcdiag_reflsig_iid_20260801_02_0009"
+  ],
+  "oracle_regression_setup_ids": [],
+  "recovery_adds_actuator_budget": false,
+  "recovery_policy": "unchanged_primary_spot_measurement_switch",
+  "version": "reflection_width_relative_control_value_results_v1",
+  "visual_identifiability_gate_passed": false
+}

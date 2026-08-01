@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qwen_orchestration_generation_v3",
+  "title": "Generation-time syntax constraint for orchestration decision v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "arguments",
+    "clarification_question",
+    "image_roles",
+    "missing_fields",
+    "route_name",
+    "schema_version",
+    "status",
+    "task_type"
+  ],
+  "properties": {
+    "arguments": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {"$ref": "#/$defs/action"},
+        "current_beam_state": {"$ref": "#/$defs/beam_state"},
+        "desired_beam_state": {"$ref": "#/$defs/beam_state"},
+        "image_calibration": {"$ref": "#/$defs/image_calibration"},
+        "setup": {"$ref": "#/$defs/setup"}
+      }
+    },
+    "clarification_question": {
+      "anyOf": [
+        {"type": "string", "minLength": 1, "maxLength": 256},
+        {"type": "null"}
+      ]
+    },
+    "image_roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "beam": {"$ref": "#/$defs/image_reference"},
+        "current_beam": {"$ref": "#/$defs/image_reference"},
+        "desired_beam": {"$ref": "#/$defs/image_reference"}
+      }
+    },
+    "missing_fields": {
+      "type": "array",
+      "items": {"type": "string", "maxLength": 64},
+      "maxItems": 16,
+      "uniqueItems": true
+    },
+    "route_name": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "measure_beam_profile_v1",
+            "predict_direction_from_state_v1",
+            "predict_direction_from_image_v1",
+            "predict_forward_from_state_v1",
+            "predict_forward_from_image_v1",
+            "select_inverse_action_from_states_v1",
+            "select_inverse_action_from_images_v1"
+          ]
+        },
+        {"type": "null"}
+      ]
+    },
+    "schema_version": {
+      "const": "qwen_orchestration_decision_v1"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ready", "needs_clarification", "unsupported"]
+    },
+    "task_type": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "beam_profile_measurement",
+            "direction_prediction",
+            "forward_prediction",
+            "inverse_control"
+          ]
+        },
+        {"type": "null"}
+      ]
+    }
+  },
+  "$defs": {
+    "finite_number": {
+      "type": "number"
+    },
+    "image_reference": {
+      "type": "string",
+      "pattern": "^image_[0-9]+$"
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "camera_x_delta_mm",
+        "camera_y_delta_mm",
+        "lens_x_delta_mm",
+        "lens_y_delta_mm"
+      ],
+      "properties": {
+        "camera_x_delta_mm": {"$ref": "#/$defs/finite_number"},
+        "camera_y_delta_mm": {"$ref": "#/$defs/finite_number"},
+        "lens_x_delta_mm": {"$ref": "#/$defs/finite_number"},
+        "lens_y_delta_mm": {"$ref": "#/$defs/finite_number"}
+      }
+    },
+    "beam_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "centroid_x_px",
+        "centroid_y_px",
+        "peak_intensity",
+        "sigma_x_px",
+        "sigma_y_px"
+      ],
+      "properties": {
+        "centroid_x_px": {"$ref": "#/$defs/finite_number"},
+        "centroid_y_px": {"$ref": "#/$defs/finite_number"},
+        "peak_intensity": {"$ref": "#/$defs/finite_number"},
+        "sigma_x_px": {"$ref": "#/$defs/finite_number"},
+        "sigma_y_px": {"$ref": "#/$defs/finite_number"}
+      }
+    },
+    "image_calibration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gamma",
+        "linear_intensity_high",
+        "linear_intensity_low",
+        "source_sensor_resolution_px"
+      ],
+      "properties": {
+        "gamma": {"$ref": "#/$defs/finite_number"},
+        "linear_intensity_high": {"$ref": "#/$defs/finite_number"},
+        "linear_intensity_low": {"$ref": "#/$defs/finite_number"},
+        "source_sensor_resolution_px": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 1},
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "setup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "beam_waist_mm",
+        "camera_x_offset_mm",
+        "camera_y_offset_mm",
+        "lens_aperture_mm",
+        "lens_focal_length_mm",
+        "lens_to_camera_mm",
+        "lens_x_offset_mm",
+        "lens_y_offset_mm",
+        "pixel_size_um",
+        "power_w",
+        "source_to_lens_mm",
+        "wavelength_nm"
+      ],
+      "properties": {
+        "beam_waist_mm": {"$ref": "#/$defs/finite_number"},
+        "camera_x_offset_mm": {"$ref": "#/$defs/finite_number"},
+        "camera_y_offset_mm": {"$ref": "#/$defs/finite_number"},
+        "lens_aperture_mm": {"$ref": "#/$defs/finite_number"},
+        "lens_focal_length_mm": {"$ref": "#/$defs/finite_number"},
+        "lens_to_camera_mm": {"$ref": "#/$defs/finite_number"},
+        "lens_x_offset_mm": {"$ref": "#/$defs/finite_number"},
+        "lens_y_offset_mm": {"$ref": "#/$defs/finite_number"},
+        "pixel_size_um": {"$ref": "#/$defs/finite_number"},
+        "power_w": {"$ref": "#/$defs/finite_number"},
+        "source_to_lens_mm": {"$ref": "#/$defs/finite_number"},
+        "wavelength_nm": {"$ref": "#/$defs/finite_number"}
+      }
+    }
+  }
+}

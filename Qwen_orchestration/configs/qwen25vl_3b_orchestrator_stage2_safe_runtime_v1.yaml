@@ -1,0 +1,32 @@
+experiment:
+  name: qwen25vl_3b_orchestrator_stage2_safe_runtime_v1
+
+model:
+  name: ../HF_models/Qwen2.5-VL-3B-Instruct
+  adapter_path: ../VLM_runs/qwen_orchestrator_v1_stage2_schema_refinement_v2_seed20260724/checkpoint-600
+  local_files_only: true
+  trust_remote_code: true
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_compute_dtype: bfloat16
+  bnb_4bit_use_double_quant: true
+  expected_language_lora_tensors: 504
+  expected_visual_lora_tensors: 192
+
+orchestration:
+  decision_system_contract: false
+  normalize_nonexecuting_decisions: true
+
+data:
+  dataset_format: prebuilt_chat
+  train_jsonl: ../VLM_data/qwen_orchestration/v1/exports/qwen/train_stage2.jsonl
+  val_jsonl: ../VLM_data/qwen_orchestration/v1/exports/qwen/val_stage2.jsonl
+  image_root: ../VLM_data/qwen_orchestration/v1
+
+output:
+  output_dir: ../VLM_runs/qwen_orchestrator_v1_stage2_schema_refinement_v2_seed20260724
+
+generation:
+  max_new_tokens: 768
+  do_sample: false
+  temperature: 0.0

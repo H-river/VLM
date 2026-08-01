@@ -1,0 +1,26 @@
+dataset:
+  name: optics_understanding_sft_path_mapping_v7
+  version: path_mapping_v7
+  trial_train_scenarios: 40
+
+promotion_gates:
+  schema_valid_rate: 0.98
+  tool_choice_accuracy: 0.95
+  source_mapping_exact_match: 0.90
+  mapped_tool_execution_match: 0.95
+  intermediate_evidence_exact_match: 0.85
+  interpretation_status_macro_f1: 0.80
+  interpretation_answer_exact_match: 0.70
+  pair_joint_status_accuracy: 0.75
+  end_to_end_exact_match: 0.65
+
+protocol:
+  continuation_checkpoint: /home/jiamo/VLM_runs/qwen25vl_3b_qlora_corrective_v2_seed314
+  max_training_steps: 155
+  checkpoint_steps: [80, 155]
+  seed: 42
+  focus_record_count: 480
+  preservation_records_per_task: 20
+  paid_api_calls: 0
+  open_confirmation_only_after_dev_and_preservation_pass: true
+  sealed_pilot_test_opened: false

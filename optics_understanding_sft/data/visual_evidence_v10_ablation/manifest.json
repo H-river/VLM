@@ -1,0 +1,12 @@
+{
+  "example_ids_identical": true,
+  "full_visual_hash": "b1b51cd527acddadbd913524a14c9d4a5a26e7108afdcb5b23a8996409bd88ff",
+  "images_withheld_hash": "9ba836b82db82bbc9c9d41bdbe0cd955f85e1e42d454bbe4c65a633dad4c3559",
+  "record_count": 78,
+  "source_jsonl": "/home/jiamo/VLM/optics_understanding_sft/data/visual_evidence_v10/canonical/dev.jsonl",
+  "targets_identical": true,
+  "task_counts": {
+    "visual_pair_direction_extraction": 24,
+    "visual_state_classification": 54
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prebuilt Qwen Prompt/Completion Record",
+  "type": "object",
+  "required": ["example_id", "group_id", "task_type", "images", "prompt"],
+  "properties": {
+    "example_id": {"type": "string"},
+    "group_id": {"type": "string"},
+    "task_type": {"type": "string"},
+    "images": {"type": "array", "items": {"type": "string"}},
+    "prompt": {"type": "array"},
+    "completion": {"type": "array"}
+  },
+  "additionalProperties": false
+}

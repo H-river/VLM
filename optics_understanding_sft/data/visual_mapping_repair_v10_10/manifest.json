@@ -1,0 +1,40 @@
+{
+  "anchor_task_counts": {
+    "causal_effects": 2,
+    "compact_tool_result_interpretation": 2,
+    "constrained_intervention": 2,
+    "counterfactual_reasoning": 2,
+    "diagnosis": 2,
+    "forward_prediction": 2,
+    "information_sufficiency": 2,
+    "setup_interpretation": 2,
+    "tool_choice": 2,
+    "tool_source_mapping": 2
+  },
+  "dataset": "visual_mapping_repair_v10_10",
+  "dev_hash": "3b1ea294b40ae47eca71938a384b281237b1c56a5e4eb551ac4eb5b5adcd26aa",
+  "dev_records": 120,
+  "dev_sources": 40,
+  "failure_source_included": true,
+  "microbatches_per_step": 4,
+  "optimizer_steps": 20,
+  "seed": 55,
+  "train_composition_per_step": {
+    "general_anchor": 1,
+    "pair_mapping": 3
+  },
+  "train_hash": "0248961ce1abc6b80c2224baf96fedb7be482302742770325cf9dd44c5f2194f",
+  "train_records": 80,
+  "train_task_counts": {
+    "causal_effects": 2,
+    "compact_tool_result_interpretation": 2,
+    "constrained_intervention": 2,
+    "counterfactual_reasoning": 2,
+    "diagnosis": 2,
+    "forward_prediction": 2,
+    "information_sufficiency": 2,
+    "setup_interpretation": 2,
+    "tool_choice": 2,
+    "tool_source_mapping": 62
+  }
+}

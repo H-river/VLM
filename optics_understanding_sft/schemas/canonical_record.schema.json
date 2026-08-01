@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Optics Understanding Canonical SFT Record",
+  "type": "object",
+  "required": ["example_id", "group_id", "split", "task_type", "modality", "prompt", "prompt_inputs", "provenance"],
+  "properties": {
+    "example_id": {"type": "string"},
+    "group_id": {"type": "string"},
+    "split": {"enum": ["train", "val", "test"]},
+    "task_type": {"enum": ["setup_interpretation", "information_sufficiency", "causal_effects", "forward_prediction", "diagnosis", "constrained_intervention", "counterfactual_reasoning"]},
+    "modality": {"enum": ["text", "visual"]},
+    "prompt": {"type": "string"},
+    "prompt_inputs": {"type": "object"},
+    "target": {"type": "object"},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": false
+}

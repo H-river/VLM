@@ -1,0 +1,24 @@
+[Unit]
+Description=Train cross-fitted shared forward-direction v7
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/home/jiamo/miniconda3/envs/optical_sim/bin/python joint_forward_direction_v7/train.py
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=2
+Environment=MKL_NUM_THREADS=2
+Environment=OPENBLAS_NUM_THREADS=2
+Environment=NUMEXPR_NUM_THREADS=2
+CPUQuota=200%
+CPUAffinity=0 8
+MemoryHigh=6G
+MemoryMax=8G
+MemorySwapMax=256M
+TasksMax=64
+StandardOutput=append:/tmp/vlm-v7-train.log
+StandardError=append:/tmp/vlm-v7-train.log
+
+[Install]
+WantedBy=default.target

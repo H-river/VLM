@@ -1,0 +1,29 @@
+[Unit]
+Description=Build five-fold out-of-fold forward predictions for VLM v7
+ConditionPathExists=!/home/jiamo/VLM_data/joint_forward_direction_v7/oof_forward_v5_metadata.json
+StartLimitIntervalSec=3600
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/home/jiamo/miniconda3/envs/optical_sim/bin/python joint_forward_direction_v7/build_oof_forward.py
+Environment=OMP_NUM_THREADS=2
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+Nice=10
+IOSchedulingClass=idle
+CPUQuota=200%
+CPUAffinity=0 8
+MemoryHigh=4294967296
+MemoryMax=5368709120
+MemorySwapMax=268435456
+TasksMax=32
+Restart=on-failure
+RestartSec=20
+StandardOutput=append:/tmp/vlm-v7-oof.log
+StandardError=append:/tmp/vlm-v7-oof.log
+
+[Install]
+WantedBy=default.target

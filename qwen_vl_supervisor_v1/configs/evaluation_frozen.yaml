@@ -1,0 +1,413 @@
+schema_version: qwen_vl_supervisor_evaluation_v1.0.0
+protocol_state: frozen_before_formal_training_or_prediction
+research_status: PROVISIONALLY READY FOR QWEN-VL
+
+scope_guard:
+  pre_server_protocol_freeze_artifact: required_before_server_training
+  later_final_freeze_must_verify_pre_server_artifact_and_external_sha256: true
+  formal_evaluation_during_pipeline_preparation: forbidden
+  frozen_prediction_access_during_freeze: forbidden
+  dev_prediction_access: allowed_for_checkpoint_and_threshold_selection_only
+  qwen_role: high_level_supervisor_only
+  continuous_actuator_output: forbidden
+  continuous_action_source: frozen_h1_one_step_cem
+
+finalization:
+  final_checkpoint_path: REQUIRED_SERVER_SIDE_SELECTED_CHECKPOINT_BUNDLE_BEFORE_FREEZE
+  final_checkpoint_sha256: REQUIRED_SERVER_SIDE_TREE_HASH_BEFORE_FREEZE
+  training_config_path: qwen_vl_supervisor_v1/configs/training_server.yaml
+  training_config_sha256: 4354f527460e59f085589153e5b071a7e9a29fbd41e6ca4f625a826463f913e5
+  training_seeds: [2026080101, 2026080102, 2026080103]
+  checkpoint_selection_rule:
+    unit: each_declared_training_seed
+    selection_split: dev_only
+    eligible_checkpoints: all_complete_saved_checkpoints_for_that_seed
+    rank_order:
+      - highest_joint_diagnosis_policy_action_exact_accuracy
+      - highest_diagnosis_macro_f1
+      - highest_valid_json_rate
+      - lowest_optimizer_step
+      - lexicographically_lowest_checkpoint_tree_sha256
+    cross_seed_policy: select_one_checkpoint_per_declared_training_seed_and_report_every_seed
+    frozen_test_use: never_select_or_threshold_on_frozen_iid_or_frozen_ood
+  threshold_selection_rule:
+    source: dev_only
+    qwen_decoding: deterministic_greedy_no_confidence_threshold
+    baseline_thresholds: selected_on_dev_then_recorded_in_the_freeze_artifact
+    frozen_test_retuning: forbidden
+
+manifests:
+  train:
+    path: qwen_vl_supervisor_v1/manifests/manifest_train.jsonl
+    legal_use: train_A_and_C_only
+  dev:
+    path: qwen_vl_supervisor_v1/manifests/manifest_dev.jsonl
+    legal_use: checkpoint_baseline_and_threshold_selection_only
+  frozen_iid:
+    path: qwen_vl_supervisor_v1/manifests/manifest_frozen_iid.jsonl
+    legal_use: one_formal_setup_disjoint_IID_evaluation_after_freeze
+  frozen_ood:
+    path: qwen_vl_supervisor_v1/manifests/manifest_frozen_ood.jsonl
+    legal_use: one_formal_saturation_severity_OOD_evaluation_after_freeze
+    limitation: contains_no_valid_width_relative_reflection_severity_OOD_records
+
+comparison_matrix:
+  A:
+    name: strongest_metrics_only_rule_or_mlp
+    model_visible_inputs:
+      - current_five_metrics
+      - goal_metrics
+      - legal_recent_numerical_history
+      - remaining_step_budget
+      - legal_actuator_constraints
+    forbidden_inputs:
+      - current_image
+      - anomaly_family
+      - provenance
+      - setup_or_pair_identity
+      - future_or_post_decision_information
+    candidates:
+      - deterministic_frozen_rules
+      - standardized_multinomial_logistic_regression
+      - standardized_one_hidden_layer_mlp
+    training_split: train
+    selection_split: dev
+    selection_rule:
+      - highest_joint_diagnosis_policy_action_exact_accuracy
+      - highest_diagnosis_macro_f1
+      - highest_valid_json_rate
+      - lowest_model_complexity
+      - lexicographically_lowest_candidate_name
+    output_contract: same_three_frozen_supervisor_enums_as_C
+  B:
+    name: previously_validated_small_image_diagnostic
+    role: fixed_reference_not_a_VLM
+    inputs: current_128x128_grayscale_image_plus_five_metrics
+    evaluator_only_family_routing: forbidden
+    unified_inference_rule:
+      description: run_both_binary_specialists_then_apply_one_dev_frozen_arbitration
+      score_domain: calibrated_probability_closed_unit_interval
+      nominal_rule: both_scores_strictly_below_their_selected_thresholds
+      anomaly_rule: otherwise_choose_larger_normalized_margin_above_threshold
+      normalized_margin_formula: (score-threshold)/max(abs(threshold),1e-12)
+      threshold_comparator_for_anomaly: greater_than_or_equal
+      tie_order: [nominal, sensor_saturation, secondary_reflection]
+      threshold_source: dev_only
+      output_mapping:
+        nominal: [nominal, standard, execute]
+        sensor_saturation: [sensor_saturation, lower_exposure_reacquire, reacquire]
+        secondary_reflection: [secondary_reflection, primary_spot, switch_measurement]
+    fixed_specialists:
+      saturation_multimodal_small_model:
+        path: runs/vlm_optics_benchmark_20260801_154812/models/sensor_saturation_multimodal_cnn.pt
+        sha256: 2613628028a122a73c9cac8705cb8ec49125d8d00bf45ef18b12c19722acf5b7
+      width_relative_reflection_selected_diagnostic:
+        path: reflection_width_relative/models/selected_diagnostic.pt
+        sha256: 45f95f6c580842dcdd5dcaa61a7eff732f071343dd7ce8c748d701051e5555bb
+    scientific_caveat: reflection_specialist_is_a_provisional_reference_and_did_not_strictly_pass_every_preregistered_gate
+  C:
+    name: qwen_vl_supervisor
+    inputs: exactly_one_current_image_plus_the_frozen_structured_model_input_allowlist
+    output: exactly_one_canonical_JSON_object_with_three_frozen_enums
+    checkpoint_policy: one_dev_selected_checkpoint_for_every_declared_training_seed
+    decoding:
+      do_sample: false
+      num_beams: 1
+      temperature: null
+      top_p: null
+      output_continuous_actuator_actions: forbidden
+  D:
+    name: oracle_diagnosis_and_decision
+    inputs: evaluator_only_ground_truth
+    output_mapping:
+      nominal: [nominal, standard, execute]
+      sensor_saturation: [sensor_saturation, lower_exposure_reacquire, reacquire]
+      secondary_reflection: [secondary_reflection, primary_spot, switch_measurement]
+    continuous_actions: still_selected_only_by_the_same_frozen_controller
+    role: upper_bound_not_deployable
+
+offline_evaluation:
+  splits: [frozen_iid, frozen_ood]
+  primary_split: frozen_iid
+  prediction_join_key: sample_id
+  invalid_or_missing_predictions: count_as_incorrect_for_every_supervised_field
+  required_metrics:
+    - valid_json_rate
+    - diagnosis_balanced_accuracy
+    - diagnosis_macro_f1
+    - diagnosis_per_class_precision
+    - diagnosis_per_class_recall
+    - measurement_policy_accuracy
+    - supervisor_action_macro_f1
+    - joint_diagnosis_policy_action_exact_accuracy
+    - diagnosis_confusion_matrix
+    - measurement_policy_confusion_matrix
+    - supervisor_action_confusion_matrix
+    - performance_by_anomaly_family
+    - reflection_performance_by_beam_width_quartile
+    - boundary_versus_non_boundary_performance
+    - performance_by_severity
+  denominators:
+    valid_json_rate: every_expected_record
+    field_metrics: records_where_that_target_field_mask_is_true
+    joint_exact: records_where_all_three_target_field_masks_are_true
+    absent_class_behavior: report_support_zero_and_do_not_invent_a_score
+  continue_stop_masking:
+    static_anomaly_policy_records_have_valid_execute_reacquire_or_switch_measurement_targets: true
+    per_class_continue_stop_scores_on_static_records: forbidden
+    future_records_without_temporal_action_supervision: mask_supervisor_action_and_exclude_from_action_and_joint_denominators
+    generated_continue_or_stop_on_a_supervised_static_action_record: incorrect_for_action_and_joint_metrics
+  training_seed_reporting:
+    seed_source: every_seed_declared_by_the_hashed_training_server_config
+    report_each_seed: true
+    aggregate_statistics: [mean, population_standard_deviation, minimum, maximum]
+    suppress_unfavorable_seed_or_subgroup: forbidden
+  offline_arm_seed_semantics:
+    C:
+      prediction_rows: every_declared_integer_training_seed
+      reducer_seed_gate: evaluation_config
+      duplication: forbidden_beyond_one_row_per_sample_per_training_seed
+    A_B_D:
+      prediction_rows: one_deterministic_output_per_sample_with_seed_label_deterministic_reference
+      reducer_seed_gate: expected_seeds_deterministic_reference
+      duplicate_across_C_training_seeds: forbidden
+
+subgroups:
+  anomaly_family:
+    source: provenance.anomaly_family
+    values: [sensor_saturation, secondary_reflection]
+    include_nominal_counterfactual_pair_members: true
+    note: evaluator_metadata_only_never_model_input_and_distinct_from_target_diagnosis
+  diagnosis_class:
+    source: target.diagnosis
+    values: [nominal, sensor_saturation, secondary_reflection]
+  reflection_width_quartile:
+    source: provenance.width_quartile
+    values: [Q1, Q2, Q3, Q4]
+    include_nominal_counterfactual_pair_members: true
+  boundary_status:
+    source: provenance.boundary_status
+    values: [boundary, non_boundary]
+    include_nominal_counterfactual_pair_members: true
+  severity:
+    source: provenance.severity_bucket
+    report_every_observed_bucket: true
+    width_relative_severity_ood_conclusion: unavailable
+  minimum_support_policy: always_report_n_and_metric_even_when_n_is_small
+
+closed_loop_evaluation:
+  arms: [A, B, C, D]
+  paired_invariants:
+    identical_initial_states: true
+    identical_setup_groups: true
+    identical_target_states: true
+    identical_planner_root_seeds: true
+    identical_cem_population_and_sampling_budget: true
+    identical_numerical_action_budget: true
+    identical_maximum_step_budget: true
+    deep_copy_initial_state_per_arm: true
+  suite_registry:
+    sensor_saturation:
+      path: runs/vlm_optics_benchmark_20260801_154812/external_suite_manifest.json
+      sha256: 02a7033a77d55ebbfa6bca4e81b6a46d47dfe30e1de8173525255147e04a98cf
+      legal_use: evaluation_only
+    width_relative_reflection:
+      path: reflection_width_relative/suites/iid_heldout_suite.json
+      sha256: 500bd912049b0775255018d3feaea237745552db70f51e8dba1c6cd074ec55f6
+      legal_use: evaluation_only
+  controller:
+    official_backbone: branch_a_probe_replan_h1_cem_with_frozen_visible_sequential_rule_max8
+    forward_model: learned_H1_ensemble_three_members
+    imagined_model_horizon: 1
+    planner: one_step_CEM_replanned_after_every_real_observation
+    gain_handling: frozen_gain_aware_probe_and_replanning_where_applicable
+    continuation: frozen_visible_rule_using_real_observations_only
+    maximum_horizon: 8
+    population: 24
+    elites: 6
+    cem_iterations: 3
+    success_threshold_normalized_tolerances: 1.0
+    target_distance: maximum_absolute_error_in_initial_state_tolerances
+    recovery_adds_actuator_steps: false
+    per_step_action_bounds_mm:
+      lens_x: [-0.05, 0.05]
+      lens_y: [-0.05, 0.05]
+      camera_x: [-0.02, 0.02]
+      camera_y: [-0.02, 0.02]
+  evaluation_seeds:
+    planner_root_seeds: [2026081101, 2026081102]
+    provenance: previously_preregistered_frozen_controller_seeds_reused_as_defaults
+    finalization_rule: exact_list_is_hashed_by_freeze_utility_and_must_not_change_after_any_formal_prediction
+    paired_bootstrap_seed: 2026081199
+    paired_bootstrap_samples: 10000
+  required_metrics:
+    - strict_all_five_success
+    - matched_recoveries
+    - matched_regressions
+    - final_normalized_target_distance
+    - executed_steps
+    - actuator_saturation
+    - hard_constraint_violations
+    - results_by_family
+    - results_by_width_quartile
+    - results_by_boundary_status
+    - exact_qwen_versus_oracle_disagreements
+    - diagnosis_correct_but_control_failed_cases
+    - diagnosis_wrong_but_accidentally_recovered_cases
+  reporting:
+    every_training_seed: true
+    every_planner_seed: true
+    aggregate_over_training_and_planner_seeds: true
+    matched_recovery_reference_arm: A
+    disagreements_include_exact_setup_hash_and_paired_outcomes: true
+
+immutable_artifacts:
+  server_training_commands:
+    path: qwen_vl_supervisor_v1/server_training_commands.md
+    sha256: 40dd63a31fd0b7dc9f0d1eb0a0e4b1b4e0f07356d901e5a21112b3a987f19eca
+  dev_checkpoint_selector:
+    path: qwen_vl_supervisor_v1/select_dev_checkpoints.py
+    sha256: 866f9e2ba7ec39ffc7701f59ba4b5931b02c178da9e3543cdf8f3b269ecf10fe
+  dev_selection_artifact_schema:
+    path: qwen_vl_supervisor_v1/schema/dev_selection_artifact.schema.json
+    sha256: bff1c8a586b8240d784bced12ed178cfb2126ab5f62b108a3563f701880de578
+  server_selection_commands:
+    path: qwen_vl_supervisor_v1/server_selection_commands.md
+    sha256: 75086eeff2a5a76ab5163aec22817de53a3c0193ecaabfae0951ab25aab77418
+  baseline_dev_selection_validator:
+    path: qwen_vl_supervisor_v1/validate_baseline_dev_selection.py
+    sha256: b5d3c8c3989de31dbe960f921b7862f464416422dc4d119d96583d8f4bb3d533
+  baseline_dev_selection_artifact_schema:
+    path: qwen_vl_supervisor_v1/schema/baseline_dev_selection_artifact.schema.json
+    sha256: cbd37bf94bf129814ab0d7624b30e02481cd1b02bb8922df315f08d5979faeb8
+  server_baseline_selection_commands:
+    path: qwen_vl_supervisor_v1/server_baseline_selection_commands.md
+    sha256: cbccca9375f7bfdfacfc3e113a1917b80ccb657a00046bbe1dfc487e78da6f79
+  reproduction_commands:
+    path: qwen_vl_supervisor_v1/reproduction_commands.md
+    sha256: 9dc7dca2523ea81ae7a67f9e8a30cc93cc4831be1ab4c775eeb51d26a54b61fe
+  saturation_generator_behavior:
+    provenance_sha256: 959e6bfee86c4658dfdb0fb0d1ef51dc74074534464294b38d11ee6e7804c281
+    verification: must_match_manifest_provenance
+  width_relative_reflection_generator:
+    provenance_sha256: ae3aaa76c93327366b011868f7c3adbe22e7e7252abe86c22a9a5b1b9b57f747
+    verification: must_match_manifest_provenance
+  saturation_generator_runtime:
+    path: vlm_optics_benchmark/visual_anomalies.py
+    sha256: 233f5c56676b5d1be6ee5f72b0caf8df9897e3f1b51cebe1720e5cd2519f1158
+  width_relative_reflection_generator_runtime:
+    path: vlm_optics_benchmark/reflection_width_relative.py
+    sha256: 7d720c458e26f8ef05f9b28cc85fef4843abcd3a4757ce56f3cfa1b3d8605613
+  forward_ensemble:
+    path: runs/overnight_v12_semantics_20260731_002709/models/lc_128g_v2/continuous_forward_v12_128g.pt
+    sha256: d9b30627c80817f6ecade1959d8cc9e91e7a9de9cc51485153fdbfaa173aca2e
+  corrected_v12_config:
+    path: continuous_control_v12/config_v12_semantics_v2.json
+    sha256: 77cb8bfc8cc064e32ab3cbf473e10f94df5c4ca53869ae235bb5eee782b81ff8
+  v13_config:
+    path: active_diagnosis_v13/config_v13.json
+    sha256: 4f5652b0532c039d22684dc89e3c4c90aa2c34f5226c86a85db6f71ae65e3a18
+  cem_runtime:
+    path: continuous_control_v12/mpc.py
+    sha256: bfa5f50d1c053b7f2dcbc2b6c5f8544d0165e572706264a02568d2eed8085d78
+  gain_probe_model:
+    path: runs/active_diagnosis_v13_20260801_010051/development/ablations/models/no_residual_history.joblib
+    sha256: f9e826e9336471e664ecfc336b104750c0574bc5fed1f53a83fa80bb2de12af3
+  sequential_rule_report:
+    path: runs/active_diagnosis_v13_20260801_010051/development/sequential_horizon_rule_probe_seed1.json
+    sha256: 29f6234d3abbc92d5f621c625434d32a5e785187c18a10b0cf8d182c73f89438
+  visual_controller_runtime:
+    path: vlm_optics_benchmark/visual_control.py
+    sha256: c309a29e96913730b6b0bf015c92bd865415f50d6350ef0f0287dde9397f2a50
+
+known_reflection_limitations:
+  engineering_decision: provisional_GO_for_Qwen_VL_training
+  strict_preregistered_pass_claim: forbidden
+  Q1_narrow_beam_accuracy_percent: 68.75
+  width_quartile_gap_percentage_points: 31.25
+  boundary_accuracy_percent: 75.0
+  valid_width_relative_severity_OOD_conclusion: false
+  visibility_rule: Q1_and_boundary_results_must_appear_in_every_seed_report_and_aggregate
+
+primary_research_tests:
+  test_1:
+    question: Does_Qwen_VL_outperform_A_on_setup_disjoint_IID
+    primary_metric: diagnosis_balanced_accuracy
+    comparison_statistic: mean_over_all_declared_C_training_seeds_minus_the_single_dev_selected_A_baseline
+    pass_rule: comparison_statistic_strictly_greater_than_0_on_frozen_IID
+    visibility_rule: every_individual_C_seed_and_the_aggregate_must_be_reported
+  test_2:
+    question: Does_Qwen_VL_improve_closed_loop_success_without_material_safety_regression
+    efficacy_rule: C_minus_A_strict_success_at_least_0.05_OR_at_least_5_matched_recoveries
+    safety_rule:
+      maximum_actuator_saturation_rate_increase: 0.05
+      maximum_hard_constraint_violation_count_increase: 0
+    pass_rule: efficacy_rule_AND_safety_rule
+  test_3:
+    question: How_close_is_Qwen_VL_to_B_and_D
+    rule: descriptive_absolute_and_paired_gaps_for_all_offline_and_closed_loop_primary_metrics
+  test_4:
+    question: Does_the_reflection_Q1_boundary_weakness_remain
+    rule: always_report_Q1_Q2_Q3_Q4_and_boundary_non_boundary_with_support_for_every_seed_and_aggregate
+    pass_fail_use: descriptive_only_and_never_relabels_reflection_as_a_strict_pass
+
+exact_commands:
+  prepare_protocol_artifact: >-
+    python qwen_vl_supervisor_v1/scripts/freeze_evaluation.py prepare
+    --config qwen_vl_supervisor_v1/configs/evaluation_frozen.yaml
+    --output qwen_vl_supervisor_v1/artifacts/evaluation_protocol_freeze.json
+    --authorize-pre-server-protocol-freeze
+  create_freeze_artifact: >-
+    python qwen_vl_supervisor_v1/scripts/freeze_evaluation.py freeze
+    --config qwen_vl_supervisor_v1/configs/evaluation_frozen.yaml
+    --output qwen_vl_supervisor_v1/artifacts/evaluation_freeze.json
+    --preparation-artifact qwen_vl_supervisor_v1/artifacts/evaluation_protocol_freeze.json
+    --preparation-artifact-sha256 "$EVALUATION_PROTOCOL_FREEZE_SHA256"
+    --final-checkpoint "$FINAL_CHECKPOINT"
+    --final-checkpoint-sha256 "$FINAL_CHECKPOINT_SHA256"
+    --training-config qwen_vl_supervisor_v1/configs/training_server.yaml
+    --training-config-sha256 "$TRAINING_CONFIG_SHA256"
+    --dev-selection-artifact "$DEV_SELECTION_ARTIFACT"
+    --dev-selection-artifact-sha256 "$DEV_SELECTION_ARTIFACT_SHA256"
+    --baseline-dev-selection-artifact "$BASELINE_DEV_SELECTION_ARTIFACT"
+    --baseline-dev-selection-artifact-sha256 "$BASELINE_DEV_SELECTION_ARTIFACT_SHA256"
+    --prediction-runner "$PREDICTION_RUNNER"
+    --prediction-runner-sha256 "$PREDICTION_RUNNER_SHA256"
+    --prediction-command "$PREDICTION_COMMAND"
+    --closed-loop-runner "$CLOSED_LOOP_RUNNER"
+    --closed-loop-runner-sha256 "$CLOSED_LOOP_RUNNER_SHA256"
+    --closed-loop-command "$CLOSED_LOOP_COMMAND"
+    --authorize-formal-evaluation-freeze
+  verify_formal_gate: >-
+    python qwen_vl_supervisor_v1/scripts/freeze_evaluation.py verify
+    --freeze-artifact qwen_vl_supervisor_v1/artifacts/evaluation_freeze.json
+    --freeze-artifact-sha256 "$EVALUATION_FREEZE_SHA256"
+    --final-checkpoint "$FINAL_CHECKPOINT"
+    --final-checkpoint-sha256 "$FINAL_CHECKPOINT_SHA256"
+    --training-config qwen_vl_supervisor_v1/configs/training_server.yaml
+    --training-config-sha256 "$TRAINING_CONFIG_SHA256"
+    --formal-evaluation
+  offline_reduce_formal_matrix: >-
+    set -euo pipefail;
+    for SPLIT in frozen_iid frozen_ood; do
+    for ARM in A B D; do
+    python -m qwen_vl_supervisor_v1.evaluate_offline
+    --manifest "qwen_vl_supervisor_v1/manifests/manifest_${SPLIT}.jsonl"
+    --predictions "$FORMAL_OUTPUT/$SPLIT/arm_${ARM}_predictions.jsonl"
+    --expected-seeds deterministic_reference
+    --output "$FORMAL_OUTPUT/$SPLIT/offline_arm_${ARM}.json";
+    done;
+    python -m qwen_vl_supervisor_v1.evaluate_offline
+    --manifest "qwen_vl_supervisor_v1/manifests/manifest_${SPLIT}.jsonl"
+    --predictions "$FORMAL_OUTPUT/$SPLIT/arm_C_predictions_all_training_seeds.jsonl"
+    --evaluation-config qwen_vl_supervisor_v1/configs/evaluation_frozen.yaml
+    --output "$FORMAL_OUTPUT/$SPLIT/offline_arm_C.json";
+    done
+  prediction_and_closed_loop_runner: REQUIRED_SERVER_SIDE_INTEGRATION_COMMAND_AND_SHA256_BEFORE_FREEZE
+  command_policy: run_verify_formal_gate_with_shell_AND_before_any_formal_prediction_or_closed_loop_command
+
+claims:
+  sensor_saturation: formally_validated
+  width_relative_reflection: provisional_engineering_GO_only
+  smoke_test_can_validate_scientific_performance: false
+  formal_frozen_evaluation_completed: false

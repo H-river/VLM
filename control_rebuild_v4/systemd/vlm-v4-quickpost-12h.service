@@ -1,0 +1,26 @@
+[Unit]
+Description=Train and validate VLM v4 12-hour quickcheck
+ConditionPathExists=!/home/jiamo/VLM_runs/control_rebuild_v4_quickcheck_12h/quickcheck_pipeline.complete
+StartLimitIntervalSec=3600
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/bin/bash /home/jiamo/VLM/control_rebuild_v4/run_quickcheck_pipeline.sh
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+Nice=10
+IOSchedulingClass=idle
+CPUQuota=100%
+AllowedCPUs=8
+MemoryHigh=3221225472
+MemoryMax=4294967296
+MemorySwapMax=268435456
+TasksMax=64
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:/tmp/vlm-v4-quickpost-12h.log
+StandardError=append:/tmp/vlm-v4-quickpost-12h.log

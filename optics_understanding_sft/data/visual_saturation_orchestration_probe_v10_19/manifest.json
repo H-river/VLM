@@ -1,0 +1,11 @@
+{
+  "canonical_hash": "8792fa347f797bb1f8132a81d6c0fb670868ebcd2555c1bf2a16faffa7157ded",
+  "dataset": "visual_saturation_orchestration_probe_v10_19",
+  "record_count": 30,
+  "seed": 61,
+  "source_count": 10,
+  "source_counts": {
+    "saturation_clip_180:visual_pair_direction_extraction": 5,
+    "saturation_clip_180:visual_state_classification": 5
+  }
+}

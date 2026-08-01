@@ -1,0 +1,78 @@
+{
+  "control_grid_failure_count": 0,
+  "control_target_error_difference_px_mean": 0.5562146666666663,
+  "control_target_error_difference_px_p95": 1.779200000000003,
+  "control_target_error_threshold_accuracy": 0.6183333333333333,
+  "dataset_dir": "/home/jiamo/VLM/optics_understanding_sft/data/evidence_v5a_source",
+  "failures": [],
+  "grounding_failure_count": 0,
+  "manifest_record_count": 1200,
+  "member_order_counts": {
+    "answerable|insufficient_information|infeasible_within_limits|feasible": 150,
+    "feasible|infeasible_within_limits|insufficient_information|answerable": 150
+  },
+  "minimal_pair_count": 600,
+  "nonfinite_count": 0,
+  "pair_prompt_delta_counts": {
+    "compatible_hidden_values_mm": 300,
+    "target_observation": 300
+  },
+  "passed": true,
+  "prompt_leak_count": 0,
+  "record_count": 1200,
+  "reference_overlap": {
+    "action_first_v3": {
+      "example_id_overlap": 0,
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0
+    },
+    "corrective_v2": {
+      "example_id_overlap": 0,
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0
+    },
+    "dev_v2": {
+      "example_id_overlap": 0,
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0
+    },
+    "hard_pairs_v4": {
+      "example_id_overlap": 0,
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0
+    },
+    "pilot_v1": {
+      "example_id_overlap": 0,
+      "group_id_overlap": 0,
+      "scenario_seed_overlap": 0
+    }
+  },
+  "replay": {
+    "count": 9600,
+    "failure_count": 0,
+    "failures": [],
+    "max_abs_error": 4.9993382930324515e-05,
+    "workers": 4
+  },
+  "scenario_count": 300,
+  "schema_failure_count": 0,
+  "status_counts": {
+    "constrained_intervention": {
+      "feasible": 300,
+      "infeasible_within_limits": 300
+    },
+    "information_sufficiency": {
+      "answerable": 300,
+      "insufficient_information": 300
+    }
+  },
+  "sufficiency_hidden_field_counts": {
+    "lens_x_delta_mm": 600
+  },
+  "sufficiency_order_shortcut_accuracy": 0.5,
+  "sufficiency_sign_signature_shortcut_accuracy": 0.5,
+  "task_counts": {
+    "constrained_intervention": 600,
+    "information_sufficiency": 600
+  }
+}

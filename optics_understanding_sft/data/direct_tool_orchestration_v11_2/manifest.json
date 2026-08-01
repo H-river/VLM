@@ -1,0 +1,15 @@
+{
+  "canonical_hash": "c574cdf14dbc531e01f431a87fba151ffa636fad34efe18dde4306d2bc2a7d05",
+  "dataset": "direct_tool_orchestration_v11_2",
+  "observation_registry_count": 27,
+  "record_count": 90,
+  "sealed_evaluation_opened": false,
+  "setup_registry_count": 10,
+  "source_count": 30,
+  "source_task_counts": {
+    "causal_effects": 10,
+    "diagnosis": 10,
+    "setup_interpretation": 10
+  },
+  "target_reconstruction_exact": true
+}

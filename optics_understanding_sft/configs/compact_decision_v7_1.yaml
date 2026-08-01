@@ -1,0 +1,24 @@
+dataset:
+  name: optics_understanding_compact_decision_v7_1
+  version: compact_decision_v7_1
+  source_version: evidence_grounded_v5a
+  trial_train_scenarios: 80
+  mapping_refresh_scenarios: 20
+
+promotion_gates:
+  schema_valid_rate: 0.98
+  tool_choice_accuracy: 0.95
+  source_mapping_exact_match: 0.95
+  mapped_tool_execution_match: 0.98
+  compact_decision_exact_match: 0.90
+  interpretation_status_macro_f1: 0.90
+  pair_joint_status_accuracy: 0.85
+  end_to_end_exact_match: 0.80
+
+protocol:
+  starting_checkpoint: qwen25vl_3b_qlora_path_mapping_v7_seed42
+  seed: 42
+  focus_design: 320 compact interpretations plus 80 source-mapping refresh records
+  preservation_anchors_per_original_task: 20
+  sealed_confirmation_policy: open only after every public development gate passes
+  paid_api_calls: 0

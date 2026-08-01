@@ -1,0 +1,45 @@
+{
+  "adapter_path": "/home/jiamo/VLM_runs/qwen_orchestrator_v1_stage1_seed20260724/checkpoint-750",
+  "canonical_jsonl": "/home/jiamo/VLM_data/qwen_orchestration/v1/canonical/val.jsonl",
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 96,
+    "temperature": 0.0
+  },
+  "input_jsonl": "/home/jiamo/VLM_data/qwen_orchestration/v1/exports/qwen/val_stage1.jsonl",
+  "metrics": {
+    "clarification_recall": 1.0,
+    "count": 280,
+    "ready_prediction_on_unsupported": 0.0,
+    "ready_route_exact_accuracy": 1.0,
+    "route_confusion": {
+      "None->None": 140,
+      "measure_beam_profile_v1->measure_beam_profile_v1": 20,
+      "predict_direction_from_image_v1->predict_direction_from_image_v1": 20,
+      "predict_direction_from_state_v1->predict_direction_from_state_v1": 20,
+      "predict_forward_from_image_v1->predict_forward_from_image_v1": 20,
+      "predict_forward_from_state_v1->predict_forward_from_state_v1": 20,
+      "select_inverse_action_from_images_v1->select_inverse_action_from_images_v1": 20,
+      "select_inverse_action_from_states_v1->select_inverse_action_from_states_v1": 20
+    },
+    "route_exact_accuracy_all": 1.0,
+    "schema_valid_rate": 1.0,
+    "status_confusion": {
+      "needs_clarification->needs_clarification": 70,
+      "ready->ready": 140,
+      "unsupported->unsupported": 70
+    },
+    "status_exact_accuracy": 1.0,
+    "task_confusion": {
+      "None->None": 70,
+      "beam_profile_measurement->beam_profile_measurement": 28,
+      "direction_prediction->direction_prediction": 40,
+      "forward_prediction->forward_prediction": 84,
+      "inverse_control->inverse_control": 58
+    },
+    "task_exact_accuracy": 1.0,
+    "unsupported_recall": 1.0
+  },
+  "stage": "stage1",
+  "subset": "diagnostic"
+}

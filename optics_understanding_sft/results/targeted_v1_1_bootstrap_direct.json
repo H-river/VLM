@@ -1,0 +1,25 @@
+{
+  "method": "paired scenario-group nonparametric bootstrap",
+  "equal_task_macro": true,
+  "seed": 42,
+  "replicates": 10000,
+  "scenario_groups": 30,
+  "point_scores": {
+    "targeted_continue20": 0.5279431216931216,
+    "targeted_fresh40": 0.5376322751322752
+  },
+  "comparisons": {
+    "targeted_fresh40": {
+      "candidate": "targeted_fresh40",
+      "reference": "targeted_continue20",
+      "point_difference": 0.009689153439153553,
+      "bootstrap_mean_difference": 0.009783197914970483,
+      "ci95": [
+        -0.047784416767872644,
+        0.0705221360719481
+      ],
+      "probability_candidate_better": 0.6208,
+      "probability_tie": 0.0001
+    }
+  }
+}

@@ -1,0 +1,119 @@
+registry_version: qwen_orchestration_registry_v1
+freeze_id: qwen_orchestration_baseline_20260724
+
+task_types:
+  - beam_profile_measurement
+  - direction_prediction
+  - forward_prediction
+  - inverse_control
+
+statuses:
+  - ready
+  - needs_clarification
+  - unsupported
+
+deterministic_defaults:
+  inverse_action_grid:
+    lens_x_delta_mm: [-0.05, 0.0, 0.05]
+    lens_y_delta_mm: [-0.05, 0.0, 0.05]
+    camera_x_delta_mm: [-0.02, 0.0, 0.02]
+    camera_y_delta_mm: [-0.02, 0.0, 0.02]
+  inverse_matching_tolerance:
+    centroid_vector_px: 0.5
+    width_each_px: 1.0
+    peak_relative: 0.02
+
+routes:
+  measure_beam_profile_v1:
+    enabled: true
+    task_type: beam_profile_measurement
+    observation_mode: visual
+    operation: Measure centroid x/y, sigma x/y, and peak intensity from one calibrated beam image.
+    implementation_status: ready
+    required_argument_groups: [image_calibration]
+    required_image_roles: [beam]
+    forbidden_argument_groups: [current_beam_state, desired_beam_state, action]
+    specialist_artifacts: []
+    source_implementation: optics_understanding_sft/direction_inverse_v1/evaluate_visual_pipeline.py
+
+  predict_direction_from_state_v1:
+    enabled: true
+    task_type: direction_prediction
+    observation_mode: numeric
+    operation: Predict decrease, no_change, or increase for five beam quantities under a proposed action.
+    implementation_status: ready
+    required_argument_groups: [setup, current_beam_state, action]
+    required_image_roles: []
+    forbidden_argument_groups: [desired_beam_state, image_calibration]
+    specialist_artifacts:
+      - optics_understanding_sft/direction_inverse_v1/results/direction_small_v1/direction_small_ensemble.pkl
+    source_implementation: optics_understanding_sft/direction_inverse_v1/train_direction_small.py
+
+  predict_direction_from_image_v1:
+    enabled: true
+    task_type: direction_prediction
+    observation_mode: visual
+    operation: Measure a calibrated current beam image, then predict five qualitative changes under a proposed action.
+    implementation_status: ready
+    required_argument_groups: [setup, action, image_calibration]
+    required_image_roles: [current_beam]
+    forbidden_argument_groups: [current_beam_state, desired_beam_state]
+    specialist_artifacts:
+      - optics_understanding_sft/direction_inverse_v1/results/direction_small_v1/direction_small_ensemble.pkl
+    source_implementation: Qwen_orchestration/runtime/specialists.py plus frozen image meter and direction bundle
+
+  predict_forward_from_state_v1:
+    enabled: true
+    task_type: forward_prediction
+    observation_mode: numeric
+    operation: Predict five numerical beam changes and their qualitative directions under a proposed action.
+    implementation_status: ready
+    required_argument_groups: [setup, current_beam_state, action]
+    required_image_roles: []
+    forbidden_argument_groups: [desired_beam_state, image_calibration]
+    specialist_artifacts:
+      - optics_understanding_sft/direction_inverse_v1/results/forward_hybrid_v1/forward_hybrid.pkl
+    source_implementation: optics_understanding_sft/direction_inverse_v1/train_forward_small.py
+
+  predict_forward_from_image_v1:
+    enabled: true
+    task_type: forward_prediction
+    observation_mode: visual
+    operation: Measure a calibrated current beam image, then predict five numerical changes under a proposed action.
+    implementation_status: ready
+    required_argument_groups: [setup, action, image_calibration]
+    required_image_roles: [current_beam]
+    forbidden_argument_groups: [current_beam_state, desired_beam_state]
+    specialist_artifacts:
+      - optics_understanding_sft/direction_inverse_v1/results/forward_hybrid_v1/forward_hybrid.pkl
+    source_implementation: Qwen_orchestration/runtime/specialists.py plus frozen image meter and forward bundle
+
+  select_inverse_action_from_states_v1:
+    enabled: true
+    task_type: inverse_control
+    observation_mode: numeric
+    operation: Select one action from the frozen 81-action grid to transform numerical beam state A into B.
+    implementation_status: ready
+    required_argument_groups: [setup, current_beam_state, desired_beam_state]
+    required_image_roles: []
+    forbidden_argument_groups: [action, image_calibration]
+    specialist_artifacts:
+      - optics_understanding_sft/direction_inverse_v1/results/inverse_direct_v1/inverse_direct.pkl
+      - optics_understanding_sft/direction_inverse_v1/results/forward_hybrid_v1/forward_hybrid.pkl
+      - optics_understanding_sft/direction_inverse_v1/results/forward_grid_hybrid_v1/forward_hybrid.pkl
+      - optics_understanding_sft/direction_inverse_v1/results/inverse_ensemble_v1/summary.json
+    source_implementation: optics_understanding_sft/direction_inverse_v1/evaluate_inverse_ensemble.py
+
+  select_inverse_action_from_images_v1:
+    enabled: true
+    task_type: inverse_control
+    observation_mode: visual
+    operation: Measure calibrated current and desired beam images, then select one action from the frozen 81-action grid.
+    implementation_status: ready
+    required_argument_groups: [setup, image_calibration]
+    required_image_roles: [current_beam, desired_beam]
+    forbidden_argument_groups: [current_beam_state, desired_beam_state, action]
+    specialist_artifacts:
+      - optics_understanding_sft/direction_inverse_v1/results/forward_grid_hybrid_v1/forward_hybrid.pkl
+      - optics_understanding_sft/direction_inverse_v1/results/visual_pipeline_sensor_v1/summary.json
+    source_implementation: optics_understanding_sft/direction_inverse_v1/evaluate_visual_pipeline.py

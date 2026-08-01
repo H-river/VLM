@@ -1,0 +1,92 @@
+{
+  "calibration_selected_on": "val",
+  "controller_calibration": {
+    "ambiguity_margin": 0.2,
+    "feasibility_cutoff": 4.25,
+    "validation_status_macro_f1": 0.3559510567296997
+  },
+  "eval_iid": {
+    "controller": {
+      "count": 45,
+      "selected_acceptable_feasible": 0.03333333333333333,
+      "selected_action_target_success_feasible": 0.0,
+      "selected_exact_all": 0.0,
+      "selected_exact_feasible": 0.0,
+      "status_accuracy": 0.26666666666666666,
+      "status_macro_f1": 0.21367521367521367,
+      "zero_action_target_success_feasible": 0.0
+    },
+    "measurement": {
+      "centroid_x_px_mae": 10.817803101873364,
+      "centroid_x_px_max_error": 23.952401603908868,
+      "centroid_y_px_mae": 9.411713503580225,
+      "centroid_y_px_max_error": 26.206633789273553,
+      "pair_count": 45,
+      "peak_intensity_mae": 11.199404210300449,
+      "peak_intensity_max_error": 107.26026354600656,
+      "sigma_x_px_mae": 3.816586322017122,
+      "sigma_x_px_max_error": 24.589629465595465,
+      "sigma_y_px_mae": 3.4518001509910494,
+      "sigma_y_px_max_error": 21.541559691347658,
+      "state_count": 90,
+      "strict_all_five_state_success": 0.011111111111111112
+    }
+  },
+  "eval_ood": {
+    "controller": {
+      "count": 78,
+      "selected_acceptable_feasible": 0.019230769230769232,
+      "selected_action_target_success_feasible": 0.0,
+      "selected_exact_all": 0.01282051282051282,
+      "selected_exact_feasible": 0.019230769230769232,
+      "status_accuracy": 0.3974358974358974,
+      "status_macro_f1": 0.31972626720776637,
+      "zero_action_target_success_feasible": 0.0
+    },
+    "measurement": {
+      "centroid_x_px_mae": 11.381542296617612,
+      "centroid_x_px_max_error": 25.322142385205893,
+      "centroid_y_px_mae": 13.405160009418218,
+      "centroid_y_px_max_error": 28.150397847308113,
+      "pair_count": 78,
+      "peak_intensity_mae": 35.161342510917216,
+      "peak_intensity_max_error": 313.0391208278602,
+      "sigma_x_px_mae": 7.558481900359719,
+      "sigma_x_px_max_error": 44.864536762505466,
+      "sigma_y_px_mae": 7.990277255958304,
+      "sigma_y_px_max_error": 56.19331067302227,
+      "state_count": 156,
+      "strict_all_five_state_success": 0.0
+    }
+  },
+  "image_model": "deterministic calibrated intensity moments",
+  "simulator_at_inference": false,
+  "val": {
+    "controller": {
+      "count": 36,
+      "selected_acceptable_feasible": 0.0,
+      "selected_action_target_success_feasible": 0.0,
+      "selected_exact_all": 0.0,
+      "selected_exact_feasible": 0.0,
+      "status_accuracy": 0.4444444444444444,
+      "status_macro_f1": 0.3559510567296997,
+      "zero_action_target_success_feasible": 0.0
+    },
+    "measurement": {
+      "centroid_x_px_mae": 10.719355610583543,
+      "centroid_x_px_max_error": 21.812900957025647,
+      "centroid_y_px_mae": 10.678201951831042,
+      "centroid_y_px_max_error": 24.390401793619276,
+      "pair_count": 36,
+      "peak_intensity_mae": 5.705029638333333,
+      "peak_intensity_max_error": 44.3328305414764,
+      "sigma_x_px_mae": 2.3047072387899186,
+      "sigma_x_px_max_error": 23.88186897397054,
+      "sigma_y_px_mae": 2.3736174146167714,
+      "sigma_y_px_max_error": 23.926031933736965,
+      "state_count": 72,
+      "strict_all_five_state_success": 0.0
+    }
+  },
+  "version": "direction_inverse_v1_visual_pipeline"
+}

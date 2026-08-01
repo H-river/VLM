@@ -1,0 +1,25 @@
+{
+  "equal_field_accuracy": 0.9646666666666667,
+  "equal_field_macro_f1": 0.8705838204427989,
+  "field_accuracy": {
+    "visual_pair_direction_extraction.centroid_x": 0.98,
+    "visual_pair_direction_extraction.centroid_y": 0.9566666666666667,
+    "visual_pair_direction_extraction.peak_intensity": 0.9766666666666667,
+    "visual_pair_direction_extraction.sigma_x": 0.9466666666666667,
+    "visual_pair_direction_extraction.sigma_y": 0.9633333333333334
+  },
+  "field_macro_f1": {
+    "visual_pair_direction_extraction.centroid_x": 0.944571410751596,
+    "visual_pair_direction_extraction.centroid_y": 0.8853605084374315,
+    "visual_pair_direction_extraction.peak_intensity": 0.9222548061257738,
+    "visual_pair_direction_extraction.sigma_x": 0.7779620571828364,
+    "visual_pair_direction_extraction.sigma_y": 0.8227703197163567
+  },
+  "joint_exact_match": 0.89,
+  "json_valid_rate": 1.0,
+  "record_count": 300,
+  "schema_valid_rate": 1.0,
+  "task_joint_exact_match": {
+    "visual_pair_direction_extraction": 0.89
+  }
+}

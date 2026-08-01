@@ -1,0 +1,299 @@
+{
+  "per_seed": [
+    {
+      "artifacts": {
+        "image_metrics_multimodal_small_model": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081202_multimodal_cnn.pt",
+          "sha256": "45f95f6c580842dcdd5dcaa61a7eff732f071343dd7ce8c748d701051e5555bb"
+        },
+        "image_only_small_cnn": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081202_image_cnn.pt",
+          "sha256": "39782d3da9508fcc0931572ca01c31fb49d28c878206927f355392325a26aef3"
+        },
+        "metrics_history_mlp": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081202_metrics_history_mlp.joblib",
+          "sha256": "23d7300f2aae204acda9ab5177f5bbbcbe502f5ae0ec66a8f6ed7c1e284801be"
+        },
+        "metrics_only_logistic": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081202_metrics_logistic.joblib",
+          "sha256": "3190304335994172cb78909c2103a5b2915cb85473abc84dbb2944d0339de8c5"
+        }
+      },
+      "models": {
+        "image_metrics_multimodal_small_model": {
+          "balanced_accuracy": 0.8333333333333333,
+          "confusion_matrix": [
+            [
+              11,
+              1
+            ],
+            [
+              3,
+              9
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.12838665147622425,
+          "macro_f1": 0.8321678321678322
+        },
+        "image_only_small_cnn": {
+          "balanced_accuracy": 0.75,
+          "confusion_matrix": [
+            [
+              9,
+              3
+            ],
+            [
+              3,
+              9
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.09642844150463742,
+          "macro_f1": 0.75
+        },
+        "metrics_history_mlp": {
+          "balanced_accuracy": 0.5,
+          "confusion_matrix": [
+            [
+              9,
+              3
+            ],
+            [
+              9,
+              3
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.11325957203417333,
+          "macro_f1": 0.4666666666666667
+        },
+        "metrics_only_logistic": {
+          "balanced_accuracy": 0.5,
+          "confusion_matrix": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.0004098690143001793,
+          "macro_f1": 0.5
+        }
+      },
+      "seed": 2026081202
+    },
+    {
+      "artifacts": {
+        "image_metrics_multimodal_small_model": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081203_multimodal_cnn.pt",
+          "sha256": "745ab221d52a8f1d7f947b47575cac5a3a094d18352dadfd96230d39e70d1568"
+        },
+        "image_only_small_cnn": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081203_image_cnn.pt",
+          "sha256": "7d37b714c8fc710a623fd8c6667c4868cd1311e8d32508adb3cb804ff5684566"
+        },
+        "metrics_history_mlp": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081203_metrics_history_mlp.joblib",
+          "sha256": "3284c22430ab70067e85fd69b66d9150d1a8cc8d696c3a2bc59565b9c543497b"
+        },
+        "metrics_only_logistic": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081203_metrics_logistic.joblib",
+          "sha256": "ebe1ef4c1feefb753b28147383f705d478fcf2c31ac8bde050d28d83fc2fa838"
+        }
+      },
+      "models": {
+        "image_metrics_multimodal_small_model": {
+          "balanced_accuracy": 0.7083333333333333,
+          "confusion_matrix": [
+            [
+              9,
+              3
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.1093826989332835,
+          "macro_f1": 0.7078260869565217
+        },
+        "image_only_small_cnn": {
+          "balanced_accuracy": 0.75,
+          "confusion_matrix": [
+            [
+              8,
+              4
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.11858975887298583,
+          "macro_f1": 0.7482517482517483
+        },
+        "metrics_history_mlp": {
+          "balanced_accuracy": 0.5,
+          "confusion_matrix": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.07330757755349954,
+          "macro_f1": 0.49650349650349646
+        },
+        "metrics_only_logistic": {
+          "balanced_accuracy": 0.5,
+          "confusion_matrix": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.0004098690143001793,
+          "macro_f1": 0.5
+        }
+      },
+      "seed": 2026081203
+    },
+    {
+      "artifacts": {
+        "image_metrics_multimodal_small_model": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081204_multimodal_cnn.pt",
+          "sha256": "62f7ad6dc5c3b465e4d96774a3df18ad3201badc22ab893758b40366c75ded99"
+        },
+        "image_only_small_cnn": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081204_image_cnn.pt",
+          "sha256": "bbf6748d55ee551034c61d34ca6f579de9966a357bdcc2055cea6ece024ce800"
+        },
+        "metrics_history_mlp": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081204_metrics_history_mlp.joblib",
+          "sha256": "3819bff6094301016c01bed318cf281dc8b6ca057f0e2bfc71d0b3a1c80b7c52"
+        },
+        "metrics_only_logistic": {
+          "path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081204_metrics_logistic.joblib",
+          "sha256": "06dbf5c0e954047b09342d61b8030d0a97cfdc1f56c6c3c6ec77319bf93bb8d4"
+        }
+      },
+      "models": {
+        "image_metrics_multimodal_small_model": {
+          "balanced_accuracy": 0.75,
+          "confusion_matrix": [
+            [
+              8,
+              4
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.12275158613920209,
+          "macro_f1": 0.7482517482517483
+        },
+        "image_only_small_cnn": {
+          "balanced_accuracy": 0.625,
+          "confusion_matrix": [
+            [
+              3,
+              9
+            ],
+            [
+              0,
+              12
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.05859163900216422,
+          "macro_f1": 0.5636363636363637
+        },
+        "metrics_history_mlp": {
+          "balanced_accuracy": 0.5,
+          "confusion_matrix": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.07573378893961535,
+          "macro_f1": 0.5
+        },
+        "metrics_only_logistic": {
+          "balanced_accuracy": 0.5,
+          "confusion_matrix": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "episodes": 24,
+          "expected_calibration_error_10_bins": 0.0004098690143001793,
+          "macro_f1": 0.5
+        }
+      },
+      "seed": 2026081204
+    }
+  ],
+  "protected_previous_results_used": false,
+  "selected": {
+    "development_score": {
+      "balanced_accuracy": 0.8333333333333333,
+      "confusion_matrix": [
+        [
+          11,
+          1
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "episodes": 24,
+      "expected_calibration_error_10_bins": 0.12838665147622425,
+      "macro_f1": 0.8321678321678322
+    },
+    "frozen_path": "/home/jiamo/VLM/reflection_width_relative/models/selected_diagnostic.pt",
+    "frozen_sha256": "45f95f6c580842dcdd5dcaa61a7eff732f071343dd7ce8c748d701051e5555bb",
+    "model_name": "image_metrics_multimodal_small_model",
+    "seed": 2026081202,
+    "source_path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081202_multimodal_cnn.pt",
+    "source_sha256": "45f95f6c580842dcdd5dcaa61a7eff732f071343dd7ce8c748d701051e5555bb"
+  },
+  "selection_rule": "highest development balanced accuracy, then highest macro F1, then image-only over multimodal, then lowest seed",
+  "selection_split": "new_setup_disjoint_development",
+  "small_cnn_is_visual_diagnostic_not_vlm": true,
+  "training_seeds": [
+    2026081202,
+    2026081203,
+    2026081204
+  ],
+  "version": "reflection_width_relative_development_model_selection_v1"
+}

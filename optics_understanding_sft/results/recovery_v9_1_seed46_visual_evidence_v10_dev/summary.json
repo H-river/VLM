@@ -1,0 +1,34 @@
+{
+  "equal_field_accuracy": 0.35648148148148145,
+  "equal_field_macro_f1": 0.16267578705176763,
+  "field_accuracy": {
+    "visual_pair_direction_extraction.centroid_x": 0.7083333333333334,
+    "visual_pair_direction_extraction.centroid_y": 0.6666666666666666,
+    "visual_pair_direction_extraction.peak_intensity": 0.5416666666666666,
+    "visual_pair_direction_extraction.sigma_x": 0.625,
+    "visual_pair_direction_extraction.sigma_y": 0.6666666666666666,
+    "visual_state_classification.centroid_horizontal_region": 0.0,
+    "visual_state_classification.centroid_vertical_region": 0.0,
+    "visual_state_classification.sigma_x_band": 0.0,
+    "visual_state_classification.sigma_y_band": 0.0
+  },
+  "field_macro_f1": {
+    "visual_pair_direction_extraction.centroid_x": 0.2764227642276423,
+    "visual_pair_direction_extraction.centroid_y": 0.2735042735042735,
+    "visual_pair_direction_extraction.peak_intensity": 0.24074074074074073,
+    "visual_pair_direction_extraction.sigma_x": 0.2631578947368421,
+    "visual_pair_direction_extraction.sigma_y": 0.41025641025641024,
+    "visual_state_classification.centroid_horizontal_region": 0.0,
+    "visual_state_classification.centroid_vertical_region": 0.0,
+    "visual_state_classification.sigma_x_band": 0.0,
+    "visual_state_classification.sigma_y_band": 0.0
+  },
+  "joint_exact_match": 0.0,
+  "json_valid_rate": 1.0,
+  "record_count": 78,
+  "schema_valid_rate": 0.6923076923076923,
+  "task_joint_exact_match": {
+    "visual_pair_direction_extraction": 0.0,
+    "visual_state_classification": 0.0
+  }
+}

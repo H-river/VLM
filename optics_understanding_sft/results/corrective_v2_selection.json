@@ -1,0 +1,97 @@
+{
+  "candidate_count": 3,
+  "candidates": {
+    "seed123": {
+      "gates": {
+        "all_status_macro_f1_at_least_0_60": false,
+        "control_feasible_recall_at_least_0_60": false,
+        "control_infeasible_recall_at_least_0_60": true,
+        "control_simulator_success_at_least_0_40": false,
+        "no_anchor_regression_below_minus_0_05": true,
+        "schema_valid_rate_at_least_0_93": true
+      },
+      "macro_task_score": 0.6907142857142857,
+      "metrics": {
+        "anchor_regressions": {
+          "causal_effects": 0.1066666666666668,
+          "counterfactual_reasoning": 0.20666666666666667,
+          "forward_prediction": 0.0,
+          "setup_interpretation": 0.55
+        },
+        "control_feasible_recall": 0.08333333333333333,
+        "control_feasible_simulator_success": 0.06666666666666667,
+        "control_infeasible_recall": 0.9666666666666667,
+        "schema_valid_rate": 0.9833333333333333,
+        "status_macro_f1": {
+          "constrained_intervention": 0.4098869812785782,
+          "diagnosis": 0.8887284010057241,
+          "information_sufficiency": 0.5005291005291006
+        }
+      },
+      "passed": false
+    },
+    "seed314": {
+      "gates": {
+        "all_status_macro_f1_at_least_0_60": false,
+        "control_feasible_recall_at_least_0_60": false,
+        "control_infeasible_recall_at_least_0_60": true,
+        "control_simulator_success_at_least_0_40": false,
+        "no_anchor_regression_below_minus_0_05": true,
+        "schema_valid_rate_at_least_0_93": true
+      },
+      "macro_task_score": 0.6942857142857143,
+      "metrics": {
+        "anchor_regressions": {
+          "causal_effects": 0.1100000000000001,
+          "counterfactual_reasoning": 0.20666666666666667,
+          "forward_prediction": 0.0,
+          "setup_interpretation": 0.55
+        },
+        "control_feasible_recall": 0.1,
+        "control_feasible_simulator_success": 0.08333333333333333,
+        "control_infeasible_recall": 0.9666666666666667,
+        "schema_valid_rate": 0.9816666666666667,
+        "status_macro_f1": {
+          "constrained_intervention": 0.42544459644322846,
+          "diagnosis": 0.8645502645502646,
+          "information_sufficiency": 0.5322797817305649
+        }
+      },
+      "passed": false
+    },
+    "seed42": {
+      "gates": {
+        "all_status_macro_f1_at_least_0_60": false,
+        "control_feasible_recall_at_least_0_60": false,
+        "control_infeasible_recall_at_least_0_60": true,
+        "control_simulator_success_at_least_0_40": false,
+        "no_anchor_regression_below_minus_0_05": true,
+        "schema_valid_rate_at_least_0_93": true
+      },
+      "macro_task_score": 0.6888492063492063,
+      "metrics": {
+        "anchor_regressions": {
+          "causal_effects": 0.11666666666666681,
+          "counterfactual_reasoning": 0.20666666666666667,
+          "forward_prediction": -0.005555555555555647,
+          "setup_interpretation": 0.5444444444444444
+        },
+        "control_feasible_recall": 0.11666666666666667,
+        "control_feasible_simulator_success": 0.11666666666666667,
+        "control_infeasible_recall": 0.9166666666666666,
+        "schema_valid_rate": 0.9833333333333333,
+        "status_macro_f1": {
+          "constrained_intervention": 0.4246031746031746,
+          "diagnosis": 0.8556033338642034,
+          "information_sufficiency": 0.5193591455273698
+        }
+      },
+      "passed": false
+    }
+  },
+  "passing_seeds": [],
+  "promotion_status": "no_promotion",
+  "protocol": "corrective_v2",
+  "required_passing_seeds": 2,
+  "sealed_test_evaluated": false
+}

@@ -1,0 +1,55 @@
+{
+  "canonical_hashes": {
+    "dev": "b1b51cd527acddadbd913524a14c9d4a5a26e7108afdcb5b23a8996409bd88ff",
+    "train": "9f8aacd0bf9757ee049d46767ba4553c963bacbbae0ff3138193d80a902e1ae6"
+  },
+  "claims": {
+    "native_exact_metrology": false,
+    "pixel_dependent_prompts": true,
+    "sensor_frame_labels": true,
+    "shared_pair_calibration": true
+  },
+  "dataset": "visual_evidence_v10",
+  "dev_groups": 29,
+  "dev_records": 78,
+  "group_overlap": [],
+  "task_counts": {
+    "dev": {
+      "visual_pair_direction_extraction": 24,
+      "visual_state_classification": 54
+    },
+    "train": {
+      "visual_pair_direction_extraction": 474,
+      "visual_state_classification": 537
+    }
+  },
+  "train_direction_counts": {
+    "centroid_x": {
+      "decrease": 51,
+      "increase": 51,
+      "no_change": 372
+    },
+    "centroid_y": {
+      "decrease": 54,
+      "increase": 54,
+      "no_change": 366
+    },
+    "peak_intensity": {
+      "decrease": 69,
+      "increase": 69,
+      "no_change": 336
+    },
+    "sigma_x": {
+      "decrease": 45,
+      "increase": 45,
+      "no_change": 384
+    },
+    "sigma_y": {
+      "decrease": 48,
+      "increase": 48,
+      "no_change": 378
+    }
+  },
+  "train_groups": 94,
+  "train_records": 1011
+}

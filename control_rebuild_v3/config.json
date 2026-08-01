@@ -1,0 +1,46 @@
+{
+  "version": "control_rebuild_v3_one_seed",
+  "seed": 20260726,
+  "source_dataset_version": "specialist_rebuild_v2_one_seed",
+  "forward": {
+    "epochs": 36,
+    "batch_groups": 64,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0002,
+    "ranking_loss_weight": 0.12,
+    "worst_field_weight": 0.2,
+    "worst_candidate_weight": 0.05,
+    "blend_alpha_candidates": [
+      0.0,
+      0.05,
+      0.1,
+      0.15,
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95,
+      1.0
+    ]
+  },
+  "inverse": {
+    "epochs": 20,
+    "batch_pairs": 256,
+    "learning_rate": 0.0008,
+    "weight_decay": 0.0002,
+    "status_loss_weight": 0.4,
+    "correction_regularization": 0.002,
+    "alpha_candidates": [0.0, 0.1, 0.25, 0.5, 1.0]
+  }
+}

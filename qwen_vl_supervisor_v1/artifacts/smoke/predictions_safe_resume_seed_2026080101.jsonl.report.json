@@ -1,0 +1,92 @@
+{
+  "adapter": {
+    "hashes": {
+      "adapter_config.json": "c19d9c72c3ef0f2e6a8f802934fa262c8158c0b0949b8e5cfab27f638b2e9ea1",
+      "adapter_model.safetensors": "a2e6a66d21bb714ff741d1bf10be561ea389e209fe6eb92a89818df940a73c66"
+    },
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/artifacts/training/smoke_qwen25vl_3b_safe_resume/final_adapter"
+  },
+  "completed_at_utc": "2026-08-01T13:07:45.513596+00:00",
+  "config": {
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/configs/training_smoke.yaml",
+    "sha256": "d139985ad70ecae470c102212b8f2a4052f67c81d9a41e28bd3501b12acef9cd"
+  },
+  "cuda": {
+    "device_index": 0,
+    "name": "NVIDIA GeForce RTX 4080 Laptop GPU"
+  },
+  "data": {
+    "frozen_or_protected_predictions_opened": false,
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/sft/sft_smoke_dev.jsonl",
+    "records": 12,
+    "sha256": "9f5137b1f578bb147b4c3660b6b41aa375e1a8e72a647c6a9a8851956018125b",
+    "split": "dev"
+  },
+  "decoding": {
+    "batch_size": 1,
+    "do_sample": false,
+    "json_extraction_or_repair": false,
+    "max_new_tokens": 128,
+    "num_beams": 1,
+    "text_policy": "decode_all_tokens_after_exact_chat_template_prompt_length"
+  },
+  "distributed": {
+    "local_rank": -1,
+    "rank": 0,
+    "world_size": 1
+  },
+  "image_integrity": {
+    "policy": "metadata_image_sha256_matches_actual_bytes_before_run_and_each_inference",
+    "verified_records_before_model_load": 12
+  },
+  "model": {
+    "architecture": "Qwen2_5_VLForConditionalGeneration",
+    "attention_implementation": "sdpa",
+    "compute_dtype": "bfloat16",
+    "id": "/home/jiamo/HF_models/Qwen2.5-VL-3B-Instruct",
+    "processor_pixel_budget": {
+      "max_pixels": 50176,
+      "min_pixels": 3136
+    },
+    "processor_pixel_budget_observed": {
+      "max_pixels": 50176,
+      "min_pixels": 3136
+    },
+    "processor_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "quantization": "NF4_4bit",
+    "revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "source_id": "Qwen/Qwen2.5-VL-3B-Instruct"
+  },
+  "output": "/home/jiamo/VLM/qwen_vl_supervisor_v1/artifacts/smoke/predictions_safe_resume_seed_2026080101.jsonl",
+  "progress": {
+    "completed_records": 12,
+    "expected_records": 12,
+    "generated_this_invocation": 12
+  },
+  "resume": {
+    "records_found": 0,
+    "records_pending_at_start": 12
+  },
+  "runtime": {
+    "packages": {
+      "Pillow": "12.2.0",
+      "PyYAML": "6.0.3",
+      "bitsandbytes": "0.49.2",
+      "peft": "0.19.1",
+      "torch": "2.5.1+cu121",
+      "transformers": "5.8.1"
+    },
+    "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+    "python": "3.10.20 (main, Mar 11 2026, 17:46:40) [GCC 14.3.0]"
+  },
+  "schema_version": "qwen_vl_supervisor_generation_v1.0.0",
+  "seed": 2026080101,
+  "started_at_utc": "2026-08-01T13:07:08.573589+00:00",
+  "status": "completed",
+  "telemetry": {
+    "generation_latency_seconds_mean_this_invocation": 2.0898551710003326,
+    "generation_latency_seconds_total_this_invocation": 25.078262052003993,
+    "gpu_peak_allocated_bytes": 2650671104,
+    "gpu_peak_reserved_bytes": 2839543808
+  }
+}

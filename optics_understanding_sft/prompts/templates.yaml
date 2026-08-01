@@ -1,0 +1,56 @@
+setup_interpretation:
+  train:
+    - "Interpret this single-lens optical setup. Report its propagation order, adjustable parameters, total source-to-sensor distance, and focal length in metres."
+    - "Read the setup specification and identify component order, controllable quantities, total path length, and focal length after unit conversion."
+    - "Convert the supplied apparatus description into the required structured setup summary."
+  test:
+    - "From the experimental specification, reconstruct the optical sequence and normalized dimensional summary."
+    - "Extract the apparatus ordering and requested SI-unit quantities from this setup."
+information_sufficiency:
+  train:
+    - "Determine whether the requested centroid-effect prediction is identifiable from the visible information. If not, name the missing field."
+    - "Can this intervention outcome be determined uniquely? Return either the predicted direction or the information that is required."
+    - "Assess whether the stated measurements and setup are sufficient for the requested prediction."
+  test:
+    - "Judge identifiability of this optical prediction and specify any indispensable hidden quantity."
+    - "Decide whether all compatible completions give the same answer to this question."
+causal_effects:
+  train:
+    - "Classify the causal effect of the stated intervention on the measured beam quantities."
+    - "Which observables increase, decrease, or remain effectively unchanged after this controlled action?"
+    - "Report the direction of each beam-state change caused by the intervention."
+  test:
+    - "Infer the signed observable response to this single controlled perturbation."
+    - "Compare the pre- and post-intervention beam state using the required qualitative labels."
+forward_prediction:
+  train:
+    - "Predict the beam state after applying the candidate actuator action."
+    - "Use the initial observation, setup, and action to produce the numerical after-state and state change."
+    - "Forward-simulate this intervention and return the requested beam measurements."
+  test:
+    - "Forecast the sensor-plane beam measurements resulting from this actuator command."
+    - "Determine the post-action optical state and its displacement from the starting state."
+diagnosis:
+  train:
+    - "Identify every candidate intervention consistent with the observed transition. The result may be unique, ambiguous, or unsupported."
+    - "Diagnose the hidden cause by comparing the observation against the listed candidate actions."
+    - "Return all plausible causes of the measured beam change within the stated tolerance."
+  test:
+    - "Resolve, or explicitly retain, causal ambiguity among these candidate disturbances."
+    - "Which proposed hidden interventions can reproduce this observation?"
+constrained_intervention:
+  train:
+    - "Find the minimum-motion action on the declared grid that reaches the target, or report infeasibility within those limits."
+    - "Choose a valid quantized actuator command under the stated constraints."
+    - "Determine whether this target is reachable in the finite action space and return the canonical successful action if it is."
+  test:
+    - "Search the permitted discrete controls for a target-reaching intervention and identify when none exists."
+    - "Solve this bounded actuator problem using only the declared control grid."
+counterfactual_reasoning:
+  train:
+    - "Compare the same intervention under the original and counterfactual setup. Report how the response changes."
+    - "One optical parameter has changed while the action is fixed. Determine the resulting difference in beam response."
+    - "Evaluate this paired counterfactual and state whether the action preserves its response direction."
+  test:
+    - "Reason across these matched setups that differ in exactly one physical parameter."
+    - "Determine the intervention-response change caused solely by the stated counterfactual parameter."

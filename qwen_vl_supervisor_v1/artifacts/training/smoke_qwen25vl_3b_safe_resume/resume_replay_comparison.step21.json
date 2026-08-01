@@ -1,0 +1,87 @@
+{
+  "all_required_fields_exact_equal": true,
+  "candidate_log": {
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/artifacts/training/smoke_qwen25vl_3b_safe_resume/trainer_log.20260801T125343.423403Z.jsonl",
+    "sha256": "ab5ff133c6801ec948ba896d9c61e9a1f23af4dcc4e5e9aab803957fb5be39f3"
+  },
+  "checkpoint": {
+    "adapter_sha256": "87532dd3eae3181b4dacb5ff044dec2d48adac3d3d7ad6c6bbe92f715b89eb3f",
+    "global_step": 20,
+    "optimizer_scheduler_json_sha256": "a48c3c46d4d208cc0465a385b6cbc08096593d0b1a03ec9c697552214f0476db",
+    "optimizer_scheduler_tensors_sha256": "03b0779ec342e7a034ab3a9f5671e97dc9d503b181a1f868994485f15772439d",
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/artifacts/training/smoke_qwen25vl_3b_safe_resume/checkpoint-20",
+    "rng_json_sha256": "a6004a689eb634bc01a7b5903ebe4babd81fbb4c295dde3860cc054046bf0ead",
+    "rng_tensors_sha256": "55bb006e0a133d6163b49328d9ffe43445ef3c5fa7e9481a2eb228ad153adcf3"
+  },
+  "claim_scope": "Two independent safe restores of the same checkpoint reproduced the immediate next training and development-evaluation numerical fields listed above. This is an engineering resume/replay check, not a model-accuracy claim.",
+  "comparison": {
+    "entropy": {
+      "candidate": 0.07082319259643555,
+      "exact_equal": true,
+      "reference": 0.07082319259643555
+    },
+    "eval_entropy": {
+      "candidate": 0.09048383062084515,
+      "exact_equal": true,
+      "reference": 0.09048383062084515
+    },
+    "eval_loss": {
+      "candidate": 0.04603719338774681,
+      "exact_equal": true,
+      "reference": 0.04603719338774681
+    },
+    "eval_mean_token_accuracy": {
+      "candidate": 0.9927536249160767,
+      "exact_equal": true,
+      "reference": 0.9927536249160767
+    },
+    "eval_num_tokens": {
+      "candidate": 1245.0,
+      "exact_equal": true,
+      "reference": 1245.0
+    },
+    "learning_rate": {
+      "candidate": 0.0,
+      "exact_equal": true,
+      "reference": 0.0
+    },
+    "loss": {
+      "candidate": 0.029860451817512512,
+      "exact_equal": true,
+      "reference": 0.029860451817512512
+    },
+    "mean_token_accuracy": {
+      "candidate": 1.0,
+      "exact_equal": true,
+      "reference": 1.0
+    },
+    "num_tokens": {
+      "candidate": 1245.0,
+      "exact_equal": true,
+      "reference": 1245.0
+    }
+  },
+  "excluded_diagnostics": {
+    "fields": [
+      "grad_norm",
+      "eval_runtime",
+      "eval_samples_per_second",
+      "eval_steps_per_second",
+      "train_runtime",
+      "train_samples_per_second",
+      "train_steps_per_second",
+      "memory_metrics"
+    ],
+    "grad_norm_absolute_difference": 0.000979989767074585,
+    "grad_norm_candidate": 0.49150437116622925,
+    "grad_norm_reference": 0.49052438139915466,
+    "reason": "timing, throughput, memory, and gradient-norm diagnostics are not deterministic output criteria; grad_norm may vary slightly across otherwise identical CUDA replays"
+  },
+  "numerical_reproduction_verified": true,
+  "reference_log": {
+    "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/artifacts/training/smoke_qwen25vl_3b_safe_resume/trainer_log.20260801T124912.217191Z.jsonl",
+    "sha256": "1b5c9e554ef1445b6ff7ce45c54f843b7e8baf46aec326867a277ee6d1a3b30f"
+  },
+  "replay_step": 21,
+  "schema": "qwen_vl_resume_replay_comparison_v1"
+}

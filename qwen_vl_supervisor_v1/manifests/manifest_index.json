@@ -1,0 +1,136 @@
+{
+  "builder": "qwen_vl_supervisor_v1.build_manifests",
+  "excluded": {
+    "controller_episode_histories": "no temporally paired anomaly images",
+    "old_fixed_pixel_reflection": true,
+    "width_relative_severity_ood": "no valid dataset; partial images excluded"
+  },
+  "manifests": {
+    "dev": {
+      "class_counts": {
+        "nominal": 18,
+        "secondary_reflection": 12,
+        "sensor_saturation": 6
+      },
+      "pair_count": 18,
+      "path": "qwen_vl_supervisor_v1/manifests/manifest_dev.jsonl",
+      "records": 36,
+      "setup_count": 18,
+      "sha256": "8a9020195e37894915ff3f600c96bf5193b368a25d32a6186e3900086fb4b669"
+    },
+    "frozen_iid": {
+      "class_counts": {
+        "nominal": 36,
+        "secondary_reflection": 30,
+        "sensor_saturation": 6
+      },
+      "pair_count": 36,
+      "path": "qwen_vl_supervisor_v1/manifests/manifest_frozen_iid.jsonl",
+      "records": 72,
+      "setup_count": 36,
+      "sha256": "c90eadb09949c7db1b51a36df740ef13c018713c31f3cdd8cbf917e9d38e2910"
+    },
+    "frozen_ood": {
+      "class_counts": {
+        "nominal": 30,
+        "sensor_saturation": 30
+      },
+      "pair_count": 30,
+      "path": "qwen_vl_supervisor_v1/manifests/manifest_frozen_ood.jsonl",
+      "records": 60,
+      "setup_count": 30,
+      "sha256": "4f256c55c5db2df7100348d50bd053dec24858ecc3ecccab3d0bbe671f70c705"
+    },
+    "train": {
+      "class_counts": {
+        "nominal": 48,
+        "secondary_reflection": 30,
+        "sensor_saturation": 18
+      },
+      "pair_count": 48,
+      "path": "qwen_vl_supervisor_v1/manifests/manifest_train.jsonl",
+      "records": 96,
+      "setup_count": 48,
+      "sha256": "17718c58516d1ae68b22b3d4e46e1d19758a851a9befbc83a0834c71792c3084"
+    }
+  },
+  "saturation_dev_pair_selection": {
+    "algorithm": "six lowest sha256('qwen_vl_supervisor_v1_saturation_dev' + pair_id)",
+    "count": 6,
+    "selected_pair_hashes": [
+      "0286f713235f17861d858509f2b591911c2d7d9c621a0ea58dcd0bad60785202",
+      "6884d172328e34b0ba34e6286491a655c241ad4d05a7f7293e59fcd01ef21668",
+      "933ef0ab3393ff066b50b687f25e814ea533886ff7f72f6e0bdae15b19b51094",
+      "9d79ba6ca37d6eb5c900d8c85b3cae7f31ac2082eb3bc8facf80cdef61a06e97",
+      "af45c3b5fc05dfece21e6ac2816f082eadfcae004f90944eca5882728c07238f",
+      "c4eca3d289e07a128f2ffedafc7b03f2ebff4d0cdd2ead6311802be18162732d"
+    ]
+  },
+  "schema_version": "qwen_vl_supervisor_manifest_v1.0.0",
+  "source_hashes": {
+    "saturation_iid": "4300c5aa770a94ac208049188ab23f8ba6fda043c1ab972cc6ba65464433e225",
+    "saturation_ood": "771a289a3b254c3fb99add1f0088c03aa868b55180fcaabe2d2f43a92c1929a1",
+    "saturation_train_pool": "e5a437a0af27339ecf6958e2762a4fc8018f8b7358fb39d4fe1f3e3372958c7a",
+    "width_relative_dev": "a4462f184308836425d9f8d98370d88f08dc9e27b7a1b17950e43d5031635de5",
+    "width_relative_iid": "2a3c273d252234f001f2b46a0feaec2c4758012e99273974677bc0c88e4133e8",
+    "width_relative_train": "4c2e70767a4c017a2cb42cecc90c91dc7a7efb4e2e1ac50b8fca84335013c2ef"
+  },
+  "source_pair_hashes": {
+    "saturation_iid": {
+      "path": "runs/vlm_optics_benchmark_20260801_154812/paired_counterfactuals.jsonl",
+      "sha256": "1bc370d80bff5a1c834d6dc43f82f0731c3d4d368011772076ba6ce8762bd31d"
+    },
+    "saturation_ood": {
+      "path": "runs/vlm_optics_benchmark_20260801_154812/paired_counterfactuals.jsonl",
+      "sha256": "1bc370d80bff5a1c834d6dc43f82f0731c3d4d368011772076ba6ce8762bd31d"
+    },
+    "saturation_train_pool": {
+      "path": "runs/vlm_optics_benchmark_20260801_154812/paired_counterfactuals.jsonl",
+      "sha256": "1bc370d80bff5a1c834d6dc43f82f0731c3d4d368011772076ba6ce8762bd31d"
+    },
+    "width_relative_dev": {
+      "path": "reflection_width_relative/data/pairs_development.jsonl",
+      "sha256": "f10a1776c4598eb5e22f9dce19e9b7790911be348a72617366087644bfb6b75f"
+    },
+    "width_relative_iid": {
+      "path": "reflection_width_relative/data/pairs_iid_heldout.jsonl",
+      "sha256": "990c10db150c849b6419d1bec8f090a8b7533549e8b42199aa3787448ac62a45"
+    },
+    "width_relative_train": {
+      "path": "reflection_width_relative/data/pairs_train.jsonl",
+      "sha256": "d5c9b65fd523b9aabe4e2bcee232bade97df192d3a1d13cb6e2a3a813f87da4f"
+    }
+  },
+  "validation": {
+    "augmented_base_overlap_across_splits": 0,
+    "class_counts": {
+      "nominal": 132,
+      "secondary_reflection": 72,
+      "sensor_saturation": 60
+    },
+    "episode_overlap_across_splits": 0,
+    "fixed_pixel_reflection_rows": 0,
+    "image_hash_overlap_across_splits": 0,
+    "manifest_counts": {
+      "manifest_dev.jsonl": 36,
+      "manifest_frozen_iid.jsonl": 72,
+      "manifest_frozen_ood.jsonl": 60,
+      "manifest_train.jsonl": 96
+    },
+    "pair_overlap_across_splits": 0,
+    "protected_rows_in_train_or_dev": 0,
+    "records": 264,
+    "setup_overlap_across_splits": 0,
+    "split_counts": {
+      "dev": 36,
+      "frozen_iid": 72,
+      "frozen_ood": 60,
+      "train": 96
+    },
+    "status": "pass",
+    "unique_image_hashes": 264,
+    "unique_pairs": 132,
+    "unique_sample_ids": 264,
+    "unique_setups": 132
+  }
+}

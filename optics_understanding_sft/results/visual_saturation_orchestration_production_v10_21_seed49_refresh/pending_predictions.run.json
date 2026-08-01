@@ -1,0 +1,21 @@
+{
+  "adapter_path": "/home/jiamo/VLM_runs/qwen25vl_3b_qlora_visual_tool_orchestration_v10_2_seed49",
+  "config_hash": "61e69927c00b876c4621bf47774c2c19b65be5132dc94fda6174f77d1b348f0d",
+  "example_ids": [
+    "dev_v2_030032_diagnosis_032__v10_pair__original__saturation_clip_180__v10_21_saturation_production_tool_source_mapping",
+    "dev_v2_030110_cf_037__v10_pair__original__saturation_clip_180__v10_21_saturation_production_tool_source_mapping",
+    "dev_v2_030008_forward_002__v10_pair__original__saturation_clip_180__v10_21_saturation_production_tool_source_mapping",
+    "dev_v2_030064_causal_016__v10_pair__original__saturation_clip_180__v10_21_saturation_production_tool_source_mapping",
+    "dev_v2_030080_diagnosis_080__v10_pair__original__saturation_clip_180__v10_21_saturation_production_tool_source_mapping"
+  ],
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 192
+  },
+  "image_root": "/home/jiamo/VLM/optics_understanding_sft/data/visual_saturation_eval_v10_19",
+  "input_jsonl": "/home/jiamo/VLM/optics_understanding_sft/results/visual_saturation_orchestration_production_v10_21_seed49_refresh/pending_records.jsonl",
+  "input_records_hash": "7e51622016ce6ef3433c7c7e7212def9fa6a7f67ef2b5b7cd4d9842f3e48392c",
+  "model_kind": "adapter",
+  "model_name": "../HF_models/Qwen2.5-VL-3B-Instruct",
+  "record_count": 5
+}

@@ -1,0 +1,9 @@
+{"index": 0, "case_id": "ready_measure_beam_profile_v12_000", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 21.573080867994577}
+{"index": 1, "case_id": "ready_predict_direction_from_state_v12_000", "e2e_success": false, "specialist_success": true, "failure": "wrong task/route", "latency_seconds": 27.00912064399745}
+{"index": 2, "case_id": "ready_predict_direction_from_image_v12_000", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 29.655883321000147}
+{"index": 3, "case_id": "ready_predict_forward_from_state_v12_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.636580784004764}
+{"index": 4, "case_id": "ready_predict_forward_from_image_v12_000", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 34.87311010800477}
+{"index": 5, "case_id": "ready_inverse_control_from_states_v12_h1_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 38.20644267399621}
+{"index": 6, "case_id": "ready_inverse_control_from_images_v12_h1_000", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 32.92547692899825}
+{"index": 7, "case_id": "clarification_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 7.094702970993239}
+{"index": 8, "case_id": "unsupported_000", "e2e_success": false, "specialist_success": true, "failure": "missing/wrong argument", "latency_seconds": 3.745439313002862}

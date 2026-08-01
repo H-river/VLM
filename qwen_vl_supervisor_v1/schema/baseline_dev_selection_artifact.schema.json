@@ -1,0 +1,556 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.vlm/qwen_vl_supervisor_v1/baseline_dev_selection_artifact.schema.json",
+  "title": "Qwen-VL supervisor A/B development-only selection artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_kind",
+    "selection_split",
+    "train_data",
+    "dev_data",
+    "arm_A",
+    "arm_B",
+    "protected_or_frozen_data_used",
+    "frozen_predictions_opened",
+    "timestamp_in_artifact",
+    "validator"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "qwen_vl_supervisor_baseline_dev_selection_v1.0.0"
+    },
+    "artifact_kind": {
+      "const": "dev_only_A_and_B_baseline_selection"
+    },
+    "selection_split": {
+      "const": "dev"
+    },
+    "train_data": {
+      "$ref": "#/$defs/dataIdentity"
+    },
+    "dev_data": {
+      "$ref": "#/$defs/dataIdentity"
+    },
+    "arm_A": {
+      "$ref": "#/$defs/armA"
+    },
+    "arm_B": {
+      "$ref": "#/$defs/armB"
+    },
+    "protected_or_frozen_data_used": {
+      "const": false
+    },
+    "frozen_predictions_opened": {
+      "const": false
+    },
+    "timestamp_in_artifact": {
+      "const": false
+    },
+    "validator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "implementation",
+        "json_schema",
+        "offline_reports_recomputed_from_raw_predictions",
+        "B_grid_recomputed_from_raw_scores"
+      ],
+      "properties": {
+        "implementation": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "json_schema": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "offline_reports_recomputed_from_raw_predictions": {
+          "const": true
+        },
+        "B_grid_recomputed_from_raw_scores": {
+          "const": true
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "fileEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "hash_algorithm",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hash_algorithm": {
+          "enum": [
+            "sha256_file_v1",
+            "sha256_tree_relative_path_nul_file_sha256_lf_v1"
+          ]
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "dataIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_manifest",
+        "record_count",
+        "sample_id_set_sha256"
+      ],
+      "properties": {
+        "source_manifest": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "record_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sample_id_set_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "rankingMetrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "joint_exact_accuracy",
+        "diagnosis_macro_f1",
+        "valid_json_rate"
+      ],
+      "properties": {
+        "joint_exact_accuracy": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "diagnosis_macro_f1": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "valid_json_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "manifest_records",
+        "supplied_predictions",
+        "missing_predictions",
+        "coverage_rate",
+        "expected_seed_enforced"
+      ],
+      "properties": {
+        "manifest_records": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "supplied_predictions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "missing_predictions": {
+          "const": 0
+        },
+        "coverage_rate": {
+          "const": 1.0
+        },
+        "expected_seed_enforced": {
+          "const": true
+        }
+      }
+    },
+    "targetDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "diagnosis",
+        "measurement_policy",
+        "supervisor_action"
+      ],
+      "properties": {
+        "diagnosis": {
+          "enum": [
+            "nominal",
+            "sensor_saturation",
+            "secondary_reflection"
+          ]
+        },
+        "measurement_policy": {
+          "enum": [
+            "standard",
+            "lower_exposure_reacquire",
+            "primary_spot"
+          ]
+        },
+        "supervisor_action": {
+          "enum": [
+            "execute",
+            "reacquire",
+            "switch_measurement"
+          ]
+        }
+      }
+    },
+    "outputMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nominal",
+        "sensor_saturation",
+        "secondary_reflection"
+      ],
+      "properties": {
+        "nominal": {
+          "$ref": "#/$defs/targetDecision"
+        },
+        "sensor_saturation": {
+          "$ref": "#/$defs/targetDecision"
+        },
+        "secondary_reflection": {
+          "$ref": "#/$defs/targetDecision"
+        }
+      }
+    },
+    "armACandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_name",
+        "model_complexity_rank",
+        "selection_rank",
+        "model_artifact",
+        "training_report",
+        "predictions",
+        "offline_report",
+        "dev_coverage",
+        "ranking_metrics",
+        "eligible",
+        "protected_or_frozen_data_used",
+        "frozen_predictions_opened"
+      ],
+      "properties": {
+        "candidate_name": {
+          "enum": [
+            "deterministic_frozen_rules",
+            "standardized_multinomial_logistic_regression",
+            "standardized_one_hidden_layer_mlp"
+          ]
+        },
+        "model_complexity_rank": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "selection_rank": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "model_artifact": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "training_report": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "predictions": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "offline_report": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "dev_coverage": {
+          "$ref": "#/$defs/coverage"
+        },
+        "ranking_metrics": {
+          "$ref": "#/$defs/rankingMetrics"
+        },
+        "eligible": {
+          "const": true
+        },
+        "protected_or_frozen_data_used": {
+          "const": false
+        },
+        "frozen_predictions_opened": {
+          "const": false
+        }
+      }
+    },
+    "armASelected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_name",
+        "selection_rank",
+        "model_artifact",
+        "ranking_metrics",
+        "output_mapping"
+      ],
+      "properties": {
+        "candidate_name": {
+          "enum": [
+            "deterministic_frozen_rules",
+            "standardized_multinomial_logistic_regression",
+            "standardized_one_hidden_layer_mlp"
+          ]
+        },
+        "selection_rank": {
+          "const": 1
+        },
+        "model_artifact": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "ranking_metrics": {
+          "$ref": "#/$defs/rankingMetrics"
+        },
+        "output_mapping": {
+          "$ref": "#/$defs/outputMapping"
+        }
+      }
+    },
+    "armA": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "selection_rule",
+        "candidates",
+        "selected",
+        "protected_or_frozen_data_used",
+        "frozen_predictions_opened"
+      ],
+      "properties": {
+        "selection_rule": {
+          "const": [
+            "highest_joint_diagnosis_policy_action_exact_accuracy",
+            "highest_diagnosis_macro_f1",
+            "highest_valid_json_rate",
+            "lowest_model_complexity",
+            "lexicographically_lowest_candidate_name"
+          ]
+        },
+        "candidates": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "$ref": "#/$defs/armACandidate"
+          }
+        },
+        "selected": {
+          "$ref": "#/$defs/armASelected"
+        },
+        "protected_or_frozen_data_used": {
+          "const": false
+        },
+        "frozen_predictions_opened": {
+          "const": false
+        }
+      }
+    },
+    "gridDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sensor_saturation_thresholds",
+        "secondary_reflection_thresholds",
+        "cartesian_product_complete"
+      ],
+      "properties": {
+        "sensor_saturation_thresholds": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "secondary_reflection_thresholds": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "cartesian_product_complete": {
+          "const": true
+        }
+      }
+    },
+    "arbitration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score_domain",
+        "nominal_rule",
+        "anomaly_rule",
+        "normalized_margin_formula",
+        "threshold_comparator_for_anomaly",
+        "tie_order"
+      ],
+      "properties": {
+        "score_domain": {
+          "const": "calibrated_probability_closed_unit_interval"
+        },
+        "nominal_rule": {
+          "const": "both_scores_strictly_below_their_selected_thresholds"
+        },
+        "anomaly_rule": {
+          "const": "otherwise_choose_larger_normalized_margin_above_threshold"
+        },
+        "normalized_margin_formula": {
+          "const": "(score-threshold)/max(abs(threshold),1e-12)"
+        },
+        "threshold_comparator_for_anomaly": {
+          "const": "greater_than_or_equal"
+        },
+        "tie_order": {
+          "const": [
+            "nominal",
+            "sensor_saturation",
+            "secondary_reflection"
+          ]
+        }
+      }
+    },
+    "armBSelected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "thresholds",
+        "selection_rank",
+        "ranking_metrics",
+        "arbitration",
+        "output_mapping"
+      ],
+      "properties": {
+        "thresholds": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sensor_saturation",
+            "secondary_reflection"
+          ],
+          "properties": {
+            "sensor_saturation": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "secondary_reflection": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "selection_rank": {
+          "const": 1
+        },
+        "ranking_metrics": {
+          "$ref": "#/$defs/rankingMetrics"
+        },
+        "arbitration": {
+          "$ref": "#/$defs/arbitration"
+        },
+        "output_mapping": {
+          "$ref": "#/$defs/outputMapping"
+        }
+      }
+    },
+    "armB": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fixed_specialists",
+        "score_evidence",
+        "threshold_grid",
+        "grid_definition",
+        "selection_rule",
+        "predictions",
+        "offline_report",
+        "dev_coverage",
+        "selected",
+        "protected_or_frozen_data_used",
+        "frozen_predictions_opened"
+      ],
+      "properties": {
+        "fixed_specialists": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "saturation_multimodal_small_model",
+            "width_relative_reflection_selected_diagnostic"
+          ],
+          "properties": {
+            "saturation_multimodal_small_model": {
+              "$ref": "#/$defs/fileEntry"
+            },
+            "width_relative_reflection_selected_diagnostic": {
+              "$ref": "#/$defs/fileEntry"
+            }
+          }
+        },
+        "score_evidence": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "threshold_grid": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "grid_definition": {
+          "$ref": "#/$defs/gridDefinition"
+        },
+        "selection_rule": {
+          "const": [
+            "highest_joint_diagnosis_policy_action_exact_accuracy",
+            "highest_diagnosis_macro_f1",
+            "highest_valid_json_rate",
+            "lowest_sensor_saturation_threshold",
+            "lowest_secondary_reflection_threshold"
+          ]
+        },
+        "predictions": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "offline_report": {
+          "$ref": "#/$defs/fileEntry"
+        },
+        "dev_coverage": {
+          "$ref": "#/$defs/coverage"
+        },
+        "selected": {
+          "$ref": "#/$defs/armBSelected"
+        },
+        "protected_or_frozen_data_used": {
+          "const": false
+        },
+        "frozen_predictions_opened": {
+          "const": false
+        }
+      }
+    }
+  }
+}

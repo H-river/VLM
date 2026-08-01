@@ -1,0 +1,118 @@
+{
+  "by_source_task": {
+    "causal_effects": {
+      "equal_field_macro_f1": 0.8937573221636709,
+      "joint_exact_match": 0.7666666666666667,
+      "record_count": 120
+    },
+    "counterfactual_reasoning": {
+      "equal_field_macro_f1": 0.8741896221381723,
+      "joint_exact_match": 0.6916666666666667,
+      "record_count": 120
+    },
+    "diagnosis": {
+      "equal_field_macro_f1": 0.8084404297837825,
+      "joint_exact_match": 0.5583333333333333,
+      "record_count": 240
+    },
+    "forward_prediction": {
+      "equal_field_macro_f1": 0.8453123822049967,
+      "joint_exact_match": 0.6583333333333333,
+      "record_count": 120
+    }
+  },
+  "confusion_matrices": {
+    "visual_state_classification.centroid_horizontal_region": {
+      "centered": {
+        "centered": 154,
+        "left_of_center": 5,
+        "right_of_center": 1
+      },
+      "left_of_center": {
+        "centered": 6,
+        "left_of_center": 265
+      },
+      "right_of_center": {
+        "centered": 7,
+        "right_of_center": 162
+      }
+    },
+    "visual_state_classification.centroid_vertical_region": {
+      "above_center": {
+        "above_center": 280,
+        "centered": 14
+      },
+      "below_center": {
+        "below_center": 140,
+        "centered": 3
+      },
+      "centered": {
+        "above_center": 8,
+        "below_center": 15,
+        "centered": 140
+      }
+    },
+    "visual_state_classification.sigma_x_band": {
+      "medium": {
+        "medium": 158,
+        "narrow": 57
+      },
+      "narrow": {
+        "narrow": 103
+      },
+      "wide": {
+        "medium": 91,
+        "narrow": 2,
+        "wide": 189
+      }
+    },
+    "visual_state_classification.sigma_y_band": {
+      "medium": {
+        "medium": 151,
+        "narrow": 53
+      },
+      "narrow": {
+        "narrow": 109
+      },
+      "wide": {
+        "medium": 103,
+        "narrow": 1,
+        "wide": 183
+      }
+    }
+  },
+  "equal_field_accuracy": 0.8475,
+  "equal_field_macro_f1": 0.8478989110572843,
+  "field_accuracy": {
+    "visual_state_classification.centroid_horizontal_region": 0.9683333333333334,
+    "visual_state_classification.centroid_vertical_region": 0.9333333333333333,
+    "visual_state_classification.sigma_x_band": 0.75,
+    "visual_state_classification.sigma_y_band": 0.7383333333333333
+  },
+  "field_macro_f1": {
+    "visual_state_classification.centroid_horizontal_region": 0.9658223072440917,
+    "visual_state_classification.centroid_vertical_region": 0.9255988760503394,
+    "visual_state_classification.sigma_x_band": 0.7536469146750985,
+    "visual_state_classification.sigma_y_band": 0.7465275462596077
+  },
+  "group_bootstrap": {
+    "equal_field_macro_f1_95ci": {
+      "high": 0.8748470674339435,
+      "low": 0.809924825163372
+    },
+    "joint_exact_match_95ci": {
+      "high": 0.7101828127657163,
+      "low": 0.5683076923076923
+    },
+    "samples": 200,
+    "seed": 42
+  },
+  "group_count": 150,
+  "joint_exact_match": 0.6466666666666666,
+  "json_valid_rate": 1.0,
+  "record_count": 600,
+  "schema_valid_rate": 1.0,
+  "task_joint_exact_match": {
+    "visual_state_classification": 0.6466666666666666
+  }
+}

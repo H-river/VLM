@@ -1,0 +1,29 @@
+[Unit]
+Description=Generate cached numerical training grids for VLM control v5
+ConditionPathExists=!/home/jiamo/VLM_runs/control_rebuild_v5_one_seed/stages/generation.complete
+StartLimitIntervalSec=3600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/bin/bash /home/jiamo/VLM/control_rebuild_v5/run_generation.sh
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+Nice=10
+IOSchedulingClass=idle
+CPUQuota=300%
+CPUAffinity=0 1 8 9
+MemoryHigh=2684354560
+MemoryMax=3221225472
+MemorySwapMax=268435456
+TasksMax=32
+Restart=on-failure
+RestartSec=20
+StandardOutput=append:/tmp/vlm-v5-numdata.log
+StandardError=append:/tmp/vlm-v5-numdata.log
+
+[Install]
+WantedBy=default.target

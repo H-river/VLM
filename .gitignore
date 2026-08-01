@@ -71,3 +71,63 @@ checkpoints/
 *.pth
 wandb/
 .cache/
+
+# Full locally generated optics-understanding pilot. Keep source, fixtures, and
+# compact summaries in Git; regenerate JSONL/image artifacts from seed 42.
+optics_understanding_sft/data/pilot_v1/**
+!optics_understanding_sft/data/pilot_v1/manifest.json
+!optics_understanding_sft/data/pilot_v1/audit_report.json
+
+# Local model predictions can be large; keep compact evaluator reports.
+optics_understanding_sft/results/**/predictions.jsonl
+optics_understanding_sft/results/**/details.jsonl
+
+# Simulator-generated targeted training augmentation; retain compact audits.
+optics_understanding_sft/data/targeted_v1_1/**
+!optics_understanding_sft/data/targeted_v1_1/manifest.json
+!optics_understanding_sft/data/targeted_v1_1/audit_report.json
+
+# Larger corrective training and independent development datasets.
+optics_understanding_sft/data/corrective_v2/**
+!optics_understanding_sft/data/corrective_v2/manifest.json
+!optics_understanding_sft/data/corrective_v2/audit_report.json
+optics_understanding_sft/data/dev_v2/**
+!optics_understanding_sft/data/dev_v2/manifest.json
+!optics_understanding_sft/data/dev_v2/audit_report.json
+
+# Focused action-first training data; retain only compact reproducibility reports.
+optics_understanding_sft/data/action_first_v3/**
+!optics_understanding_sft/data/action_first_v3/manifest.json
+!optics_understanding_sft/data/action_first_v3/audit_report.json
+!optics_understanding_sft/data/action_first_v3/exports/
+!optics_understanding_sft/data/action_first_v3/exports/qwen/
+!optics_understanding_sft/data/action_first_v3/exports/qwen/train_curriculum.manifest.json
+!optics_understanding_sft/data/action_first_v3/exports/qwen/train_schema_repair_v3_1.manifest.json
+
+# Fresh same-setup hard-pair data; retain compact manifests and audit only.
+optics_understanding_sft/data/hard_pairs_v4/**
+!optics_understanding_sft/data/hard_pairs_v4/manifest.json
+!optics_understanding_sft/data/hard_pairs_v4/audit_report.json
+!optics_understanding_sft/data/hard_pairs_v4/exports/
+!optics_understanding_sft/data/hard_pairs_v4/exports/qwen/
+!optics_understanding_sft/data/hard_pairs_v4/exports/qwen/train_decision_warmup_v4.manifest.json
+!optics_understanding_sft/data/hard_pairs_v4/exports/qwen/train_mixed_preservation_v4.manifest.json
+!optics_understanding_sft/data/hard_pairs_v4/canonical/
+!optics_understanding_sft/data/hard_pairs_v4/canonical/diagnostic.manifest.json
+!optics_understanding_sft/data/hard_pairs_v4/canonical/holdout.manifest.json
+
+# Design-only evidence-grounded probe; retain its compact manifest and audit.
+optics_understanding_sft/data/evidence_v5_probe/**
+!optics_understanding_sft/data/evidence_v5_probe/manifest.json
+!optics_understanding_sft/data/evidence_v5_probe/audit_report.json
+
+# Fresh evidence-v5A source and split data; retain compact provenance reports.
+optics_understanding_sft/data/evidence_v5a_source/**
+!optics_understanding_sft/data/evidence_v5a_source/manifest.json
+!optics_understanding_sft/data/evidence_v5a_source/audit_report.json
+optics_understanding_sft/data/evidence_v5a/**
+!optics_understanding_sft/data/evidence_v5a/manifest.json
+!optics_understanding_sft/data/evidence_v5a/audit_report.json
+!optics_understanding_sft/data/evidence_v5a/exports/
+!optics_understanding_sft/data/evidence_v5a/exports/qwen/
+!optics_understanding_sft/data/evidence_v5a/exports/qwen/train_trial50.manifest.json

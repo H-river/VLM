@@ -1,0 +1,48 @@
+dataset:
+  name: optics_understanding_sft_evidence_v5a_source
+  version: evidence_v5a_source
+  seed: 15052
+  group_prefix: evidence_v5a_src
+  scenario_start_index: 60000
+  scenarios: 300
+  records_per_scenario: 4
+  status_counts:
+    information_sufficiency: {answerable: 300, insufficient_information: 300}
+    constrained_intervention: {feasible: 300, infeasible_within_limits: 300}
+
+simulation:
+  base_config: optical_sim/configs/base_config.yaml
+  iid_factors:
+    wavelength_nm: [0.97, 1.03]
+    beam_waist_mm: [0.70, 1.50]
+    lens_focal_length_mm: [0.80, 1.20]
+    lens_aperture_mm: [0.85, 1.10]
+    source_to_lens_mm: [0.80, 1.20]
+    lens_to_camera_mm: [0.80, 1.20]
+  ood_factors:
+    wavelength_nm: [[0.95, 0.97], [1.03, 1.05]]
+    beam_waist_mm: [[0.60, 0.70], [1.50, 1.80]]
+    lens_focal_length_mm: [[0.70, 0.80], [1.20, 1.30]]
+    lens_aperture_mm: [[0.75, 0.85], [1.10, 1.15]]
+    source_to_lens_mm: [[0.75, 0.80], [1.20, 1.25]]
+    lens_to_camera_mm: [[0.75, 0.80], [1.20, 1.25]]
+  offsets_mm:
+    lens_x: [-0.20, 0.20]
+    lens_y: [-0.20, 0.20]
+    camera_x: [-0.12, 0.12]
+    camera_y: [-0.12, 0.12]
+  action_bounds_mm: {lens: 0.06, camera: 0.03}
+
+labels:
+  centroid_effect_threshold_px: 1.0
+  sigma_effect_threshold_px: 2.0
+  intensity_relative_threshold: 0.05
+  diagnosis_centroid_tolerance_px: 1.5
+  diagnosis_sigma_tolerance_px: 2.0
+  control_success_tolerance_px: 2.0
+  sufficiency_completions: 5
+  constrained_grid_values: 9
+  control_supervision: action_first_v3
+  sufficiency_supervision: completion_evidence_v3
+
+rendering: {size_px: 384, difficulty: medium}

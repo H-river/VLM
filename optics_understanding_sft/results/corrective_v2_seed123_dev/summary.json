@@ -1,0 +1,229 @@
+{
+  "by_distribution": {
+    "iid": {
+      "count": 600,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.9833333333333333,
+      "task_score": 0.7074814814814815
+    }
+  },
+  "by_modality": {
+    "text": {
+      "count": 570,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "task_score": 0.7076413255360624
+    },
+    "visual": {
+      "count": 30,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.6666666666666666,
+      "task_score": 0.7044444444444444
+    }
+  },
+  "by_task_modality": {
+    "causal_effects": {
+      "text": {
+        "count": 56,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.8821428571428571
+      },
+      "visual": {
+        "count": 4,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.95
+      }
+    },
+    "constrained_intervention": {
+      "text": {
+        "count": 120,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.6125
+      }
+    },
+    "counterfactual_reasoning": {
+      "text": {
+        "count": 51,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.8736383442265796
+      },
+      "visual": {
+        "count": 9,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 0.0,
+        "task_score": 0.5925925925925926
+      }
+    },
+    "diagnosis": {
+      "text": {
+        "count": 109,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.9119266055045873
+      },
+      "visual": {
+        "count": 11,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 1.0
+      }
+    },
+    "forward_prediction": {
+      "text": {
+        "count": 54,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.4074074074074074
+      },
+      "visual": {
+        "count": 6,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 0.8333333333333334,
+        "task_score": 0.16666666666666666
+      }
+    },
+    "information_sufficiency": {
+      "text": {
+        "count": 120,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.49166666666666664
+      }
+    },
+    "setup_interpretation": {
+      "text": {
+        "count": 60,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.925
+      }
+    }
+  },
+  "evaluated_records": 600,
+  "expected_records": 600,
+  "json_valid_rate": 1.0,
+  "macro_task_score": 0.7215211640211641,
+  "missing_predictions": 0,
+  "per_task": {
+    "causal_effects": {
+      "centroid_x": 0.9166666666666666,
+      "centroid_y": 0.8,
+      "count": 60,
+      "effect_accuracy": 0.8866666666666667,
+      "json_valid_rate": 1.0,
+      "peak_intensity": 0.8666666666666667,
+      "schema_valid_rate": 1.0,
+      "sigma_x": 0.9333333333333333,
+      "sigma_y": 0.9166666666666666,
+      "task_score": 0.8866666666666667
+    },
+    "constrained_intervention": {
+      "action_grid_valid": 0.9916666666666667,
+      "count": 120,
+      "json_valid_rate": 1.0,
+      "minimum_motion_optimal": 0.5083333333333333,
+      "movement_gap_mm": 0.00110375,
+      "schema_valid_rate": 1.0,
+      "simulator_outcome_success": 0.5166666666666667,
+      "simulator_residual_px": 1.402150000000006,
+      "status_exact": 0.525,
+      "status_macro_f1": 0.4098869812785782,
+      "task_score": 0.6125
+    },
+    "counterfactual_reasoning": {
+      "changed_parameter_exact": 1.0,
+      "count": 60,
+      "difference_centroid_error_px": 0.7068534938348964,
+      "difference_centroid_within_2px": 0.8,
+      "difference_peak_abs_error": 2.150064705882353,
+      "difference_peak_within_5pct": 0.31666666666666665,
+      "difference_sigma_within_2px": 0.7666666666666667,
+      "difference_sigma_x_abs_error_px": 0.34521568627450977,
+      "difference_sigma_y_abs_error_px": 0.430056862745098,
+      "direction_exact": 0.8666666666666667,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.85,
+      "task_score": 0.8314814814814814
+    },
+    "diagnosis": {
+      "count": 120,
+      "json_valid_rate": 1.0,
+      "plausible_causes_f1": 0.9483333333333334,
+      "schema_valid_rate": 1.0,
+      "status_exact": 0.8916666666666667,
+      "status_macro_f1": 0.8887284010057241,
+      "task_score": 0.92
+    },
+    "forward_prediction": {
+      "after_centroid_error_px": 3.819015241876857,
+      "after_centroid_within_2px": 0.2833333333333333,
+      "after_peak_abs_error": 6.185599999999999,
+      "after_peak_within_5pct": 0.18333333333333332,
+      "after_sigma_within_2px": 0.6333333333333333,
+      "after_sigma_x_abs_error_px": 8.82412,
+      "after_sigma_y_abs_error_px": 8.703643333333334,
+      "change_centroid_error_px": 3.357337217973147,
+      "change_centroid_within_2px": 0.2833333333333333,
+      "change_peak_abs_error": 4.737734067796611,
+      "change_peak_within_5pct": 0.2,
+      "change_sigma_within_2px": 0.7166666666666667,
+      "change_sigma_x_abs_error_px": 1.1293116949152542,
+      "change_sigma_y_abs_error_px": 0.9423184745762712,
+      "count": 60,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.9833333333333333,
+      "task_score": 0.38333333333333336
+    },
+    "information_sufficiency": {
+      "count": 120,
+      "json_valid_rate": 1.0,
+      "missing_fields_f1": 0.5083333333333333,
+      "schema_valid_rate": 1.0,
+      "secondary_exact": 0.425,
+      "status_exact": 0.5083333333333333,
+      "status_macro_f1": 0.5005291005291006,
+      "task_score": 0.49166666666666664
+    },
+    "setup_interpretation": {
+      "adjustable_parameters_f1": 1.0,
+      "component_order_exact": 1.0,
+      "count": 60,
+      "focal_length_abs_error_m": 6.8728333333334855e-06,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "task_score": 0.925,
+      "total_distance_abs_error_mm": 2.0883040333333325
+    }
+  },
+  "predicted_status_counts": {
+    "ambiguous": 53,
+    "answerable": 285,
+    "feasible": 7,
+    "infeasible_within_limits": 113,
+    "insufficient_information": 75,
+    "unique": 27,
+    "unsupported": 40
+  },
+  "rubric_version": "v1",
+  "runtime": {
+    "mean_input_tokens": 678.0633333333334,
+    "mean_latency_seconds": 3.3378652614983064,
+    "mean_output_tokens": 65.78833333333333,
+    "peak_cuda_memory_bytes": 2705429504.0,
+    "total_latency_seconds": 2002.7191568989838
+  },
+  "schema_valid_rate": 0.9833333333333333,
+  "target_status_counts": {
+    "ambiguous": 40,
+    "answerable": 300,
+    "feasible": 60,
+    "infeasible_within_limits": 60,
+    "insufficient_information": 60,
+    "unique": 40,
+    "unsupported": 40
+  }
+}

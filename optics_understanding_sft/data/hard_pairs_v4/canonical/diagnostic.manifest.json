@@ -1,0 +1,8 @@
+{
+  "example_ids_hash": "514507ed2d2c2eca570dd7b9ada5b4df5f05aee8aff5293c1bd9c3d1378c0ab0",
+  "name": "hard_pairs_v4_checkpoint_diagnostic",
+  "physical_group_count": 30,
+  "record_count": 120,
+  "seed": 9041,
+  "source_sha256": "05ec2eb025438a168212654bfe94eb9dc8c3998293c453077e5d9b47500da488"
+}

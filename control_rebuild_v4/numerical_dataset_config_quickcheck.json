@@ -1,0 +1,14 @@
+{
+  "version": "control_rebuild_v4_numerical_one_seed",
+  "seed": 20260726,
+  "group_counts": {
+    "train": 2000,
+    "val": 300
+  },
+  "category_fractions": {
+    "iid_expanded": 0.2,
+    "ood_boundary": 0.4,
+    "high_nonlinearity": 0.4
+  },
+  "workers": 1
+}

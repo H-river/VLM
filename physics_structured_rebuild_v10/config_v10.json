@@ -1,0 +1,77 @@
+{
+  "version": "physics_structured_rebuild_v10_response_surface",
+  "full_group_counts": {
+    "train": 2400,
+    "development": 320,
+    "locked_test": 320
+  },
+  "pilot_group_counts": {
+    "train": 384,
+    "development": 160,
+    "locked_test": 160
+  },
+  "split_seeds": {
+    "train": 2026072901,
+    "development": 2026072902,
+    "locked_test": 2026072999
+  },
+  "regime_fractions": {
+    "ordinary": 0.35,
+    "focusing": 0.15,
+    "clipping": 0.15,
+    "camera_boundary": 0.15,
+    "high_offset_interaction": 0.1,
+    "tolerance_boundary": 0.1
+  },
+  "visual_targets_per_group": 3,
+  "visual_image_size": 96,
+  "workers": 2,
+  "worker_cpu_affinities": [
+    0,
+    8
+  ],
+  "model_seed": 2026072901,
+  "bootstrap_seed": 2026072907,
+  "bootstrap_draws": 2000,
+  "forward_training": {
+    "epochs": 80,
+    "smoke_epochs": 2,
+    "patience": 12,
+    "batch_size": 24,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0002,
+    "dimension": 128,
+    "dropout": 0.05
+  },
+  "inverse_training": {
+    "epochs": 60,
+    "smoke_epochs": 2,
+    "patience": 10,
+    "batch_size": 96,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0002,
+    "dimension": 128,
+    "dropout": 0.05
+  },
+  "visual_training": {
+    "epochs": 50,
+    "smoke_epochs": 2,
+    "patience": 8,
+    "batch_size": 64,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0002,
+    "dimension": 128,
+    "dropout": 0.05
+  },
+  "existing_distribution_sources": [
+    "/home/jiamo/VLM_data/specialist_rebuild_v2/grids/train.jsonl",
+    "/home/jiamo/VLM_data/control_rebuild_v4_quickcheck/grids/train.jsonl",
+    "/home/jiamo/VLM_data/control_rebuild_v5_numerical/grids/train.jsonl",
+    "/home/jiamo/VLM_data/physics_structured_rebuild_v9/targeted/train.jsonl"
+  ],
+  "safety": {
+    "minimum_available_mib": 2048,
+    "maximum_gpu_memory_mib": 8192,
+    "maximum_gpu_temperature_c": 80
+  }
+}

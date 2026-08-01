@@ -1,0 +1,5192 @@
+{
+  "best_numeric_iid_balanced_accuracy": 0.5,
+  "evaluation_order": "iid_once_then_preregistered_severity_ood_no_tuning",
+  "protected_previous_results_used": false,
+  "selected_frozen_diagnostic": {
+    "development_score": {
+      "balanced_accuracy": 0.8333333333333333,
+      "confusion_matrix": [
+        [
+          11,
+          1
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "episodes": 24,
+      "expected_calibration_error_10_bins": 0.12838665147622425,
+      "macro_f1": 0.8321678321678322
+    },
+    "frozen_path": "/home/jiamo/VLM/reflection_width_relative/models/selected_diagnostic.pt",
+    "frozen_sha256": "45f95f6c580842dcdd5dcaa61a7eff732f071343dd7ce8c748d701051e5555bb",
+    "model_name": "image_metrics_multimodal_small_model",
+    "seed": 2026081202,
+    "source_path": "/home/jiamo/VLM/reflection_width_relative/models/seed_2026081202_multimodal_cnn.pt",
+    "source_sha256": "45f95f6c580842dcdd5dcaa61a7eff732f071343dd7ce8c748d701051e5555bb"
+  },
+  "selected_iid_result": {
+    "balanced_accuracy": 0.8666666666666667,
+    "by_amplitude": {
+      "0.4": {
+        "balanced_accuracy": 0.8421052631578947,
+        "confusion_matrix": [
+          [
+            16,
+            3
+          ],
+          [
+            3,
+            16
+          ]
+        ],
+        "episodes": 38,
+        "expected_calibration_error_10_bins": 0.11843445740248029,
+        "macro_f1": 0.8421052631578947
+      },
+      "0.5": {
+        "balanced_accuracy": 0.9090909090909092,
+        "confusion_matrix": [
+          [
+            11,
+            0
+          ],
+          [
+            2,
+            9
+          ]
+        ],
+        "episodes": 22,
+        "expected_calibration_error_10_bins": 0.07596191763877866,
+        "macro_f1": 0.9083333333333333
+      }
+    },
+    "by_boundary_status": {
+      "boundary": {
+        "balanced_accuracy": 0.75,
+        "confusion_matrix": [
+          [
+            8,
+            2
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "episodes": 20,
+        "expected_calibration_error_10_bins": 0.1736925572156906,
+        "macro_f1": 0.7493734335839599
+      },
+      "non_boundary": {
+        "balanced_accuracy": 0.925,
+        "confusion_matrix": [
+          [
+            19,
+            1
+          ],
+          [
+            2,
+            18
+          ]
+        ],
+        "episodes": 40,
+        "expected_calibration_error_10_bins": 0.0786561980843544,
+        "macro_f1": 0.9249530956848031
+      }
+    },
+    "by_direction": {
+      "east": {
+        "balanced_accuracy": 0.75,
+        "confusion_matrix": [
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "episodes": 4,
+        "expected_calibration_error_10_bins": 0.29254359006881714,
+        "macro_f1": 0.7333333333333334
+      },
+      "north": {
+        "balanced_accuracy": 0.8333333333333333,
+        "confusion_matrix": [
+          [
+            3,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "episodes": 6,
+        "expected_calibration_error_10_bins": 0.355628897746404,
+        "macro_f1": 0.8285714285714285
+      },
+      "north_east": {
+        "balanced_accuracy": 0.9,
+        "confusion_matrix": [
+          [
+            4,
+            1
+          ],
+          [
+            0,
+            5
+          ]
+        ],
+        "episodes": 10,
+        "expected_calibration_error_10_bins": 0.1046733856201172,
+        "macro_f1": 0.898989898989899
+      },
+      "north_west": {
+        "balanced_accuracy": 0.875,
+        "confusion_matrix": [
+          [
+            4,
+            0
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "episodes": 8,
+        "expected_calibration_error_10_bins": 0.13516715168952942,
+        "macro_f1": 0.873015873015873
+      },
+      "south": {
+        "balanced_accuracy": 0.8333333333333334,
+        "confusion_matrix": [
+          [
+            5,
+            1
+          ],
+          [
+            1,
+            5
+          ]
+        ],
+        "episodes": 12,
+        "expected_calibration_error_10_bins": 0.10538675884405775,
+        "macro_f1": 0.8333333333333334
+      },
+      "south_east": {
+        "balanced_accuracy": 1.0,
+        "confusion_matrix": [
+          [
+            4,
+            0
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "episodes": 8,
+        "expected_calibration_error_10_bins": 0.07649871706962585,
+        "macro_f1": 1.0
+      },
+      "south_west": {
+        "balanced_accuracy": 0.8333333333333333,
+        "confusion_matrix": [
+          [
+            2,
+            1
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "episodes": 6,
+        "expected_calibration_error_10_bins": 0.25621652603149414,
+        "macro_f1": 0.8285714285714285
+      },
+      "west": {
+        "balanced_accuracy": 0.8333333333333333,
+        "confusion_matrix": [
+          [
+            3,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "episodes": 6,
+        "expected_calibration_error_10_bins": 0.19500199953715006,
+        "macro_f1": 0.8285714285714285
+      }
+    },
+    "by_k": {
+      "2.25": {
+        "balanced_accuracy": 0.9090909090909092,
+        "confusion_matrix": [
+          [
+            11,
+            0
+          ],
+          [
+            2,
+            9
+          ]
+        ],
+        "episodes": 22,
+        "expected_calibration_error_10_bins": 0.0869605947624553,
+        "macro_f1": 0.9083333333333333
+      },
+      "2.75": {
+        "balanced_accuracy": 0.8421052631578947,
+        "confusion_matrix": [
+          [
+            16,
+            3
+          ],
+          [
+            3,
+            16
+          ]
+        ],
+        "episodes": 38,
+        "expected_calibration_error_10_bins": 0.12219427761278656,
+        "macro_f1": 0.8421052631578947
+      }
+    },
+    "by_width_quartile": {
+      "Q1": {
+        "balanced_accuracy": 0.6875,
+        "confusion_matrix": [
+          [
+            6,
+            2
+          ],
+          [
+            3,
+            5
+          ]
+        ],
+        "episodes": 16,
+        "expected_calibration_error_10_bins": 0.2161233350634575,
+        "macro_f1": 0.6862745098039216
+      },
+      "Q2": {
+        "balanced_accuracy": 0.9285714285714286,
+        "confusion_matrix": [
+          [
+            7,
+            0
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        "episodes": 14,
+        "expected_calibration_error_10_bins": 0.13200280496052333,
+        "macro_f1": 0.9282051282051282
+      },
+      "Q3": {
+        "balanced_accuracy": 1.0,
+        "confusion_matrix": [
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "episodes": 16,
+        "expected_calibration_error_10_bins": 0.019322026520967484,
+        "macro_f1": 1.0
+      },
+      "Q4": {
+        "balanced_accuracy": 0.8571428571428571,
+        "confusion_matrix": [
+          [
+            6,
+            1
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        "episodes": 14,
+        "expected_calibration_error_10_bins": 0.17544257215091158,
+        "macro_f1": 0.8571428571428571
+      }
+    },
+    "confusion_matrix": [
+      [
+        27,
+        3
+      ],
+      [
+        5,
+        25
+      ]
+    ],
+    "episodes": 60,
+    "expected_calibration_error_10_bins": 0.10095650454362237,
+    "macro_f1": 0.8665183537263625
+  },
+  "small_cnn_is_visual_diagnostic_not_vlm": true,
+  "splits": {
+    "iid_heldout": {
+      "aggregate_across_training_seeds": {
+        "hidden_label_oracle": {
+          "balanced_accuracy": {
+            "maximum": 1.0,
+            "mean": 1.0,
+            "minimum": 1.0,
+            "standard_deviation": 0.0
+          },
+          "expected_calibration_error_10_bins": {
+            "maximum": 0.0,
+            "mean": 0.0,
+            "minimum": 0.0,
+            "standard_deviation": 0.0
+          },
+          "macro_f1": {
+            "maximum": 1.0,
+            "mean": 1.0,
+            "minimum": 1.0,
+            "standard_deviation": 0.0
+          }
+        },
+        "image_metrics_multimodal_small_model": {
+          "balanced_accuracy": {
+            "maximum": 0.8666666666666667,
+            "mean": 0.7888888888888889,
+            "minimum": 0.7166666666666667,
+            "standard_deviation": 0.06136311676215146
+          },
+          "expected_calibration_error_10_bins": {
+            "maximum": 0.13055374026298522,
+            "mean": 0.10838993522855972,
+            "minimum": 0.09365956087907155,
+            "standard_deviation": 0.01595278527225316
+          },
+          "macro_f1": {
+            "maximum": 0.8665183537263625,
+            "mean": 0.7876061589936958,
+            "minimum": 0.7159565580618212,
+            "standard_deviation": 0.06168075080589974
+          }
+        },
+        "image_only_small_cnn": {
+          "balanced_accuracy": {
+            "maximum": 0.8833333333333333,
+            "mean": 0.8111111111111112,
+            "minimum": 0.7,
+            "standard_deviation": 0.07973722274670739
+          },
+          "expected_calibration_error_10_bins": {
+            "maximum": 0.12701432406902316,
+            "mean": 0.1052227897776498,
+            "minimum": 0.09174740513165795,
+            "standard_deviation": 0.01555222709725644
+          },
+          "macro_f1": {
+            "maximum": 0.8830409356725146,
+            "mean": 0.8068330858095193,
+            "minimum": 0.6875,
+            "standard_deviation": 0.08545526651413651
+          }
+        },
+        "metrics_history_mlp": {
+          "balanced_accuracy": {
+            "maximum": 0.5,
+            "mean": 0.5,
+            "minimum": 0.5,
+            "standard_deviation": 0.0
+          },
+          "expected_calibration_error_10_bins": {
+            "maximum": 0.07023817133716452,
+            "mean": 0.061892150551973,
+            "minimum": 0.04855141227761558,
+            "standard_deviation": 0.009532026077883157
+          },
+          "macro_f1": {
+            "maximum": 0.4994438264738599,
+            "mean": 0.49832651358652474,
+            "minimum": 0.49776785714285715,
+            "standard_deviation": 0.0007900595193418053
+          }
+        },
+        "metrics_only_logistic": {
+          "balanced_accuracy": {
+            "maximum": 0.5,
+            "mean": 0.5,
+            "minimum": 0.5,
+            "standard_deviation": 0.0
+          },
+          "expected_calibration_error_10_bins": {
+            "maximum": 0.00028006755578036113,
+            "mean": 0.00028006755578036113,
+            "minimum": 0.00028006755578036113,
+            "standard_deviation": 0.0
+          },
+          "macro_f1": {
+            "maximum": 0.5,
+            "mean": 0.5,
+            "minimum": 0.5,
+            "standard_deviation": 0.0
+          }
+        }
+      },
+      "per_training_seed": [
+        {
+          "models": {
+            "hidden_label_oracle": {
+              "balanced_accuracy": 1.0,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      19,
+                      0
+                    ],
+                    [
+                      0,
+                      19
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "0.5": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      0,
+                      11
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      10,
+                      0
+                    ],
+                    [
+                      0,
+                      10
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      20,
+                      0
+                    ],
+                    [
+                      0,
+                      20
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      0
+                    ],
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north_west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      0
+                    ],
+                    [
+                      0,
+                      6
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south_west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      0,
+                      11
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "2.75": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      19,
+                      0
+                    ],
+                    [
+                      0,
+                      19
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q2": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      0,
+                      7
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q3": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q4": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      0,
+                      7
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "confusion_matrix": [
+                [
+                  30,
+                  0
+                ],
+                [
+                  0,
+                  30
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.0,
+              "macro_f1": 1.0
+            },
+            "image_metrics_multimodal_small_model": {
+              "balanced_accuracy": 0.8666666666666667,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.8421052631578947,
+                  "confusion_matrix": [
+                    [
+                      16,
+                      3
+                    ],
+                    [
+                      3,
+                      16
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.11843445740248029,
+                  "macro_f1": 0.8421052631578947
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.9090909090909092,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      2,
+                      9
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.07596191763877866,
+                  "macro_f1": 0.9083333333333333
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.75,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      2
+                    ],
+                    [
+                      3,
+                      7
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.1736925572156906,
+                  "macro_f1": 0.7493734335839599
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.925,
+                  "confusion_matrix": [
+                    [
+                      19,
+                      1
+                    ],
+                    [
+                      2,
+                      18
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.0786561980843544,
+                  "macro_f1": 0.9249530956848031
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.75,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.29254359006881714,
+                  "macro_f1": 0.7333333333333334
+                },
+                "north": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.355628897746404,
+                  "macro_f1": 0.8285714285714285
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.9,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      1
+                    ],
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.1046733856201172,
+                  "macro_f1": 0.898989898989899
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.13516715168952942,
+                  "macro_f1": 0.873015873015873
+                },
+                "south": {
+                  "balanced_accuracy": 0.8333333333333334,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      1
+                    ],
+                    [
+                      1,
+                      5
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.10538675884405775,
+                  "macro_f1": 0.8333333333333334
+                },
+                "south_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.07649871706962585,
+                  "macro_f1": 1.0
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.25621652603149414,
+                  "macro_f1": 0.8285714285714285
+                },
+                "west": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.19500199953715006,
+                  "macro_f1": 0.8285714285714285
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.9090909090909092,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      2,
+                      9
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.0869605947624553,
+                  "macro_f1": 0.9083333333333333
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.8421052631578947,
+                  "confusion_matrix": [
+                    [
+                      16,
+                      3
+                    ],
+                    [
+                      3,
+                      16
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.12219427761278656,
+                  "macro_f1": 0.8421052631578947
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.6875,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      2
+                    ],
+                    [
+                      3,
+                      5
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.2161233350634575,
+                  "macro_f1": 0.6862745098039216
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.9285714285714286,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.13200280496052333,
+                  "macro_f1": 0.9282051282051282
+                },
+                "Q3": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.019322026520967484,
+                  "macro_f1": 1.0
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.8571428571428571,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      1
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.17544257215091158,
+                  "macro_f1": 0.8571428571428571
+                }
+              },
+              "confusion_matrix": [
+                [
+                  27,
+                  3
+                ],
+                [
+                  5,
+                  25
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.10095650454362237,
+              "macro_f1": 0.8665183537263625
+            },
+            "image_only_small_cnn": {
+              "balanced_accuracy": 0.8833333333333333,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.8421052631578947,
+                  "confusion_matrix": [
+                    [
+                      17,
+                      2
+                    ],
+                    [
+                      4,
+                      15
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.0973185128287265,
+                  "macro_f1": 0.8416666666666667
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.9545454545454546,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      1,
+                      10
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.10708476196635854,
+                  "macro_f1": 0.9544513457556936
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.8,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      1
+                    ],
+                    [
+                      3,
+                      7
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.16106506884098054,
+                  "macro_f1": 0.797979797979798
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.925,
+                  "confusion_matrix": [
+                    [
+                      19,
+                      1
+                    ],
+                    [
+                      2,
+                      18
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.06482754647731782,
+                  "macro_f1": 0.9249530956848031
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.75,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.19669941067695618,
+                  "macro_f1": 0.7333333333333334
+                },
+                "north": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.29482965668042505,
+                  "macro_f1": 0.8285714285714285
+                },
+                "north_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      0
+                    ],
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.08824577927589417,
+                  "macro_f1": 1.0
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.14453673362731934,
+                  "macro_f1": 0.873015873015873
+                },
+                "south": {
+                  "balanced_accuracy": 0.9166666666666667,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      1
+                    ],
+                    [
+                      0,
+                      6
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.18930699427922565,
+                  "macro_f1": 0.916083916083916
+                },
+                "south_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.08207311481237411,
+                  "macro_f1": 1.0
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.6666666666666666,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.24499052762985227,
+                  "macro_f1": 0.6666666666666666
+                },
+                "west": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.022098461786905922,
+                  "macro_f1": 0.8285714285714285
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.9090909090909092,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      2,
+                      9
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.0876805457201871,
+                  "macro_f1": 0.9083333333333333
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.868421052631579,
+                  "confusion_matrix": [
+                    [
+                      17,
+                      2
+                    ],
+                    [
+                      3,
+                      16
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.13690850922935888,
+                  "macro_f1": 0.8683298683298684
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.75,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      1
+                    ],
+                    [
+                      3,
+                      5
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.19441497698426247,
+                  "macro_f1": 0.746031746031746
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.9285714285714286,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.0977332719734737,
+                  "macro_f1": 0.9282051282051282
+                },
+                "Q3": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.011100944131612778,
+                  "macro_f1": 1.0
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.8571428571428571,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      1
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.14822615470205036,
+                  "macro_f1": 0.8571428571428571
+                }
+              },
+              "confusion_matrix": [
+                [
+                  28,
+                  2
+                ],
+                [
+                  5,
+                  25
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.09690664013226831,
+              "macro_f1": 0.8830409356725146
+            },
+            "metrics_history_mlp": {
+              "balanced_accuracy": 0.5,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      10,
+                      9
+                    ],
+                    [
+                      10,
+                      9
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.07139625752002621,
+                  "macro_f1": 0.49965349965349964
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      5
+                    ],
+                    [
+                      6,
+                      5
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.06823784065767625,
+                  "macro_f1": 0.4989648033126294
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      6
+                    ],
+                    [
+                      4,
+                      6
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.10445044295127409,
+                  "macro_f1": 0.4949494949494949
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      12,
+                      8
+                    ],
+                    [
+                      12,
+                      8
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.05313203553010967,
+                  "macro_f1": 0.4949494949494949
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.046471443066073925,
+                  "macro_f1": 0.5
+                },
+                "north": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      3,
+                      0
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.16958754714978974,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      3
+                    ],
+                    [
+                      2,
+                      3
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.0503877473888974,
+                  "macro_f1": 0.4949494949494949
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      2
+                    ],
+                    [
+                      2,
+                      2
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.08048087271865365,
+                  "macro_f1": 0.5
+                },
+                "south": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      3
+                    ],
+                    [
+                      3,
+                      3
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.03987123972197759,
+                  "macro_f1": 0.5
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      4,
+                      0
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.0796460514610755,
+                  "macro_f1": 0.3333333333333333
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      3
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.09640782285509159,
+                  "macro_f1": 0.3333333333333333
+                },
+                "west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      2
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.02818075732429126,
+                  "macro_f1": 0.4857142857142857
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      3
+                    ],
+                    [
+                      8,
+                      3
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.053238951050698965,
+                  "macro_f1": 0.47276688453159044
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      11
+                    ],
+                    [
+                      8,
+                      11
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.08007982518722348,
+                  "macro_f1": 0.4968641114982578
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      6
+                    ],
+                    [
+                      2,
+                      6
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.07549165651253761,
+                  "macro_f1": 0.4666666666666667
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      3
+                    ],
+                    [
+                      4,
+                      3
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.09782143030627993,
+                  "macro_f1": 0.49743589743589745
+                },
+                "Q3": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      4
+                    ],
+                    [
+                      4,
+                      4
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0491819960031606,
+                  "macro_f1": 0.5
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      1
+                    ],
+                    [
+                      6,
+                      1
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.060715129692198604,
+                  "macro_f1": 0.4269005847953216
+                }
+              },
+              "confusion_matrix": [
+                [
+                  16,
+                  14
+                ],
+                [
+                  16,
+                  14
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.07023817133716452,
+              "macro_f1": 0.4994438264738599
+            },
+            "metrics_only_logistic": {
+              "balanced_accuracy": 0.5,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      8
+                    ],
+                    [
+                      11,
+                      8
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.00024446070904771133,
+                  "macro_f1": 0.4968641114982578
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      7
+                    ],
+                    [
+                      4,
+                      7
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.00034157029104586734,
+                  "macro_f1": 0.4905263157894737
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      1
+                    ],
+                    [
+                      9,
+                      1
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.00034933336106146573,
+                  "macro_f1": 0.40476190476190477
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      14
+                    ],
+                    [
+                      6,
+                      14
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.00024543465313997537,
+                  "macro_f1": 0.4791666666666667
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.00040688945324740544,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      3,
+                      0
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.00021018384746518404,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      2
+                    ],
+                    [
+                      3,
+                      2
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 7.902140457660689e-05,
+                  "macro_f1": 0.4949494949494949
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.00028122745634651114,
+                  "macro_f1": 0.4666666666666667
+                },
+                "south": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      2
+                    ],
+                    [
+                      4,
+                      2
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.0003954957502353418,
+                  "macro_f1": 0.4857142857142857
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 8.842336537551176e-05,
+                  "macro_f1": 0.4666666666666667
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      1
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.00029140063613442013,
+                  "macro_f1": 0.4857142857142857
+                },
+                "west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      2
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0006122698349780853,
+                  "macro_f1": 0.4857142857142857
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      5
+                    ],
+                    [
+                      6,
+                      5
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.00027921094476834885,
+                  "macro_f1": 0.4989648033126294
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      10
+                    ],
+                    [
+                      9,
+                      10
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.00028056348847160795,
+                  "macro_f1": 0.49965349965349964
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      8,
+                      0
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0004282782548802322,
+                  "macro_f1": 0.3333333333333333
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      3
+                    ],
+                    [
+                      4,
+                      3
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.00025598102478630036,
+                  "macro_f1": 0.49743589743589745
+                },
+                "Q3": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      6
+                    ],
+                    [
+                      2,
+                      6
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.00018832898939158405,
+                  "macro_f1": 0.4666666666666667
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      6
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.00023961450653320338,
+                  "macro_f1": 0.4269005847953216
+                }
+              },
+              "confusion_matrix": [
+                [
+                  15,
+                  15
+                ],
+                [
+                  15,
+                  15
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.00028006755578036113,
+              "macro_f1": 0.5
+            }
+          },
+          "seed": 2026081202
+        },
+        {
+          "models": {
+            "hidden_label_oracle": {
+              "balanced_accuracy": 1.0,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      19,
+                      0
+                    ],
+                    [
+                      0,
+                      19
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "0.5": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      0,
+                      11
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      10,
+                      0
+                    ],
+                    [
+                      0,
+                      10
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      20,
+                      0
+                    ],
+                    [
+                      0,
+                      20
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      0
+                    ],
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north_west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      0
+                    ],
+                    [
+                      0,
+                      6
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south_west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      0,
+                      11
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "2.75": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      19,
+                      0
+                    ],
+                    [
+                      0,
+                      19
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q2": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      0,
+                      7
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q3": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q4": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      0,
+                      7
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "confusion_matrix": [
+                [
+                  30,
+                  0
+                ],
+                [
+                  0,
+                  30
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.0,
+              "macro_f1": 1.0
+            },
+            "image_metrics_multimodal_small_model": {
+              "balanced_accuracy": 0.7833333333333333,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.736842105263158,
+                  "confusion_matrix": [
+                    [
+                      17,
+                      2
+                    ],
+                    [
+                      8,
+                      11
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.09435215906092995,
+                  "macro_f1": 0.7301136363636364
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.8636363636363636,
+                  "confusion_matrix": [
+                    [
+                      10,
+                      1
+                    ],
+                    [
+                      2,
+                      9
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.14300006898966702,
+                  "macro_f1": 0.8633540372670807
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.6,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      1
+                    ],
+                    [
+                      7,
+                      3
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.1233712404966354,
+                  "macro_f1": 0.5604395604395604
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      18,
+                      2
+                    ],
+                    [
+                      3,
+                      17
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.11151989549398422,
+                  "macro_f1": 0.8749218261413383
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.47442781925201416,
+                  "macro_f1": 0.5
+                },
+                "north": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.39789954821268714,
+                  "macro_f1": 1.0
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.8,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      1
+                    ],
+                    [
+                      1,
+                      4
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.09844107031822204,
+                  "macro_f1": 0.8
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.11035443842411041,
+                  "macro_f1": 0.873015873015873
+                },
+                "south": {
+                  "balanced_accuracy": 0.6666666666666667,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      1
+                    ],
+                    [
+                      3,
+                      3
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.1976446857055028,
+                  "macro_f1": 0.6571428571428571
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.046381108462810516,
+                  "macro_f1": 0.873015873015873
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.6666666666666666,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      2,
+                      1
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.13473048806190493,
+                  "macro_f1": 0.625
+                },
+                "west": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.04043789704640706,
+                  "macro_f1": 0.8285714285714285
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.8636363636363636,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      3,
+                      8
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.13984848152507434,
+                  "macro_f1": 0.8610526315789473
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.7368421052631579,
+                  "confusion_matrix": [
+                    [
+                      16,
+                      3
+                    ],
+                    [
+                      7,
+                      12
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.09276140677301506,
+                  "macro_f1": 0.7338935574229692
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.4375,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      1
+                    ],
+                    [
+                      8,
+                      0
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.20446006208658218,
+                  "macro_f1": 0.30434782608695654
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.9285714285714286,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      1
+                    ],
+                    [
+                      0,
+                      7
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.26941859296389986,
+                  "macro_f1": 0.9282051282051282
+                },
+                "Q3": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.08031387254595757,
+                  "macro_f1": 1.0
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.7857142857142857,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      1
+                    ],
+                    [
+                      2,
+                      5
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.22181902187211175,
+                  "macro_f1": 0.7846153846153847
+                }
+              },
+              "confusion_matrix": [
+                [
+                  27,
+                  3
+                ],
+                [
+                  10,
+                  20
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.09365956087907155,
+              "macro_f1": 0.7803435651929034
+            },
+            "image_only_small_cnn": {
+              "balanced_accuracy": 0.8500000000000001,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.8421052631578947,
+                  "confusion_matrix": [
+                    [
+                      15,
+                      4
+                    ],
+                    [
+                      2,
+                      17
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.1321746518737391,
+                  "macro_f1": 0.8416666666666667
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.8636363636363636,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      3,
+                      8
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.12455480478026654,
+                  "macro_f1": 0.8610526315789473
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.7,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      2
+                    ],
+                    [
+                      4,
+                      6
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.18080276846885682,
+                  "macro_f1": 0.696969696969697
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.925,
+                  "confusion_matrix": [
+                    [
+                      18,
+                      2
+                    ],
+                    [
+                      1,
+                      19
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.06238732188940049,
+                  "macro_f1": 0.9249530956848031
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.75,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.237418994307518,
+                  "macro_f1": 0.7333333333333334
+                },
+                "north": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.24075155456860858,
+                  "macro_f1": 0.8285714285714285
+                },
+                "north_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      0
+                    ],
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.06772140264511108,
+                  "macro_f1": 1.0
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      1
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.006277605891227722,
+                  "macro_f1": 0.873015873015873
+                },
+                "south": {
+                  "balanced_accuracy": 0.75,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      1
+                    ],
+                    [
+                      2,
+                      4
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.2431749403476715,
+                  "macro_f1": 0.7482517482517483
+                },
+                "south_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.022364966571331024,
+                  "macro_f1": 1.0
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.6666666666666666,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.31260798374811805,
+                  "macro_f1": 0.6666666666666666
+                },
+                "west": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.006527304649353027,
+                  "macro_f1": 0.8285714285714285
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.9090909090909091,
+                  "confusion_matrix": [
+                    [
+                      10,
+                      1
+                    ],
+                    [
+                      1,
+                      10
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.07818425514481284,
+                  "macro_f1": 0.9090909090909091
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.8157894736842105,
+                  "confusion_matrix": [
+                    [
+                      16,
+                      3
+                    ],
+                    [
+                      4,
+                      15
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.1211247977457548,
+                  "macro_f1": 0.8156618156618156
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.625,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      3
+                    ],
+                    [
+                      3,
+                      5
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.16675326973199844,
+                  "macro_f1": 0.625
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.9285714285714286,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.08461650780269073,
+                  "macro_f1": 0.9282051282051282
+                },
+                "Q3": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0022072196006774902,
+                  "macro_f1": 1.0
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.8571428571428571,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      1
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.16389375073569162,
+                  "macro_f1": 0.8571428571428571
+                }
+              },
+              "confusion_matrix": [
+                [
+                  26,
+                  4
+                ],
+                [
+                  5,
+                  25
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.09174740513165795,
+              "macro_f1": 0.8499583217560434
+            },
+            "metrics_history_mlp": {
+              "balanced_accuracy": 0.5,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      12
+                    ],
+                    [
+                      7,
+                      12
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.04509249325451831,
+                  "macro_f1": 0.49119097956307256
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      5
+                    ],
+                    [
+                      6,
+                      5
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.05452590877205647,
+                  "macro_f1": 0.4989648033126294
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      6
+                    ],
+                    [
+                      4,
+                      6
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.07040652554074771,
+                  "macro_f1": 0.4949494949494949
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      11
+                    ],
+                    [
+                      9,
+                      11
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.03762385564604959,
+                  "macro_f1": 0.4987468671679198
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.031900480716595014,
+                  "macro_f1": 0.5
+                },
+                "north": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      3
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.05607022013435499,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      0
+                    ],
+                    [
+                      5,
+                      0
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.06235005753334859,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.03190855120611663,
+                  "macro_f1": 0.4666666666666667
+                },
+                "south": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      5
+                    ],
+                    [
+                      1,
+                      5
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.06033710967131776,
+                  "macro_f1": 0.4375
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      4,
+                      0
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.01433909549366641,
+                  "macro_f1": 0.3333333333333333
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      3
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.08790303458213773,
+                  "macro_f1": 0.3333333333333333
+                },
+                "west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      2
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0340193700840062,
+                  "macro_f1": 0.4857142857142857
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      9
+                    ],
+                    [
+                      2,
+                      9
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.03684618530922328,
+                  "macro_f1": 0.44367816091954027
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      8
+                    ],
+                    [
+                      11,
+                      8
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.055328122627737494,
+                  "macro_f1": 0.4968641114982578
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      5
+                    ],
+                    [
+                      3,
+                      5
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.07270474225671421,
+                  "macro_f1": 0.4920634920634921
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      5
+                    ],
+                    [
+                      2,
+                      5
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.04645213820105411,
+                  "macro_f1": 0.47593582887700536
+                },
+                "Q3": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      3
+                    ],
+                    [
+                      5,
+                      3
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.02267942445295623,
+                  "macro_f1": 0.4920634920634921
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      4
+                    ],
+                    [
+                      3,
+                      4
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.052614866749103886,
+                  "macro_f1": 0.49743589743589745
+                }
+              },
+              "confusion_matrix": [
+                [
+                  13,
+                  17
+                ],
+                [
+                  13,
+                  17
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.04855141227761558,
+              "macro_f1": 0.49776785714285715
+            },
+            "metrics_only_logistic": {
+              "balanced_accuracy": 0.5,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      8
+                    ],
+                    [
+                      11,
+                      8
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.00024446070904771133,
+                  "macro_f1": 0.4968641114982578
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      7
+                    ],
+                    [
+                      4,
+                      7
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.00034157029104586734,
+                  "macro_f1": 0.4905263157894737
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      1
+                    ],
+                    [
+                      9,
+                      1
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.00034933336106146573,
+                  "macro_f1": 0.40476190476190477
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      14
+                    ],
+                    [
+                      6,
+                      14
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.00024543465313997537,
+                  "macro_f1": 0.4791666666666667
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.00040688945324740544,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      3,
+                      0
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.00021018384746518404,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      2
+                    ],
+                    [
+                      3,
+                      2
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 7.902140457660689e-05,
+                  "macro_f1": 0.4949494949494949
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.00028122745634651114,
+                  "macro_f1": 0.4666666666666667
+                },
+                "south": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      2
+                    ],
+                    [
+                      4,
+                      2
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.0003954957502353418,
+                  "macro_f1": 0.4857142857142857
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 8.842336537551176e-05,
+                  "macro_f1": 0.4666666666666667
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      1
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.00029140063613442013,
+                  "macro_f1": 0.4857142857142857
+                },
+                "west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      2
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0006122698349780853,
+                  "macro_f1": 0.4857142857142857
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      5
+                    ],
+                    [
+                      6,
+                      5
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.00027921094476834885,
+                  "macro_f1": 0.4989648033126294
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      10
+                    ],
+                    [
+                      9,
+                      10
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.00028056348847160795,
+                  "macro_f1": 0.49965349965349964
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      8,
+                      0
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0004282782548802322,
+                  "macro_f1": 0.3333333333333333
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      3
+                    ],
+                    [
+                      4,
+                      3
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.00025598102478630036,
+                  "macro_f1": 0.49743589743589745
+                },
+                "Q3": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      6
+                    ],
+                    [
+                      2,
+                      6
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.00018832898939158405,
+                  "macro_f1": 0.4666666666666667
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      6
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.00023961450653320338,
+                  "macro_f1": 0.4269005847953216
+                }
+              },
+              "confusion_matrix": [
+                [
+                  15,
+                  15
+                ],
+                [
+                  15,
+                  15
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.00028006755578036113,
+              "macro_f1": 0.5
+            }
+          },
+          "seed": 2026081203
+        },
+        {
+          "models": {
+            "hidden_label_oracle": {
+              "balanced_accuracy": 1.0,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      19,
+                      0
+                    ],
+                    [
+                      0,
+                      19
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "0.5": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      0,
+                      11
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      10,
+                      0
+                    ],
+                    [
+                      0,
+                      10
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      20,
+                      0
+                    ],
+                    [
+                      0,
+                      20
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      0
+                    ],
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "north_west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      0
+                    ],
+                    [
+                      0,
+                      6
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south_east": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "south_west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "west": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      0
+                    ],
+                    [
+                      0,
+                      11
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "2.75": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      19,
+                      0
+                    ],
+                    [
+                      0,
+                      19
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q2": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      0,
+                      7
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q3": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                },
+                "Q4": {
+                  "balanced_accuracy": 1.0,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      0
+                    ],
+                    [
+                      0,
+                      7
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.0,
+                  "macro_f1": 1.0
+                }
+              },
+              "confusion_matrix": [
+                [
+                  30,
+                  0
+                ],
+                [
+                  0,
+                  30
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.0,
+              "macro_f1": 1.0
+            },
+            "image_metrics_multimodal_small_model": {
+              "balanced_accuracy": 0.7166666666666667,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.7105263157894737,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      8
+                    ],
+                    [
+                      3,
+                      16
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.16458964034130696,
+                  "macro_f1": 0.7054263565891472
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.7272727272727273,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      2
+                    ],
+                    [
+                      4,
+                      7
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.14212195439772174,
+                  "macro_f1": 0.725
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      5
+                    ],
+                    [
+                      5,
+                      5
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.23841929137706755,
+                  "macro_f1": 0.5
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.825,
+                  "confusion_matrix": [
+                    [
+                      15,
+                      5
+                    ],
+                    [
+                      2,
+                      18
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.19149240851402285,
+                  "macro_f1": 0.8240100565681961
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      2,
+                      0
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.29892492294311523,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north": {
+                  "balanced_accuracy": 0.3333333333333333,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      3
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.3499277035395304,
+                  "macro_f1": 0.25
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.7,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      3
+                    ],
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.34061369895935056,
+                  "macro_f1": 0.6703296703296704
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      1
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.1987614631652832,
+                  "macro_f1": 0.873015873015873
+                },
+                "south": {
+                  "balanced_accuracy": 0.75,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      1
+                    ],
+                    [
+                      2,
+                      4
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.22687724729379016,
+                  "macro_f1": 0.7482517482517483
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      1
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.10899309813976288,
+                  "macro_f1": 0.873015873015873
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.6666666666666666,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.1309508482615153,
+                  "macro_f1": 0.6666666666666666
+                },
+                "west": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.12049148480097452,
+                  "macro_f1": 0.8285714285714285
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.7727272727272727,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      3
+                    ],
+                    [
+                      2,
+                      9
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.28843446753241797,
+                  "macro_f1": 0.7722567287784678
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.6842105263157894,
+                  "confusion_matrix": [
+                    [
+                      12,
+                      7
+                    ],
+                    [
+                      5,
+                      14
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.18352594501093814,
+                  "macro_f1": 0.6833333333333333
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      4
+                    ],
+                    [
+                      4,
+                      4
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.1946287862956524,
+                  "macro_f1": 0.5
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.6428571428571428,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      3
+                    ],
+                    [
+                      2,
+                      5
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.1641964954989297,
+                  "macro_f1": 0.641025641025641
+                },
+                "Q3": {
+                  "balanced_accuracy": 0.9375,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      1
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.15957063809037209,
+                  "macro_f1": 0.9372549019607843
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.7857142857142857,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      2
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.30861568450927734,
+                  "macro_f1": 0.7846153846153847
+                }
+              },
+              "confusion_matrix": [
+                [
+                  20,
+                  10
+                ],
+                [
+                  7,
+                  23
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.13055374026298522,
+              "macro_f1": 0.7159565580618212
+            },
+            "image_only_small_cnn": {
+              "balanced_accuracy": 0.7,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.6842105263157895,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      10
+                    ],
+                    [
+                      2,
+                      17
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.14926509794436008,
+                  "macro_f1": 0.6695652173913043
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.7272727272727273,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      5
+                    ],
+                    [
+                      1,
+                      10
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.12252592769536103,
+                  "macro_f1": 0.717948717948718
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.6,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      7
+                    ],
+                    [
+                      1,
+                      9
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.01677649915218354,
+                  "macro_f1": 0.5604395604395604
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.75,
+                  "confusion_matrix": [
+                    [
+                      12,
+                      8
+                    ],
+                    [
+                      2,
+                      18
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.18556056320667266,
+                  "macro_f1": 0.7442455242966752
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.3368149399757385,
+                  "macro_f1": 0.5
+                },
+                "north": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      3
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.03252887725830078,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      5
+                    ],
+                    [
+                      0,
+                      5
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.03252887725830078,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      1
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.2747045159339905,
+                  "macro_f1": 0.873015873015873
+                },
+                "south": {
+                  "balanced_accuracy": 0.6666666666666666,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      2
+                    ],
+                    [
+                      2,
+                      4
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.117663969596227,
+                  "macro_f1": 0.6666666666666666
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      1
+                    ],
+                    [
+                      0,
+                      4
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.28603458404541016,
+                  "macro_f1": 0.873015873015873
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.1515695850054423,
+                  "macro_f1": 0.8285714285714285
+                },
+                "west": {
+                  "balanced_accuracy": 0.8333333333333333,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.17688850561777747,
+                  "macro_f1": 0.8285714285714285
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.7272727272727273,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      4
+                    ],
+                    [
+                      2,
+                      9
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.220608573068272,
+                  "macro_f1": 0.725
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.6842105263157894,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      11
+                    ],
+                    [
+                      1,
+                      18
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.09248040538085135,
+                  "macro_f1": 0.6607142857142857
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.5625,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      6
+                    ],
+                    [
+                      1,
+                      7
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.039311062544584274,
+                  "macro_f1": 0.5151515151515151
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.7142857142857143,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      4
+                    ],
+                    [
+                      0,
+                      7
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.10853888733046395,
+                  "macro_f1": 0.6888888888888889
+                },
+                "Q3": {
+                  "balanced_accuracy": 0.875,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      2
+                    ],
+                    [
+                      0,
+                      8
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.23942410573363307,
+                  "macro_f1": 0.873015873015873
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.6428571428571428,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      3
+                    ],
+                    [
+                      2,
+                      5
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.24577322176524566,
+                  "macro_f1": 0.641025641025641
+                }
+              },
+              "confusion_matrix": [
+                [
+                  15,
+                  15
+                ],
+                [
+                  3,
+                  27
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.12701432406902316,
+              "macro_f1": 0.6875
+            },
+            "metrics_history_mlp": {
+              "balanced_accuracy": 0.5,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      12,
+                      7
+                    ],
+                    [
+                      12,
+                      7
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.07948002153191774,
+                  "macro_f1": 0.49119097956307256
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      5,
+                      6
+                    ],
+                    [
+                      5,
+                      6
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.045135057466157306,
+                  "macro_f1": 0.4989648033126294
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      6
+                    ],
+                    [
+                      4,
+                      6
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.07711894999829964,
+                  "macro_f1": 0.4949494949494949
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      13,
+                      7
+                    ],
+                    [
+                      13,
+                      7
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.06177082706255854,
+                  "macro_f1": 0.48849104859335035
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      1
+                    ],
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.0554677455557534,
+                  "macro_f1": 0.5
+                },
+                "north": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      1
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.06660321685880344,
+                  "macro_f1": 0.4857142857142857
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      1
+                    ],
+                    [
+                      4,
+                      1
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 0.0827658304302713,
+                  "macro_f1": 0.45054945054945056
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      2
+                    ],
+                    [
+                      2,
+                      2
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.026048339559374883,
+                  "macro_f1": 0.5
+                },
+                "south": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      4
+                    ],
+                    [
+                      2,
+                      4
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.11833530560172181,
+                  "macro_f1": 0.4857142857142857
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      4,
+                      0
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.05033939932973944,
+                  "macro_f1": 0.3333333333333333
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      1
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.12819203407933066,
+                  "macro_f1": 0.4857142857142857
+                },
+                "west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      3
+                    ],
+                    [
+                      0,
+                      3
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.037777038415414875,
+                  "macro_f1": 0.3333333333333333
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      4
+                    ],
+                    [
+                      7,
+                      4
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.05727415466603916,
+                  "macro_f1": 0.4905263157894737
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      10,
+                      9
+                    ],
+                    [
+                      10,
+                      9
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.07245212315303892,
+                  "macro_f1": 0.49965349965349964
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      5
+                    ],
+                    [
+                      3,
+                      5
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.08964430951327976,
+                  "macro_f1": 0.4920634920634921
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      3
+                    ],
+                    [
+                      4,
+                      3
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.035963081574732915,
+                  "macro_f1": 0.49743589743589745
+                },
+                "Q3": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      7,
+                      1
+                    ],
+                    [
+                      7,
+                      1
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.036998463276067206,
+                  "macro_f1": 0.4181818181818182
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      4
+                    ],
+                    [
+                      3,
+                      4
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.10596032684232323,
+                  "macro_f1": 0.49743589743589745
+                }
+              },
+              "confusion_matrix": [
+                [
+                  17,
+                  13
+                ],
+                [
+                  17,
+                  13
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.06688686804113891,
+              "macro_f1": 0.49776785714285715
+            },
+            "metrics_only_logistic": {
+              "balanced_accuracy": 0.5,
+              "by_amplitude": {
+                "0.4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      11,
+                      8
+                    ],
+                    [
+                      11,
+                      8
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.00024446070904771133,
+                  "macro_f1": 0.4968641114982578
+                },
+                "0.5": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      7
+                    ],
+                    [
+                      4,
+                      7
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.00034157029104586734,
+                  "macro_f1": 0.4905263157894737
+                }
+              },
+              "by_boundary_status": {
+                "boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      1
+                    ],
+                    [
+                      9,
+                      1
+                    ]
+                  ],
+                  "episodes": 20,
+                  "expected_calibration_error_10_bins": 0.00034933336106146573,
+                  "macro_f1": 0.40476190476190477
+                },
+                "non_boundary": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      14
+                    ],
+                    [
+                      6,
+                      14
+                    ]
+                  ],
+                  "episodes": 40,
+                  "expected_calibration_error_10_bins": 0.00024543465313997537,
+                  "macro_f1": 0.4791666666666667
+                }
+              },
+              "by_direction": {
+                "east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      0,
+                      2
+                    ]
+                  ],
+                  "episodes": 4,
+                  "expected_calibration_error_10_bins": 0.00040688945324740544,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      0
+                    ],
+                    [
+                      3,
+                      0
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.00021018384746518404,
+                  "macro_f1": 0.3333333333333333
+                },
+                "north_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      3,
+                      2
+                    ],
+                    [
+                      3,
+                      2
+                    ]
+                  ],
+                  "episodes": 10,
+                  "expected_calibration_error_10_bins": 7.902140457660689e-05,
+                  "macro_f1": 0.4949494949494949
+                },
+                "north_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 0.00028122745634651114,
+                  "macro_f1": 0.4666666666666667
+                },
+                "south": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      2
+                    ],
+                    [
+                      4,
+                      2
+                    ]
+                  ],
+                  "episodes": 12,
+                  "expected_calibration_error_10_bins": 0.0003954957502353418,
+                  "macro_f1": 0.4857142857142857
+                },
+                "south_east": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      3
+                    ],
+                    [
+                      1,
+                      3
+                    ]
+                  ],
+                  "episodes": 8,
+                  "expected_calibration_error_10_bins": 8.842336537551176e-05,
+                  "macro_f1": 0.4666666666666667
+                },
+                "south_west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      1
+                    ],
+                    [
+                      2,
+                      1
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.00029140063613442013,
+                  "macro_f1": 0.4857142857142857
+                },
+                "west": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      2
+                    ],
+                    [
+                      1,
+                      2
+                    ]
+                  ],
+                  "episodes": 6,
+                  "expected_calibration_error_10_bins": 0.0006122698349780853,
+                  "macro_f1": 0.4857142857142857
+                }
+              },
+              "by_k": {
+                "2.25": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      6,
+                      5
+                    ],
+                    [
+                      6,
+                      5
+                    ]
+                  ],
+                  "episodes": 22,
+                  "expected_calibration_error_10_bins": 0.00027921094476834885,
+                  "macro_f1": 0.4989648033126294
+                },
+                "2.75": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      9,
+                      10
+                    ],
+                    [
+                      9,
+                      10
+                    ]
+                  ],
+                  "episodes": 38,
+                  "expected_calibration_error_10_bins": 0.00028056348847160795,
+                  "macro_f1": 0.49965349965349964
+                }
+              },
+              "by_width_quartile": {
+                "Q1": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      8,
+                      0
+                    ],
+                    [
+                      8,
+                      0
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.0004282782548802322,
+                  "macro_f1": 0.3333333333333333
+                },
+                "Q2": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      4,
+                      3
+                    ],
+                    [
+                      4,
+                      3
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.00025598102478630036,
+                  "macro_f1": 0.49743589743589745
+                },
+                "Q3": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      2,
+                      6
+                    ],
+                    [
+                      2,
+                      6
+                    ]
+                  ],
+                  "episodes": 16,
+                  "expected_calibration_error_10_bins": 0.00018832898939158405,
+                  "macro_f1": 0.4666666666666667
+                },
+                "Q4": {
+                  "balanced_accuracy": 0.5,
+                  "confusion_matrix": [
+                    [
+                      1,
+                      6
+                    ],
+                    [
+                      1,
+                      6
+                    ]
+                  ],
+                  "episodes": 14,
+                  "expected_calibration_error_10_bins": 0.00023961450653320338,
+                  "macro_f1": 0.4269005847953216
+                }
+              },
+              "confusion_matrix": [
+                [
+                  15,
+                  15
+                ],
+                [
+                  15,
+                  15
+                ]
+              ],
+              "episodes": 60,
+              "expected_calibration_error_10_bins": 0.00028006755578036113,
+              "macro_f1": 0.5
+            }
+          },
+          "seed": 2026081204
+        }
+      ]
+    },
+    "severity_ood": {
+      "status": "unavailable_frozen_generation_failed_post_serialization_match_no_retry_or_relaxation"
+    }
+  },
+  "version": "reflection_width_relative_identifiability_results_v1",
+  "visual_identifiability_gate": {
+    "best_metrics_only_iid_balanced_accuracy_at_most_65_percent_or_pairs_matched": true,
+    "border_mask_preserves_result": true,
+    "matched_pair_numerical_ambiguity": true,
+    "no_leakage_found": true,
+    "passed": false,
+    "selected_image_iid_balanced_accuracy_at_least_80_percent": true,
+    "selected_image_minus_best_numeric_at_least_15_points": true,
+    "shuffled_images_collapse": true,
+    "width_quartile_stability": false
+  }
+}

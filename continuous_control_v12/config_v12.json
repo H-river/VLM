@@ -1,0 +1,113 @@
+{
+  "version": "continuous_control_v12",
+  "schema_version": "v12.0.0",
+  "seed": 2026072903,
+  "generator_version": "continuous_transition_generator_v12",
+  "group_counts": {
+    "train": 10500,
+    "development": 600,
+    "test": 600
+  },
+  "per_group": {
+    "continuous_probes": 64,
+    "trajectories": 2,
+    "trajectory_steps": 8
+  },
+  "per_step_action_bounds_mm": {
+    "lens_x_delta_mm": [-0.05, 0.05],
+    "lens_y_delta_mm": [-0.05, 0.05],
+    "camera_x_delta_mm": [-0.02, 0.02],
+    "camera_y_delta_mm": [-0.02, 0.02]
+  },
+  "absolute_position_limits_mm": {
+    "lens_x_mm": [-3.0, 3.0],
+    "lens_y_mm": [-3.0, 3.0],
+    "camera_x_mm": [-3.0, 3.0],
+    "camera_y_mm": [-3.0, 3.0]
+  },
+  "absolute_limit_source": "repository_sampling_domain_not_hardware_limit",
+  "output_fields": [
+    "centroid_x_px",
+    "centroid_y_px",
+    "sigma_x_px",
+    "sigma_y_px",
+    "peak_intensity"
+  ],
+  "output_tolerances": {
+    "centroid_x_px": {"kind": "absolute", "value": 1.0, "unit": "px"},
+    "centroid_y_px": {"kind": "absolute", "value": 1.0, "unit": "px"},
+    "sigma_x_px": {"kind": "absolute", "value": 2.0, "unit": "px"},
+    "sigma_y_px": {"kind": "absolute", "value": 2.0, "unit": "px"},
+    "peak_intensity": {"kind": "relative_to_current", "value": 0.05, "floor": 1e-06}
+  },
+  "simulator": {
+    "base_config": "optical_sim/configs/base_config.yaml",
+    "position_coordinate_convention": "legacy_base_frame_pseudo_pixels",
+    "phase_fixed": true,
+    "source_shape_fixed": true,
+    "source_alignment_fixed": true
+  },
+  "sampling": {
+    "sobol_fraction": 0.375,
+    "fine_fraction": 0.125,
+    "axis_fraction": 0.125,
+    "paired_fraction": 0.1875,
+    "legacy_fraction": 0.125,
+    "multi_axis_fraction": 0.0625
+  },
+  "oracle": {
+    "multistarts": 8,
+    "max_iterations": 80,
+    "clearly_reachable_below": 0.8,
+    "candidate_infeasible_above": 1.2,
+    "agreement_tolerance": 0.05
+  },
+  "forward_model": {
+    "ensemble_members": 3,
+    "hidden": 192,
+    "blocks": 3,
+    "dropout": 0.03,
+    "epochs": 80,
+    "patience": 10,
+    "batch_size": 512,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "huber_beta": 0.5,
+    "soft_boundary_weight": 0.0,
+    "auxiliary_loss_weights": {
+      "captured_power": 0.02,
+      "clipping_fraction": 0.05,
+      "camera_boundary": 0.05,
+      "actuator_limit": 0.05
+    },
+    "image_conditioning": false
+  },
+  "mpc": {
+    "horizon": 4,
+    "cem_iterations": 5,
+    "population": 256,
+    "elites": 32,
+    "mean_error_weight": 0.15,
+    "movement_weight": 0.02,
+    "limit_penalty": 10.0,
+    "boundary_penalty": 1.0,
+    "uncertainty_weight": 0.1
+  },
+  "smoke": {
+    "group_counts": {"train": 2, "development": 1, "test": 1},
+    "continuous_probes": 12,
+    "trajectories": 1,
+    "trajectory_steps": 2,
+    "simulator_grid_size": 128,
+    "sensor_resolution": [128, 128],
+    "forward_epochs": 20,
+    "forward_patience": 5,
+    "forward_overfit_transitions": 16,
+    "forward_overfit_epochs": 120,
+    "forward_overfit_patience": 30,
+    "mpc_horizon": 2,
+    "mpc_population": 24,
+    "mpc_elites": 6,
+    "mpc_iterations": 2
+  }
+}

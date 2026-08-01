@@ -1,0 +1,6 @@
+quantity,current_frame,image_derived_frame,unit,transform_available,consistent
+centroid_x_px,lab-frame pseudo-pixel,sensor-array pixel centres,px,subtract camera_x_m/pitch_m,only after transform; residual W/(W-1) scale
+centroid_y_px,lab-frame pseudo-pixel,sensor-array pixel centres,px,subtract camera_y_m/pitch_m,only after transform; residual H/(H-1) scale
+sigma_x_px,lab-derived width divided by declared pitch,sensor-array pixel centres,px,no translation; scale by (W-1)/W,yes after coordinate-step correction
+sigma_y_px,lab-derived width divided by declared pitch,sensor-array pixel centres,px,no translation; scale by (H-1)/H,yes after coordinate-step correction
+peak_intensity,sampled sensor image,same sampled sensor image,simulator intensity units,identity,yes

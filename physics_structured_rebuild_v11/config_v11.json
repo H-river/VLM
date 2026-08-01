@@ -1,0 +1,78 @@
+{
+  "version": "physics_structured_rebuild_v11",
+  "seed": 2026072902,
+  "learning_curve_group_sizes": [326, 678, 1200, 2400, 5000, 10500],
+  "overfit_group_sizes": [32, 64],
+  "distribution_sources": {
+    "legacy_mixed": [
+      "/home/jiamo/VLM_data/specialist_rebuild_v2/grids/train.jsonl",
+      "/home/jiamo/VLM_data/control_rebuild_v4_quickcheck/grids/train.jsonl",
+      "/home/jiamo/VLM_data/control_rebuild_v5_numerical/grids/train.jsonl"
+    ],
+    "system_aligned": [
+      "/home/jiamo/VLM_data/physics_structured_rebuild_v11/system_aligned/grids/train.jsonl"
+    ]
+  },
+  "development_sources": [
+    "/home/jiamo/VLM_data/physics_structured_rebuild_v11/system_aligned/grids/development.jsonl"
+  ],
+  "system_aligned_generation": {
+    "group_counts": {"train": 10500, "development": 600},
+    "workers": 2
+  },
+  "model": {
+    "hidden": 384,
+    "blocks": 3,
+    "bottleneck": 192,
+    "dropout": 0.04,
+    "opaque_action_embedding": 32
+  },
+  "optimization": {
+    "epochs": 60,
+    "patience": 8,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "batch_size": 1024,
+    "huber_beta": 0.35
+  },
+  "smoke": {
+    "groups": 32,
+    "development_groups": 8,
+    "epochs": 8,
+    "patience": 4,
+    "batch_size": 256
+  },
+  "parity_gate": {
+    "reference_name": "frozen_v9_neural_reference",
+    "fit_normalized_mae_max_ratio": 1.15,
+    "development_normalized_mae_max_ratio": 1.15,
+    "fit_strict_accuracy_min_ratio": 0.9,
+    "development_strict_accuracy_min_ratio": 0.9,
+    "reference_fit_normalized_mae": 0.915,
+    "reference_development_normalized_mae": 0.932,
+    "reference_fit_full_surface_strict": 0.363,
+    "reference_development_full_surface_strict": 0.3839
+  },
+  "ablations": {
+    "baseline": {
+      "loss": "tolerance_normalized",
+      "action_representation": "structured",
+      "distribution": "system_aligned"
+    },
+    "ordinary_loss": {
+      "loss": "ordinary_raw",
+      "action_representation": "structured",
+      "distribution": "system_aligned"
+    },
+    "opaque_action": {
+      "loss": "tolerance_normalized",
+      "action_representation": "opaque",
+      "distribution": "system_aligned"
+    },
+    "legacy_distribution": {
+      "loss": "tolerance_normalized",
+      "action_representation": "structured",
+      "distribution": "legacy_mixed"
+    }
+  }
+}

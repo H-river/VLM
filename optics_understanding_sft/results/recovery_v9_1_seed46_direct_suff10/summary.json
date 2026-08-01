@@ -1,0 +1,92 @@
+{
+  "by_distribution": {
+    "iid": {
+      "count": 10,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "task_score": 0.44000000000000006
+    }
+  },
+  "by_modality": {
+    "text": {
+      "count": 10,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "task_score": 0.44000000000000006
+    }
+  },
+  "by_task_modality": {
+    "information_sufficiency": {
+      "text": {
+        "count": 10,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.44000000000000006
+      }
+    }
+  },
+  "evaluated_records": 10,
+  "expected_records": 70,
+  "json_valid_rate": 1.0,
+  "macro_task_score": 0.44000000000000006,
+  "missing_predictions": 60,
+  "per_task": {
+    "causal_effects": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "constrained_intervention": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "counterfactual_reasoning": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "diagnosis": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "forward_prediction": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "information_sufficiency": {
+      "count": 10,
+      "json_valid_rate": 1.0,
+      "missing_fields_f1": 0.5,
+      "schema_valid_rate": 1.0,
+      "secondary_exact": 0.2,
+      "status_exact": 0.5,
+      "status_macro_f1": 0.45054945054945056,
+      "task_score": 0.44000000000000006
+    },
+    "setup_interpretation": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    }
+  },
+  "predicted_status_counts": {
+    "answerable": 8,
+    "insufficient_information": 2
+  },
+  "rubric_version": "v2",
+  "runtime": {
+    "mean_input_tokens": 565.8,
+    "mean_latency_seconds": 1.6619876770990232,
+    "mean_output_tokens": 27.6,
+    "peak_cuda_memory_bytes": 2607971328.0,
+    "total_latency_seconds": 16.61987677099023
+  },
+  "schema_valid_rate": 1.0,
+  "target_status_counts": {
+    "answerable": 5,
+    "insufficient_information": 5
+  }
+}

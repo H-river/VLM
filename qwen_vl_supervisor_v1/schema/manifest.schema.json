@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qwen_vl_supervisor_manifest_v1.0.0",
+  "title": "Qwen-VL high-level optics supervisor manifest record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "sample_id", "task_type", "split", "setup_hash",
+    "episode_hash", "step_index", "counterfactual_pair_id",
+    "augmented_base_hash", "assets", "model_input", "target", "provenance"
+  ],
+  "properties": {
+    "schema_version": {"const": "qwen_vl_supervisor_manifest_v1.0.0"},
+    "sample_id": {"type": "string", "pattern": "^qvlsup1_[0-9a-f]{24}$"},
+    "task_type": {"const": "static_anomaly_policy"},
+    "split": {"enum": ["train", "dev", "frozen_iid", "frozen_ood"]},
+    "setup_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "episode_hash": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "step_index": {"type": "integer", "minimum": 0},
+    "counterfactual_pair_id": {"type": "string", "pattern": "^pair_[0-9a-f]{24}$"},
+    "augmented_base_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "assets": {
+      "type": "object", "additionalProperties": false,
+      "required": ["current_image_path", "current_image_sha256", "format", "mode", "width", "height"],
+      "properties": {
+        "current_image_path": {"type": "string", "minLength": 1},
+        "current_image_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "format": {"const": "PNG"}, "mode": {"const": "L"},
+        "width": {"const": 128}, "height": {"const": 128}
+      }
+    },
+    "model_input": {
+      "type": "object", "additionalProperties": false,
+      "required": ["current_metrics", "goal_metrics", "recent_history", "remaining_step_budget", "actuator_constraints"],
+      "properties": {
+        "current_metrics": {"$ref": "#/$defs/currentMetrics"},
+        "goal_metrics": {"$ref": "#/$defs/goalMetrics"},
+        "recent_history": {
+          "type": "array", "maxItems": 8,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["observation_index", "observed_metrics", "previous_high_level_action"],
+            "properties": {
+              "observation_index": {"type": "integer", "minimum": 0},
+              "observed_metrics": {"$ref": "#/$defs/currentMetrics"},
+              "previous_high_level_action": {"enum": ["reacquire", "switch_measurement", "execute", "continue", "stop"]}
+            }
+          }
+        },
+        "remaining_step_budget": {"type": "integer", "minimum": 0, "maximum": 8},
+        "actuator_constraints": {"$ref": "#/$defs/actuatorConstraints"}
+      }
+    },
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["diagnosis", "measurement_policy", "supervisor_action", "field_mask"],
+      "properties": {
+        "diagnosis": {"enum": ["nominal", "sensor_saturation", "secondary_reflection"]},
+        "measurement_policy": {"enum": ["standard", "lower_exposure_reacquire", "primary_spot"]},
+        "supervisor_action": {"enum": ["reacquire", "switch_measurement", "execute", "continue", "stop"]},
+        "field_mask": {
+          "type": "object", "additionalProperties": false,
+          "required": ["diagnosis", "measurement_policy", "supervisor_action"],
+          "properties": {
+            "diagnosis": {"const": true}, "measurement_policy": {"const": true}, "supervisor_action": {"const": true}
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "source_cohort", "source_manifest_path", "source_manifest_sha256", "source_sample_id",
+        "source_split", "anomaly_family", "source_fault_type", "target_provenance",
+        "generator_version", "generator_sha256", "controller_version", "controller_hashes",
+        "width_quartile", "boundary_status", "severity_bucket", "severity_value",
+        "counterfactual_metric_distances", "source_same_state_metrics_excluded_from_history"
+      ],
+      "properties": {
+        "source_cohort": {"type": "string"}, "source_manifest_path": {"type": "string"},
+        "source_manifest_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_sample_id": {"type": "string"},
+        "source_split": {"enum": ["train", "development", "iid_heldout", "severity_ood"]},
+        "anomaly_family": {"enum": ["sensor_saturation", "secondary_reflection"]},
+        "source_fault_type": {"enum": ["clean", "sensor_saturation", "secondary_reflection"]},
+        "target_provenance": {
+          "type": "object", "additionalProperties": false,
+          "required": ["diagnosis", "measurement_policy", "supervisor_action"],
+          "properties": {"diagnosis": {"type": "string"}, "measurement_policy": {"type": "string"}, "supervisor_action": {"type": "string"}}
+        },
+        "generator_version": {"type": "string"},
+        "generator_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "controller_version": {"type": "string"},
+        "controller_hashes": {
+          "type": "object", "additionalProperties": false,
+          "required": ["forward_ensemble", "v12_config", "v13_config", "visual_controller"],
+          "properties": {
+            "forward_ensemble": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "v12_config": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "v13_config": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            "visual_controller": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+          }
+        },
+        "width_quartile": {"type": ["string", "null"], "enum": ["Q1", "Q2", "Q3", "Q4", null]},
+        "boundary_status": {"enum": ["boundary", "non_boundary", "not_applicable"]},
+        "severity_bucket": {"type": "string"}, "severity_value": {"type": ["number", "null"]},
+        "counterfactual_metric_distances": {
+          "type": "object", "additionalProperties": false,
+          "required": ["per_metric_absolute_difference_tolerances", "maximum_absolute_difference_tolerances", "total_l2_distance_tolerances", "passes_frozen_match"],
+          "properties": {
+            "per_metric_absolute_difference_tolerances": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "number"}},
+            "maximum_absolute_difference_tolerances": {"type": "number"},
+            "total_l2_distance_tolerances": {"type": "number"},
+            "passes_frozen_match": {"type": "boolean"}
+          }
+        },
+        "source_same_state_metrics_excluded_from_history": {"type": "boolean", "const": true}
+      }
+    }
+  },
+  "$defs": {
+    "currentMetrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["coordinate_frame", "centroid_x", "centroid_y", "width_x", "width_y", "peak_intensity"],
+      "properties": {
+        "coordinate_frame": {"const": "diagnostic_image_128px"},
+        "centroid_x": {"type": "number"}, "centroid_y": {"type": "number"},
+        "width_x": {"type": "number"}, "width_y": {"type": "number"}, "peak_intensity": {"type": "number"}
+      }
+    },
+    "goalMetrics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["coordinate_frame", "centroid_x", "centroid_y", "width_x", "width_y", "peak_intensity"],
+      "properties": {
+        "coordinate_frame": {"const": "lab_sensor_1024px_and_raw_peak"},
+        "centroid_x": {"type": "number"}, "centroid_y": {"type": "number"},
+        "width_x": {"type": "number"}, "width_y": {"type": "number"}, "peak_intensity": {"type": "number"}
+      }
+    },
+    "actuatorConstraints": {
+      "type": "object", "additionalProperties": false,
+      "required": ["units", "per_step_delta_limits", "absolute_position_limits", "absolute_limit_source", "continuous_actions_selected_by"],
+      "properties": {
+        "units": {"const": "mm"},
+        "per_step_delta_limits": {"$ref": "#/$defs/fourAxisLimits"},
+        "absolute_position_limits": {"$ref": "#/$defs/fourAxisLimits"},
+        "absolute_limit_source": {"const": "repository_sampling_domain_not_hardware_limit"},
+        "continuous_actions_selected_by": {"const": "frozen_h1_one_step_cem"}
+      }
+    },
+    "fourAxisLimits": {
+      "type": "object", "additionalProperties": false,
+      "required": ["lens_x", "lens_y", "camera_x", "camera_y"],
+      "properties": {
+        "lens_x": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "lens_y": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "camera_x": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}},
+        "camera_y": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "number"}}
+      }
+    }
+  }
+}

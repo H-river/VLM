@@ -1,0 +1,40 @@
+{
+  "panel": [
+    {
+      "checkpoint": 50,
+      "joint_exact": 0.0,
+      "macro_f1": 0.23074076986853656,
+      "maximum_field_collapse_fraction": 1.0,
+      "schema_valid_rate": 1.0
+    },
+    {
+      "checkpoint": 100,
+      "joint_exact": 0.0,
+      "macro_f1": 0.2398860174360538,
+      "maximum_field_collapse_fraction": 1.0,
+      "schema_valid_rate": 1.0
+    },
+    {
+      "checkpoint": 150,
+      "joint_exact": 0.011111111111111112,
+      "macro_f1": 0.27831280075846254,
+      "maximum_field_collapse_fraction": 1.0,
+      "schema_valid_rate": 1.0
+    },
+    {
+      "checkpoint": 200,
+      "joint_exact": 0.011111111111111112,
+      "macro_f1": 0.2841048104574361,
+      "maximum_field_collapse_fraction": 1.0,
+      "schema_valid_rate": 1.0
+    }
+  ],
+  "selected_checkpoint": {
+    "checkpoint": 200,
+    "joint_exact": 0.011111111111111112,
+    "macro_f1": 0.2841048104574361,
+    "maximum_field_collapse_fraction": 1.0,
+    "schema_valid_rate": 1.0
+  },
+  "selection_metric": "validation equal-field macro-F1"
+}

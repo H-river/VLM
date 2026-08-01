@@ -1,0 +1,15 @@
+{
+  "combined_hash": "c567abca8386fb5051cc769a0b797ab58c03b24bb33ea63092fe570b5e08db02",
+  "combined_records": 900,
+  "dataset": "visual_saturation_eval_v10_19",
+  "source_images": 900,
+  "source_records": 900,
+  "training_allowed": false,
+  "variants": {
+    "saturation_clip_180": {
+      "canonical_hash": "c567abca8386fb5051cc769a0b797ab58c03b24bb33ea63092fe570b5e08db02",
+      "image_count": 900,
+      "record_count": 900
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[Unit]
+Description=VLM v4 post-generation training trigger
+ConditionPathExists=!/home/jiamo/VLM_runs/control_rebuild_v4_one_seed/post_generation_pipeline.complete
+
+[Path]
+PathExists=/home/jiamo/VLM_data/control_rebuild_v4_numerical/manifest.json
+Unit=vlm-v4-post-generation-ccd2.service
+
+[Install]
+WantedBy=default.target

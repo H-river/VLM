@@ -1,0 +1,78 @@
+{
+  "audit_requirements": {
+    "counterbalanced_pair_minimum": 0
+  },
+  "base_config": "optical_sim/configs/base_config.yaml",
+  "config_hash": "86055229b512e5b3c6f3974037aca602b348fc230060e445d305b37c839c50d6",
+  "configured_status_counts": {
+    "train": {
+      "constrained_intervention": {
+        "feasible": 240,
+        "infeasible_within_limits": 80
+      },
+      "information_sufficiency": {
+        "answerable": 160,
+        "insufficient_information": 160
+      }
+    }
+  },
+  "dataset": "optics_understanding_sft_action_first_v3",
+  "files": {
+    "master": "master/cases.jsonl",
+    "test_labels": "private/test_labels.jsonl",
+    "test_prompts": "canonical/test_prompts.jsonl",
+    "train": "canonical/train.jsonl",
+    "val": "canonical/val.jsonl"
+  },
+  "ground_truth_scope": "synthetic simulator truth; not laboratory validation",
+  "group_prefix": "act_v3",
+  "matched_group_counts": {
+    "test:constrained_intervention": 0,
+    "train:constrained_intervention": 120,
+    "train:information_sufficiency": 160,
+    "val:constrained_intervention": 0
+  },
+  "ood_test_scenarios": 0,
+  "record_counts": {
+    "test": 0,
+    "train": 640,
+    "val": 0
+  },
+  "scenario_counts": {
+    "test": 0,
+    "train": 320,
+    "val": 0
+  },
+  "scenario_start_index": 40000,
+  "seed": 5772,
+  "simulator": "optical_sim:fresnel_numpy",
+  "status_counts": {
+    "test": {},
+    "train": {
+      "constrained_intervention": {
+        "feasible": 240,
+        "infeasible_within_limits": 80
+      },
+      "information_sufficiency": {
+        "answerable": 160,
+        "insufficient_information": 160
+      }
+    },
+    "val": {}
+  },
+  "task_counts": {
+    "test": {},
+    "train": {
+      "constrained_intervention": 320,
+      "information_sufficiency": 320
+    },
+    "val": {}
+  },
+  "version": "action_first_v3",
+  "visual_counts": {
+    "test": 0,
+    "train": 0,
+    "val": 0
+  },
+  "visual_fraction": 0.0
+}

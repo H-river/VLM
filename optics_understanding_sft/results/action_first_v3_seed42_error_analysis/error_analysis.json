@@ -1,0 +1,129 @@
+{
+  "records": "optics_understanding_sft/data/dev_v2/canonical/val.jsonl",
+  "runs": {
+    "action_ckpt50": {
+      "causal_effects": {
+        "count": 60,
+        "per_field_confusion": {
+          "centroid_x": {
+            "decrease -> None": 1,
+            "decrease -> decrease": 5,
+            "increase -> no_change": 3,
+            "no_change -> None": 1,
+            "no_change -> decrease": 2,
+            "no_change -> no_change": 48
+          },
+          "centroid_y": {
+            "decrease -> None": 1,
+            "decrease -> decrease": 5,
+            "increase -> increase": 6,
+            "no_change -> None": 1,
+            "no_change -> decrease": 7,
+            "no_change -> increase": 1,
+            "no_change -> no_change": 39
+          },
+          "peak_intensity": {
+            "decrease -> None": 1,
+            "decrease -> decrease": 5,
+            "increase -> increase": 10,
+            "no_change -> None": 1,
+            "no_change -> decrease": 2,
+            "no_change -> increase": 5,
+            "no_change -> no_change": 36
+          },
+          "sigma_x": {
+            "decrease -> no_change": 1,
+            "increase -> no_change": 1,
+            "no_change -> None": 2,
+            "no_change -> decrease": 1,
+            "no_change -> no_change": 55
+          },
+          "sigma_y": {
+            "decrease -> no_change": 1,
+            "increase -> None": 1,
+            "increase -> increase": 1,
+            "no_change -> None": 1,
+            "no_change -> increase": 2,
+            "no_change -> no_change": 54
+          }
+        }
+      },
+      "common": {
+        "invalid_json_count": 3,
+        "invalid_schema_count": 95,
+        "record_count": 600
+      },
+      "constrained_intervention": {
+        "count": 120,
+        "feasible_count": 60,
+        "feasible_minimum_motion_rate": 0.38333333333333336,
+        "feasible_simulator_success_rate": 0.4166666666666667,
+        "feasible_status_recall": 0.7,
+        "infeasible_count": 60,
+        "infeasible_status_recall": 0.43333333333333335,
+        "status_confusion": {
+          "feasible -> feasible": 42,
+          "feasible -> infeasible_within_limits": 18,
+          "infeasible_within_limits -> feasible": 34,
+          "infeasible_within_limits -> infeasible_within_limits": 26
+        }
+      },
+      "counterfactual_reasoning": {
+        "changed_parameter_exact_rate": 0.9666666666666667,
+        "count": 60,
+        "direction_exact_rate": 0.7833333333333333,
+        "status_confusion": {
+          "answerable -> None": 1,
+          "answerable -> answerable": 59
+        }
+      },
+      "diagnosis": {
+        "count": 120,
+        "status_confusion": {
+          "ambiguous -> ambiguous": 24,
+          "ambiguous -> unique": 16,
+          "unique -> unique": 40,
+          "unsupported -> unsupported": 40
+        }
+      },
+      "forward_prediction": {
+        "count": 60,
+        "self_consistency": {
+          "centroid_error_px_mean": 0.09279113133960536,
+          "centroid_within_0_1px_rate": 0.8888888888888888,
+          "peak_abs_error_mean": 7.407407407447011e-06,
+          "sigma_abs_error_px_mean": 5.925000000034929e-05
+        },
+        "tolerance_pass_rates": {
+          "after_centroid_within_2px": 0.2833333333333333,
+          "after_peak_within_5pct": 0.18333333333333332,
+          "after_sigma_within_2px": 0.6333333333333333,
+          "change_centroid_within_2px": 0.3,
+          "change_peak_within_5pct": 0.18333333333333332,
+          "change_sigma_within_2px": 0.7333333333333333
+        }
+      },
+      "information_sufficiency": {
+        "count": 120,
+        "status_confusion": {
+          "answerable -> answerable": 36,
+          "answerable -> insufficient_information": 24,
+          "insufficient_information -> answerable": 45,
+          "insufficient_information -> insufficient_information": 15
+        }
+      },
+      "setup_interpretation": {
+        "adjustable_set_semantic_alias_rate": 1.0,
+        "component_order_exact_rate": 1.0,
+        "component_order_semantic_alias_rate": 1.0,
+        "count": 60,
+        "distance_abs_error_mm_mean": 2.0891256999999994,
+        "distance_signed_error_mm_mean": 1.2853443000000047,
+        "focal_ratio_median": 1.0,
+        "focal_scale_categories": {
+          "correct_scale": 60
+        }
+      }
+    }
+  }
+}

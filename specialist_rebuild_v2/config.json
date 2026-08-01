@@ -1,0 +1,62 @@
+{
+  "version": "specialist_rebuild_v2_one_seed",
+  "seed": 20260726,
+  "workers": 4,
+  "visual_targets_per_group": 3,
+  "group_counts": {
+    "train": 2500,
+    "val": 300,
+    "test_iid": 300,
+    "test_ood_physics": 300,
+    "test_visual_stress": 300
+  },
+  "inverse_pair_counts": {
+    "train": {
+      "unique": 24000,
+      "ambiguous": 24000,
+      "infeasible_within_limits": 12000
+    },
+    "val": {
+      "unique": 300,
+      "ambiguous": 300,
+      "infeasible_within_limits": 300
+    },
+    "test_iid": {
+      "unique": 300,
+      "ambiguous": 300,
+      "infeasible_within_limits": 300
+    },
+    "test_ood_physics": {
+      "unique": 300,
+      "ambiguous": 300,
+      "infeasible_within_limits": 300
+    }
+  },
+  "training_visual_conditions": {
+    "clean": 1000,
+    "noise": 375,
+    "blur": 250,
+    "dim_noise": 250,
+    "saturation": 250,
+    "crop_boundary": 250,
+    "gamma_shift": 125
+  },
+  "visual_stress_conditions": {
+    "clean": 60,
+    "noise": 60,
+    "blur": 60,
+    "dim_noise": 60,
+    "saturation": 60
+  },
+  "training": {
+    "seed": 20260726,
+    "batch_size": 512,
+    "direction_epochs": 35,
+    "forward_epochs": 40,
+    "inverse_epochs": 24,
+    "measurement_epochs": 24,
+    "visual_inverse_epochs": 24,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0002
+  }
+}

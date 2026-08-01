@@ -1,0 +1,77 @@
+{
+  "version": "active_diagnosis_v13_preregistered_v1",
+  "created_at": "2026-08-01T01:03:30+08:00",
+  "root_seed": 2026080101,
+  "baseline": {
+    "v12_config": "/home/jiamo/VLM/continuous_control_v12/config_v12_semantics_v2.json",
+    "v12_config_sha256": "77cb8bfc8cc064e32ab3cbf473e10f94df5c4ca53869ae235bb5eee782b81ff8",
+    "base_simulator_config": "/home/jiamo/VLM/optical_sim/configs/base_config.yaml",
+    "base_simulator_config_sha256": "9de680016a79b08e9df7fd4f585c901f04443db38aaf4c15b2af7983bcdb03ff",
+    "checkpoint": "/home/jiamo/VLM/runs/overnight_v12_semantics_20260731_002709/models/lc_128g_v2/continuous_forward_v12_128g.pt",
+    "checkpoint_sha256": "d9b30627c80817f6ecade1959d8cc9e91e7a9de9cc51485153fdbfaa173aca2e",
+    "training_manifest": "/home/jiamo/VLM/runs/overnight_v12_semantics_20260731_002709/data/corrected_128_16_16_v2/manifest.json",
+    "training_manifest_sha256": "f4d6109cb386405434147e02bb97874f658ad3ae2d0d93bdd312e373d0d661fd",
+    "evaluation_suite": "/home/jiamo/VLM/runs/v12_mpc_h1_h3_diagnosis_20260731_111829/suite/evaluation_suite_manifest.json",
+    "evaluation_suite_sha256": "c0c8d1dd9bfbde9ac5a23323ead231dd542ddc4dabae65cf05949efb6fbd49b5",
+    "controller": "learned_h1_cem",
+    "population": 24,
+    "elites": 6,
+    "cem_iterations": 3,
+    "max_control_steps": 4,
+    "mean_error_weight": 0.15,
+    "movement_weight": 0.02,
+    "limit_penalty": 10.0,
+    "boundary_penalty": 1.0,
+    "uncertainty_weight": 0.1
+  },
+  "split": {
+    "rule": "within_each_of_three_strata_suffix_index_0000_to_0009_is_development_and_0010_to_0015_is_protected_heldout",
+    "development_groups": 30,
+    "protected_heldout_groups": 18,
+    "protected_results_may_not_be_loaded_or_generated_before_freeze": true
+  },
+  "fault": {
+    "kind": "single_hidden_global_command_gain",
+    "gain_hypotheses": [0.5, 0.75, 1.0, 1.25, 1.5],
+    "nominal_gain": 1.0,
+    "physical_step_saturation": "clip_realized_gain_times_command_to_original_v12_per_step_bounds",
+    "position_observation": "controller_tracks_commanded_position_until_gain_is_estimated;true_position_is_evaluator_only",
+    "fault_selection_used_protected_set": false
+  },
+  "probes": {
+    "safe_range_fractions": [0.01, 0.02, 0.05, 0.1],
+    "designs": ["single_positive", "single_negative", "symmetric_pair", "repeated_positive"],
+    "axis_signs": [1.0, -1.0, 1.0, -1.0],
+    "measurement_uncertainty_floor_normalized": 0.02,
+    "classifier": "standard_scaler_plus_balanced_multinomial_logistic_regression",
+    "development_scoring": "five_fold_group_out_of_fold_by_setup",
+    "probe_selection_order_tiebreak": ["symmetric_pair", "single_positive", "single_negative", "repeated_positive"]
+  },
+  "gate_a": {
+    "meaningful_fault_impact_success_drop": 0.05,
+    "meaningful_oracle_recovery_success_gain": 0.05,
+    "minimum_probe_gain_classification_accuracy": 0.8,
+    "minimum_probe_replan_success_gain": 0.05,
+    "branch_order": ["P", "A", "B", "C"]
+  },
+  "leakage_policy": {
+    "policy_features_may_include": [
+      "setup_context",
+      "commanded_position_belief",
+      "observed_five_metrics",
+      "target_five_metrics",
+      "command_history",
+      "h1_predictions",
+      "ensemble_uncertainty",
+      "gain_belief"
+    ],
+    "policy_features_may_not_include": [
+      "true_gain",
+      "true_physical_position",
+      "q_goal_mm",
+      "future_simulator_outcome",
+      "protected_split_result"
+    ],
+    "oracle_gain_is_evaluator_upper_bound_only": true
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "augmented_base_overlap_across_splits": 0,
+  "class_counts": {
+    "nominal": 132,
+    "secondary_reflection": 72,
+    "sensor_saturation": 60
+  },
+  "episode_overlap_across_splits": 0,
+  "fixed_pixel_reflection_rows": 0,
+  "image_hash_overlap_across_splits": 0,
+  "manifest_counts": {
+    "manifest_dev.jsonl": 36,
+    "manifest_frozen_iid.jsonl": 72,
+    "manifest_frozen_ood.jsonl": 60,
+    "manifest_train.jsonl": 96
+  },
+  "pair_overlap_across_splits": 0,
+  "protected_rows_in_train_or_dev": 0,
+  "records": 264,
+  "setup_overlap_across_splits": 0,
+  "split_counts": {
+    "dev": 36,
+    "frozen_iid": 72,
+    "frozen_ood": 60,
+    "train": 96
+  },
+  "status": "pass",
+  "unique_image_hashes": 264,
+  "unique_pairs": 132,
+  "unique_sample_ids": 264,
+  "unique_setups": 132
+}

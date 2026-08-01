@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qwen_orchestration_training_record_v1",
+  "title": "Qwen orchestration SFT record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "example_id",
+    "group_id",
+    "split",
+    "category",
+    "images",
+    "prompt",
+    "completion",
+    "target_decision",
+    "provenance"
+  ],
+  "properties": {
+    "example_id": {"type": "string", "minLength": 1},
+    "group_id": {"type": "string", "minLength": 1},
+    "split": {
+      "enum": ["train", "val", "test_iid", "test_ood_language", "test_visual_stress"]
+    },
+    "category": {
+      "enum": [
+        "measure_beam_profile_v1",
+        "predict_direction_from_state_v1",
+        "predict_direction_from_image_v1",
+        "predict_forward_from_state_v1",
+        "predict_forward_from_image_v1",
+        "select_inverse_action_from_states_v1",
+        "select_inverse_action_from_images_v1",
+        "needs_clarification",
+        "unsupported"
+      ]
+    },
+    "images": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "prompt": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "completion": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "target_decision": {
+      "$ref": "orchestration_decision.schema.json"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataset_version",
+        "source_group_id",
+        "prompt_family",
+        "label_source"
+      ],
+      "properties": {
+        "dataset_version": {"const": "qwen_orchestration_sft_v1"},
+        "source_group_id": {"type": "string"},
+        "prompt_family": {"type": "string"},
+        "unit_style": {
+          "type": ["string", "null"],
+          "enum": [
+            "canonical",
+            "equivalent_conversion",
+            "signed_magnitude",
+            "mixed",
+            null
+          ]
+        },
+        "label_source": {
+          "enum": ["deterministic_registry_builder"]
+        },
+        "perturbation_family": {"type": ["string", "null"]},
+        "source_record_ids": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

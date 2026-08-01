@@ -1,0 +1,98 @@
+schema_version: qwen_vl_supervisor_training_v1
+run_name: qwen25vl_3b_supervisor_smoke_20step
+
+model:
+  id: /home/jiamo/HF_models/Qwen2.5-VL-3B-Instruct
+  source_id: Qwen/Qwen2.5-VL-3B-Instruct
+  # Revision recorded by the local Hugging Face download metadata.
+  revision: 66285546d2b821cf421d4f5eb2576359d3770cd3
+  processor_revision: 66285546d2b821cf421d4f5eb2576359d3770cd3
+  architecture: Qwen2_5_VLForConditionalGeneration
+  local_files_only: true
+  trust_remote_code: false
+  require_cuda: true
+  torch_dtype: bfloat16
+  attn_implementation: sdpa
+  processor:
+    # Native 128x128 inputs are retained; Qwen rounds dimensions to its 28px factor.
+    min_pixels: 3136       # 56 * 56
+    max_pixels: 50176      # 224 * 224; matches the audited collator/inference contract
+  quantization:
+    load_in_4bit: true
+    quant_type: nf4
+    compute_dtype: bfloat16
+    double_quant: true
+
+data:
+  format: prebuilt_chat
+  train_jsonl: qwen_vl_supervisor_v1/sft/sft_smoke_train.jsonl
+  dev_jsonl: qwen_vl_supervisor_v1/sft/sft_smoke_dev.jsonl
+  train_sha256: b2f52ac603ed0ce985dbf109fb069a404b0af0d20e3108b42fcfd2b6a5fc9f31
+  dev_sha256: 9f5137b1f578bb147b4c3660b6b41aa375e1a8e72a647c6a9a8851956018125b
+  export_report: qwen_vl_supervisor_v1/sft/export_report.json
+  export_report_sha256: 5aed5ad5452b701ef29794d9c48416143447f4a09e376e90a7ae6e68026bc1e4
+  train_export_report_key: smoke_train
+  dev_export_report_key: smoke_dev
+  image_root: .
+  max_train_samples: 36
+  max_dev_samples: 12
+  allowed_train_splits: [train]
+  allowed_dev_splits: [dev]
+  prohibit_frozen_splits: true
+
+lora:
+  # Runtime audit requires language attention, language+vision MLP, and fused
+  # Qwen2.5-VL vision-attention projections to be present before PEFT attaches.
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+    - qkv
+    - attn.proj
+  r: 8
+  alpha: 16
+  dropout: 0.05
+  bias: none
+
+training:
+  # Distinct from the first successful 20-step run, whose legacy torch-2.5
+  # pickle optimizer state is preserved but deliberately never loaded.
+  output_dir: qwen_vl_supervisor_v1/artifacts/training/smoke_qwen25vl_3b_safe_resume
+  max_steps: 20
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 2
+  learning_rate: 0.0002
+  weight_decay: 0.0
+  optim: paged_adamw_8bit
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.1
+  max_length: null
+  seed: 2026080101
+  data_seed: 2026080101
+  full_determinism: false
+  bf16: true
+  fp16: false
+  tf32: true
+  gradient_checkpointing: true
+  packing: false
+  completion_only_loss: true
+  assistant_only_loss: false
+  eval_strategy: steps
+  eval_steps: 10
+  save_steps: 10
+  save_total_limit: 3
+  logging_steps: 1
+  load_best_model_at_end: true
+  metric_for_best_model: eval_loss
+  greater_is_better: false
+  dataloader_num_workers: 0
+  dataloader_pin_memory: true
+  ddp_find_unused_parameters: false
+  ignore_data_skip: false
+  report_to: []
+  resume_from_checkpoint: null

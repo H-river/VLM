@@ -1,0 +1,40 @@
+{
+  "centroid_x": {
+    "thresholds": [
+      -0.18693389553121165,
+      0.18693389553121165
+    ],
+    "train_accuracy": 0.8607594936708861
+  },
+  "centroid_y": {
+    "thresholds": [
+      -1.8583969935502296,
+      0.8705746400208909
+    ],
+    "train_accuracy": 0.8987341772151899
+  },
+  "dataset_split": "train_only",
+  "feature_extractor": "paired_instrumented_moments_and_energy_v1",
+  "peak_intensity": {
+    "thresholds": [
+      -0.017061499202961627,
+      0.006716624564195084
+    ],
+    "train_accuracy": 0.9746835443037974
+  },
+  "record_count": 158,
+  "sigma_x": {
+    "thresholds": [
+      -10.655995064199296,
+      10.655995064199296
+    ],
+    "train_accuracy": 0.8481012658227848
+  },
+  "sigma_y": {
+    "thresholds": [
+      -4.2964877708778175,
+      4.2964877708778175
+    ],
+    "train_accuracy": 0.8481012658227848
+  }
+}

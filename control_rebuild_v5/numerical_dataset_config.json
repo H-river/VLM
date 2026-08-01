@@ -1,0 +1,12 @@
+{
+  "version": "control_rebuild_v5_numerical_one_seed",
+  "seed": 20260728,
+  "train_groups": 6000,
+  "category_counts": {
+    "iid_expanded": 1500,
+    "ood_boundary": 1500,
+    "high_nonlinearity": 1500,
+    "hard_interaction": 1500
+  },
+  "workers": 4
+}

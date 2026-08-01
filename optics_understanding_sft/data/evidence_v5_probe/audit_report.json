@@ -1,0 +1,43 @@
+{
+  "design_only": true,
+  "evidence_solver_failure_count": 0,
+  "evidence_solver_match_count": 400,
+  "failures": [],
+  "forbidden_input_key_counts": {},
+  "future_evaluation_eligible": false,
+  "minimal_pair_count": 200,
+  "nonfinite_count": 0,
+  "pair_invariant_failure_count": 0,
+  "passed": true,
+  "physical_scenario_count": 100,
+  "protocol": "evidence_grounded_v5_design_probe",
+  "record_count": 400,
+  "scaffold_measurement_failure_count": 0,
+  "shortcut_metrics": {
+    "control_current_error_best_threshold_accuracy": 0.59,
+    "control_fixed_table_position_accuracies": [
+      0.57,
+      0.565,
+      0.545,
+      0.555,
+      0.585,
+      0.53,
+      0.55,
+      0.545,
+      0.555
+    ],
+    "control_fixed_table_position_max_accuracy": 0.585,
+    "sufficiency_both_signs_accuracy": 0.5,
+    "sufficiency_sorted_values_accuracy": 0.5
+  },
+  "status_counts": {
+    "answerable": 100,
+    "feasible": 100,
+    "infeasible_within_limits": 100,
+    "insufficient_information": 100
+  },
+  "task_counts": {
+    "constrained_intervention": 200,
+    "information_sufficiency": 200
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "base_config": "/home/jiamo/VLM/optical_sim/configs/base_config.yaml",
+  "base_context": {
+    "beam_waist_mm": 1.0,
+    "lens_aperture_mm": 25.0,
+    "lens_focal_length_mm": 100.0,
+    "lens_to_camera_mm": 150.0,
+    "pixel_size_um": 5.5,
+    "power_w": 1.0,
+    "source_to_lens_mm": 200.0,
+    "wavelength_nm": 632.8
+  },
+  "base_positions_mm": {
+    "camera_x_mm": 0.07,
+    "camera_y_mm": -0.04,
+    "lens_x_mm": 0.11,
+    "lens_y_mm": -0.08
+  },
+  "constructed_sensor_x_step_mm": 0.005543307086614173,
+  "declared_sensor_pitch_mm": 0.0055,
+  "files": [
+    "data/smoke_128/actuator_limit_boundary.csv",
+    "data/smoke_128/continuity_summary.csv",
+    "data/smoke_128/continuity_sweeps.csv",
+    "data/smoke_128/coordinate_frame_table.csv",
+    "data/smoke_128/coordinate_interventions.csv",
+    "data/smoke_128/dataset_power_variation.csv",
+    "data/smoke_128/interpolation_semantics.csv",
+    "data/smoke_128/power_causal_scaling.csv",
+    "data/smoke_128/sensor_metric_comparison.csv",
+    "plots/smoke_128/main_camera_x_mm.png",
+    "plots/smoke_128/main_camera_x_mm_adjacent_change.png",
+    "plots/smoke_128/main_camera_y_mm.png",
+    "plots/smoke_128/main_camera_y_mm_adjacent_change.png",
+    "plots/smoke_128/main_lens_x_mm.png",
+    "plots/smoke_128/main_lens_x_mm_adjacent_change.png",
+    "plots/smoke_128/main_lens_y_mm.png",
+    "plots/smoke_128/main_lens_y_mm_adjacent_change.png"
+  ],
+  "production_code_modified": false,
+  "protected_data_accessed": false,
+  "simulation_grid_pitch_mm": 0.47244094488188904,
+  "simulator_fixed": {
+    "alignment_defocus_mm": 0.0,
+    "grid_extent_mm": 30.0,
+    "grid_size": 128,
+    "propagation_backend": "fresnel_numpy",
+    "sensor_resolution_px": [
+      128,
+      128
+    ],
+    "source_phase_mode": "fixed_zero",
+    "source_shape": "fundamental_gaussian"
+  },
+  "source_seed": "not applicable; deterministic simulator contains no RNG",
+  "sweep_half_range_mm": 0.09,
+  "sweep_step_mm": 0.0015,
+  "version": "simulator_three_issue_audit_v1"
+}

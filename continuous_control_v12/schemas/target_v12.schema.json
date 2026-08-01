@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "continuous_control_v12/target_v12.schema.json",
+  "title": "V12 simulator-derived target",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "target_id",
+    "group_id",
+    "category",
+    "target_metrics",
+    "target_image_ref",
+    "tolerance_reference_metrics",
+    "oracle_metadata",
+    "estimated_reachability",
+    "discrete_81_oracle"
+  ],
+  "properties": {
+    "schema_version": {"enum": ["v12.0.0", "v12.1.0"]},
+    "target_id": {"type": "string"},
+    "group_id": {"type": "string"},
+    "category": {
+      "enum": [
+        "one_step_reachable",
+        "multi_step_reachable",
+        "candidate_infeasible",
+        "ambiguous_boundary",
+        "estimated_reachable"
+      ]
+    },
+    "target_metrics": {"type": "object"},
+    "target_image_ref": {"type": ["string", "null"]},
+    "tolerance_reference_metrics": {"type": "object"},
+    "oracle_metadata": {
+      "type": "object",
+      "description": "Never passed to a deployed model/controller."
+    },
+    "estimated_reachability": {"type": ["object", "null"]},
+    "discrete_81_oracle": {"type": ["object", "null"]},
+    "oracle_gap": {"type": "object"}
+  }
+}

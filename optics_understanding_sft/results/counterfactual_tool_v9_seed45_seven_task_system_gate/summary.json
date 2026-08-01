@@ -1,0 +1,47 @@
+{
+  "absolute_macro_gain_over_direct_only": 0.3023809523809523,
+  "checks": {
+    "all_task_scores_at_least_0_90": true,
+    "compact_tool_tasks_exact_at_least_0_98": true,
+    "counterfactual_exact_at_least_0_98": true,
+    "equal_task_macro_at_least_0_90": true,
+    "forward_exact_at_least_0_98": true
+  },
+  "claim_boundary": "Scores routed through deterministic tools measure the LLM's tool choice, source-path construction, and result interpretation; they do not claim native pixel-level metrology.",
+  "direct_only_macro": 0.6728571428571428,
+  "direct_only_task_scores": {
+    "causal_effects": 0.9400000000000001,
+    "constrained_intervention": 0.45999999999999996,
+    "counterfactual_reasoning": 0.78,
+    "diagnosis": 0.9199999999999999,
+    "forward_prediction": 0.3833333333333333,
+    "information_sufficiency": 0.26,
+    "setup_interpretation": 0.9666666666666666
+  },
+  "equal_task_macro": 0.9752380952380951,
+  "passed": true,
+  "routes": {
+    "causal_effects": "direct_structured_answer",
+    "constrained_intervention": "exhaustive_grid_tool_then_compact_interpretation",
+    "counterfactual_reasoning": "registered_paired_state_deterministic_simulator",
+    "diagnosis": "direct_structured_answer",
+    "forward_prediction": "registered_state_deterministic_simulator",
+    "information_sufficiency": "enumerate_compatible_completions_then_compact_interpretation",
+    "setup_interpretation": "direct_structured_answer"
+  },
+  "source_summaries": {
+    "compact": "/home/jiamo/VLM/optics_understanding_sft/results/counterfactual_tool_v9_seed45_compact_preservation60/summary.json",
+    "counterfactual": "/home/jiamo/VLM/optics_understanding_sft/results/counterfactual_tool_v9_seed45_final_dev/summary.json",
+    "direct": "/home/jiamo/VLM/optics_understanding_sft/results/counterfactual_tool_v9_seed45_general_panel70/summary.json",
+    "forward": "/home/jiamo/VLM/optics_understanding_sft/results/counterfactual_tool_v9_seed45_forward_preservation30/summary.json"
+  },
+  "task_scores": {
+    "causal_effects": 0.9400000000000001,
+    "constrained_intervention": 1.0,
+    "counterfactual_reasoning": 1.0,
+    "diagnosis": 0.9199999999999999,
+    "forward_prediction": 1.0,
+    "information_sufficiency": 1.0,
+    "setup_interpretation": 0.9666666666666666
+  }
+}

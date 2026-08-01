@@ -1,0 +1,4 @@
+dataset_path,exists,rows_with_power,distinct_power_values,minimum_power_w,maximum_power_w,power_in_setup_features
+/home/jiamo/VLM_data/specialist_rebuild_v2/grids/train.jsonl,True,2500,2499,0.800080225,1.19999831,True
+/home/jiamo/VLM_data/control_rebuild_v4_quickcheck/grids/train.jsonl,True,2000,2000,0.5810718864128394,1.419703272938939,True
+/home/jiamo/VLM_data/control_rebuild_v5_numerical/grids/train.jsonl,True,6000,6000,0.5801759323486936,1.4197254766290497,True

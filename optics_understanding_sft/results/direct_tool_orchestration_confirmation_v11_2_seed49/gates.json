@@ -1,0 +1,85 @@
+{
+  "checks": {
+    "end_to_end_exact_match": true,
+    "json_valid_rate": true,
+    "result_interpretation_exact_match": true,
+    "schema_valid_rate": true,
+    "source_mapping_exact_match": true,
+    "tool_choice_accuracy": true,
+    "tool_execution_exact_match": true
+  },
+  "metrics": {
+    "by_source_task": {
+      "causal_effects": {
+        "end_to_end_exact_match": 1.0,
+        "end_to_end_successes": 30,
+        "end_to_end_wilson_95ci": {
+          "high": 0.9999999999999999,
+          "low": 0.8864866068260312
+        },
+        "result_interpretation_exact_match": 1.0,
+        "source_count": 30,
+        "source_mapping_exact_match": 1.0,
+        "tool_choice_accuracy": 1.0,
+        "tool_execution_exact_match": 1.0
+      },
+      "diagnosis": {
+        "end_to_end_exact_match": 1.0,
+        "end_to_end_successes": 30,
+        "end_to_end_wilson_95ci": {
+          "high": 0.9999999999999999,
+          "low": 0.8864866068260312
+        },
+        "result_interpretation_exact_match": 1.0,
+        "source_count": 30,
+        "source_mapping_exact_match": 1.0,
+        "tool_choice_accuracy": 1.0,
+        "tool_execution_exact_match": 1.0
+      },
+      "setup_interpretation": {
+        "end_to_end_exact_match": 1.0,
+        "end_to_end_successes": 30,
+        "end_to_end_wilson_95ci": {
+          "high": 0.9999999999999999,
+          "low": 0.8864866068260312
+        },
+        "result_interpretation_exact_match": 1.0,
+        "source_count": 30,
+        "source_mapping_exact_match": 1.0,
+        "tool_choice_accuracy": 1.0,
+        "tool_execution_exact_match": 1.0
+      }
+    },
+    "end_to_end_exact_match": 1.0,
+    "end_to_end_successes": 90,
+    "end_to_end_wilson_95ci": {
+      "high": 1.0,
+      "low": 0.9590643744356734
+    },
+    "json_valid_rate": 1.0,
+    "physical_group_count": 74,
+    "physical_group_end_to_end_exact_match": 1.0,
+    "physical_group_end_to_end_wilson_95ci": {
+      "high": 1.0,
+      "low": 0.950650220603614
+    },
+    "physical_group_successes": 74,
+    "record_count": 270,
+    "result_interpretation_exact_match": 1.0,
+    "schema_valid_rate": 1.0,
+    "source_count": 90,
+    "source_mapping_exact_match": 1.0,
+    "tool_choice_accuracy": 1.0,
+    "tool_execution_exact_match": 1.0
+  },
+  "passed": true,
+  "thresholds": {
+    "end_to_end_exact_match": 0.9,
+    "json_valid_rate": 0.98,
+    "result_interpretation_exact_match": 0.95,
+    "schema_valid_rate": 0.98,
+    "source_mapping_exact_match": 0.95,
+    "tool_choice_accuracy": 0.95,
+    "tool_execution_exact_match": 0.95
+  }
+}

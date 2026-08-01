@@ -1,0 +1,9 @@
+{
+  "status": "invalid",
+  "reason_category": "missing_runtime_dependency",
+  "dependency": "scipy",
+  "exact_error": "ModuleNotFoundError: No module named 'scipy'",
+  "affected_ready_cases": 40,
+  "replacement_required": true,
+  "reuse_metrics": false
+}

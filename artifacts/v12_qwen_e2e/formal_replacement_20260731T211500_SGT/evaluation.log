@@ -1,0 +1,52 @@
+{"index": 0, "case_id": "ready_measure_beam_profile_v12_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 21.325983684990206}
+{"index": 1, "case_id": "ready_measure_beam_profile_v12_001", "e2e_success": false, "specialist_success": true, "failure": "wrong status", "latency_seconds": 4.033018899004674}
+{"index": 2, "case_id": "ready_measure_beam_profile_v12_002", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 12.749945575007587}
+{"index": 3, "case_id": "ready_measure_beam_profile_v12_003", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 26.886014709001756}
+{"index": 4, "case_id": "ready_measure_beam_profile_v12_004", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 24.575977517000865}
+{"index": 5, "case_id": "ready_measure_beam_profile_v12_005", "e2e_success": false, "specialist_success": true, "failure": "wrong status", "latency_seconds": 4.019221791997552}
+{"index": 6, "case_id": "ready_measure_beam_profile_v12_006", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 23.917488644990954}
+{"index": 7, "case_id": "ready_measure_beam_profile_v12_007", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 12.59110224500182}
+{"index": 8, "case_id": "ready_measure_beam_profile_v12_008", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 22.75621433201013}
+{"index": 9, "case_id": "ready_measure_beam_profile_v12_009", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 7.783612193001318}
+{"index": 10, "case_id": "ready_predict_direction_from_state_v12_000", "e2e_success": false, "specialist_success": true, "failure": "wrong task/route", "latency_seconds": 28.68434887198964}
+{"index": 11, "case_id": "ready_predict_direction_from_state_v12_001", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 29.289655699991272}
+{"index": 12, "case_id": "ready_predict_direction_from_state_v12_002", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.94039551899186}
+{"index": 13, "case_id": "ready_predict_direction_from_state_v12_003", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 32.55545880399586}
+{"index": 14, "case_id": "ready_predict_direction_from_state_v12_004", "e2e_success": false, "specialist_success": true, "failure": "wrong task/route", "latency_seconds": 32.114161666992004}
+{"index": 15, "case_id": "ready_predict_direction_from_state_v12_005", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 31.93999266299943}
+{"index": 16, "case_id": "ready_predict_direction_from_state_v12_006", "e2e_success": false, "specialist_success": true, "failure": "unit/sign/order error", "latency_seconds": 28.614169877997483}
+{"index": 17, "case_id": "ready_predict_direction_from_state_v12_007", "e2e_success": false, "specialist_success": true, "failure": "unit/sign/order error", "latency_seconds": 28.823394883002038}
+{"index": 18, "case_id": "ready_predict_direction_from_state_v12_008", "e2e_success": false, "specialist_success": true, "failure": "wrong task/route", "latency_seconds": 29.081639474010444}
+{"index": 19, "case_id": "ready_predict_direction_from_state_v12_009", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 30.34908526900108}
+{"index": 20, "case_id": "ready_predict_direction_from_image_v12_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.90711214399198}
+{"index": 21, "case_id": "ready_predict_direction_from_image_v12_001", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 37.19507124199299}
+{"index": 22, "case_id": "ready_predict_direction_from_image_v12_002", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.357469321999815}
+{"index": 23, "case_id": "ready_predict_direction_from_image_v12_003", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.17714486998739}
+{"index": 24, "case_id": "ready_predict_direction_from_image_v12_004", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 33.68858154800546}
+{"index": 25, "case_id": "ready_predict_direction_from_image_v12_005", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 40.004775126988534}
+{"index": 26, "case_id": "ready_predict_direction_from_image_v12_006", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 32.97556399399764}
+{"index": 27, "case_id": "ready_predict_direction_from_image_v12_007", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 36.34455468200031}
+{"index": 28, "case_id": "ready_predict_direction_from_image_v12_008", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 34.69387619999179}
+{"index": 29, "case_id": "ready_predict_direction_from_image_v12_009", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 36.99303679500008}
+{"index": 30, "case_id": "ready_predict_forward_from_state_v12_000", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 28.54952863098879}
+{"index": 31, "case_id": "ready_predict_forward_from_state_v12_001", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 29.188880030007567}
+{"index": 32, "case_id": "ready_predict_forward_from_state_v12_002", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.068606439992436}
+{"index": 33, "case_id": "ready_predict_forward_from_state_v12_003", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 32.25374521299091}
+{"index": 34, "case_id": "ready_predict_forward_from_state_v12_004", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 32.580246571989846}
+{"index": 35, "case_id": "ready_predict_forward_from_state_v12_005", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.50681080798677}
+{"index": 36, "case_id": "ready_predict_forward_from_state_v12_006", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 32.49141745100496}
+{"index": 37, "case_id": "ready_predict_forward_from_state_v12_007", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 36.75829159699788}
+{"index": 38, "case_id": "ready_predict_forward_from_state_v12_008", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 28.523413809001795}
+{"index": 39, "case_id": "ready_predict_forward_from_state_v12_009", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 29.433040798001457}
+{"index": 40, "case_id": "ready_predict_forward_from_image_v12_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 36.05222641200817}
+{"index": 41, "case_id": "ready_predict_forward_from_image_v12_001", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.955075443998794}
+{"index": 42, "case_id": "ready_predict_forward_from_image_v12_002", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 38.77853897098976}
+{"index": 43, "case_id": "ready_predict_forward_from_image_v12_003", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.70512312899518}
+{"index": 44, "case_id": "ready_predict_forward_from_image_v12_004", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 40.36520056400332}
+{"index": 45, "case_id": "ready_predict_forward_from_image_v12_005", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.35692432400538}
+{"index": 46, "case_id": "ready_predict_forward_from_image_v12_006", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 28.740201548993355}
+{"index": 47, "case_id": "ready_predict_forward_from_image_v12_007", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 36.04025547900528}
+{"index": 48, "case_id": "ready_predict_forward_from_image_v12_008", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.88002879598935}
+{"index": 49, "case_id": "ready_predict_forward_from_image_v12_009", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 30.614161784993485}
+{"index": 50, "case_id": "ready_inverse_control_from_states_v12_h1_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 39.26001131799421}
+{"index": 51, "case_id": "ready_inverse_control_from_states_v12_h1_001", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 39.6552380189969}

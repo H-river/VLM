@@ -1,0 +1,49 @@
+{
+  "adapter_path": "/home/jiamo/VLM_runs/qwen25vl_3b_qlora_visual_tool_orchestration_v10_2_seed49",
+  "canonical_jsonl": "/home/jiamo/VLM_data/qwen_orchestration/v1/canonical/val.jsonl",
+  "generation": {
+    "do_sample": false,
+    "max_new_tokens": 96,
+    "temperature": 0.0
+  },
+  "input_jsonl": "/home/jiamo/VLM_data/qwen_orchestration/v1/exports/qwen/val_stage1.jsonl",
+  "metrics": {
+    "clarification_recall": 0.0,
+    "count": 280,
+    "ready_prediction_on_unsupported": 0.0,
+    "ready_route_exact_accuracy": 0.0,
+    "route_confusion": {
+      "None->None": 34,
+      "None->qwen_orchestration_route_v1": 3,
+      "measure_beam_profile_v1->None": 1,
+      "predict_direction_from_image_v1->None": 3,
+      "predict_direction_from_image_v1->gaussian_beam": 5,
+      "predict_direction_from_state_v1->None": 2,
+      "predict_forward_from_image_v1->None": 9,
+      "select_inverse_action_from_images_v1->None": 6
+    },
+    "route_exact_accuracy_all": 0.12142857142857143,
+    "schema_valid_rate": 0.0,
+    "status_confusion": {
+      "needs_clarification->None": 8,
+      "needs_clarification->success": 3,
+      "ready->None": 22,
+      "ready->success": 4,
+      "unsupported->None": 26
+    },
+    "status_exact_accuracy": 0.0,
+    "task_confusion": {
+      "None->None": 26,
+      "beam_profile_measurement->None": 6,
+      "direction_prediction->None": 6,
+      "direction_prediction->gaussian_beam": 4,
+      "forward_prediction->None": 12,
+      "inverse_control->None": 6,
+      "inverse_control->inverse": 3
+    },
+    "task_exact_accuracy": 0.09285714285714286,
+    "unsupported_recall": 0.0
+  },
+  "stage": "stage1",
+  "subset": "diagnostic"
+}

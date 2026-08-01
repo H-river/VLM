@@ -1,0 +1,26 @@
+[Unit]
+Description=Train, evaluate, and audit the targeted shared v7 candidate
+After=vlm-v7-targeted-data.service
+ConditionPathExists=/home/jiamo/VLM_data/joint_forward_direction_targeted_v7/manifest.json
+ConditionPathExists=!/home/jiamo/VLM_runs/joint_forward_direction_v7_targeted_one_seed/final_audit.json
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/usr/bin/bash /home/jiamo/VLM/joint_forward_direction_v7/run_targeted_post.sh
+Environment=PYTHONUNBUFFERED=1
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+CPUQuota=100%
+CPUAffinity=0
+MemoryHigh=6G
+MemoryMax=8G
+MemorySwapMax=256M
+TasksMax=64
+StandardOutput=append:/tmp/vlm-v7-targeted-post.log
+StandardError=append:/tmp/vlm-v7-targeted-post.log
+
+[Install]
+WantedBy=default.target

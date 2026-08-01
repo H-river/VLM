@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "end_to_end_exact_match": false,
+    "intermediate_evidence_exact_match": false,
+    "interpretation_answer_exact_match": false,
+    "interpretation_status_macro_f1": false,
+    "mapped_tool_execution_match": true,
+    "pair_joint_status_accuracy": false,
+    "schema_valid_rate": false,
+    "source_mapping_exact_match": true,
+    "tool_choice_accuracy": true
+  },
+  "metrics": {
+    "end_to_end_exact_match": 0.0,
+    "intermediate_evidence_exact_match": 0.0,
+    "interpretation_answer_exact_match": 0.0,
+    "interpretation_status_macro_f1": {
+      "constrained_intervention": 0.375,
+      "information_sufficiency": 0.45454545454545453
+    },
+    "json_valid_rate": 0.9333333333333333,
+    "mapped_tool_execution_match": 1.0,
+    "pair_joint_status_accuracy": 0.0,
+    "prediction_count": 60,
+    "record_count": 60,
+    "schema_valid_rate": 0.8666666666666667,
+    "source_mapping_exact_match": 1.0,
+    "tool_choice_accuracy": 1.0
+  },
+  "passed": false,
+  "thresholds": {
+    "end_to_end_exact_match": 0.65,
+    "intermediate_evidence_exact_match": 0.85,
+    "interpretation_answer_exact_match": 0.7,
+    "interpretation_status_macro_f1": 0.8,
+    "mapped_tool_execution_match": 0.95,
+    "pair_joint_status_accuracy": 0.75,
+    "schema_valid_rate": 0.98,
+    "source_mapping_exact_match": 0.9,
+    "tool_choice_accuracy": 0.95
+  }
+}

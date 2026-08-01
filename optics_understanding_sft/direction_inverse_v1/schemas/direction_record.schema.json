@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["example_id", "group_id", "split", "task_type", "prompt_inputs", "target"],
+  "properties": {
+    "example_id": {"type": "string"},
+    "group_id": {"type": "string"},
+    "split": {"enum": ["train", "val", "eval_iid", "eval_ood"]},
+    "task_type": {"enum": ["direction_single_field", "direction_all_fields"]},
+    "prompt_inputs": {
+      "type": "object",
+      "required": ["setup", "current_beam_state", "action", "images"]
+    },
+    "target": {
+      "type": "object",
+      "required": ["status", "answer"]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,22 @@
+experiment:
+  name: qwen25vl_3b_orchestrator_v12_eval
+model:
+  name: ../HF_models/Qwen2.5-VL-3B-Instruct
+  adapter_path: ../VLM_runs/qwen_orchestrator_v1_stage2_schema_refinement_v2_seed20260724/checkpoint-1000
+  local_files_only: true
+  trust_remote_code: true
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_compute_dtype: bfloat16
+  bnb_4bit_use_double_quant: true
+orchestration:
+  decision_system_contract: false
+generation:
+  max_new_tokens: 768
+  do_sample: false
+  temperature: 0.0
+  json_schema_constraint:
+    engine: lm-format-enforcer
+    version: 0.11.3
+    schema: Qwen_orchestration/v12/orchestration_generation_v12.schema.json
+    force_field_order: true

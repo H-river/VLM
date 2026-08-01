@@ -1,0 +1,45 @@
+{
+  "canonical_hashes": {
+    "dev": "ceb104b0fbb5c2e6c857ac6211c9a74bca6efd350077574e3fad5589dc4d4750",
+    "train": "30784858098223d19ca13ebdf380d3471ca56fbc9610574b90d7c2ce9bfee335"
+  },
+  "dataset": "v10_4",
+  "recovery_anchor_count": 0,
+  "seed": 51,
+  "split_record_counts": {
+    "dev": 234,
+    "train": 1011
+  },
+  "split_source_counts": {
+    "dev": 78,
+    "train": 337
+  },
+  "split_source_task_counts": {
+    "dev": {
+      "visual_pair_direction_extraction": 24,
+      "visual_state_classification": 54
+    },
+    "train": {
+      "visual_pair_direction_extraction": 158,
+      "visual_state_classification": 179
+    }
+  },
+  "split_stage_counts": {
+    "dev": {
+      "compact_tool_result_interpretation": 78,
+      "tool_choice": 78,
+      "tool_source_mapping": 78
+    },
+    "train": {
+      "compact_tool_result_interpretation": 337,
+      "tool_choice": 337,
+      "tool_source_mapping": 337
+    }
+  },
+  "train_curriculum_count": 1527,
+  "train_curriculum_stage_counts": {
+    "compact_tool_result_interpretation": 337,
+    "tool_choice": 337,
+    "tool_source_mapping": 853
+  }
+}

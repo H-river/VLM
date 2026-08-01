@@ -1,0 +1,11 @@
+[Unit]
+Description=Start numerical control v5 training after data generation
+ConditionPathExists=!/home/jiamo/VLM_runs/control_rebuild_v5_one_seed/pipeline.complete
+
+[Path]
+PathExists=/home/jiamo/VLM_runs/control_rebuild_v5_one_seed/stages/generation.complete
+Unit=vlm-v5-final.service
+
+[Install]
+WantedBy=default.target
+

@@ -1,0 +1,98 @@
+schema_version: qwen_vl_supervisor_training_v1
+run_name: qwen25vl_3b_supervisor_server
+training_seeds: [2026080101, 2026080102, 2026080103]
+
+model:
+  # Override with --model-id when the server stages the snapshot elsewhere.
+  id: Qwen/Qwen2.5-VL-3B-Instruct
+  source_id: Qwen/Qwen2.5-VL-3B-Instruct
+  revision: 66285546d2b821cf421d4f5eb2576359d3770cd3
+  processor_revision: 66285546d2b821cf421d4f5eb2576359d3770cd3
+  # Any --model-id local staging override must match this byte-exact tree identity.
+  expected_local_snapshot_tree_sha256: 2e1bd29589b91134a667572080bec76a5fb1446c49acddfa7f13049314bf3175
+  architecture: Qwen2_5_VLForConditionalGeneration
+  local_files_only: false
+  trust_remote_code: false
+  require_cuda: true
+  torch_dtype: bfloat16
+  attn_implementation: sdpa
+  processor:
+    min_pixels: 3136       # 56 * 56
+    max_pixels: 50176      # 224 * 224; matches collator/inference contract
+  quantization:
+    load_in_4bit: true
+    quant_type: nf4
+    compute_dtype: bfloat16
+    double_quant: true
+
+data:
+  format: prebuilt_chat
+  train_jsonl: qwen_vl_supervisor_v1/sft/sft_train.jsonl
+  dev_jsonl: qwen_vl_supervisor_v1/sft/sft_dev.jsonl
+  train_sha256: b7ad36e5669a98711b04973a9daa318660da18c05f8083f7b53415ce2c0c1432
+  dev_sha256: 6c1d8f597a641898f7f99b9dd8c7f58c7278cc4350f39a651b3c2bf70eabd9cc
+  export_report: qwen_vl_supervisor_v1/sft/export_report.json
+  export_report_sha256: 5aed5ad5452b701ef29794d9c48416143447f4a09e376e90a7ae6e68026bc1e4
+  train_export_report_key: train
+  dev_export_report_key: dev
+  image_root: .
+  max_train_samples: null
+  max_dev_samples: null
+  allowed_train_splits: [train]
+  allowed_dev_splits: [dev]
+  prohibit_frozen_splits: true
+
+lora:
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+    - qkv
+    - attn.proj
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  bias: none
+
+training:
+  output_dir: qwen_vl_supervisor_v1/artifacts/training/server_qwen25vl_3b
+  max_steps: 300
+  per_device_train_batch_size: 1
+  per_device_eval_batch_size: 1
+  gradient_accumulation_steps: 4
+  learning_rate: 0.0002
+  weight_decay: 0.0
+  optim: paged_adamw_8bit
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.05
+  # Truncation is disabled because dropping Qwen visual tokens corrupts VLM samples.
+  max_length: null
+  seed: 2026080101
+  data_seed: 2026080101
+  full_determinism: true
+  bf16: true
+  fp16: false
+  tf32: true
+  gradient_checkpointing: true
+  packing: false
+  completion_only_loss: true
+  assistant_only_loss: false
+  eval_strategy: steps
+  eval_steps: 25
+  save_steps: 25
+  # 300 / 25 = 12 complete checkpoints; retain all for frozen dev ranking.
+  save_total_limit: 12
+  logging_steps: 1
+  load_best_model_at_end: true
+  metric_for_best_model: eval_loss
+  greater_is_better: false
+  dataloader_num_workers: 2
+  dataloader_pin_memory: true
+  ddp_find_unused_parameters: false
+  ignore_data_skip: false
+  report_to: []
+  resume_from_checkpoint: null

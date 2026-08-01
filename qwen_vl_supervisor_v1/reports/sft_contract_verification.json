@@ -1,0 +1,38 @@
+{
+  "all_images_present_after_collation": true,
+  "all_system_user_labels_are_minus_100": true,
+  "all_target_tokens_supervised": true,
+  "assistant_only_loss": false,
+  "completion_only_loss": true,
+  "critical_fields_not_truncated": true,
+  "datasets": [
+    {
+      "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/sft/sft_smoke_train.jsonl",
+      "records": 36,
+      "sha256": "b2f52ac603ed0ce985dbf109fb069a404b0af0d20e3108b42fcfd2b6a5fc9f31"
+    },
+    {
+      "path": "/home/jiamo/VLM/qwen_vl_supervisor_v1/sft/sft_smoke_dev.jsonl",
+      "records": 12,
+      "sha256": "9f5137b1f578bb147b4c3660b6b41aa375e1a8e72a647c6a9a8851956018125b"
+    }
+  ],
+  "max_length": null,
+  "maximum_image_pad_tokens": 25,
+  "maximum_sequence_tokens": 627,
+  "mean_supervised_tokens": 23.666666666666668,
+  "minimum_image_pad_tokens": 25,
+  "model_path": "/home/jiamo/HF_models/Qwen2.5-VL-3B-Instruct",
+  "model_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "processor_max_pixels": 50176,
+  "processor_min_pixels": 3136,
+  "processor_revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+  "records_iterated": 48,
+  "status": "pass",
+  "versions": {
+    "python": "3.10.20",
+    "torch": "2.5.1+cu121",
+    "transformers": "5.8.1",
+    "trl": "1.4.0"
+  }
+}

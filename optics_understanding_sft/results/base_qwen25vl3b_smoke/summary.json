@@ -1,0 +1,73 @@
+{
+  "by_distribution": {
+    "iid": {
+      "count": 2,
+      "task_score": 0.7
+    }
+  },
+  "by_modality": {
+    "text": {
+      "count": 1,
+      "task_score": 0.4
+    },
+    "visual": {
+      "count": 1,
+      "task_score": 1.0
+    }
+  },
+  "evaluated_records": 2,
+  "expected_records": 120,
+  "json_valid_rate": 1.0,
+  "macro_task_score": 0.7,
+  "missing_predictions": 118,
+  "per_task": {
+    "causal_effects": {
+      "centroid_x": 1.0,
+      "centroid_y": 1.0,
+      "count": 1,
+      "effect_accuracy": 1.0,
+      "peak_intensity": 1.0,
+      "sigma_x": 1.0,
+      "sigma_y": 1.0,
+      "task_score": 1.0
+    },
+    "constrained_intervention": {
+      "action_grid_valid": 0.0,
+      "count": 1,
+      "simulator_outcome_success": 0.0,
+      "status_exact": 1.0,
+      "task_score": 0.4
+    },
+    "counterfactual_reasoning": {
+      "count": 0
+    },
+    "diagnosis": {
+      "count": 0
+    },
+    "forward_prediction": {
+      "count": 0
+    },
+    "information_sufficiency": {
+      "count": 0
+    },
+    "setup_interpretation": {
+      "count": 0
+    }
+  },
+  "predicted_status_counts": {
+    "answerable": 1,
+    "feasible": 1
+  },
+  "runtime": {
+    "mean_input_tokens": 772.0,
+    "mean_latency_seconds": 2.1888929149990872,
+    "mean_output_tokens": 65.0,
+    "peak_cuda_memory_bytes": 2562012672.0,
+    "total_latency_seconds": 4.3777858299981744
+  },
+  "schema_valid_rate": 1.0,
+  "target_status_counts": {
+    "answerable": 1,
+    "feasible": 1
+  }
+}

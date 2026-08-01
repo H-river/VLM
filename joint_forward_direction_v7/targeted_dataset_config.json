@@ -1,0 +1,17 @@
+{
+  "version": "joint_forward_direction_targeted_v7_one_seed",
+  "seed": 20260731,
+  "train_groups": 3000,
+  "category_counts": {
+    "peak_interaction": 1200,
+    "hard_interaction": 900,
+    "ood_boundary": 600,
+    "iid_expanded": 300
+  },
+  "workers": 2,
+  "target_basis": {
+    "difficult_peak_intensity_tolerance_pass": 0.6869135802469136,
+    "difficult_three_or_four_control_strict_success": 0.4240277777777778,
+    "difficult_four_control_strict_success": 0.381875
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "actions_per_group": 81,
+  "group_counts": {
+    "eval_iid": 35,
+    "eval_ood": 48,
+    "train": 151,
+    "val": 22
+  },
+  "group_overlap": {
+    "eval_iid:eval_ood": 0,
+    "train:eval_iid": 0,
+    "train:eval_ood": 0,
+    "train:val": 0,
+    "val:eval_iid": 0,
+    "val:eval_ood": 0
+  },
+  "passed": true,
+  "record_counts": {
+    "eval_iid": 2835,
+    "eval_ood": 3888,
+    "train": 12231,
+    "val": 1782
+  },
+  "simulator_at_inference": false,
+  "version": "direction_inverse_v1_grid_transitions"
+}

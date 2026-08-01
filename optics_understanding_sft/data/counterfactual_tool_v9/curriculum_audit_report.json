@@ -1,0 +1,27 @@
+{
+  "anchor_task_counts": {
+    "causal_effects": 20,
+    "constrained_intervention": 20,
+    "counterfactual_reasoning": 20,
+    "diagnosis": 20,
+    "forward_prediction": 20,
+    "information_sufficiency": 20,
+    "setup_interpretation": 20
+  },
+  "checks": {
+    "anchor_counts": true,
+    "record_count_560": true,
+    "row_validation": true,
+    "source_counts": true,
+    "unique_ids": true
+  },
+  "failures": [],
+  "passed": true,
+  "record_count": 560,
+  "source_counts": {
+    "compact_v7_1_refresh": 60,
+    "counterfactual_tool_v9": 300,
+    "forward_tool_v8_refresh": 60,
+    "seven_task_anchor": 140
+  }
+}

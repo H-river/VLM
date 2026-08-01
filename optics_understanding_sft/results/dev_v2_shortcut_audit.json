@@ -1,0 +1,42 @@
+{
+  "constant_status_accuracy": {
+    "constrained_intervention": 0.5,
+    "diagnosis": 0.3333333333333333,
+    "information_sufficiency": 0.5
+  },
+  "dataset_dir": "/home/jiamo/VLM/optics_understanding_sft/data/dev_v2",
+  "fixed_gain_control": {
+    "count": 120,
+    "success_rate": 0.36666666666666664,
+    "successes": 44
+  },
+  "match_quality": {
+    "control_error_range_px_mean": 1.1124399592919858,
+    "control_error_range_px_p95": 2.1869740563374354,
+    "control_focal_range_mm_mean": 12.923517300000002,
+    "control_pair_count": 60,
+    "match_group_count": 160
+  },
+  "record_count": 600,
+  "single_nuisance_accuracy": {
+    "control_active_actuator": 0.5,
+    "diagnosis_axis": 0.3333333333333333,
+    "sufficiency_hidden_field": 0.5
+  },
+  "split": "val",
+  "status_counts": {
+    "constrained_intervention": {
+      "feasible": 60,
+      "infeasible_within_limits": 60
+    },
+    "diagnosis": {
+      "ambiguous": 40,
+      "unique": 40,
+      "unsupported": 40
+    },
+    "information_sufficiency": {
+      "answerable": 60,
+      "insufficient_information": 60
+    }
+  }
+}

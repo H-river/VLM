@@ -1,0 +1,27 @@
+[Unit]
+Description=Balanced five-head direction v4 one-seed training
+ConditionPathExists=!/home/jiamo/VLM_runs/direction_rebuild_v4_quickcheck_one_seed/direction_classifier_v4.pt
+StartLimitIntervalSec=3600
+StartLimitBurst=2
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/home/jiamo/miniconda3/envs/optical_sim/bin/python /home/jiamo/VLM/direction_rebuild_v4/train_direction.py --old-data /home/jiamo/VLM_data/specialist_rebuild_v2 --new-data /home/jiamo/VLM_data/control_rebuild_v4_quickcheck --control-run /home/jiamo/VLM_runs/control_rebuild_v4_quickcheck_12h --output-dir /home/jiamo/VLM_runs/direction_rebuild_v4_quickcheck_one_seed --epochs 24 --batch-size 4096 --device cuda
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+Nice=10
+IOSchedulingClass=idle
+CPUQuota=100%
+AllowedCPUs=8
+MemoryHigh=3221225472
+MemoryMax=4294967296
+MemorySwapMax=268435456
+TasksMax=64
+Restart=on-failure
+RestartSec=30
+TimeoutStopSec=30
+StandardOutput=append:/tmp/direction-rebuild-v4-train.log
+StandardError=append:/tmp/direction-rebuild-v4-train.log

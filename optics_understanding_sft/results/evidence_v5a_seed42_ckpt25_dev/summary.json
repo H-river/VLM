@@ -1,0 +1,113 @@
+{
+  "by_distribution": {
+    "fresh_dev_iid": {
+      "count": 200,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.825,
+      "task_score": 0.43325
+    }
+  },
+  "by_modality": {
+    "text": {
+      "count": 200,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.825,
+      "task_score": 0.43325
+    }
+  },
+  "by_task_modality": {
+    "constrained_intervention": {
+      "text": {
+        "count": 100,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 0.65,
+        "task_score": 0.4485
+      }
+    },
+    "information_sufficiency": {
+      "text": {
+        "count": 100,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.41800000000000004
+      }
+    }
+  },
+  "evaluated_records": 200,
+  "expected_records": 200,
+  "json_valid_rate": 1.0,
+  "macro_task_score": 0.43325,
+  "missing_predictions": 0,
+  "per_task": {
+    "causal_effects": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "constrained_intervention": {
+      "action_grid_valid": 0.65,
+      "best_achievable_within_2px": 0.9736842105263158,
+      "branch_gated": 1.0,
+      "count": 100,
+      "json_valid_rate": 1.0,
+      "minimum_motion_optimal": 0.39,
+      "movement_gap_mm": 0.0375,
+      "schema_valid_rate": 0.65,
+      "simulator_outcome_success": 0.39,
+      "simulator_residual_px": 1.117449999999991,
+      "status_exact": 0.63,
+      "status_macro_f1": 0.6236395076797885,
+      "task_score": 0.4485
+    },
+    "counterfactual_reasoning": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "diagnosis": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "forward_prediction": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    },
+    "information_sufficiency": {
+      "count": 100,
+      "json_valid_rate": 1.0,
+      "missing_fields_f1": 0.5,
+      "schema_valid_rate": 1.0,
+      "secondary_exact": 0.09,
+      "status_exact": 0.5,
+      "status_macro_f1": 0.3333333333333333,
+      "task_score": 0.41800000000000004
+    },
+    "setup_interpretation": {
+      "count": 0,
+      "json_valid_rate": null,
+      "schema_valid_rate": null
+    }
+  },
+  "predicted_status_counts": {
+    "answerable": 100,
+    "feasible": 37,
+    "infeasible_within_limits": 63
+  },
+  "rubric_version": "v2",
+  "runtime": {
+    "mean_input_tokens": 1416.445,
+    "mean_latency_seconds": 3.2090265256300063,
+    "mean_output_tokens": 58.975,
+    "peak_cuda_memory_bytes": 2862288896.0,
+    "total_latency_seconds": 641.8053051260013
+  },
+  "schema_valid_rate": 0.825,
+  "target_status_counts": {
+    "answerable": 50,
+    "feasible": 50,
+    "infeasible_within_limits": 50,
+    "insufficient_information": 50
+  }
+}

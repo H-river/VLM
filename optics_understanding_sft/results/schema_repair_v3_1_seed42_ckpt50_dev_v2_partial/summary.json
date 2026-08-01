@@ -1,0 +1,227 @@
+{
+  "by_distribution": {
+    "iid": {
+      "count": 120,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.9916666666666667,
+      "task_score": 0.6068055555555555
+    }
+  },
+  "by_modality": {
+    "text": {
+      "count": 116,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "task_score": 0.6058908045977012
+    },
+    "visual": {
+      "count": 4,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 0.75,
+      "task_score": 0.6333333333333333
+    }
+  },
+  "by_task_modality": {
+    "causal_effects": {
+      "text": {
+        "count": 8,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.9
+      }
+    },
+    "constrained_intervention": {
+      "text": {
+        "count": 30,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.425
+      }
+    },
+    "counterfactual_reasoning": {
+      "text": {
+        "count": 6,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.8333333333333334
+      },
+      "visual": {
+        "count": 1,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 0.0,
+        "task_score": 0.2
+      }
+    },
+    "diagnosis": {
+      "text": {
+        "count": 28,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.8619047619047618
+      },
+      "visual": {
+        "count": 2,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 1.0
+      }
+    },
+    "forward_prediction": {
+      "text": {
+        "count": 7,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.23809523809523808
+      },
+      "visual": {
+        "count": 1,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.3333333333333333
+      }
+    },
+    "information_sufficiency": {
+      "text": {
+        "count": 30,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.44000000000000006
+      }
+    },
+    "setup_interpretation": {
+      "text": {
+        "count": 7,
+        "json_valid_rate": 1.0,
+        "schema_valid_rate": 1.0,
+        "task_score": 0.9047619047619048
+      }
+    }
+  },
+  "evaluated_records": 120,
+  "expected_records": 600,
+  "json_valid_rate": 1.0,
+  "macro_task_score": 0.6476757369614513,
+  "missing_predictions": 480,
+  "per_task": {
+    "causal_effects": {
+      "centroid_x": 1.0,
+      "centroid_y": 0.875,
+      "count": 8,
+      "effect_accuracy": 0.9,
+      "json_valid_rate": 1.0,
+      "peak_intensity": 0.75,
+      "schema_valid_rate": 1.0,
+      "sigma_x": 0.875,
+      "sigma_y": 1.0,
+      "task_score": 0.9
+    },
+    "constrained_intervention": {
+      "action_grid_valid": 0.9333333333333333,
+      "best_achievable_within_2px": 1.0,
+      "branch_gated": 1.0,
+      "count": 30,
+      "json_valid_rate": 1.0,
+      "minimum_motion_optimal": 0.3333333333333333,
+      "movement_gap_mm": -0.0041645,
+      "schema_valid_rate": 1.0,
+      "simulator_outcome_success": 0.3333333333333333,
+      "simulator_residual_px": 1.9060109089659132,
+      "status_exact": 0.5333333333333333,
+      "status_macro_f1": 0.4034090909090909,
+      "task_score": 0.425
+    },
+    "counterfactual_reasoning": {
+      "changed_parameter_exact": 1.0,
+      "count": 7,
+      "difference_centroid_error_px": 0.4568802821756461,
+      "difference_centroid_within_2px": 0.8571428571428571,
+      "difference_peak_abs_error": 1.2543166666666667,
+      "difference_peak_within_5pct": 0.42857142857142855,
+      "difference_sigma_within_2px": 0.7142857142857143,
+      "difference_sigma_x_abs_error_px": 1.09355,
+      "difference_sigma_y_abs_error_px": 0.40880000000000005,
+      "direction_exact": 0.7142857142857143,
+      "json_valid_rate": 1.0,
+      "numeric_difference_score": 0.6666666666666667,
+      "schema_valid_rate": 0.8571428571428571,
+      "task_score": 0.7428571428571429
+    },
+    "diagnosis": {
+      "count": 30,
+      "json_valid_rate": 1.0,
+      "plausible_causes_f1": 0.9088888888888889,
+      "schema_valid_rate": 1.0,
+      "status_exact": 0.8333333333333334,
+      "status_macro_f1": 0.8222222222222223,
+      "task_score": 0.8711111111111111
+    },
+    "forward_prediction": {
+      "after_centroid_error_px": 5.481530693950148,
+      "after_centroid_within_2px": 0.0,
+      "after_peak_abs_error": 3.12345,
+      "after_peak_within_5pct": 0.125,
+      "after_sigma_within_2px": 0.5,
+      "after_sigma_x_abs_error_px": 10.034737500000002,
+      "after_sigma_y_abs_error_px": 9.951450000000001,
+      "change_centroid_error_px": 4.958072047888627,
+      "change_centroid_within_2px": 0.0,
+      "change_peak_abs_error": 1.264975,
+      "change_peak_within_5pct": 0.25,
+      "change_sigma_within_2px": 0.625,
+      "change_sigma_x_abs_error_px": 1.2414625,
+      "change_sigma_y_abs_error_px": 1.045875,
+      "count": 8,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "task_score": 0.25
+    },
+    "information_sufficiency": {
+      "count": 30,
+      "json_valid_rate": 1.0,
+      "missing_fields_f1": 0.5,
+      "schema_valid_rate": 1.0,
+      "secondary_exact": 0.2,
+      "status_exact": 0.5,
+      "status_macro_f1": 0.3333333333333333,
+      "task_score": 0.44000000000000006
+    },
+    "setup_interpretation": {
+      "adjustable_parameters_excluded_as_prompt_hidden": 1.0,
+      "adjustable_parameters_f1": 1.0,
+      "component_order_exact": 1.0,
+      "component_order_semantic_exact": 1.0,
+      "count": 7,
+      "focal_length_abs_error_m": 4.2857142858375245e-08,
+      "json_valid_rate": 1.0,
+      "schema_valid_rate": 1.0,
+      "task_score": 0.9047619047619048,
+      "total_distance_abs_error_mm": 0.2856951428571343
+    }
+  },
+  "predicted_status_counts": {
+    "ambiguous": 15,
+    "answerable": 60,
+    "feasible": 28,
+    "infeasible_within_limits": 2,
+    "unique": 5,
+    "unsupported": 10
+  },
+  "rubric_version": "v2",
+  "runtime": {
+    "mean_input_tokens": 685.35,
+    "mean_latency_seconds": 3.2266562272333887,
+    "mean_output_tokens": 60.291666666666664,
+    "peak_cuda_memory_bytes": 2716822016.0,
+    "total_latency_seconds": 387.1987472680066
+  },
+  "schema_valid_rate": 0.9916666666666667,
+  "target_status_counts": {
+    "ambiguous": 10,
+    "answerable": 45,
+    "feasible": 16,
+    "infeasible_within_limits": 14,
+    "insufficient_information": 15,
+    "unique": 10,
+    "unsupported": 10
+  }
+}

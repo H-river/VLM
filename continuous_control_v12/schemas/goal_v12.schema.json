@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "continuous_control_v12/goal_v12.schema.json",
+  "title": "V12 structured optical goal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "target_metrics",
+    "metric_tolerances",
+    "target_image",
+    "allowed_dofs",
+    "priority",
+    "control_mode"
+  ],
+  "properties": {
+    "target_metrics": {"$ref": "#/$defs/metrics"},
+    "metric_tolerances": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "centroid_x_px",
+        "centroid_y_px",
+        "sigma_x_px",
+        "sigma_y_px",
+        "peak_intensity"
+      ],
+      "properties": {
+        "centroid_x_px": {"type": "number", "exclusiveMinimum": 0},
+        "centroid_y_px": {"type": "number", "exclusiveMinimum": 0},
+        "sigma_x_px": {"type": "number", "exclusiveMinimum": 0},
+        "sigma_y_px": {"type": "number", "exclusiveMinimum": 0},
+        "peak_intensity": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "target_image": {"type": ["string", "null"]},
+    "allowed_dofs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"enum": ["lens_x", "lens_y", "camera_x", "camera_y"]}
+    },
+    "priority": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"enum": ["centroid", "width", "peak_intensity"]}
+    },
+    "control_mode": {"const": "closed_loop"},
+    "constraints": {"type": "object"}
+  },
+  "$defs": {
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "centroid_x_px",
+        "centroid_y_px",
+        "sigma_x_px",
+        "sigma_y_px",
+        "peak_intensity"
+      ],
+      "properties": {
+        "centroid_x_px": {"type": "number"},
+        "centroid_y_px": {"type": "number"},
+        "sigma_x_px": {"type": "number"},
+        "sigma_y_px": {"type": "number"},
+        "peak_intensity": {"type": "number"}
+      }
+    }
+  }
+}

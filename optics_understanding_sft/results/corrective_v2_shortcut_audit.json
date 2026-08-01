@@ -1,0 +1,42 @@
+{
+  "constant_status_accuracy": {
+    "constrained_intervention": 0.5,
+    "diagnosis": 0.3333333333333333,
+    "information_sufficiency": 0.5
+  },
+  "dataset_dir": "/home/jiamo/VLM/optics_understanding_sft/data/corrective_v2",
+  "fixed_gain_control": {
+    "count": 400,
+    "success_rate": 0.32,
+    "successes": 128
+  },
+  "match_quality": {
+    "control_error_range_px_mean": 1.019550571780384,
+    "control_error_range_px_p95": 2.046286711384537,
+    "control_focal_range_mm_mean": 14.553460365,
+    "control_pair_count": 200,
+    "match_group_count": 532
+  },
+  "record_count": 2000,
+  "single_nuisance_accuracy": {
+    "control_active_actuator": 0.5,
+    "diagnosis_axis": 0.3333333333333333,
+    "sufficiency_hidden_field": 0.5
+  },
+  "split": "train",
+  "status_counts": {
+    "constrained_intervention": {
+      "feasible": 200,
+      "infeasible_within_limits": 200
+    },
+    "diagnosis": {
+      "ambiguous": 132,
+      "unique": 132,
+      "unsupported": 132
+    },
+    "information_sufficiency": {
+      "answerable": 200,
+      "insufficient_information": 200
+    }
+  }
+}

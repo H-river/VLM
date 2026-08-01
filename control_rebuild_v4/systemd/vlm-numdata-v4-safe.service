@@ -1,0 +1,29 @@
+[Unit]
+Description=VLM v4 numerical dataset resumable safe generator
+ConditionPathExists=!/home/jiamo/VLM_runs/control_rebuild_v4_one_seed/post_generation_stages/finalize_numerical_dataset.complete
+StartLimitIntervalSec=3600
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=/home/jiamo/VLM
+ExecStart=/home/jiamo/miniconda3/envs/optical_sim/bin/python /home/jiamo/VLM/control_rebuild_v4/build_numerical_dataset.py --workers 1
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+Environment=NUMEXPR_NUM_THREADS=1
+Nice=15
+IOSchedulingClass=idle
+CPUQuota=65%
+AllowedCPUs=8
+MemoryHigh=2621440000
+MemoryMax=3221225472
+MemorySwapMax=268435456
+TasksMax=16
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:/tmp/vlm-numdata-v4-safe.log
+StandardError=append:/tmp/vlm-numdata-v4-safe.log
+
+[Install]
+WantedBy=default.target
