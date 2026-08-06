@@ -1,0 +1,8 @@
+{
+  "name": "goal_history_budget_empty",
+  "protected_data_used": false,
+  "records": 60,
+  "sha256": "e35f6200bfc770b8f3ae6c608e87890596593c702cb9adc66e5e7ed81c360b02",
+  "source_dev_sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10",
+  "version": "supervisor_v1_1_candidate_dev_intervention_v1"
+}

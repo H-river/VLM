@@ -1,8 +1,0 @@
-case_id,target_route,modality,primary_failure_stage,secondary_failure_tags,qwen_validation_error,dispatch_error
-ready_measure_beam_profile_v12_000,measure_beam_profile_v12,image,Qwen invalid JSON/schema,[],"ContractError: schema violation at missing_fields: ['setup_context', 'target_beam_state'] is expected to be empty",
-ready_predict_direction_from_state_v12_000,predict_direction_from_state_v12,state,wrong task/route,[],,
-ready_predict_direction_from_image_v12_000,predict_direction_from_image_v12,image,Qwen invalid JSON/schema,[],"ContractError: schema violation at missing_fields: ['current_beam_state', 'target_beam_state'] is expected to be empty",
-ready_predict_forward_from_image_v12_000,predict_forward_from_image_v12,image,Qwen invalid JSON/schema,[],"ContractError: schema violation at missing_fields: ['current_beam_state', 'target_beam_state'] is expected to be empty",
-ready_inverse_control_from_states_v12_h1_000,inverse_control_from_states_v12_h1,state,Qwen invalid JSON/schema,[],ContractError: schema violation at missing_fields: ['missing_fields'] is expected to be empty,
-ready_inverse_control_from_images_v12_h1_000,inverse_control_from_images_v12_h1,image,Qwen invalid JSON/schema,[],ContractError: schema violation at missing_fields: ['missing_fields'] is expected to be empty,
-clarification_000,,text,Qwen invalid JSON/schema,[],ContractError: schema violation at arguments.image_calibration.source_sensor_resolution_px.0: 0 is less than the minimum of 1,

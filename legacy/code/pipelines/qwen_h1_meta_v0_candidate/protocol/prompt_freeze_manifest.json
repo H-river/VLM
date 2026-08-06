@@ -1,0 +1,11 @@
+{
+  "version": "qwen_h1_meta_v0_prompt_freeze_manifest_v1",
+  "created_before_data_generation_or_training": true,
+  "status": "CANDIDATE ONLY — NOT SEALED — FROZEN EVALUATION DISABLED",
+  "files": {
+    "system_prompt.txt": "6413af876203117facd9e6de92744a3dc093157bae1081258ceb97278cc3313b",
+    "prompt_contract.json": "ddfd3feecf72a33879681f9dc0e8e97502d3975dc17ff21fc159bb9e3b262603"
+  },
+  "formal_frozen_evaluation_enabled": false,
+  "sealed": false
+}

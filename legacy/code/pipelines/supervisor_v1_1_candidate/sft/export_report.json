@@ -1,0 +1,81 @@
+{
+  "manifest_views": {
+    "smoke_dev": {
+      "note": "sampling view of an existing validated split; not a new source manifest or split",
+      "path": "manifest_views/manifest_smoke_dev_view.jsonl",
+      "records": 12,
+      "sha256": "52a740a754428b9b9a11d38e966ef6fc247166e5959b97a97162b81608b14001"
+    },
+    "smoke_train": {
+      "note": "sampling view of an existing validated split; not a new source manifest or split",
+      "path": "manifest_views/manifest_smoke_train_view.jsonl",
+      "records": 36,
+      "sha256": "3c347514c92647702ea9e5dd85423a556e981f6c4aee53e73d664bff496c7a15"
+    }
+  },
+  "records": {
+    "dev": {
+      "class_counts": {
+        "nominal": 30,
+        "secondary_reflection": 18,
+        "sensor_saturation": 12
+      },
+      "count": 60,
+      "path": "sft_dev.jsonl",
+      "sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10"
+    },
+    "sample": {
+      "class_counts": {
+        "nominal": 1,
+        "secondary_reflection": 1,
+        "sensor_saturation": 1
+      },
+      "count": 3,
+      "path": "sample_qwen_vl.jsonl",
+      "sha256": "8decd73a60640700cbda138036f6507f17e8bace8790672ae4b1e9a0e1861ce5"
+    },
+    "smoke_dev": {
+      "class_counts": {
+        "nominal": 4,
+        "secondary_reflection": 4,
+        "sensor_saturation": 4
+      },
+      "count": 12,
+      "path": "sft_smoke_dev.jsonl",
+      "sha256": "748965f8252227689d974149d9933abf81ca832a2f1ae8cf89afe2af2b8484d0"
+    },
+    "smoke_train": {
+      "class_counts": {
+        "nominal": 12,
+        "secondary_reflection": 12,
+        "sensor_saturation": 12
+      },
+      "count": 36,
+      "path": "sft_smoke_train.jsonl",
+      "sha256": "8f4614326a57847d02670f5a9b1007968c9f70015cfba2ab0ce284dc2ff74fb1"
+    },
+    "train": {
+      "class_counts": {
+        "nominal": 96,
+        "secondary_reflection": 54,
+        "sensor_saturation": 42
+      },
+      "count": 192,
+      "path": "sft_train.jsonl",
+      "sha256": "fc8d3f70af1f49d9273750bd616f470a280162c7340ea1f825ddb4b82d25299e"
+    }
+  },
+  "rendered_examples": {
+    "nominal": "rendered_examples/nominal.md",
+    "secondary_reflection": "rendered_examples/secondary_reflection.md",
+    "sensor_saturation": "rendered_examples/sensor_saturation.md"
+  },
+  "seed": 2026080101,
+  "smoke_subset_note": "balanced sampling views of existing train/dev splits; not new splits; pair split assignment is unchanged",
+  "system_prompt_sha256": "b2fe3c97bc220469faa08aad22eee5df51f6747924209715bae75401b89ee3c5",
+  "target_format": "whole-string compact canonical JSON; exact three keys; no rationale/confidence",
+  "truncation_policy": "disabled (training max_length=null); no critical field may be dropped",
+  "version": "qwen_vl_supervisor_sft_export_v1",
+  "visible_image_slots_per_record": 1,
+  "visible_paths_or_hidden_metadata": 0
+}

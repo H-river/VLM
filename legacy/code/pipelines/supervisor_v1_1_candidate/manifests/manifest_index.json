@@ -1,0 +1,98 @@
+{
+  "builder": "supervisor_v1_1_candidate.scripts.build_candidate_manifests",
+  "frozen_or_protected_image_content_opened": false,
+  "frozen_or_protected_predictions_generated": false,
+  "frozen_registry_identity_only": {
+    "frozen_iid": {
+      "class_counts": {
+        "nominal": 36,
+        "secondary_reflection": 30,
+        "sensor_saturation": 6
+      },
+      "pair_count": 36,
+      "path": "qwen_vl_supervisor_v1/manifests/manifest_frozen_iid.jsonl",
+      "records": 72,
+      "setup_count": 36,
+      "sha256": "c90eadb09949c7db1b51a36df740ef13c018713c31f3cdd8cbf917e9d38e2910"
+    },
+    "frozen_ood": {
+      "class_counts": {
+        "nominal": 30,
+        "sensor_saturation": 30
+      },
+      "pair_count": 30,
+      "path": "qwen_vl_supervisor_v1/manifests/manifest_frozen_ood.jsonl",
+      "records": 60,
+      "setup_count": 30,
+      "sha256": "4f256c55c5db2df7100348d50bd053dec24858ecc3ecccab3d0bbe671f70c705"
+    }
+  },
+  "manifests": {
+    "dev": {
+      "candidate_added_records": 24,
+      "class_counts": {
+        "nominal": 30,
+        "secondary_reflection": 18,
+        "sensor_saturation": 12
+      },
+      "pairs": 30,
+      "path": "supervisor_v1_1_candidate/manifests/manifest_dev.jsonl",
+      "records": 60,
+      "setups": 24,
+      "sha256": "cccb6181235f450e617c30b9bb29683d9949a46c46b1a20154df57d298c273d2"
+    },
+    "train": {
+      "candidate_added_records": 96,
+      "class_counts": {
+        "nominal": 96,
+        "secondary_reflection": 54,
+        "sensor_saturation": 42
+      },
+      "pairs": 96,
+      "path": "supervisor_v1_1_candidate/manifests/manifest_train.jsonl",
+      "records": 192,
+      "setups": 72,
+      "sha256": "237356417d1262d262f6007b5f12cd5195a0f90c04b1ffdf0b9e762e2b171528"
+    }
+  },
+  "sealed_legal_base": {
+    "dev": {
+      "path": "qwen_vl_supervisor_v1/manifests/manifest_dev.jsonl",
+      "sha256": "8a9020195e37894915ff3f600c96bf5193b368a25d32a6186e3900086fb4b669"
+    },
+    "train": {
+      "path": "qwen_vl_supervisor_v1/manifests/manifest_train.jsonl",
+      "sha256": "17718c58516d1ae68b22b3d4e46e1d19758a851a9befbc83a0834c71792c3084"
+    }
+  },
+  "status": "NOT SEALED - FROZEN EVALUATION DISABLED",
+  "validation": {
+    "augmented_base_overlap_across_splits": 0,
+    "class_counts": {
+      "nominal": 126,
+      "secondary_reflection": 72,
+      "sensor_saturation": 54
+    },
+    "episode_overlap_across_splits": 0,
+    "fixed_pixel_reflection_rows": 0,
+    "image_hash_overlap_across_splits": 0,
+    "manifest_counts": {
+      "manifest_dev.jsonl": 60,
+      "manifest_train.jsonl": 192
+    },
+    "pair_overlap_across_splits": 0,
+    "protected_rows_in_train_or_dev": 0,
+    "records": 252,
+    "setup_overlap_across_splits": 0,
+    "split_counts": {
+      "dev": 60,
+      "train": 192
+    },
+    "status": "pass",
+    "unique_image_hashes": 252,
+    "unique_pairs": 126,
+    "unique_sample_ids": 252,
+    "unique_setups": 96
+  },
+  "version": "supervisor_v1_1_candidate_manifest_index_v1"
+}

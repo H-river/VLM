@@ -14,6 +14,16 @@ Files were moved here instead of deleted so old experiments remain inspectable.
 - `legacy/cleanup_reports/`: historical cleanup manifests and reports from
   earlier cleanup passes.
 
-Current development should use `profile2setup/llm_api/` and the LLM/API CLI
-scripts in `profile2setup/scripts/`. Old module and script paths were moved out
-of the active tree.
+Current development uses the root-level plan-reasoning/controller packages
+listed in the repository `README.md`.
+
+New archive layout:
+
+- `legacy/code/rebuilds/`: superseded v3-v11 rebuild implementations.
+- `legacy/code/pipelines/`: older orchestration, profile-to-setup, optics
+  understanding, supervisor, and Qwen candidate pipelines.
+- `legacy/experiments/`: compact reports grouped by version/family and date.
+
+Generated datasets, checkpoints, images, predictions, and full run trees are
+kept locally via `.gitignore`; the experiment archive intentionally contains
+only compact, reviewable reports.

@@ -1,0 +1,21 @@
+{
+  "all_pairs_pass_post_serialization": true,
+  "all_pairs_pass_pre_serialization": true,
+  "class_distribution": {
+    "clean": 24,
+    "secondary_reflection": 24
+  },
+  "maximum_post_serialization_l2_distance": 0.11882879667020489,
+  "maximum_post_serialization_per_metric_difference": 0.08868377993564103,
+  "maximum_pre_serialization_l2_distance": 0.00020791068139431538,
+  "maximum_pre_serialization_per_metric_difference": 0.0002079012627422827,
+  "pairs": 24,
+  "parameter_config": "/home/jiamo/VLM/reflection_width_relative/preregistration.json",
+  "parameter_config_sha256": "45298cd4635c86c9bb8e75cfb5bd5ca48855be87d9cbf9a600af727dd4469406",
+  "samples": 48,
+  "setup_groups": 24,
+  "split": "train",
+  "suite": "/home/jiamo/VLM/supervisor_v1_1_candidate/suites/train_suite.json",
+  "suite_sha256": "1538af62970cda377ccea60e7f33b4b01907594812d9d4767479720662ff34e5",
+  "version": "secondary_reflection_primary_sigma_direction_v1"
+}

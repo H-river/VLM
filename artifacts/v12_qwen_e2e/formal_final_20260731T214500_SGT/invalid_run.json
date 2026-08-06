@@ -1,9 +1,0 @@
-{
-  "status": "invalid",
-  "reason_category": "stopped_by_user",
-  "completed_cases": 3,
-  "total_cases": 105,
-  "process_still_running": false,
-  "resume_allowed": false,
-  "reuse_metrics": false
-}

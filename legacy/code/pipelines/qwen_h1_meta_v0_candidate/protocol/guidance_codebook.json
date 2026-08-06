@@ -1,0 +1,96 @@
+{
+  "version": "qwen_h1_meta_v0_guidance_codebook_v1",
+  "status": "CANDIDATE ONLY — NOT SEALED — FROZEN EVALUATION DISABLED",
+  "output_space": {
+    "decisions": ["run_guided_h1", "run_default_h1", "reobserve", "stop"],
+    "observation_requests": ["reuse_current", "revalidate"],
+    "objective_profiles": ["balanced", "centroid_priority", "width_priority", "intensity_priority"],
+    "mask_profiles": ["default", "all_actuators", "lens_only", "camera_only"],
+    "directions_per_actuator": ["increase", "decrease", "hold", "unknown"],
+    "step_scales": ["fine", "medium", "default"],
+    "risk_modes": ["conservative", "standard"],
+    "confidences": ["low", "medium", "high"],
+    "reason_codes": [
+      "centroid_error_dominant",
+      "width_error_dominant",
+      "intensity_error_dominant",
+      "near_target",
+      "recent_response_consistent",
+      "recent_response_mismatch",
+      "elevated_uncertainty",
+      "insufficient_history",
+      "measurement_requires_revalidation",
+      "budget_exhausted"
+    ]
+  },
+  "oracle_candidate_generation": {
+    "direction_hypotheses": {
+      "local_gradient": "per actuator choose the sign whose corrected-simulator half-bound probe gives lower canonical one-step cost; ties become hold",
+      "lens_local_gradient": "local_gradient on lens axes and hold on camera axes",
+      "camera_local_gradient": "local_gradient on camera axes and hold on lens axes",
+      "all_unknown": "unknown on all axes"
+    },
+    "templates": [
+      {
+        "template_id": "default",
+        "decision": "run_default_h1"
+      },
+      {
+        "template_id": "guided_primary",
+        "direction_hypothesis": "local_gradient",
+        "objective_profiles": ["balanced", "centroid_priority", "width_priority", "intensity_priority"],
+        "mask_profiles": ["all_actuators"],
+        "step_scales": ["fine", "medium", "default"],
+        "risk_modes": ["standard", "conservative"]
+      },
+      {
+        "template_id": "guided_lens_mask",
+        "direction_hypothesis": "lens_local_gradient",
+        "objective_profiles": ["balanced"],
+        "mask_profiles": ["lens_only"],
+        "step_scales": ["fine", "medium"],
+        "risk_modes": ["standard", "conservative"]
+      },
+      {
+        "template_id": "guided_camera_mask",
+        "direction_hypothesis": "camera_local_gradient",
+        "objective_profiles": ["balanced"],
+        "mask_profiles": ["camera_only"],
+        "step_scales": ["fine", "medium"],
+        "risk_modes": ["standard", "conservative"]
+      },
+      {
+        "template_id": "guided_unbiased",
+        "direction_hypothesis": "all_unknown",
+        "objective_profiles": ["balanced"],
+        "mask_profiles": ["default"],
+        "step_scales": ["fine", "medium", "default"],
+        "risk_modes": ["standard"]
+      }
+    ],
+    "expected_configuration_count_including_default": 36,
+    "predicted_shortlist": {
+      "size_excluding_default": 6,
+      "score": "canonical default H1 predicted one-step score",
+      "tie_break": "lexicographic config_id",
+      "actual_transition_required_for_every_shortlisted_configuration": true
+    },
+    "actual_label_rule": {
+      "score": "corrected simulator next-state canonical default H1 cost plus unchanged movement regularization",
+      "minimum_improvement_over_default": 0.02,
+      "otherwise": "run_default_h1",
+      "confidence_high_minimum_improvement": 0.1,
+      "confidence_medium_minimum_improvement": 0.02,
+      "low_guided_labels_allowed": false
+    },
+    "tie_break_order": [
+      "run_default_h1",
+      "balanced",
+      "default_mask_then_all_actuators_then_lens_only_then_camera_only",
+      "fine_then_medium_then_default",
+      "conservative_then_standard",
+      "lexicographic_config_id"
+    ]
+  },
+  "oracle_visibility": "label_generation_and_upper_bound_only_never_model_input"
+}

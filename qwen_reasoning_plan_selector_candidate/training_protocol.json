@@ -1,0 +1,39 @@
+{
+  "schema_version": "qwen_reasoning_plan_selector_training_protocol_v1",
+  "declared_before_label_analysis": true,
+  "candidate_only": true,
+  "base_model": {
+    "id": "/home/jiamo/HF_models/Qwen2.5-VL-3B-Instruct",
+    "source_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "revision": "66285546d2b821cf421d4f5eb2576359d3770cd3",
+    "snapshot_tree_sha256": "2e1bd29589b91134a667572080bec76a5fb1446c49acddfa7f13049314bf3175"
+  },
+  "training_seeds": [2026080401, 2026080402, 2026080403],
+  "lora": {
+    "r": 16,
+    "alpha": 32,
+    "dropout": 0.05
+  },
+  "training": {
+    "max_steps": 200,
+    "per_device_train_batch_size": 1,
+    "per_device_eval_batch_size": 1,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0002,
+    "eval_steps": 25,
+    "save_steps": 25,
+    "metric_for_best_model": "eval_loss",
+    "load_best_model_at_end": true,
+    "completion_only_loss": true,
+    "bf16": true,
+    "quantization": "nf4_double_quant"
+  },
+  "generation": {
+    "do_sample": false,
+    "num_beams": 1,
+    "max_new_tokens": 192
+  },
+  "sft_gate": "artifacts/qwen_reasoning_plan_selector/anti_collapse_audit.json:gate_passed=true",
+  "confirmation_policy": "candidate_confirmation is excluded from training, plan-bank revision, and checkpoint selection",
+  "frozen_or_protected_enabled": false
+}

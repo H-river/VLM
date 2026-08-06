@@ -1,0 +1,23 @@
+{
+  "version": "qwen_h1_meta_v0_protocol_freeze_manifest_v1",
+  "created_at_utc": "2026-08-02T05:47:20+00:00",
+  "status": "CANDIDATE ONLY — NOT SEALED — FROZEN EVALUATION DISABLED",
+  "freeze_scope": "immutable preregistration for this candidate run; not a sealed formal-evaluation protocol",
+  "files": {
+    "input_schema.json": "9e0b5e9e635425fc8d2d4be050492763c083f7724a64006ef1481df9df19c31b",
+    "output_schema.json": "5dcc48f4c06a436c22e185482a8b469c145ab6974381f3406a980d9be61158f0",
+    "guidance_codebook.json": "29cdd5411474991506a84830b6a83057b6e6513218ce7c121e1bebc5918d3b1f",
+    "compiler_mapping.json": "ec68918d868faf1270566ed7e72e6a65ecde504f08f34cc91d42d932a1474345",
+    "meta_controller_protocol.json": "d53a8689f36662a8ae09ca2808d3048323750f3f6249649b2edae45b1def9679"
+  },
+  "frozen_before": [
+    "fresh candidate data generation",
+    "oracle label generation",
+    "information-sufficiency results",
+    "training",
+    "new development generation metrics",
+    "candidate closed-loop results"
+  ],
+  "formal_frozen_evaluation_enabled": false,
+  "sealed": false
+}

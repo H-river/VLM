@@ -1,0 +1,86 @@
+{
+  "version": "qwen_h1_meta_v0_compiler_mapping_v1",
+  "status": "CANDIDATE ONLY — NOT SEALED — FROZEN EVALUATION DISABLED",
+  "canonical_metric_order": ["centroid_x_px", "centroid_y_px", "sigma_x_px", "sigma_y_px", "peak_intensity"],
+  "canonical_action_order": ["lens_x_delta_mm", "lens_y_delta_mm", "camera_x_delta_mm", "camera_y_delta_mm"],
+  "default_h1_source": {
+    "path": "runs/v12_mpc_h1_h3_diagnosis_20260731_111829/configs/locked_primary_config.json",
+    "sha256": "2a9694eb493da27468f73fa0258705ce7d703842c2654a4240bffb2facf4c1cf",
+    "horizon": 1,
+    "population": 24,
+    "elites": 6,
+    "cem_iterations": 3,
+    "max_closed_loop_steps": 4,
+    "mean_error_weight": 0.15,
+    "movement_weight": 0.02,
+    "limit_penalty": 10.0,
+    "boundary_penalty": 1.0,
+    "uncertainty_weight": 0.1
+  },
+  "objective_profiles": {
+    "balanced": [1.0, 1.0, 1.0, 1.0, 1.0],
+    "centroid_priority": [1.25, 1.25, 0.85, 0.85, 0.85],
+    "width_priority": [0.85, 0.85, 1.25, 1.25, 0.85],
+    "intensity_priority": [0.9, 0.9, 0.9, 0.9, 1.25]
+  },
+  "objective_view": "H1-only search view transforms predicted_next to target + multiplier*(predicted_next-target); balanced is exact identity; physical prediction is recomputed before arbitration",
+  "mask_profiles": {
+    "default": ["lens_x", "lens_y", "camera_x", "camera_y"],
+    "all_actuators": ["lens_x", "lens_y", "camera_x", "camera_y"],
+    "lens_only": ["lens_x", "lens_y"],
+    "camera_only": ["camera_x", "camera_y"]
+  },
+  "step_scales": {
+    "fine": 0.35,
+    "medium": 0.65,
+    "default": 1.0
+  },
+  "risk_modes": {
+    "standard": {"uncertainty_weight_multiplier": 1.0, "trust_region_multiplier": 1.0},
+    "conservative": {"uncertainty_weight_multiplier": 2.0, "trust_region_multiplier": 0.8}
+  },
+  "direction_mapping": {
+    "increase": 1.0,
+    "decrease": -1.0,
+    "hold": 0.0,
+    "unknown": 0.0,
+    "initial_mean_fraction_of_compiled_positive_bound": 0.5,
+    "application": "first CEM normal proposal draw only"
+  },
+  "non_guided_canonical_fields": {
+    "objective_profile": "balanced",
+    "mask_profile": "default",
+    "directional_prior": {
+      "lens_x_delta_mm": "unknown",
+      "lens_y_delta_mm": "unknown",
+      "camera_x_delta_mm": "unknown",
+      "camera_y_delta_mm": "unknown"
+    },
+    "step_scale": "default",
+    "risk_mode": "standard"
+  },
+  "fallback_rules": {
+    "measurement_invalid": "reobserve_non_dispatch",
+    "invalid_json": "unchanged_default_h1_if_control_budget_remains",
+    "direct_continuous_injection": "reject_security_event_then_unchanged_default_h1_if_control_budget_remains",
+    "unknown_actuator_or_mask": "reject_then_unchanged_default_h1_if_control_budget_remains",
+    "low_confidence_guidance": "unchanged_default_h1",
+    "budget_exhausted": "stop_non_dispatch"
+  },
+  "arbiter": {
+    "canonical_default_objective_margin": 1e-12,
+    "maximum_mean_normalized_uncertainty": 5.0,
+    "catastrophic_member_max_error_increase_tolerances": 2.0,
+    "require_guided_not_worse_than_default": true,
+    "require_all_existing_bounds_and_candidate_gate": true,
+    "h3_allowed": false
+  },
+  "invariants": {
+    "fine_le_medium_le_default": true,
+    "all_compiled_action_bounds_le_default": true,
+    "balanced_bitwise_identity_view": true,
+    "conservative_never_reduces_uncertainty_weight_or_expands_trust": true,
+    "strict_success_threshold_unchanged": 1.0,
+    "absolute_limit_source": "repository_sampling_domain_not_hardware_limit"
+  }
+}

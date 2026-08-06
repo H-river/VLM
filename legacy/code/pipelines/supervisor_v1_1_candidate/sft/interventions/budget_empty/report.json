@@ -1,0 +1,12 @@
+{
+  "changed_rows": 60,
+  "frozen_or_protected_used": false,
+  "name": "budget_empty",
+  "records": 60,
+  "sha256": "84b5050467d199a413a19d3b95e256a9b28447be0674a1f6dad1ac118f749429",
+  "source_dev_sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10",
+  "status": "NOT SEALED \u2014 FROZEN EVALUATION DISABLED",
+  "structural_no_op": false,
+  "unique_source_field_values": 1,
+  "version": "supervisor_v1_1_candidate_individual_state_intervention_v1"
+}

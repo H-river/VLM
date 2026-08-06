@@ -1,0 +1,9 @@
+{
+  "version": "qwen_h1_meta_v0_protocol_addendum_freeze_v1",
+  "created_at_utc": "2026-08-02T05:58:00+00:00",
+  "status": "CANDIDATE ONLY — NOT SEALED — FROZEN EVALUATION DISABLED",
+  "file": "data_generation_preregistration.json",
+  "sha256": "beb65dd7f2d56e2426e63adf22f23a042d8d5f8e26c95eb16c37445c9c1a3561",
+  "formal_frozen_evaluation_enabled": false,
+  "sealed": false
+}

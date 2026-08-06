@@ -1,9 +1,0 @@
-{"index": 0, "case_id": "ready_measure_beam_profile_v12_000", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 22.223173595994012}
-{"index": 1, "case_id": "ready_predict_direction_from_state_v12_000", "e2e_success": false, "specialist_success": true, "failure": "wrong task/route", "latency_seconds": 27.83735237699875}
-{"index": 2, "case_id": "ready_predict_direction_from_image_v12_000", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 35.329366013000254}
-{"index": 3, "case_id": "ready_predict_forward_from_state_v12_000", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 28.301611433009384}
-{"index": 4, "case_id": "ready_predict_forward_from_image_v12_000", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 36.45529701199848}
-{"index": 5, "case_id": "ready_inverse_control_from_states_v12_h1_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 36.0225745439966}
-{"index": 6, "case_id": "ready_inverse_control_from_images_v12_h1_000", "e2e_success": false, "specialist_success": false, "failure": "Qwen invalid JSON/schema", "latency_seconds": 32.72049831299228}
-{"index": 7, "case_id": "clarification_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 37.73510229600652}
-{"index": 8, "case_id": "unsupported_000", "e2e_success": true, "specialist_success": true, "failure": null, "latency_seconds": 3.4284024810040137}

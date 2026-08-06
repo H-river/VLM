@@ -1,0 +1,18 @@
+{
+  "frozen_or_protected_data_used": false,
+  "mode": "metrics_only",
+  "records": {
+    "dev": {
+      "count": 60,
+      "path": "sft_dev.jsonl",
+      "sha256": "e22feba01a218d460743bc5d76990a4962b0bd4410ccc120ec3670979cb7be68"
+    },
+    "train": {
+      "count": 192,
+      "path": "sft_train.jsonl",
+      "sha256": "4ab66c2aa091c94a678eccddf95fd2a4a3a1ca4f44a30620c50095cf19ee5fde"
+    }
+  },
+  "source_full_export_sha256": "71d6d18d95fef2c7a55c1900be4135cf069b0749fd7d62b7f2244d10e19404ba",
+  "version": "supervisor_v1_1_candidate_ablation_export_v1"
+}

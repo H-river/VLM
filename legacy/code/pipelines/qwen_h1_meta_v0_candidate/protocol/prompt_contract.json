@@ -1,0 +1,12 @@
+{
+  "version": "qwen_h1_meta_v0_prompt_contract_v1",
+  "status": "CANDIDATE ONLY — NOT SEALED — FROZEN EVALUATION DISABLED",
+  "system_prompt": "system_prompt.txt",
+  "user_text_prefix": "Current H1 meta-controller runtime state (all coordinates, frames, units, bounds, and padding masks are explicit):\n",
+  "user_state_serialization": "UTF-8 compact JSON, ensure_ascii=false, sort_keys=true, separators comma-colon, allow_nan=false",
+  "assistant_serialization": "UTF-8 compact JSON, ensure_ascii=false, sort_keys=true, separators comma-colon, allow_nan=false",
+  "chat_roles": ["system", "user", "assistant"],
+  "image_placeholders": 1,
+  "image_position": "first item of user content",
+  "forbid_model_visible_metadata": true
+}

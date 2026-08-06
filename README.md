@@ -1,32 +1,30 @@
-# VLM Optical Setup Workflows
+# VLA + Optics: active plan-reasoning controller
 
-This repo has two active project areas:
+This branch contains the active Qwen plan-selection and continuous-control
+stack. Historical implementations and compact experiment reports are retained
+under `legacy/`; datasets, checkpoints, renders, and raw run artifacts stay
+local and are excluded by `.gitignore`.
 
-- `optical_sim/`: simulator and data-generation code for optical beam profiles.
-- `profile2setup/`: the main profile-to-setup project.
+## Active packages
 
-The current main `profile2setup` approach is the multimodal LLM/API + SFT
-workflow. Start with:
+- `qwen_reasoning_plan_selector_candidate/` — current plan/reasoning selector.
+- `continuous_control_v12/` — continuous controller and contracts.
+- `vlm_optics_benchmark/` — controller and VLM evaluation harness.
+- `active_diagnosis_v13/` — active diagnosis and gain inference.
+- `qwen_vl_supervisor_v1/` — Qwen supervisor, schema, and SFT utilities.
+- `optical_sim/` — simulator source and configuration.
+- `optics_sft/` — simulator adapter used by the active controller.
+- `control_rebuild_v5/` and `specialist_rebuild_v2/` — retained runtime
+  dependencies of `continuous_control_v12`.
+- `reflection_width_relative/` — manifest/data-contract source required by the
+  active supervisor; its generated `data/` tree remains local-only.
 
-```bash
-python -m profile2setup.scripts.check_v2_integrity_cli
-python -m profile2setup.scripts.render_llm_api_images_cli --help
-python -m profile2setup.scripts.build_llm_api_sft_dataset_cli --help
-python -m profile2setup.scripts.audit_llm_sft_data_cli --help
-python -m profile2setup.scripts.create_llm_api_sft_job_cli --help
-python -m profile2setup.scripts.check_llm_api_sft_job_cli --help
-python -m profile2setup.scripts.run_llm_api_inference_cli --help
-python -m profile2setup.scripts.evaluate_llm_api_predictions_cli --help
-```
+## Repository layout
 
-Core current files are under `profile2setup/llm_api/`,
-`profile2setup/data_prep/build_llm_api_sft_dataset.py`,
-`profile2setup/evaluation/llm_api_eval.py`,
-`profile2setup/evaluation/llm_api_visualization.py`, and
-`profile2setup/experiments/llm_api_setup_understanding.py`.
+- `legacy/code/` — superseded packages, grouped by rebuild or pipeline family.
+- `legacy/experiments/` — compact reports grouped by version/family and date.
+- `artifacts/`, `runs/`, `data/`, `outputs/`, and checkpoint directories —
+  local-only generated content; none is intended for GitHub.
 
-The local PyTorch `profile2setup` model remains available as a baseline under
-`profile2setup/models/`, `profile2setup/training/`, and
-`profile2setup/inference/`. Older text-to-discrete-bin work, local reasoning VLM
-work, and physics-understanding side experiments live under `legacy/`.
-
+The latest retained overnight summary is
+`legacy/experiments/qwen-plan-reasoning/2026-08-06/report.md`.

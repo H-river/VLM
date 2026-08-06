@@ -1,0 +1,14 @@
+{
+  "schema_version": "qwen_reasoning_plan_selector_ambiguity_robustness_v1",
+  "declared_before_supplemental_gate_analysis": true,
+  "trigger": "final revision1 plus supplemental gate remains FAIL",
+  "purpose": "quantify whether NO-GO is caused by three-seed noise or persistent plan equivalence; never used to reopen SFT permission",
+  "scope": "all 90 candidate_train plus candidate_dev groups, all five immutable revision1 plans",
+  "additional_seed_indices": [3, 4, 5, 6, 7, 8, 9, 10],
+  "additional_real_episodes": 3600,
+  "controller_and_plan_changes_permitted": false,
+  "gate_or_ambiguity_threshold_changes_permitted": false,
+  "sft_permission_may_not_be_reopened": true,
+  "confirmation_accessed": false,
+  "frozen_or_protected_enabled": false
+}

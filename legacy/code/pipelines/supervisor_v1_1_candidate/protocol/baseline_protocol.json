@@ -1,0 +1,66 @@
+{
+  "version": "supervisor_v1_1_candidate_baseline_protocol_v1",
+  "status": "NOT SEALED — FROZEN EVALUATION DISABLED",
+  "frozen_before_baseline_execution": true,
+  "scope": "candidate train/dev diagnosis only",
+  "labels": [
+    "nominal",
+    "sensor_saturation",
+    "secondary_reflection"
+  ],
+  "seeds": [2026080101, 2026080102, 2026080103],
+  "metrics_fields": [
+    "centroid_x",
+    "centroid_y",
+    "width_x",
+    "width_y",
+    "peak_intensity"
+  ],
+  "logistic_metrics": {
+    "standardization": "train mean and population standard deviation",
+    "solver": "lbfgs",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 2000,
+    "random_state": 2026080101,
+    "runs": 1
+  },
+  "metrics_mlp": {
+    "architecture": "Linear(5,32)-ReLU-Linear(32,3)",
+    "optimizer": "Adam",
+    "learning_rate": 0.002,
+    "weight_decay": 0.0001,
+    "epochs": 300,
+    "batch_size": 32,
+    "class_weight": "inverse train frequency normalized to mean 1"
+  },
+  "tiny_cnn_image": {
+    "architecture": "Conv(1,8,3)-ReLU-MaxPool2-Conv(8,16,3)-ReLU-MaxPool2-Conv(16,32,3)-ReLU-AdaptiveAvgPool4-Linear(512,64)-ReLU-Linear(64,3)",
+    "optimizer": "Adam",
+    "learning_rate": 0.002,
+    "weight_decay": 0.0001,
+    "epochs": 40,
+    "batch_size": 32,
+    "augmentation": "none",
+    "image_scaling": "grayscale float32 divided by 255",
+    "class_weight": "inverse train frequency normalized to mean 1"
+  },
+  "tiny_cnn_metrics_fusion": {
+    "architecture": "same image encoder; concatenate standardized 5-metric vector before Linear(517,64)-ReLU-Linear(64,3)",
+    "optimizer": "Adam",
+    "learning_rate": 0.002,
+    "weight_decay": 0.0001,
+    "epochs": 40,
+    "batch_size": 32,
+    "augmentation": "none",
+    "class_weight": "inverse train frequency normalized to mean 1"
+  },
+  "selection": "fixed final epoch; no dev tuning and no hyperparameter sweep",
+  "device": "CPU",
+  "output_mapping": "diagnosis deterministically maps to the candidate policy and high-level action enums",
+  "forbidden": [
+    "frozen IID/OOD/protected access",
+    "binary-family score reuse",
+    "dev hyperparameter selection"
+  ]
+}

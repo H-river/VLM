@@ -1,9 +1,0 @@
-{
-  "failures": [],
-  "materialized_answer_count": 261,
-  "passed": true,
-  "private_state_leak_count": 0,
-  "reconstructed_record_count": 783,
-  "simulator_replay_count": 261,
-  "source_record_count": 261
-}

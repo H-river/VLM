@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qwen_h1_meta_v0_output.schema.json",
+  "title": "Qwen H1 meta-controller discrete output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "decision",
+    "observation_request",
+    "objective_profile",
+    "mask_profile",
+    "directional_prior",
+    "step_scale",
+    "risk_mode",
+    "confidence",
+    "reason_codes"
+  ],
+  "properties": {
+    "schema_version": {"const": "qwen_h1_meta_v0"},
+    "decision": {
+      "enum": ["run_guided_h1", "run_default_h1", "reobserve", "stop"]
+    },
+    "observation_request": {"enum": ["reuse_current", "revalidate"]},
+    "objective_profile": {
+      "enum": ["balanced", "centroid_priority", "width_priority", "intensity_priority"]
+    },
+    "mask_profile": {
+      "enum": ["default", "all_actuators", "lens_only", "camera_only"]
+    },
+    "directional_prior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lens_x_delta_mm",
+        "lens_y_delta_mm",
+        "camera_x_delta_mm",
+        "camera_y_delta_mm"
+      ],
+      "properties": {
+        "lens_x_delta_mm": {"enum": ["increase", "decrease", "hold", "unknown"]},
+        "lens_y_delta_mm": {"enum": ["increase", "decrease", "hold", "unknown"]},
+        "camera_x_delta_mm": {"enum": ["increase", "decrease", "hold", "unknown"]},
+        "camera_y_delta_mm": {"enum": ["increase", "decrease", "hold", "unknown"]}
+      }
+    },
+    "step_scale": {"enum": ["fine", "medium", "default"]},
+    "risk_mode": {"enum": ["conservative", "standard"]},
+    "confidence": {"enum": ["low", "medium", "high"]},
+    "reason_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "maxItems": 4,
+      "items": {
+        "enum": [
+          "centroid_error_dominant",
+          "width_error_dominant",
+          "intensity_error_dominant",
+          "near_target",
+          "recent_response_consistent",
+          "recent_response_mismatch",
+          "elevated_uncertainty",
+          "insufficient_history",
+          "measurement_requires_revalidation",
+          "budget_exhausted"
+        ]
+      }
+    }
+  }
+}

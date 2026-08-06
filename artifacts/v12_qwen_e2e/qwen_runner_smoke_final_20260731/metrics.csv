@@ -1,9 +1,0 @@
-task,modality,n,specialist_accuracy,e2e_accuracy,qwen_contract_gap,e2e_wilson_95_low,e2e_wilson_95_high
-direction_prediction_v12,image,1,0.0,0.0,0.0,0.0,0.7934506856227626
-direction_prediction_v12,state,1,1.0,0.0,1.0,0.0,0.7934506856227626
-forward_prediction_v12,image,1,0.0,0.0,0.0,0.0,0.7934506856227626
-forward_prediction_v12,state,1,1.0,0.0,1.0,0.0,0.7934506856227626
-inverse_control_v12,image,1,0.0,0.0,0.0,0.0,0.7934506856227626
-inverse_control_v12,state,1,1.0,0.0,1.0,0.0,0.7934506856227626
-measurement,image,1,0.0,0.0,0.0,0.0,0.7934506856227626
-four_task_macro,balanced,7,0.375,0.0,0.375,0.0,0.0

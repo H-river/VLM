@@ -1,0 +1,36 @@
+{
+  "version": "supervisor_v1_1_candidate_intervention_addendum_v2",
+  "status": "NOT SEALED — FROZEN EVALUATION DISABLED",
+  "supersedes": "intervention_addendum_individual_fields.json",
+  "frozen_before_any_individual_field_intervention_generation": true,
+  "reason": "The v1 addendum used null for goal and budget. Pre-generation export validation rejected null goal, so no condition file or model result was produced. V2 uses schema-valid neutral values and does not bypass the validator.",
+  "source": "complete candidate dev SFT only",
+  "full_model_seeds": [2026080101, 2026080102, 2026080103],
+  "conditions": {
+    "goal_empty": {
+      "field": "goal_metrics",
+      "replacement": {
+        "centroid_x": 0.0,
+        "centroid_y": 0.0,
+        "coordinate_frame": "lab_sensor_1024px_and_raw_peak",
+        "peak_intensity": 0.0,
+        "width_x": 0.0,
+        "width_y": 0.0
+      }
+    },
+    "history_empty": {"field": "recent_history", "replacement": []},
+    "budget_empty": {"field": "remaining_step_budget", "replacement": 0},
+    "goal_shuffle": {"field": "goal_metrics", "seed": 2026084302},
+    "history_shuffle": {"field": "recent_history", "seed": 2026084303},
+    "budget_shuffle": {"field": "remaining_step_budget", "seed": 2026084304}
+  },
+  "interpretation_guards": [
+    "Zero-valued goal and zero budget are schema-valid neutralizations, not missing-value tokens.",
+    "A shuffle with zero changed rows because a field is constant is a no-op and provides no modality-dependence evidence."
+  ],
+  "forbidden": [
+    "frozen IID/OOD/protected access",
+    "prompt or label changes after results",
+    "claiming a no-op shuffle as invariance evidence"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "goal_history_budget_shuffle",
+  "protected_data_used": false,
+  "records": 60,
+  "sha256": "bbf18be7667038acbf531595c684df17215e1eef1c5cf93c5597e6ff06b35db6",
+  "source_dev_sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10",
+  "version": "supervisor_v1_1_candidate_dev_intervention_v1"
+}

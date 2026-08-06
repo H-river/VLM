@@ -1,0 +1,8 @@
+{
+  "name": "blank_image",
+  "protected_data_used": false,
+  "records": 60,
+  "sha256": "e22feba01a218d460743bc5d76990a4962b0bd4410ccc120ec3670979cb7be68",
+  "source_dev_sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10",
+  "version": "supervisor_v1_1_candidate_dev_intervention_v1"
+}

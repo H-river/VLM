@@ -1,0 +1,8 @@
+{
+  "name": "metrics_shuffle",
+  "protected_data_used": false,
+  "records": 60,
+  "sha256": "c6931662597b0ea1594245941ea4d4b3c538a90d752c92b9f07ce10b3c2f3ee2",
+  "source_dev_sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10",
+  "version": "supervisor_v1_1_candidate_dev_intervention_v1"
+}

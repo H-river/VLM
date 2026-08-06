@@ -1,3 +1,0 @@
-{"index": 0, "case_id": "ready_measure_beam_profile_v12_000", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 21.22209185200336}
-{"index": 1, "case_id": "ready_measure_beam_profile_v12_001", "e2e_success": false, "specialist_success": true, "failure": "wrong status", "latency_seconds": 4.083166481999797}
-{"index": 2, "case_id": "ready_measure_beam_profile_v12_002", "e2e_success": false, "specialist_success": true, "failure": "Qwen invalid JSON/schema", "latency_seconds": 11.94639393700345}

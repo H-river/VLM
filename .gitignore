@@ -6,6 +6,55 @@ __pycache__/
 *.pyd
 .pytest_cache/
 .cache/
+.tmp*/
+
+# OS/editor/local secrets
+.DS_Store
+.idea/
+.vscode/
+.env.*
+!.env.example
+
+# Local data and generated experiment products. Compact reports intended for
+# Git live under legacy/experiments/.
+/data/
+/artifacts/
+/runs/
+/outputs/
+/checkpoints/
+**/data/
+**/artifacts/
+**/checkpoints/
+**/outputs/
+**/local_archive/
+**/wandb/
+legacy/code/**/results/
+legacy/code/**/reports/
+reflection_width_relative/development_search.json
+
+# Raw datasets, predictions, media arrays, and serialized models
+*.jsonl
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.parquet
+*.arrow
+*.h5
+*.hdf5
+*.ckpt
+*.onnx
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Runtime noise
+*.log
+*.lock
+*.tmp
+*.swp
+core
 
 # Local envs
 .venv/

@@ -1,0 +1,55 @@
+{
+  "version": "supervisor_v1_1_candidate_experiment_protocol_v1",
+  "status": "NOT SEALED - FROZEN EVALUATION DISABLED",
+  "frozen_before_candidate_training_or_dev_generation": true,
+  "evidence_scope": "engineering and development evidence only",
+  "candidate_train": "existing legal v1 train plus preregistered new train records",
+  "candidate_dev": "existing legal v1 dev plus preregistered new dev records",
+  "full_model": {
+    "seeds": [2026080101, 2026080102, 2026080103],
+    "max_optimizer_steps": 200,
+    "eval_steps": 25,
+    "save_steps": 25,
+    "selection_rule": "lowest full candidate development loss; ties choose earlier optimizer step",
+    "keep_all_seeds": true,
+    "decoding": "complete candidate dev, greedy, batch 1, no JSON extraction or repair"
+  },
+  "training": {
+    "per_device_train_batch_size": 1,
+    "gradient_accumulation_steps": 4,
+    "quantization": "NF4 4-bit double quantization",
+    "compute_dtype": "bfloat16",
+    "gradient_checkpointing": true,
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "learning_rate": 0.0002,
+    "scheduler": "cosine",
+    "warmup_ratio": 0.05
+  },
+  "ablation_retraining": {
+    "image_only": {"seeds": [2026080101, 2026080102, 2026080103], "same_steps_and_selection": true},
+    "metrics_only": {"seeds": [2026080101, 2026080102, 2026080103], "same_steps_and_selection": true}
+  },
+  "inference_interventions_each_full_seed": [
+    "constant_blank_image",
+    "deterministic_cross_class_image_shuffle",
+    "fixed_random_image_shuffles",
+    "metrics_blank",
+    "metrics_shuffle",
+    "goal_history_budget_empty",
+    "goal_history_budget_shuffle"
+  ],
+  "baseline_rule": "one fixed configuration per baseline; no sweep; logistic deterministic and neural baselines use the three full-model seeds",
+  "aggregation": {
+    "seed_summary": "mean and population standard deviation",
+    "uncertainty": "setup-pair-aware bootstrap confidence intervals",
+    "small_sample_interpretation": "differences are inconclusive unless consistently large; no scientific claim"
+  },
+  "prior_pilot": "old seed-2026080101 v1 pilot is historical engineering context only and may not be pooled with candidate seeds",
+  "forbidden": [
+    "frozen IID/OOD/protected prediction or image-content access",
+    "formal frozen evaluation",
+    "modification of frozen control backbone, forward model, H1-CEM, labels, or v1 sealed artifacts",
+    "final freeze or release claim"
+  ]
+}

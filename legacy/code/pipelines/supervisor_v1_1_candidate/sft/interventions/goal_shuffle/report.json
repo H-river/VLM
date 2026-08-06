@@ -1,0 +1,12 @@
+{
+  "changed_rows": 55,
+  "frozen_or_protected_used": false,
+  "name": "goal_shuffle",
+  "records": 60,
+  "sha256": "7665873035f76123326d85b7fbde8d564ffdc6f810baa19330652716592b2c2c",
+  "source_dev_sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10",
+  "status": "NOT SEALED \u2014 FROZEN EVALUATION DISABLED",
+  "structural_no_op": false,
+  "unique_source_field_values": 24,
+  "version": "supervisor_v1_1_candidate_individual_state_intervention_v1"
+}

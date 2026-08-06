@@ -1,0 +1,30 @@
+{
+  "schema_version": "qwen_reasoning_plan_selector_supplemental_sampling_v1",
+  "declared_before_revision1_gate_analysis": true,
+  "trigger": "revision1 fails only enough_decisive_samples while every other preregistered gate passes",
+  "purpose": "increase independent train/dev group count without changing the plan bank, ranking, ambiguity rule, gate, confirmation set, or controller",
+  "base_states": 9,
+  "variants_per_base": 5,
+  "additional_groups": 45,
+  "plans": 5,
+  "seeds_per_group_plan": 3,
+  "additional_real_episodes": 675,
+  "selection_rule": "within each stratum, source-candidate-train cases sorted by case_id at offsets 3:6; then stable-seed sort with root 2026080401 and tag supplemental_split",
+  "assign_first_seven_to": "candidate_train",
+  "assign_last_two_to": "candidate_dev",
+  "source_case_ids_in_assignment_order": [
+    "v12_mpcdiag_qvlsup_v11cand_20260802_02_0003",
+    "v12_mpcdiag_qvlsup_v11cand_20260802_01_0004",
+    "v12_mpcdiag_qvlsup_v11cand_20260802_02_0005",
+    "v12_mpcdiag_qvlsup_v11cand_20260802_01_0005",
+    "v12_mpcdiag_qvlsup_v11cand_20260802_01_0003",
+    "v12_mpcdiag_qvlsup_v11cand_20260802_00_0003",
+    "v12_mpcdiag_qvlsup_v11cand_20260802_00_0004",
+    "v12_mpcdiag_qvlsup_v11cand_20260802_00_0005",
+    "v12_mpcdiag_qvlsup_v11cand_20260802_02_0004"
+  ],
+  "confirmation_manifest_must_remain_sha256": "003458efeb2b5e4e81553a825b03ba93070b5aa7aedbea9b65f31c1ae9bdb867",
+  "confirmation_outcomes_may_not_be_opened": true,
+  "plan_bank_revision_count_remains": 1,
+  "frozen_or_protected_enabled": false
+}

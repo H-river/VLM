@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "qwen_h1_meta_v0_input.schema.json",
+  "title": "Qwen H1 meta-controller runtime-visible input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "current_beam_image",
+    "current_beam_state",
+    "target_beam_state",
+    "normalized_signed_error",
+    "actuator_positions_mm",
+    "actuator_semantics",
+    "history",
+    "forward_uncertainty",
+    "remaining_budget",
+    "measurement_validity"
+  ],
+  "$defs": {
+    "beam_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["centroid_x_px", "centroid_y_px", "sigma_x_px", "sigma_y_px", "peak_intensity"],
+      "properties": {
+        "centroid_x_px": {"type": "number"},
+        "centroid_y_px": {"type": "number"},
+        "sigma_x_px": {"type": "number", "minimum": 0},
+        "sigma_y_px": {"type": "number", "minimum": 0},
+        "peak_intensity": {"type": "number", "minimum": 0}
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lens_x_delta_mm", "lens_y_delta_mm", "camera_x_delta_mm", "camera_y_delta_mm"],
+      "properties": {
+        "lens_x_delta_mm": {"type": "number", "minimum": -0.05, "maximum": 0.05},
+        "lens_y_delta_mm": {"type": "number", "minimum": -0.05, "maximum": 0.05},
+        "camera_x_delta_mm": {"type": "number", "minimum": -0.02, "maximum": 0.02},
+        "camera_y_delta_mm": {"type": "number", "minimum": -0.02, "maximum": 0.02}
+      }
+    },
+    "metric_vector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["centroid_x_px", "centroid_y_px", "sigma_x_px", "sigma_y_px", "peak_intensity"],
+      "properties": {
+        "centroid_x_px": {"type": "number"},
+        "centroid_y_px": {"type": "number"},
+        "sigma_x_px": {"type": "number"},
+        "sigma_y_px": {"type": "number"},
+        "peak_intensity": {"type": "number"}
+      }
+    }
+  },
+  "properties": {
+    "schema_version": {"const": "qwen_h1_meta_input_v0"},
+    "current_beam_image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "coordinate_frame", "display_normalization", "width_px", "height_px"],
+      "properties": {
+        "role": {"const": "current_sensor_frame_beam_image"},
+        "coordinate_frame": {"const": "camera_sensor_array"},
+        "display_normalization": {"const": "per_image_peak_normalized_for_qwen_only"},
+        "width_px": {"type": "integer", "minimum": 1},
+        "height_px": {"type": "integer", "minimum": 1}
+      }
+    },
+    "current_beam_state": {"$ref": "#/$defs/beam_state"},
+    "target_beam_state": {"$ref": "#/$defs/beam_state"},
+    "normalized_signed_error": {"$ref": "#/$defs/metric_vector"},
+    "actuator_positions_mm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lens_x_mm", "lens_y_mm", "camera_x_mm", "camera_y_mm"],
+      "properties": {
+        "lens_x_mm": {"type": "number", "minimum": -3, "maximum": 3},
+        "lens_y_mm": {"type": "number", "minimum": -3, "maximum": 3},
+        "camera_x_mm": {"type": "number", "minimum": -3, "maximum": 3},
+        "camera_y_mm": {"type": "number", "minimum": -3, "maximum": 3}
+      }
+    },
+    "actuator_semantics": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action_id", "position_id", "unit", "positive_command_semantics", "negative_command_semantics", "legal_per_step_bounds_mm", "absolute_limit_source"],
+        "properties": {
+          "action_id": {"enum": ["lens_x_delta_mm", "lens_y_delta_mm", "camera_x_delta_mm", "camera_y_delta_mm"]},
+          "position_id": {"enum": ["lens_x_mm", "lens_y_mm", "camera_x_mm", "camera_y_mm"]},
+          "unit": {"const": "mm"},
+          "positive_command_semantics": {"type": "string", "minLength": 1},
+          "negative_command_semantics": {"type": "string", "minLength": 1},
+          "legal_per_step_bounds_mm": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {"type": "number"}
+          },
+          "absolute_limit_source": {"const": "repository_sampling_domain_not_hardware_limit"}
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["valid", "executed_action_mm", "measured_beam_delta", "predicted_beam_delta", "prediction_residual", "ensemble_uncertainty", "padding_reason"],
+        "properties": {
+          "valid": {"type": "boolean"},
+          "executed_action_mm": {"$ref": "#/$defs/action"},
+          "measured_beam_delta": {"$ref": "#/$defs/metric_vector"},
+          "predicted_beam_delta": {"$ref": "#/$defs/metric_vector"},
+          "prediction_residual": {"$ref": "#/$defs/metric_vector"},
+          "ensemble_uncertainty": {"$ref": "#/$defs/metric_vector"},
+          "padding_reason": {"enum": ["none", "no_history"]}
+        }
+      }
+    },
+    "forward_uncertainty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["per_metric", "mean", "maximum"],
+      "properties": {
+        "per_metric": {"$ref": "#/$defs/metric_vector"},
+        "mean": {"type": "number", "minimum": 0},
+        "maximum": {"type": "number", "minimum": 0}
+      }
+    },
+    "remaining_budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["measurement_steps", "control_steps"],
+      "properties": {
+        "measurement_steps": {"type": "integer", "minimum": 0},
+        "control_steps": {"type": "integer", "minimum": 0}
+      }
+    },
+    "measurement_validity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "supervisor_diagnosis", "measurement_policy"],
+      "properties": {
+        "state": {"enum": ["valid", "requires_recovery", "invalid"]},
+        "supervisor_diagnosis": {"enum": ["nominal", "sensor_saturation", "secondary_reflection", "unknown"]},
+        "measurement_policy": {"enum": ["standard", "lower_exposure_reacquire", "primary_spot", "unknown"]}
+      }
+    }
+  }
+}

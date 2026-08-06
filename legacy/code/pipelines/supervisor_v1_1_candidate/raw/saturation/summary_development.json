@@ -1,0 +1,22 @@
+{
+  "all_pairs_pass_post_serialization": true,
+  "all_pairs_pass_pre_serialization": true,
+  "class_distribution": {
+    "clean": 6,
+    "sensor_saturation": 6
+  },
+  "clip_level_range_preregistered": [
+    0.35,
+    0.55
+  ],
+  "observed_clip_level_max": 0.5098646314910561,
+  "observed_clip_level_min": 0.36475491264560533,
+  "old_fixed_pixel_reflection_generated": false,
+  "pairs": 6,
+  "records": 12,
+  "setups": 6,
+  "split": "development",
+  "suite": "/home/jiamo/VLM/supervisor_v1_1_candidate/suites/dev_suite.json",
+  "suite_sha256": "d05deddff392dc38bcabcc287cae4e2f97b60a65366b6fe598f793008fba8f73",
+  "version": "supervisor_v1_1_candidate_saturation_v1"
+}

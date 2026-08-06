@@ -1,0 +1,22 @@
+{
+  "version": "supervisor_v1_1_candidate_intervention_addendum_v1",
+  "status": "NOT SEALED — FROZEN EVALUATION DISABLED",
+  "frozen_before_any_individual_field_intervention_generation": true,
+  "reason": "The original preregistration grouped goal, history, and budget; this addendum resolves the requested per-field conditions before those condition results are generated.",
+  "source": "complete candidate dev SFT only",
+  "full_model_seeds": [2026080101, 2026080102, 2026080103],
+  "conditions": {
+    "goal_empty": {"field": "goal_metrics", "replacement": null},
+    "history_empty": {"field": "recent_history", "replacement": []},
+    "budget_empty": {"field": "remaining_step_budget", "replacement": null},
+    "goal_shuffle": {"field": "goal_metrics", "seed": 2026084302},
+    "history_shuffle": {"field": "recent_history", "seed": 2026084303},
+    "budget_shuffle": {"field": "remaining_step_budget", "seed": 2026084304}
+  },
+  "interpretation_guard": "A shuffle with zero changed rows because a field is constant is a no-op and provides no modality-dependence evidence.",
+  "forbidden": [
+    "frozen IID/OOD/protected access",
+    "prompt or label changes after results",
+    "claiming a no-op shuffle as invariance evidence"
+  ]
+}

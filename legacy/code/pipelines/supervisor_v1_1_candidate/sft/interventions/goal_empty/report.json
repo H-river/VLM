@@ -1,0 +1,12 @@
+{
+  "changed_rows": 60,
+  "frozen_or_protected_used": false,
+  "name": "goal_empty",
+  "records": 60,
+  "sha256": "b0d7c7a8ee9fa8ed6bd4575fd72ce2e845df3415a055c73049dc3ed57ea63d1f",
+  "source_dev_sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10",
+  "status": "NOT SEALED \u2014 FROZEN EVALUATION DISABLED",
+  "structural_no_op": false,
+  "unique_source_field_values": 24,
+  "version": "supervisor_v1_1_candidate_individual_state_intervention_v1"
+}

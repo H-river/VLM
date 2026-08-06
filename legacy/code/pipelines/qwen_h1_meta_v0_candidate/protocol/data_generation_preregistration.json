@@ -1,0 +1,90 @@
+{
+  "version": "qwen_h1_meta_v0_data_generation_preregistration_v1",
+  "frozen_at_utc": "2026-08-02T05:58:00+00:00",
+  "status": "CANDIDATE ONLY — NOT SEALED — FROZEN EVALUATION DISABLED",
+  "relationship_to_primary_freeze": "additive preregistration completed before any fresh sample, label, development result, or training run; primary frozen files remain unchanged",
+  "splits": {
+    "train": {"setup_seed": 2026080207, "setup_count": 16, "id_format": "qh1meta_train_%04d"},
+    "dev": {"setup_seed": 2026080208, "setup_count": 8, "id_format": "qh1meta_dev_%04d"},
+    "candidate_eval": {"setup_seed": 2026080209, "setup_count": 12, "id_format": "qh1meta_eval_%04d"}
+  },
+  "regime_assignment": {
+    "cycle": ["ordinary", "focusing", "clipping", "camera_boundary", "tolerance_boundary", "high_offset_interaction"],
+    "index_rule": "cycle[index mod 6]",
+    "maximum_setup_resample_attempts": 16,
+    "acceptance": "corrected simulator valid and initial captured power fraction at least 0.01"
+  },
+  "simulator": {
+    "config": "continuous_control_v12/config_v12_semantics_v2.json",
+    "semantics": "v12_sensor_power_semantics_v1",
+    "grid_size": 1536,
+    "grid_extent_mm": 6.25,
+    "sensor_resolution_px": [1024, 1024],
+    "sensor_sampling_method": "pixel_area_bilinear_intensity",
+    "pixel_area_quadrature_order": 3,
+    "power_semantics": "source_integrated_optical_power_w"
+  },
+  "history": {
+    "length": 3,
+    "source": "actual corrected-simulator transitions",
+    "actions_as_fraction_of_canonical_positive_per_step_bound": [
+      [0.25, -0.25, 0.0, 0.0],
+      [0.0, 0.0, 0.25, -0.25],
+      [-0.125, 0.125, -0.125, 0.125]
+    ],
+    "projection": "existing continuous_control_v12 project_action then apply_action",
+    "prediction": "unchanged forward ensemble evaluated before each executed history action",
+    "residual": "actual measured delta minus learned predicted delta",
+    "target_independent": true
+  },
+  "target_counterfactuals": {
+    "target_seed": 2026080210,
+    "variants_in_canonical_action_bound_multiples": {
+      "one_step_mixed": [0.8, -0.8, 0.75, -0.75],
+      "multi_step_opposite": [-1.8, 1.4, 1.6, -1.2],
+      "near_target": [0.2, 0.2, -0.2, -0.2]
+    },
+    "target_positions": "current post-history position plus variant, clipped only to existing absolute repository domain",
+    "target_metrics": "corrected simulator at target_positions",
+    "q_goal_visibility": "evaluator manifest only, never prompt or deployed input"
+  },
+  "defensive_state_rows": {
+    "reobserve_rule": "for setup index mod 8 == 0, near_target row has measurement state requires_recovery, sensor_saturation, lower_exposure_reacquire and label reobserve",
+    "stop_rule": "for setup index mod 8 == 1, near_target row has remaining control budget zero and label stop",
+    "image_policy": "retain the actual current sensor-frame image; the defensive label is driven by the already-computed existing supervisor validity state, not by a fabricated reflection",
+    "all_other_rows": "valid, nominal, standard, measurement budget 2, control budget 4"
+  },
+  "image_export": {
+    "source": "current corrected simulator sensor-frame intensity",
+    "resolution_px": [1024, 1024],
+    "format": "8-bit grayscale PNG",
+    "normalization": "divide by current image peak for Qwen display only",
+    "raw_peak_location": "current_beam_state.peak_intensity",
+    "no_fixed_pixel_reflection": true
+  },
+  "current_uncertainty": {
+    "action": "zero continuous action",
+    "source": "unchanged learned forward ensemble",
+    "aggregation": "per metric plus arithmetic mean and maximum"
+  },
+  "oracle": {
+    "local_direction_probes": "corrected simulator at plus and minus 0.5 times each canonical per-step bound; choose lower canonical actual cost, exact tie hold",
+    "configuration_set": "the 36 configurations frozen in guidance_codebook.json",
+    "planner_budget_per_configuration": {"horizon": 1, "population": 24, "elites": 6, "iterations": 3},
+    "predicted_shortlist_excluding_default": 6,
+    "shortlist_score": "canonical default H1 predicted score, lexicographic config ID tie-break",
+    "actual_evaluation": "default plus every shortlisted action receives one corrected simulator transition",
+    "actual_score": "max normalized next error + 0.15 mean normalized next error + 0.10 max normalized next error + 0.02 normalized L1 movement + 1.0*(clipping fraction + camera boundary indicator) + 10.0 if projected or simulator-invalid",
+    "minimum_guided_improvement": 0.02,
+    "tie_break": "default, balanced, default/all, fine, medium, default scale, conservative, standard, lexicographic ID",
+    "reason_codes_control_numeric_behavior": false
+  },
+  "overlap": {
+    "comparison": "exact setup_hash plus rounded common-field fingerprint",
+    "rounded_setup_decimals": 9,
+    "known_identity_count_from_read_only_audit": 298,
+    "protected_policy": "identity/hash metadata only; never image, prompt, target, label, prediction, or outcome content",
+    "candidate_split_overlap_allowed": false
+  },
+  "no_adaptive_sampling": "no sample, target, codebook, threshold, or label regeneration based on development outcomes"
+}

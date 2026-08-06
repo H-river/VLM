@@ -1,0 +1,23 @@
+{
+  "ablation_modes": [
+    "image_only",
+    "metrics_only"
+  ],
+  "blank_image": {
+    "path": "supervisor_v1_1_candidate/assets/blank_128.png",
+    "sha256": "99ff0b3aac9b9f3f257ac04938f62d1817c6fdadd2c6a4040830dc3965598968"
+  },
+  "interventions": [
+    "blank_image",
+    "cross_class_image_shuffle",
+    "goal_history_budget_empty",
+    "goal_history_budget_shuffle",
+    "metrics_blank",
+    "metrics_shuffle",
+    "random_image_shuffle_2026084101",
+    "random_image_shuffle_2026084102",
+    "random_image_shuffle_2026084103"
+  ],
+  "protected_data_used": false,
+  "version": "supervisor_v1_1_candidate_sft_variants_v1"
+}

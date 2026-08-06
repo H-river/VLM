@@ -1,0 +1,8 @@
+{
+  "name": "metrics_blank",
+  "protected_data_used": false,
+  "records": 60,
+  "sha256": "cec57c8be79822040c2a8f7d0b157cd94a1da1e6ed36c77b4f49a3a3bde26dcf",
+  "source_dev_sha256": "94994e9b74d7255fb6d32cd56edc89848983e02ee6941a3884c5f69e41d59c10",
+  "version": "supervisor_v1_1_candidate_dev_intervention_v1"
+}

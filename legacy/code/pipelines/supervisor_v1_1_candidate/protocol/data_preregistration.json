@@ -1,0 +1,93 @@
+{
+  "version": "supervisor_v1_1_candidate_data_preregistration_v1",
+  "status": "NOT SEALED - FROZEN EVALUATION DISABLED",
+  "frozen_at_local": "2026-08-02T00:00:00+08:00",
+  "purpose": "development-only candidate expansion before any candidate sample generation",
+  "protected_data_policy": {
+    "allowed_model_visible_splits": ["train", "dev"],
+    "frozen_iid_ood_or_protected_images_may_be_opened": false,
+    "frozen_iid_ood_or_protected_predictions_may_be_generated": false,
+    "existing_frozen_manifest_and_hash_registry_identity_only": true
+  },
+  "new_setup_generation": {
+    "root_seed": 2026083101,
+    "suite_label": "qvlsup_v11cand_20260802",
+    "groups": 30,
+    "strata": [
+      "one_step_reachable_interior",
+      "multi_step_reachable_interior",
+      "reachable_boundary_or_clipping"
+    ],
+    "groups_per_stratum": 10,
+    "split_assignment": {
+      "algorithm": "within each stratum, deterministic case suffix 0000 through 0007 to train and 0008 through 0009 to dev",
+      "train_setups": 24,
+      "dev_setups": 6,
+      "pair_and_setup_split_together": true
+    },
+    "exclusion_rule": "exclude controller training transitions and all enumerated prior visual/reflection/controller suites by group_id and setup_hash",
+    "required_previous_setup_hash_overlap": 0,
+    "required_train_dev_setup_hash_overlap": 0
+  },
+  "new_pair_quotas": {
+    "train": {
+      "sensor_saturation_pairs": 24,
+      "secondary_reflection_width_relative_pairs": 24,
+      "total_pairs": 48,
+      "records": 96
+    },
+    "dev": {
+      "sensor_saturation_pairs": 6,
+      "secondary_reflection_width_relative_pairs": 6,
+      "total_pairs": 12,
+      "records": 24
+    },
+    "each_pair": "one anomalous image and one metric-matched nominal counterfactual from the same setup"
+  },
+  "anomaly_protocol": {
+    "sensor_saturation": {
+      "implementation": "existing vlm_optics_benchmark.visual_anomalies primitives; saturation branch only",
+      "module_sha256_before_generation": "233f5c56676b5d1be6ee5f72b0caf8df9897e3f1b51cebe1720e5cd2519f1158",
+      "clip_level_fraction_of_peak": {"low_inclusive": 0.35, "high_exclusive": 0.55},
+      "assignment": "numpy default_rng(stable_seed('severity', case_id, 'sensor_saturation', split)).uniform(0.35,0.55)",
+      "old_fixed_pixel_reflection_generated": false
+    },
+    "secondary_reflection": {
+      "implementation": "vlm_optics_benchmark.reflection_width_relative",
+      "module_sha256_before_generation": "7d720c458e26f8ef05f9b28cc85fef4843abcd3a4757ce56f3cfa1b3d8605613",
+      "version": "secondary_reflection_primary_sigma_direction_v1",
+      "separation_mode": "primary_sigma_direction",
+      "k_values": [2.25, 2.75],
+      "amplitude_values": [0.4, 0.5],
+      "width_ratio_values": [0.8, 1.0],
+      "direction_angles_radians": [0.0, 0.7853981633974483, 1.5707963267948966, 2.356194490192345, 3.141592653589793, 3.9269908169872414, 4.71238898038469, 5.497787143782138],
+      "assignment": "existing deterministic parameters_for_case using only the listed iid values",
+      "fixed_pixel_offset_allowed": false
+    }
+  },
+  "counterfactual_match": {
+    "metric_order": ["centroid_x", "centroid_y", "width_x", "width_y", "peak_intensity"],
+    "tolerance_vector": [1.0, 1.0, 2.0, 2.0, 0.05],
+    "maximum_each_normalized_absolute_difference": 0.25,
+    "maximum_total_normalized_l2": 0.4,
+    "must_pass_after_png_serialization": true
+  },
+  "stopping_rule": {
+    "success": "stop after exactly 30 valid setup groups and exactly the preregistered pair quotas",
+    "red_stop": [
+      "any prior or train-dev setup/group overlap",
+      "any counterfactual pair split across train and dev",
+      "any failed schema, metric-match, image-integrity, prompt-visible, or label audit",
+      "any old fixed-pixel reflection record",
+      "any frozen or protected image/model access"
+    ],
+    "no_replacement_or_targeted_generation_after_result_review": true
+  },
+  "locked_sources": {
+    "suite_builder_sha256": "9b170dad738da98221e3cece804e187585aecac13adb845784ae4fd1b48cebd5",
+    "v12_config_sha256": "77cb8bfc8cc064e32ab3cbf473e10f94df5c4ca53869ae235bb5eee782b81ff8",
+    "base_simulator_config_sha256": "9de680016a79b08e9df7fd4f585c901f04443db38aaf4c15b2af7983bcdb03ff",
+    "base_train_manifest_sha256": "17718c58516d1ae68b22b3d4e46e1d19758a851a9befbc83a0834c71792c3084",
+    "base_dev_manifest_sha256": "8a9020195e37894915ff3f600c96bf5193b368a25d32a6186e3900086fb4b669"
+  }
+}

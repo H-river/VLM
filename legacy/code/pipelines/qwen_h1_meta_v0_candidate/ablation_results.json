@@ -1,0 +1,40 @@
+{
+  "ablation_seed": 2026080213,
+  "ablations": [
+    "full_input",
+    "blank_image",
+    "deterministic_image_shuffle",
+    "metrics_blank",
+    "current_state_shuffle",
+    "target_shuffle",
+    "target_replace_current",
+    "history_blank",
+    "history_shuffle",
+    "actuator_semantics_shuffle",
+    "uncertainty_blank",
+    "reason_codes_disabled"
+  ],
+  "candidate_only": true,
+  "closed_loop_started": false,
+  "data_gate": {
+    "near_visible_conflict_rate": 1.0,
+    "near_visible_conflict_rate_max": 0.2,
+    "report_path": "qwen_h1_meta_v0_candidate/data/generated_v1/reports/data_audit.json",
+    "report_sha256": "fd261540e3d94f20d9a6b43179cfd03d81fda75d329c0d22ae8662baf5602d27",
+    "status": "RED_STOP",
+    "visible_classifier_macro_f1": 0.019166019166019167,
+    "visible_classifier_macro_f1_min": 0.5
+  },
+  "formal_frozen_evaluation_enabled": false,
+  "hardware_dispatch_allowed": false,
+  "inference_started": false,
+  "model_loaded": false,
+  "physical_validation": {
+    "actuator_semantics_shuffle": "unverified"
+  },
+  "predictions_generated": false,
+  "reason": "not_run_due_to_information_sufficiency_gate",
+  "scientific_conclusion": false,
+  "status": "unavailable",
+  "version": "qwen_h1_meta_reasoning_ablation_offline_v1"
+}

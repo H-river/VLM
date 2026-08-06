@@ -1,0 +1,27 @@
+{
+  "version": "supervisor_v1_1_candidate_intervention_instances_v1",
+  "status": "NOT SEALED - FROZEN EVALUATION DISABLED",
+  "frozen_before_full_candidate_training_or_dev_prediction": true,
+  "blank_image_value_uint8": 0,
+  "cross_class_image_shuffle_seed": 2026084001,
+  "random_image_shuffle_seeds": [2026084101, 2026084102, 2026084103],
+  "metrics_shuffle_seed": 2026084201,
+  "goal_history_budget_shuffle_seed": 2026084301,
+  "blank_current_metrics": {
+    "coordinate_frame": "diagnostic_image_128px",
+    "centroid_x": 0.0,
+    "centroid_y": 0.0,
+    "width_x": 0.0,
+    "width_y": 0.0,
+    "peak_intensity": 0.0
+  },
+  "empty_goal_history_budget": {
+    "goal_metrics": null,
+    "recent_history": [],
+    "remaining_step_budget": null
+  },
+  "ablation_definition": {
+    "image_only": "real image retained; current and goal metrics fixed to zero-valued schema-valid constants; history empty; budget fixed; all remaining text constant across rows",
+    "metrics_only": "full structured state retained; every row receives the same all-zero 128x128 grayscale PNG"
+  }
+}

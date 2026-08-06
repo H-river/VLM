@@ -1,0 +1,23 @@
+{
+  "all_pairs_pass_post_serialization": true,
+  "all_pairs_pass_pre_serialization": true,
+  "class_distribution": {
+    "clean": 24,
+    "sensor_saturation": 24
+  },
+  "clip_level_range_preregistered": [
+    0.35,
+    0.55
+  ],
+  "completion_note": "summary finalized from complete deterministic outputs after a report-only boolean literal error; no sample was regenerated",
+  "observed_clip_level_max": 0.5448587881881771,
+  "observed_clip_level_min": 0.3564471293119298,
+  "old_fixed_pixel_reflection_generated": false,
+  "pairs": 24,
+  "records": 48,
+  "setups": 24,
+  "split": "train",
+  "suite": "/home/jiamo/VLM/supervisor_v1_1_candidate/suites/train_suite.json",
+  "suite_sha256": "1538af62970cda377ccea60e7f33b4b01907594812d9d4767479720662ff34e5",
+  "version": "supervisor_v1_1_candidate_saturation_v1"
+}

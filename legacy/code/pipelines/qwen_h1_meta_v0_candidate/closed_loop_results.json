@@ -1,0 +1,41 @@
+{
+  "version": "qwen_h1_meta_v0_candidate_closed_loop_report_v1",
+  "candidate_only": true,
+  "formal_frozen_evaluation_enabled": false,
+  "status": "unavailable",
+  "reason": "not_run_due_to_information_sufficiency_gate",
+  "information_gate": {
+    "gate": "RED_STOP",
+    "audit_path": "qwen_h1_meta_v0_candidate/data/generated_v1/reports/data_audit.json",
+    "audit_sha256": "fd261540e3d94f20d9a6b43179cfd03d81fda75d329c0d22ae8662baf5602d27",
+    "red_reasons": [
+      "near_visible_conflict_rate_above_0.20",
+      "visible_classifier_macro_f1_below_0.50"
+    ]
+  },
+  "candidate_eval_registry": {
+    "setups": 12,
+    "target_counterfactuals_per_setup": 3,
+    "records": 36,
+    "manifest_path": "qwen_h1_meta_v0_candidate/data/generated_v1/manifest_candidate_eval.jsonl",
+    "manifest_sha256": "285f0397ff58b81697295bdab6d3d3e18d0c4164a248a0049837e2052bd2a5ca"
+  },
+  "manifest_record_count": null,
+  "setup_count": null,
+  "methods": {},
+  "required_method_registry": [
+    "default_h1",
+    "dual_budget_default_h1",
+    "rule_guided_h1",
+    "metrics_mlp_meta_h1",
+    "qwen_guided_h1_seed_2026080201",
+    "qwen_guided_h1_seed_2026080202",
+    "qwen_guided_h1_seed_2026080203",
+    "oracle_guided_h1",
+    "random_or_frequency_meta_h1",
+    "shadow_qwen_h1"
+  ],
+  "metrics": null,
+  "paired_bootstrap": null,
+  "scientific_conclusion": false
+}
