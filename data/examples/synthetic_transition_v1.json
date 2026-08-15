@@ -1,0 +1,15 @@
+{
+  "record_id": "synthetic_noop_0001",
+  "origin": "synthetic_smoke_fixture",
+  "state_order": [
+    "centroid_x_px",
+    "centroid_y_px",
+    "sigma_x_px",
+    "sigma_y_px",
+    "peak_intensity"
+  ],
+  "before": [0.0, 0.0, 4.0, 4.0, 1.0],
+  "action_mm": [0.0, 0.0, 0.0, 0.0],
+  "after": [0.0, 0.0, 4.0, 4.0, 1.0]
+}
+

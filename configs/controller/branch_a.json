@@ -1,0 +1,47 @@
+{
+  "version": "branch_a_controller_v1",
+  "status": "canonical",
+  "evidence_source": "runs/vlm_optics_benchmark_20260801_154812/external_validation_preregistration.json",
+  "simulator": {
+    "implementation": "continuous_control_v12.simulator",
+    "config": "continuous_control_v12/config_v12_semantics_v2.json",
+    "base_config": "optical_sim/configs/base_config.yaml",
+    "semantics_version": "v12_sensor_power_semantics_v1"
+  },
+  "dynamics": {
+    "implementation": "continuous_control_v12.world_model.ForwardEnsemble",
+    "checkpoint": "runs/overnight_v12_semantics_20260731_002709/models/lc_128g_v2/continuous_forward_v12_128g.pt",
+    "checkpoint_sha256": "d9b30627c80817f6ecade1959d8cc9e91e7a9de9cc51485153fdbfaa173aca2e",
+    "model_horizon": 1,
+    "ensemble_members": 3
+  },
+  "controller": {
+    "implementation": "continuous_control_v12.mpc.CEMMPC",
+    "population": 24,
+    "elites": 6,
+    "cem_iterations": 3,
+    "mean_error_weight": 0.15,
+    "movement_weight": 0.02,
+    "limit_penalty": 10.0,
+    "boundary_penalty": 1.0,
+    "uncertainty_weight": 0.1,
+    "strict_success_threshold": 1.0
+  },
+  "branch_a_preamble": {
+    "mode": "probe_replan",
+    "probe_design": "symmetric_pair",
+    "probe_fraction": 0.1,
+    "axis_signs": [1.0, -1.0, 1.0, -1.0],
+    "gain_estimator": "no_residual_history_group_oof_logistic",
+    "probe_steps_are_separate_from_control_budget": true,
+    "net_command_displacement": 0.0
+  },
+  "continuation": {
+    "initial_control_steps": 4,
+    "maximum_horizon": 8,
+    "minimum_last_step_improvement": 0.25,
+    "maximum_final_distance": "infinity",
+    "replan_after_each_real_observation": true
+  }
+}
+

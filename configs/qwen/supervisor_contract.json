@@ -1,0 +1,16 @@
+{
+  "version": "proposed_recovery_actions_v1",
+  "status": "candidate_only",
+  "model_role": "high_level_multimodal_supervisor",
+  "forbidden_role": "numerical_physics_or_continuous_actuator_model",
+  "proposed_actions": [
+    "CONTINUE",
+    "REACQUIRE",
+    "REMEASURE",
+    "PROBE",
+    "WIDE_FOV"
+  ],
+  "implementation_note": "These proposed actions are not the frozen qwen_vl_supervisor_v1 three-field schema and were not protected-evaluated.",
+  "continuous_control_owner": "configs/controller/branch_a.json"
+}
+

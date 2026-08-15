@@ -8,11 +8,6 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from audits.simulator_three_issue_audit_v1.scripts.audit_core import (
-    BASE_CONTEXT,
-    BASE_POSITIONS_MM,
-    independent_sensor_metrics,
-)
 from continuous_control_v12.contracts import Bounds, OUTPUT_FIELDS
 from continuous_control_v12.simulator import (
     CORRECTED_SEMANTICS_VERSION,
@@ -28,6 +23,13 @@ from optical_sim.src.simulator import (
     apply_thin_lens,
     gaussian_source_field,
 )
+from legacy.experiments.audits.simulator_three_issue_audit_v1.scripts import (
+    audit_core as simulator_audit_core,
+)
+
+BASE_CONTEXT = simulator_audit_core.BASE_CONTEXT
+BASE_POSITIONS_MM = simulator_audit_core.BASE_POSITIONS_MM
+independent_sensor_metrics = simulator_audit_core.independent_sensor_metrics
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]

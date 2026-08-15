@@ -1,0 +1,9 @@
+result_id,component,metric,value,numerator,denominator,evidence_level,source_file,source_literal,limitation
+external_fixed4_success,sequential_controller,strict_success,0.65,39,60,CONFIRMED,reflection_width_relative/final_report.md,"fixed-4 was 39/60 (65%)","Simulation-only external suite"
+external_sequential_success,sequential_controller,strict_success,0.85,51,60,CONFIRMED,reflection_width_relative/final_report.md,"frozen sequential was 51/60 (85%)","Simulation-only external suite; maximum horizon eight"
+saturation_metrics_baseline,sensor_saturation,balanced_accuracy,0.50,,,CONFIRMED,reflection_width_relative/final_report.md,"metrics-only 50%, image CNN 100% IID","Summary of prior validated visual family"
+saturation_image_iid,sensor_saturation,balanced_accuracy,1.00,,,CONFIRMED,reflection_width_relative/final_report.md,"image CNN 100% IID, image CNN 93.3% severity-OOD","Small image diagnostic; not general VLM reasoning"
+saturation_image_ood,sensor_saturation,balanced_accuracy,0.933,,,CONFIRMED,reflection_width_relative/final_report.md,"image CNN 93.3% severity-OOD","Severity-OOD within simulated saturation family"
+saturation_control_diagnosed,sensor_saturation,strict_success,0.90,,,CONFIRMED,reflection_width_relative/final_report.md,"learned/oracle diagnosis 90% control success versus 70% without diagnosis","Learned and oracle figures are summarized together in the tracked source"
+saturation_control_undiagnosed,sensor_saturation,strict_success,0.70,,,CONFIRMED,reflection_width_relative/final_report.md,"90% control success versus 70% without diagnosis","Simulation-only controller comparison"
+

@@ -16,11 +16,6 @@ from typing import Any
 
 import numpy as np
 
-from audits.simulator_three_issue_audit_v1.scripts.audit_core import (
-    BASE_CONTEXT,
-    BASE_POSITIONS_MM,
-    independent_sensor_metrics,
-)
 from continuous_control_v12.contracts import (
     OUTPUT_FIELDS,
     Bounds,
@@ -43,6 +38,13 @@ from optical_sim.src.simulator import (
     gaussian_source_field,
     normalize_field_to_power,
 )
+from legacy.experiments.audits.simulator_three_issue_audit_v1.scripts import (
+    audit_core as simulator_audit_core,
+)
+
+BASE_CONTEXT = simulator_audit_core.BASE_CONTEXT
+BASE_POSITIONS_MM = simulator_audit_core.BASE_POSITIONS_MM
+independent_sensor_metrics = simulator_audit_core.independent_sensor_metrics
 from optics_sft.physics.sim_adapter import (
     metrics_to_sensor_frame_state,
     metrics_to_state,

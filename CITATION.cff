@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this simulation research prototype, cite the repository and the exact commit."
+title: "VLA + Optics: simulation research prototype for supervised optical beam control"
+type: software
+version: 0.1.0
+authors:
+  - name: "VLA + Optics contributors"
+abstract: >-
+  A paused simulation research prototype combining optical measurement,
+  Learned-H1 numerical transitions, CEM continuous control, and a guarded
+  high-level multimodal supervisor.
+keywords:
+  - optical control
+  - simulation
+  - vision-language-action
+  - model predictive control
+  - cross-entropy method

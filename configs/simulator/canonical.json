@@ -1,0 +1,11 @@
+{
+  "version": "canonical_simulator_v1",
+  "status": "canonical",
+  "implementation": "continuous_control_v12.simulator",
+  "physics_engine": "optical_sim.src",
+  "configuration": "continuous_control_v12/config_v12_semantics_v2.json",
+  "base_optics_configuration": "optical_sim/configs/base_config.yaml",
+  "semantics_version": "v12_sensor_power_semantics_v1",
+  "scope": "simulation_only"
+}
+

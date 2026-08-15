@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "beam_transition.schema.json",
+  "title": "Synthetic optical beam transition fixture",
+  "type": "object",
+  "required": ["record_id", "origin", "state_order", "before", "action_mm", "after"],
+  "properties": {
+    "record_id": {"type": "string"},
+    "origin": {"const": "synthetic_smoke_fixture"},
+    "state_order": {
+      "const": ["centroid_x_px", "centroid_y_px", "sigma_x_px", "sigma_y_px", "peak_intensity"]
+    },
+    "before": {"type": "array", "items": {"type": "number"}, "minItems": 5, "maxItems": 5},
+    "action_mm": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
+    "after": {"type": "array", "items": {"type": "number"}, "minItems": 5, "maxItems": 5}
+  },
+  "additionalProperties": false
+}
+

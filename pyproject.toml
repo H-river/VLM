@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "optics-vla"
+version = "0.1.0"
+description = "Simulation research prototype for supervised optical beam control"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "joblib>=1.3,<2",
+  "numpy>=1.26,<3",
+  "Pillow>=10,<13",
+  "PyYAML>=6,<7",
+  "scipy>=1.11,<2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+learned-h1 = ["torch>=2.3"]
+qwen = [
+  "accelerate>=1.0",
+  "bitsandbytes>=0.45",
+  "datasets>=3.0",
+  "peft>=0.15",
+  "torch>=2.3",
+  "transformers>=4.49",
+  "trl>=0.15",
+]
+
+[project.scripts]
+optics-vla = "optics_vla.cli:main"
+
+[tool.setuptools.packages.find]
+where = [".", "src"]
+include = [
+  "active_diagnosis_v13*",
+  "continuous_control_v12*",
+  "control_rebuild_v5*",
+  "optical_sim*",
+  "optics_sft*",
+  "optics_vla*",
+  "qwen_reasoning_plan_selector_candidate*",
+  "qwen_vl_supervisor_v1*",
+  "specialist_rebuild_v2*",
+  "vlm_optics_benchmark*",
+]
+exclude = ["legacy*", "optics_data_prepare*", "transition_pilot*"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+pythonpath = [".", "src"]
+testpaths = [
+  "tests",
+  "active_diagnosis_v13/tests",
+  "continuous_control_v12/tests",
+  "control_rebuild_v5/tests",
+  "qwen_reasoning_plan_selector_candidate/tests",
+  "qwen_vl_supervisor_v1/tests",
+  "specialist_rebuild_v2/tests",
+  "vlm_optics_benchmark/tests",
+]
+norecursedirs = ["artifacts", "legacy", "optics_data_prepare", "runs", "transition_pilot"]
+

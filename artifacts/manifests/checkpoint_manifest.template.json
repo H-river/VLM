@@ -1,0 +1,15 @@
+{
+  "logical_artifact_name": "REQUIRED",
+  "filename": "REQUIRED",
+  "version": "REQUIRED",
+  "sha256": "REQUIRED_64_HEX",
+  "size_bytes": 0,
+  "source_or_generation_command": "REQUIRED",
+  "associated_config": "REQUIRED_REPOSITORY_RELATIVE_PATH",
+  "associated_code_commit": "REQUIRED_FULL_GIT_COMMIT",
+  "license_or_redistribution_status": "UNKNOWN_REQUIRES_REVIEW",
+  "evidence_level": "UNKNOWN",
+  "format_safety": "Document whether loading executes pickle-compatible code.",
+  "notes": "Do not publish until every REQUIRED field is replaced and redistribution is permitted."
+}
+

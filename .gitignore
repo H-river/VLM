@@ -5,8 +5,12 @@ __pycache__/
 *.pyo
 *.pyd
 .pytest_cache/
+.ruff_cache/
 .cache/
 .tmp*/
+*.egg-info/
+build/
+dist/
 
 # OS/editor/local secrets
 .DS_Store
@@ -120,6 +124,30 @@ checkpoints/
 *.pth
 wandb/
 .cache/
+
+# Reviewable metadata kept inside otherwise local-only roots. These exceptions
+# do not make any generated dataset, checkpoint, or run eligible for tracking.
+!/data/
+/data/*
+!/data/README.md
+!/data/manifests/
+!/data/manifests/**
+!/data/examples/
+!/data/examples/**
+!/data/schemas/
+!/data/schemas/**
+
+!/artifacts/
+/artifacts/*
+!/artifacts/README.md
+!/artifacts/manifests/
+!/artifacts/manifests/**
+
+!/results/
+/results/*
+!/results/README.md
+!/results/published_tables/
+!/results/published_tables/**
 
 # Full locally generated optics-understanding pilot. Keep source, fixtures, and
 # compact summaries in Git; regenerate JSONL/image artifacts from seed 42.
